@@ -13,5 +13,10 @@
     "name": "Situational Awareness LP – 13F Filings (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F&dateb=&owner=include&count=10&output=atom",
     "type": "rss"
+  },
+  {
+    "name": "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001536411&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss"
   }
 ]
