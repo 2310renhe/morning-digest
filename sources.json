@@ -3,5 +3,10 @@
     "name": "SemiAnalysis",
     "url": "https://semianalysis.substack.com/feed",
     "type": "rss"
+  },
+  {
+    "name": "All-In Podcast",
+    "url": "https://rss.libsyn.com/shows/254861/destinations/1928300.xml",
+    "type": "podcast"
   }
 ]
