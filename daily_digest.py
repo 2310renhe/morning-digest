@@ -58,6 +58,17 @@ def fetch_rss(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
     try:
         feed = feedparser.parse(source["url"])
         if feed.bozo and not feed.entries:
+            # Retry with raw bytes to handle encoding/character issues
+            try:
+                import urllib.request
+                raw = urllib.request.urlopen(
+                    urllib.request.Request(source["url"], headers={"User-Agent": "Mozilla/5.0"}),
+                    timeout=15
+                ).read()
+                feed = feedparser.parse(raw)
+            except Exception:
+                pass
+        if feed.bozo and not feed.entries:
             return [], f"Feed parse error: {feed.bozo_exception}"
         new_items = []
         for entry in feed.entries:
