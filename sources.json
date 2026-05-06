@@ -98,5 +98,20 @@
     "name": "Arxiv – Computational Finance (q-fin.CP)",
     "url": "https://rss.arxiv.org/rss/q-fin.CP",
     "type": "rss"
+  },
+  {
+    "name": "Dario Amodei – Essays",
+    "url": "https://darioamodei.com/",
+    "type": "web"
+  },
+  {
+    "name": "Zvi Mowshowitz – Don’t Worry About the Vase",
+    "url": "https://thezvi.substack.com/feed",
+    "type": "rss"
+  },
+  {
+    "name": "Scott Alexander – Astral Codex Ten",
+    "url": "https://www.astralcodexten.com/feed",
+    "type": "rss"
   }
 ]
