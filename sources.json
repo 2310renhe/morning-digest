@@ -8,5 +8,10 @@
     "name": "All-In Podcast",
     "url": "https://rss.libsyn.com/shows/254861/destinations/1928300.xml",
     "type": "podcast"
+  },
+  {
+    "name": "Situational Awareness LP – 13F Filings (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss"
   }
 ]
