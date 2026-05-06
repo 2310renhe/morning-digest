@@ -18,5 +18,25 @@
     "name": "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001536411&type=13F&dateb=&owner=include&count=10&output=atom",
     "type": "rss"
+  },
+  {
+    "name": "Odd Lots (Bloomberg)",
+    "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8a94442e-5a74-4fa2-8b8d-ae27003a8d6b/982f5071-765c-403d-969d-ae27003a8d83/podcast.rss",
+    "type": "podcast"
+  },
+  {
+    "name": "Exchanges (Goldman Sachs)",
+    "url": "https://feeds.megaphone.fm/GLD9218176758",
+    "type": "podcast"
+  },
+  {
+    "name": "The Bid (BlackRock)",
+    "url": "https://rss.art19.com/the-bid",
+    "type": "podcast"
+  },
+  {
+    "name": "Money Stuff – Matt Levine (Bloomberg)",
+    "url": "https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matt-levine",
+    "type": "web"
   }
 ]
