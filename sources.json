@@ -53,5 +53,10 @@
     "name": "Andrej Karpathy – YouTube",
     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
     "type": "rss"
+  },
+  {
+    "name": "Andrej Karpathy – GitHub Repos",
+    "url": "https://github.com/karpathy?tab=repositories",
+    "type": "web"
   }
 ]
