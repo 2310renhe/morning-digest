@@ -63,5 +63,10 @@
     "name": "Garry Tan – GitHub Repos",
     "url": "https://github.com/garrytan?tab=repositories",
     "type": "web"
+  },
+  {
+    "name": "Lex Fridman Podcast",
+    "url": "https://lexfridman.com/feed/podcast/",
+    "type": "podcast"
   }
 ]
