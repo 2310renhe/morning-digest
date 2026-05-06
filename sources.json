@@ -68,5 +68,35 @@
     "name": "Lex Fridman Podcast",
     "url": "https://lexfridman.com/feed/podcast/",
     "type": "podcast"
+  },
+  {
+    "name": "Import AI – Jack Clark",
+    "url": "https://jack-clark.net/feed/",
+    "type": "rss"
+  },
+  {
+    "name": "The Batch – Andrew Ng (DeepLearning.AI)",
+    "url": "https://www.deeplearning.ai/the-batch/",
+    "type": "web"
+  },
+  {
+    "name": "Arxiv – Trading & Market Microstructure (q-fin.TR)",
+    "url": "https://rss.arxiv.org/rss/q-fin.TR",
+    "type": "rss"
+  },
+  {
+    "name": "Arxiv – Portfolio Management (q-fin.PM)",
+    "url": "https://rss.arxiv.org/rss/q-fin.PM",
+    "type": "rss"
+  },
+  {
+    "name": "Arxiv – Statistical Finance (q-fin.ST)",
+    "url": "https://rss.arxiv.org/rss/q-fin.ST",
+    "type": "rss"
+  },
+  {
+    "name": "Arxiv – Computational Finance (q-fin.CP)",
+    "url": "https://rss.arxiv.org/rss/q-fin.CP",
+    "type": "rss"
   }
 ]
