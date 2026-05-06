@@ -20,6 +20,16 @@
     "type": "rss"
   },
   {
+    "name": "Philippe Laffont – Coatue Management 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001135730&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss"
+  },
+  {
+    "name": "Chase Coleman – Tiger Global Management 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001167483&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss"
+  },
+  {
     "name": "Odd Lots (Bloomberg)",
     "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8a94442e-5a74-4fa2-8b8d-ae27003a8d6b/982f5071-765c-403d-969d-ae27003a8d83/podcast.rss",
     "type": "podcast"
@@ -113,5 +123,20 @@
     "name": "Scott Alexander – Astral Codex Ten",
     "url": "https://www.astralcodexten.com/feed",
     "type": "rss"
+  },
+  {
+    "name": "Ethan Mollick – One Useful Thing",
+    "url": "https://www.oneusefulthing.org/feed",
+    "type": "rss"
+  },
+  {
+    "name": "Simon Willison",
+    "url": "https://simonwillison.net/atom/everything/",
+    "type": "rss"
+  },
+  {
+    "name": "Latent Space Podcast (swyx)",
+    "url": "https://www.latent.space/feed",
+    "type": "podcast"
   }
 ]
