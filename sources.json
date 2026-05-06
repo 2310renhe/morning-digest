@@ -43,5 +43,15 @@
     "name": "AI + a16z",
     "url": "https://feeds.simplecast.com/Hb_IuXOo",
     "type": "podcast"
+  },
+  {
+    "name": "Andrej Karpathy – Blog",
+    "url": "https://karpathy.github.io/feed.xml",
+    "type": "rss"
+  },
+  {
+    "name": "Andrej Karpathy – YouTube",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
+    "type": "rss"
   }
 ]
