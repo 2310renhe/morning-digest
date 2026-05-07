@@ -240,6 +240,49 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
                         seen_ids.add(item["id"])
                     return new_items, fallback_item, None
 
+            # Level 4: Substack JSON API fallback
+            # Cloudflare blocks GitHub Actions IPs on /feed but not /api/v1/posts
+            if "substack.com" in source["url"]:
+                try:
+                    api_url = source["url"].replace("/feed", "/api/v1/posts?limit=20")
+                    resp = requests.get(api_url, headers={"User-Agent": ua}, timeout=15)
+                    if resp.status_code == 200:
+                        posts = resp.json()
+                        if isinstance(posts, list) and posts:
+                            new_items = []
+                            fallback_item = None
+                            fallback_pub_dt = None
+                            for p in posts:
+                                item_id = p.get("canonical_url") or str(p.get("id", ""))
+                                title = p.get("title") or "Untitled"
+                                link = p.get("canonical_url") or source["url"]
+                                content = (p.get("truncated_body_text") or p.get("description") or "")[:2500]
+                                pub_dt = None
+                                pub_date = None
+                                if p.get("post_date"):
+                                    try:
+                                        pub_dt = datetime.strptime(p["post_date"][:19], "%Y-%m-%dT%H:%M:%S")
+                                        pub_dt = pub_dt.replace(tzinfo=timezone.utc)
+                                        pub_date = pub_dt.strftime("%Y-%m-%d")
+                                    except ValueError:
+                                        pass
+                                item = {"id": item_id, "title": title, "link": link,
+                                        "content": content, "pub_date": pub_date}
+                                if pub_dt and (fallback_pub_dt is None or pub_dt > fallback_pub_dt):
+                                    fallback_pub_dt = pub_dt
+                                    fallback_item = item
+                                elif fallback_item is None:
+                                    fallback_item = item
+                                if not item_id or item_id in seen_ids:
+                                    continue
+                                if pub_dt and pub_dt < cutoff:
+                                    continue
+                                new_items.append(item)
+                                seen_ids.add(item_id)
+                            return new_items, fallback_item, None
+                except Exception:
+                    pass
+
             if feed.bozo and not feed.entries:
                 return [], None, f"Feed parse error: {feed.bozo_exception}"
 
