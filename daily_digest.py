@@ -38,14 +38,24 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 # ── State ─────────────────────────────────────────────────────────────────────
 
-def load_state() -> set:
+def load_state() -> dict:
     if STATE_FILE.exists():
-        return set(json.loads(STATE_FILE.read_text()).get("seen", []))
-    return set()
+        data = json.loads(STATE_FILE.read_text())
+        # Migrate old format (just a list of seen IDs)
+        if isinstance(data, list):
+            return {"seen": set(data), "last_items": {}}
+        return {
+            "seen": set(data.get("seen", [])),
+            "last_items": data.get("last_items", {}),
+        }
+    return {"seen": set(), "last_items": {}}
 
 
-def save_state(seen_ids: set):
-    STATE_FILE.write_text(json.dumps({"seen": list(seen_ids)[-15000:]}, indent=2))
+def save_state(state: dict):
+    STATE_FILE.write_text(json.dumps({
+        "seen": list(state["seen"])[-15000:],
+        "last_items": state["last_items"],
+    }, indent=2))
 
 
 # ── Fetching ──────────────────────────────────────────────────────────────────
@@ -54,7 +64,27 @@ def _strip_html(html: str, max_chars: int = 2500) -> str:
     return BeautifulSoup(html, "html.parser").get_text(separator=" ", strip=True)[:max_chars]
 
 
-def fetch_rss(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
+def _parse_pub_date(entry) -> tuple:
+    """Returns (datetime_utc_or_None, formatted_string_or_None)."""
+    pub = entry.get("published_parsed") or entry.get("updated_parsed")
+    if pub:
+        try:
+            dt = datetime(*pub[:6], tzinfo=timezone.utc)
+            return dt, dt.strftime("%Y-%m-%d")
+        except Exception:
+            pass
+    return None, None
+
+
+def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
+    """
+    Returns (new_items, fallback_item, error).
+    - new_items: list of items published after cutoff (not yet seen)
+    - fallback_item: the most recent item overall (for "last available" display),
+                     or None if feed is empty
+    - error: string or None
+    """
+    seen_ids = state["seen"]
     try:
         feed = feedparser.parse(source["url"])
         if feed.bozo and not feed.entries:
@@ -69,17 +99,19 @@ def fetch_rss(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
             except Exception:
                 pass
         if feed.bozo and not feed.entries:
-            return [], f"Feed parse error: {feed.bozo_exception}"
+            return [], None, f"Feed parse error: {feed.bozo_exception}"
+
         new_items = []
+        fallback_item = None
+        fallback_pub_dt = None
+
         for entry in feed.entries:
             item_id = entry.get("id") or entry.get("link") or ""
-            if not item_id or item_id in seen_ids:
+            if not item_id:
                 continue
-            pub = entry.get("published_parsed") or entry.get("updated_parsed")
-            if pub:
-                pub_dt = datetime(*pub[:6], tzinfo=timezone.utc)
-                if pub_dt < cutoff:
-                    continue
+
+            pub_dt, pub_str = _parse_pub_date(entry)
+
             content = ""
             if entry.get("content"):
                 content = entry.content[0].value
@@ -87,24 +119,49 @@ def fetch_rss(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
                 content = entry.summary
             if content:
                 content = _strip_html(content)
-            new_items.append({
+
+            item = {
                 "id": item_id,
                 "title": entry.get("title", "Untitled"),
                 "link": entry.get("link", source["url"]),
                 "content": content,
-            })
+                "pub_date": pub_str,
+            }
+
+            # Track the most recent entry as fallback (regardless of seen/cutoff)
+            if pub_dt and (fallback_pub_dt is None or pub_dt > fallback_pub_dt):
+                fallback_pub_dt = pub_dt
+                fallback_item = item
+            elif fallback_item is None:
+                fallback_item = item  # no date, use first entry
+
+            # Skip if already seen or too old
+            if item_id in seen_ids:
+                continue
+            if pub_dt and pub_dt < cutoff:
+                continue
+
+            new_items.append(item)
             seen_ids.add(item_id)
-        return new_items, None
+
+        return new_items, fallback_item, None
     except Exception as e:
-        return [], str(e)
+        return [], None, str(e)
 
 
-def fetch_web(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
+def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
+    """
+    Returns (new_items, fallback_item, error).
+    For web sources, fallback_item is the stored last-seen snapshot info.
+    """
+    seen_ids = state["seen"]
+    last_items = state["last_items"]
     try:
         headers = {"User-Agent": "Mozilla/5.0 (compatible; DailyDigestBot/1.0)"}
         resp = requests.get(source["url"], timeout=15, headers=headers)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
+
         # Auto-detect RSS
         rss_link = (soup.find("link", type="application/rss+xml")
                     or soup.find("link", type="application/atom+xml"))
@@ -112,9 +169,10 @@ def fetch_web(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
             rss_url = rss_link["href"]
             if not rss_url.startswith("http"):
                 rss_url = urljoin(source["url"], rss_url)
-            items, err = fetch_rss({**source, "url": rss_url}, seen_ids, cutoff)
-            if items or err is None:
-                return items, None
+            new_items, fallback, err = fetch_rss({**source, "url": rss_url}, state, cutoff)
+            if new_items or err is None:
+                return new_items, fallback, None
+
         # Content-hash fallback
         for tag in soup(["script", "style", "nav", "footer", "header", "aside"]):
             tag.decompose()
@@ -123,13 +181,28 @@ def fetch_web(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
         text = "\n".join(l for l in text.splitlines() if l.strip())[:3000]
         content_hash = hashlib.sha256(text.encode()).hexdigest()[:16]
         item_id = f"{source['url']}#{content_hash}"
-        if item_id in seen_ids:
-            return [], None
-        seen_ids.add(item_id)
         title = soup.title.string.strip() if soup.title and soup.title.string else source["name"]
-        return [{"id": item_id, "title": title, "link": source["url"], "content": text}], None
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        item = {"id": item_id, "title": title, "link": source["url"], "content": text, "pub_date": today}
+
+        if item_id in seen_ids:
+            # No change — build fallback from stored info
+            stored = last_items.get(source["url"], {})
+            fallback = {
+                "title": stored.get("title", title),
+                "link": source["url"],
+                "pub_date": stored.get("date"),
+            }
+            return [], fallback, None
+
+        # New/changed content
+        seen_ids.add(item_id)
+        last_items[source["url"]] = {"title": title, "date": today}
+        return [item], None, None
+
     except Exception as e:
-        return [], str(e)
+        return [], None, str(e)
 
 
 # ── Summarization ─────────────────────────────────────────────────────────────
@@ -137,7 +210,8 @@ def fetch_web(source: dict, seen_ids: set, cutoff: datetime) -> tuple:
 def summarize(client: Groq, source_name: str, items: list) -> str:
     blocks = []
     for item in items:
-        block = f"### {item['title']}\nURL: {item['link']}"
+        pub = f" ({item['pub_date']})" if item.get("pub_date") else ""
+        block = f"### {item['title']}{pub}\nURL: {item['link']}"
         if item.get("content"):
             block += f"\n{item['content']}"
         blocks.append(block)
@@ -197,17 +271,52 @@ def md_to_html_simple(text: str) -> str:
 
 
 def build_html(date_str: str, results: list) -> str:
+    """
+    results is a list of dicts:
+      { name, summary, error, is_fresh, latest_date, latest_title, latest_link }
+    """
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
     content_parts = []
-    for source_name, summary, error in results:
-        block = f'<div class="source-block">\n<h2>{source_name}</h2>\n'
+
+    for r in results:
+        name = r["name"]
+        summary = r.get("summary")
+        error = r.get("error")
+        is_fresh = r.get("is_fresh", False)
+        latest_date = r.get("latest_date")
+        latest_title = r.get("latest_title")
+        latest_link = r.get("latest_link")
+
+        # Header badge
+        if is_fresh and latest_date:
+            badge = f'<span class="badge fresh">🆕 {latest_date}</span>'
+        elif latest_date:
+            badge = f'<span class="badge stale">last: {latest_date}</span>'
+        else:
+            badge = ''
+
+        block = f'<div class="source-block {"fresh" if is_fresh else "quiet"}">\n'
+        block += f'<h2>{name} {badge}</h2>\n'
+
         if error:
             block += f'<p class="error">⚠️ {error}</p>\n'
+
         if summary:
             block += md_to_html_simple(summary) + "\n"
+        elif not error and not is_fresh:
+            # Show latest available
+            if latest_title and latest_link:
+                block += f'<p class="quiet-note">No new posts. Latest: <a href="{latest_link}">{latest_title}</a></p>\n'
+            elif latest_link:
+                block += f'<p class="quiet-note">No changes detected. <a href="{latest_link}">View source →</a></p>\n'
+            else:
+                block += '<p class="quiet-note">No new items.</p>\n'
+
         block += "</div>"
         content_parts.append(block)
-    content_html = "\n".join(content_parts) if content_parts else '<p class="empty">Nothing new today.</p>'
+
+    content_html = "\n".join(content_parts) if content_parts else '<p class="empty">No sources configured.</p>'
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -217,12 +326,18 @@ def build_html(date_str: str, results: list) -> str:
   <style>
     body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.7; }}
     h1 {{ font-size: 1.8em; border-bottom: 2px solid #eee; padding-bottom: 10px; }}
-    h2 {{ font-size: 1.1em; margin-top: 2em; background: #f5f5f5; padding: 6px 14px; border-radius: 4px; }}
+    h2 {{ font-size: 1.1em; margin-top: 2em; background: #f5f5f5; padding: 6px 14px; border-radius: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }}
     a {{ color: #0066cc; }}
     ul {{ padding-left: 1.4em; }}
     li {{ margin-bottom: 4px; }}
     p {{ margin: 0.6em 0; }}
     .source-block {{ border-left: 3px solid #ddd; padding-left: 16px; margin-bottom: 2.5em; }}
+    .source-block.fresh {{ border-left-color: #2a9d2a; }}
+    .source-block.quiet {{ border-left-color: #ddd; opacity: 0.75; }}
+    .badge {{ font-size: 0.72em; font-weight: normal; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }}
+    .badge.fresh {{ background: #d4edda; color: #155724; }}
+    .badge.stale {{ background: #f0f0f0; color: #666; }}
+    .quiet-note {{ color: #888; font-size: 0.92em; font-style: italic; }}
     .meta {{ color: #888; font-size: 0.9em; }}
     .error {{ color: #c00; font-size: 0.9em; }}
     .empty {{ color: #888; font-style: italic; }}
@@ -294,7 +409,7 @@ def main():
         print("No sources configured.")
         sys.exit(0)
 
-    seen_ids = load_state()
+    state = load_state()
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     client = Groq(api_key=GROQ_API_KEY)
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -304,29 +419,53 @@ def main():
     for source in sources:
         stype = source.get("type", "rss").lower()
         print(f"[{stype}] {source['name']} ...")
+
         if stype in ("rss", "podcast"):
-            items, err = fetch_rss(source, seen_ids, cutoff)
+            new_items, fallback, err = fetch_rss(source, state, cutoff)
         else:
-            items, err = fetch_web(source, seen_ids, cutoff)
+            new_items, fallback, err = fetch_web(source, state, cutoff)
 
-        if err and not items:
+        if err and not new_items and not fallback:
             print(f"  ERROR: {err}")
-            results.append((source["name"], None, err))
-            continue
-        if not items:
-            print("  No new items.")
+            results.append({"name": source["name"], "error": err, "is_fresh": False})
             continue
 
-        print(f"  {len(items)} new item(s) — summarizing...")
-        try:
-            summary = summarize(client, source["name"], items)
-            results.append((source["name"], summary, None))
-            save_state(seen_ids)
-        except Exception as e:
-            print(f"  Summarization error: {e}")
-            results.append((source["name"], None, f"Summarization failed: {e}"))
+        if new_items:
+            print(f"  {len(new_items)} new item(s) — summarizing...")
+            # Collect publish dates for the badge
+            pub_dates = [i["pub_date"] for i in new_items if i.get("pub_date")]
+            latest_date = max(pub_dates) if pub_dates else date_str
+            try:
+                summary = summarize(client, source["name"], new_items)
+                results.append({
+                    "name": source["name"],
+                    "summary": summary,
+                    "is_fresh": True,
+                    "latest_date": latest_date,
+                    "error": err,  # non-fatal warning if any
+                })
+                save_state(state)
+            except Exception as e:
+                print(f"  Summarization error: {e}")
+                results.append({
+                    "name": source["name"],
+                    "error": f"Summarization failed: {e}",
+                    "is_fresh": True,
+                    "latest_date": latest_date,
+                })
+        else:
+            # No new items — show latest available
+            print(f"  No new items. Latest: {fallback['title'] if fallback else 'unknown'} ({fallback.get('pub_date', '?') if fallback else '?'})")
+            results.append({
+                "name": source["name"],
+                "is_fresh": False,
+                "latest_date": fallback.get("pub_date") if fallback else None,
+                "latest_title": fallback.get("title") if fallback else None,
+                "latest_link": fallback.get("link") if fallback else source.get("url"),
+                "error": err,
+            })
 
-    # Always write index.html (even if nothing new)
+    # Always write index.html
     html = build_html(date_str, results)
     INDEX_FILE.write_text(html)
     print(f"\nWrote index.html")
@@ -339,13 +478,14 @@ def main():
     dates = [p.stem for p in ARCHIVE_DIR.glob("????-??-??.html")]
     (ARCHIVE_DIR / "index.html").write_text(build_archive_index(dates))
 
-    active = [(n, s) for n, s, _ in results if s]
-    if active:
-        subject = f"☕ Morning Digest — {date_str} | {len(active)} source{'s' if len(active) != 1 else ''} updated"
+    # Email: only mention sources with fresh content
+    fresh = [r for r in results if r.get("is_fresh") and r.get("summary")]
+    if fresh:
+        subject = f"☕ Morning Digest — {date_str} | {len(fresh)} source{'s' if len(fresh) != 1 else ''} updated"
         bullets = []
-        for name, summary in active:
-            bullet_lines = [l.strip() for l in summary.splitlines() if l.strip().startswith("- ")]
-            bullets.append(f"• {name} ({len(bullet_lines)} items)")
+        for r in fresh:
+            bullet_lines = [l.strip() for l in r["summary"].splitlines() if l.strip().startswith("- ")]
+            bullets.append(f"• {r['name']} ({len(bullet_lines)} items)")
         body = (
             f"New content in today's digest:\n\n"
             + "\n".join(bullets)
