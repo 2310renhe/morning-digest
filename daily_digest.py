@@ -182,7 +182,7 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
       3. BeautifulSoup lxml-xml recovery mode (handles mismatched tags)
     """
     seen_ids = state["seen"]
-    ua = "MorningDigestBot/1.0 (+https://github.com/2310renhe/morning-digest)"
+    ua = "MorningDigest/1.0 contact@morningdigest.dev"
     try:
         # Level 1: feedparser with a browser-like User-Agent
         # (SEC EDGAR and Cloudflare-protected sites block feedparser's default UA)
