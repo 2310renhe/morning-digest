@@ -3,169 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morning Digest â 2026-05-07</title>
+  <title>Morning Digest &ndash; 2026-05-07</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.7; }
-    h1 { font-size: 1.8em; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-    h2 { font-size: 1.1em; margin-top: 2em; background: #f5f5f5; padding: 6px 14px; border-radius: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    a { color: #0066cc; }
-    ul { padding-left: 1.4em; }
-    li { margin-bottom: 4px; }
-    p { margin: 0.6em 0; }
-    .source-block { border-left: 3px solid #ddd; padding-left: 16px; margin-bottom: 2.5em; }
-    .source-block.fresh { border-left-color: #2a9d2a; }
-    .source-block.quiet { border-left-color: #ddd; opacity: 0.75; }
-    .badge { font-size: 0.72em; font-weight: normal; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
-    .badge.fresh { background: #d4edda; color: #155724; }
-    .badge.stale { background: #f0f0f0; color: #666; }
-    .quiet-note { color: #888; font-size: 0.92em; font-style: italic; }
-    .meta { color: #888; font-size: 0.9em; }
-    .error { color: #c00; font-size: 0.9em; }
-    .empty { color: #888; font-style: italic; }
-    hr { border: none; border-top: 1px solid #eee; margin: 2em 0; }
-  </style>
+    :root { --bg: #fafafa; --card: #fff; --text: #1a1a2e; --muted: #6b7280; --border: #e5e7eb; --accent: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --accent: #60a5fa; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    .container { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { margin-bottom: 2rem; }
+    header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+    header .subtitle { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; }
+    header .subtitle a { color: var(--accent); text-decoration: none; }
+    header .subtitle a:hover { text-decoration: underline; }
+    .nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 2rem; }
+    .nav-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.85rem; font-size: 0.8rem; font-weight: 500; color: var(--text); background: var(--card); border: 1.5px solid var(--border); border-left-width: 3px; border-radius: 8px; text-decoration: none; transition: all 0.15s; }
+    .nav-pill:hover { background: var(--bg); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .nav-count { background: #22c55e; color: #fff; font-size: 0.68rem; padding: 0.1rem 0.45rem; border-radius: 10px; font-weight: 600; }
+    .category { margin-bottom: 2.5rem; }
+    .category h2 { font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); border-left: 4px solid; padding-left: 0.75rem; margin-bottom: 1rem; }
+    .source { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; transition: box-shadow 0.15s; }
+    .source.fresh { border-left: 3px solid #22c55e; }
+    .source.quiet { opacity: 0.6; }
+    .source.quiet:hover { opacity: 0.85; }
+    .source h3 { font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .source p { margin: 0.4em 0; font-size: 0.9rem; }
+    .source ul { padding-left: 1.3em; margin: 0.4em 0; font-size: 0.9rem; }
+    .source li { margin-bottom: 0.25rem; }
+    .source a { color: var(--accent); text-decoration: none; }
+    .source a:hover { text-decoration: underline; }
+    .badge { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 6px; white-space: nowrap; }
+    .badge.fresh { background: #dcfce7; color: #166534; }
+    .badge.stale { background: var(--bg); color: var(--muted); }
+    @media (prefers-color-scheme: dark) {
+      .badge.fresh { background: #14532d; color: #86efac; }
+    }
+    .quiet-note { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+    .error { color: #ef4444; font-size: 0.85rem; }
+    .empty { color: var(--muted); font-style: italic; }
+    footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+    </style>
 </head>
 <body>
-  <h1>â Morning Digest â 2026-05-07</h1>
-  <p class="meta">Generated 2026-05-07 22:20 &nbsp;Â·&nbsp; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &nbsp;Â·&nbsp; <a href="archive/">archive</a></p>
-  <div class="source-block quiet">
-<h2>SemiAnalysis <span class="badge stale">last: 2026-05-01</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model">AI Value Capture - The Shift To Model Labs</a></p>
+<div class="container">
+  <header>
+    <h1>Morning Digest</h1>
+    <p class="subtitle">2026-05-07 &middot; Generated 2026-05-07 22:35 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
+  </header>
+  <nav class="nav">
+    <a href="#ai-opinion-leaders" class="nav-pill" style="border-color:#6c5ce7">🧠 AI Opinion Leaders <span class="nav-count">1</span></a>
+    <a href="#investor-positioning" class="nav-pill" style="border-color:#e17055">💰 Investor Positioning <span class="nav-count">1</span></a>
+    <a href="#institutional-views" class="nav-pill" style="border-color:#0984e3">🏛️ Institutional Views</a>
+    <a href="#tech-and-ai-podcasts" class="nav-pill" style="border-color:#00b894">🎙️ Tech & AI Podcasts</a>
+    <a href="#research" class="nav-pill" style="border-color:#636e72">📄 Research</a>
+  </nav>
+  <section id="ai-opinion-leaders" class="category">
+<h2 style="border-left-color:#6c5ce7">🧠 AI Opinion Leaders</h2>
+<div class="source quiet">
+<h3>SemiAnalysis <span class="badge stale">2026-05-01</span></h3>
+<p class="quiet-note">Latest: <a href="https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model">AI Value Capture - The Shift To Model Labs</a></p>
 </div>
-<div class="source-block quiet">
-<h2>All-In Podcast <span class="badge stale">last: 2026-05-01</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze">OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze</a></p>
+<div class="source quiet">
+<h3>Andrej Karpathy – Blog <span class="badge stale">2026-02-12</span></h3>
+<p class="quiet-note">Latest: <a href="http://karpathy.github.io/2026/02/12/microgpt/">microgpt</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Situational Awareness LP – 13F Filings (SEC) <span class="badge stale">last: 2026-02-11</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.sec.gov/Archives/edgar/data/2045724/000204572426000002/0002045724-26-000002-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+<div class="source quiet">
+<h3>Andrej Karpathy – YouTube <span class="badge stale">2026-04-16</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.youtube.com/shorts/QLu_ZsRc_G0">Covering 10 points, a surprisingly tricky puzzle.</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Stanley Druckenmiller – Duquesne Family Office 13F (SEC) <span class="badge stale">last: 2026-02-17</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.sec.gov/Archives/edgar/data/1536411/000153641126000002/0001536411-26-000002-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Philippe Laffont – Coatue Management 13F (SEC) <span class="badge stale">last: 2026-02-17</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.sec.gov/Archives/edgar/data/1135730/000091957426001239/0000919574-26-001239-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Chase Coleman – Tiger Global Management 13F (SEC) <span class="badge stale">last: 2026-02-17</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.sec.gov/Archives/edgar/data/1167483/000091957426001143/0000919574-26-001143-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Odd Lots (Bloomberg) <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://omny.fm/shows/odd-lots/how-an-american-city-can-become-a-manufacturing-hub">How an American City Can Become a Manufacturing Hub</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Exchanges (Goldman Sachs) <span class="badge stale">last: 2026-05-06</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://feeds.megaphone.fm/GLD9218176758">Will AI Make Markets Less Efficient?</a></p>
-</div>
-<div class="source-block quiet">
-<h2>The Bid (BlackRock) <span class="badge stale">last: 2026-05-01</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://rss.art19.com/the-bid">259: Cryptoassets At A Crossroads: Volatility, Adoption, and Changing Investor Perspectives</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Money Stuff: The Podcast (Matt Levine) <span class="badge stale">last: 2026-05-01</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://omny.fm/shows/money-stuff-the-podcast/bag-of-snakes">Bag of Snakes</a></p>
-</div>
-<div class="source-block quiet">
-<h2>AI + a16z <span class="badge stale">last: 2026-05-05</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx">From Vector Databases to Knowledge Engines: The Next Layer of AI</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Andrej Karpathy – Blog <span class="badge stale">last: 2026-02-12</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="http://karpathy.github.io/2026/02/12/microgpt/">microgpt</a></p>
-</div>
-<div class="source-block quiet">
-<h2>Andrej Karpathy – YouTube <span class="badge stale">last: 2026-04-16</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.youtube.com/shorts/QLu_ZsRc_G0">Covering 10 points, a surprisingly tricky puzzle.</a></p>
-</div>
-<div class="source-block fresh">
-<h2>Andrej Karpathy – GitHub Repos <span class="badge fresh">ð 2026-05-07</span></h2>
+<div class="source fresh">
+<h3>Andrej Karpathy – GitHub Repos <span class="badge fresh">2026-05-07</span></h3>
 <p><strong>New this period:</strong></p>
 <ul>
-  <li>nanochat: A lightweight ChatGPT model that can be trained with a budget of $100, making AI-powered chatbots more accessible.</li>
-  <li>autoresearch: An AI agent that automates research on single-GPU nanochat training, streamlining the development process.</li>
-  <li>rustbpe: A Rust implementation of the tiktoken training code, providing an alternative to existing solutions.</li>
+  <li>nanochat: A lightweight ChatGPT model that can be trained on a single GPU, making it accessible to a wider range of users.</li>
+  <li>autoresearch: A repository that enables AI agents to run research on single-GPU nanochat training automatically, promoting autonomous research.</li>
+  <li>jobs: A research tool for visually exploring Bureau of Labor Statistics Occupational Outlook Handbook data, providing insights into job market trends.</li>
 </ul>
 <p><strong>Details:</strong></p>
 <p><strong>nanochat (https://github.com/karpathy/nanochat)</strong> </p>
-<p>The nanochat repository provides a cost-effective solution for training ChatGPT models, with a budget of $100. This project aims to make AI-powered chatbots more accessible to developers and researchers. The repository has gained significant attention, with over 53,000 stars on GitHub.</p>
+<p>.nanochat is a repository that provides the best ChatGPT that $100 can buy, indicating a focus on creating a high-quality, affordable chatbot model. The project uses Python and has garnered significant attention, with over 53,000 stars on GitHub. This project matters because it makes advanced chatbot technology more accessible to users with limited budgets. </p>
 <p><strong>autoresearch (https://github.com/karpathy/autoresearch)</strong> </p>
-<p>The autoresearch repository introduces an AI agent that automates research on single-GPU nanochat training. This project leverages the power of AI to streamline the development process, making it easier to train and fine-tune models. With over 79,000 stars, this repository has garnered substantial interest from the developer community.</p>
-<p><strong>rustbpe (https://github.com/karpathy/rustbpe)</strong> </p>
-<p>The rustbpe repository provides a Rust implementation of the tiktoken training code, offering an alternative to existing solutions. This project demonstrates the versatility of the Rust programming language in building AI-related tools. Although it has fewer stars compared to other repositories, rustbpe still contributes to the growing collection of AI-related projects on GitHub.</p>
+<p>autoresearch is a repository that enables AI agents to run research on single-GPU nanochat training automatically. This project uses Python and has over 79,000 stars on GitHub. autoresearch is significant because it promotes autonomous research, allowing AI agents to explore and learn from data without human intervention. </p>
+<p><strong>jobs (https://github.com/karpathy/jobs)</strong> </p>
+<p>jobs is a research tool for visually exploring Bureau of Labor Statistics Occupational Outlook Handbook data. The project uses HTML and has over 1,600 stars on GitHub. jobs is important because it provides insights into job market trends, helping users understand the landscape of various occupations and make informed decisions.</p>
 </div>
-<div class="source-block fresh">
-<h2>Garry Tan – GitHub Repos <span class="badge fresh">ð 2026-05-07</span></h2>
+<div class="source quiet">
+<h3>Zvi Mowshowitz – Don't Worry About the Vase <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://thezvi.substack.com/p/ai-167-the-prior-restraint-era-begins">AI #167: The Prior Restraint Era Begins</a></p>
+</div>
+<div class="source quiet">
+<h3>Scott Alexander – Astral Codex Ten <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.astralcodexten.com/p/contra-everyone-on-taste">Contra Everyone On Taste</a></p>
+</div>
+<div class="source quiet">
+<h3>Ethan Mollick – One Useful Thing <span class="badge stale">2026-04-23</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55">Sign of the future: GPT-5.5</a></p>
+</div>
+<div class="source quiet">
+<h3>Simon Willison <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything">llm-gemini 0.31</a></p>
+</div>
+<div class="source quiet">
+<h3>Dario Amodei – Essays </h3>
+<p class="quiet-note">Latest: <a href="https://darioamodei.com/">Dario Amodei</a></p>
+</div>
+<div class="source quiet">
+<h3>Import AI – Jack Clark <span class="badge stale">2026-05-04</span></h3>
+<p class="quiet-note">Latest: <a href="https://jack-clark.net/2026/05/04/import-ai-455-automating-ai-research/">Import AI 455: Automating AI Research</a></p>
+</div>
+<div class="source quiet">
+<h3>The Batch – Andrew Ng (DeepLearning.AI) </h3>
+<p class="quiet-note">Latest: <a href="https://www.deeplearning.ai/the-batch/">The Batch | DeepLearning.AI | AI News & Insights</a></p>
+</div>
+</section>
+<section id="investor-positioning" class="category">
+<h2 style="border-left-color:#e17055">💰 Investor Positioning</h2>
+<div class="source quiet">
+<h3>Situational Awareness LP – 13F Filings (SEC) <span class="badge stale">2026-02-11</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/2045724/000204572426000002/0002045724-26-000002-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+</div>
+<div class="source quiet">
+<h3>Stanley Druckenmiller – Duquesne Family Office 13F (SEC) <span class="badge stale">2026-02-17</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/1536411/000153641126000002/0001536411-26-000002-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+</div>
+<div class="source quiet">
+<h3>Philippe Laffont – Coatue Management 13F (SEC) <span class="badge stale">2026-02-17</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/1135730/000091957426001239/0000919574-26-001239-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+</div>
+<div class="source quiet">
+<h3>Chase Coleman – Tiger Global Management 13F (SEC) <span class="badge stale">2026-02-17</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/1167483/000091957426001143/0000919574-26-001143-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+</div>
+<div class="source fresh">
+<h3>Garry Tan – GitHub Repos <span class="badge fresh">2026-05-07</span></h3>
 <p><strong>New this period:</strong></p>
 <ul>
-  <li>Garry Tan's GitHub repositories include gstack, a collection of 23 opinionated tools for various roles, and gbrain, an opinionated OpenClaw/Hermes agent brain, both of which have been updated recently.</li>
-  <li>The repositories also feature other projects, such as openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, and zurb-foundation-wysihtml5, which are either forked from other users or original creations.</li>
+  <li>Garry Tan's GitHub repositories, including opinionated tools and AI assistant setups, matter for developers and engineers looking for efficient project management and AI integration solutions.</li>
+  <li>The gstack repository, with 91,043 stars, provides a setup with 23 opinionated tools for various roles, and its high star count indicates its popularity and usefulness.</li>
+  <li>The gbrain repository, with 13,615 stars, offers an opinionated OpenClaw/Hermes Agent Brain, showcasing a notable AI-related project.</li>
 </ul>
 <p><strong>Details:</strong></p>
 <p><strong>Garry Tan's GitHub Repositories</strong> (https://github.com/garrytan?tab=repositories)</p>
-<p>Garry Tan's GitHub repositories showcase his work on various projects, including gstack and gbrain, which demonstrate his expertise in software development and AI. The gstack repository, with over 91,000 stars, provides a comprehensive set of tools for different roles, while gbrain, with over 13,000 stars, offers an opinionated OpenClaw/Hermes agent brain. These projects highlight Garry Tan's contributions to the developer community and his commitment to creating innovative solutions.</p>
+<p>Garry Tan's GitHub repositories feature a range of projects, including gstack, gbrain, and openclaw-render-template, which demonstrate his work in AI, project management, and software development. The gstack repository, in particular, has gained significant attention with its 23 opinionated tools for various roles, making it a valuable resource for developers and engineers. The gbrain repository showcases an opinionated OpenClaw/Hermes Agent Brain, highlighting Tan's contributions to AI-related projects.</p>
 </div>
-<div class="source-block quiet">
-<h2>Lex Fridman Podcast <span class="badge stale">last: 2026-05-06</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://lexfridman.com/ffmpeg/?utm_source=rss&utm_medium=rss&utm_campaign=ffmpeg">#496 – FFmpeg: The Incredible Technology Behind Video on the Internet</a></p>
+</section>
+<section id="institutional-views" class="category">
+<h2 style="border-left-color:#0984e3">🏛️ Institutional Views</h2>
+<div class="source quiet">
+<h3>Odd Lots (Bloomberg) <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://omny.fm/shows/odd-lots/how-an-american-city-can-become-a-manufacturing-hub">How an American City Can Become a Manufacturing Hub</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Import AI – Jack Clark <span class="badge stale">last: 2026-05-04</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://jack-clark.net/2026/05/04/import-ai-455-automating-ai-research/">Import AI 455: Automating AI Research</a></p>
+<div class="source quiet">
+<h3>Exchanges (Goldman Sachs) <span class="badge stale">2026-05-06</span></h3>
+<p class="quiet-note">Latest: <a href="https://feeds.megaphone.fm/GLD9218176758">Will AI Make Markets Less Efficient?</a></p>
 </div>
-<div class="source-block quiet">
-<h2>The Batch – Andrew Ng (DeepLearning.AI) </h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.deeplearning.ai/the-batch/">The Batch | DeepLearning.AI | AI News & Insights</a></p>
+<div class="source quiet">
+<h3>The Bid (BlackRock) <span class="badge stale">2026-05-01</span></h3>
+<p class="quiet-note">Latest: <a href="https://rss.art19.com/the-bid">259: Cryptoassets At A Crossroads: Volatility, Adoption, and Changing Investor Perspectives</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Arxiv – Trading & Market Microstructure (q-fin.TR) <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://arxiv.org/abs/2605.05089">Dynamic Collateral Control for Permissionless Spot Perpetual Basis Trading</a></p>
+<div class="source quiet">
+<h3>Money Stuff: The Podcast (Matt Levine) <span class="badge stale">2026-05-01</span></h3>
+<p class="quiet-note">Latest: <a href="https://omny.fm/shows/money-stuff-the-podcast/bag-of-snakes">Bag of Snakes</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Arxiv – Portfolio Management (q-fin.PM) </h2>
-<p class="quiet-note">No changes detected. <a href="https://rss.arxiv.org/rss/q-fin.PM">View source â</a></p>
+</section>
+<section id="tech-and-ai-podcasts" class="category">
+<h2 style="border-left-color:#00b894">🎙️ Tech & AI Podcasts</h2>
+<div class="source quiet">
+<h3>All-In Podcast <span class="badge stale">2026-05-01</span></h3>
+<p class="quiet-note">Latest: <a href="https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze">OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Arxiv – Statistical Finance (q-fin.ST) <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://arxiv.org/abs/2604.26811">Do News and Social Media Tell the Same Story? Constructing and Comparing Sentiment Spillover Networks</a></p>
+<div class="source quiet">
+<h3>AI + a16z <span class="badge stale">2026-05-05</span></h3>
+<p class="quiet-note">Latest: <a href="https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx">From Vector Databases to Knowledge Engines: The Next Layer of AI</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Arxiv – Computational Finance (q-fin.CP) <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://arxiv.org/abs/2605.05140">What Can Go Wrong During Caplet Stripping ?</a></p>
+<div class="source quiet">
+<h3>Lex Fridman Podcast <span class="badge stale">2026-05-06</span></h3>
+<p class="quiet-note">Latest: <a href="https://lexfridman.com/ffmpeg/?utm_source=rss&utm_medium=rss&utm_campaign=ffmpeg">#496 – FFmpeg: The Incredible Technology Behind Video on the Internet</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Dario Amodei – Essays </h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://darioamodei.com/">Dario Amodei</a></p>
+<div class="source quiet">
+<h3>Latent Space Podcast (swyx) <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://www.latent.space/p/ainews-anthropic-spacexais-300mw5byr">[AINews] Anthropic-SpaceXai's 300MW/$5B/yr deal for Colossus I, ARR growth is 8000% annualized</a></p>
 </div>
-<div class="source-block fresh">
-<h2>Zvi Mowshowitz – Don’t Worry About the Vase <span class="badge fresh">ð 2026-05-07</span></h2>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>The Prior Restraint Era begins, marking a significant shift in AI model development and release, as authorities start to regulate and restrict the release of AI models, which matters because it will impact the pace of AI innovation and accessibility.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>The Prior Restraint Era Begins</strong> (https://thezvi.substack.com/p/ai-167-the-prior-restraint-era-begins)</p>
-<p>The era of training frontier models and then releasing them whenever desired is coming to an end, as regulatory bodies start to impose prior restraints on AI model releases. This new era will likely slow down the pace of AI innovation, as developers will need to navigate complex regulatory frameworks before releasing their models. The implications of this shift will be significant, affecting not only AI development but also its applications and accessibility.</p>
+</section>
+<section id="research" class="category">
+<h2 style="border-left-color:#636e72">📄 Research</h2>
+<div class="source quiet">
+<h3>Arxiv – Trading & Market Microstructure (q-fin.TR) <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://arxiv.org/abs/2605.05089">Dynamic Collateral Control for Permissionless Spot Perpetual Basis Trading</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Scott Alexander – Astral Codex Ten <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.astralcodexten.com/p/contra-everyone-on-taste">Contra Everyone On Taste</a></p>
+<div class="source quiet">
+<h3>Arxiv – Portfolio Management (q-fin.PM) </h3>
+<p class="quiet-note"><a href="https://rss.arxiv.org/rss/q-fin.PM">View source</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Ethan Mollick – One Useful Thing <span class="badge stale">last: 2026-04-23</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55">Sign of the future: GPT-5.5</a></p>
+<div class="source quiet">
+<h3>Arxiv – Statistical Finance (q-fin.ST) <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://arxiv.org/abs/2604.26811">Do News and Social Media Tell the Same Story? Constructing and Comparing Sentiment Spillover Networks</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Simon Willison <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything">llm-gemini 0.31</a></p>
+<div class="source quiet">
+<h3>Arxiv – Computational Finance (q-fin.CP) <span class="badge stale">2026-05-07</span></h3>
+<p class="quiet-note">Latest: <a href="https://arxiv.org/abs/2605.05140">What Can Go Wrong During Caplet Stripping ?</a></p>
 </div>
-<div class="source-block quiet">
-<h2>Latent Space Podcast (swyx) <span class="badge stale">last: 2026-05-07</span></h2>
-<p class="quiet-note">No new posts. Latest: <a href="https://www.latent.space/p/ainews-anthropic-spacexais-300mw5byr">[AINews] Anthropic-SpaceXai's 300MW/$5B/yr deal for Colossus I, ARR growth is 8000% annualized</a></p>
+</section>
+  <footer>
+    <p>Powered by <a href="https://github.com/2310renhe/morning-digest">morning-digest</a></p>
+  </footer>
 </div>
-  <hr>
-  <p class="meta">Powered by <a href="https://github.com/2310renhe/morning-digest">morning-digest</a></p>
 </body>
 </html>
