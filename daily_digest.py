@@ -76,31 +76,144 @@ def _parse_pub_date(entry) -> tuple:
     return None, None
 
 
+def _clean_xml(raw: bytes) -> bytes:
+    """Strip invalid XML 1.0 characters that cause expat to fail."""
+    import re
+    try:
+        text = raw.decode("utf-8", errors="replace")
+    except Exception:
+        text = raw.decode("latin-1", errors="replace")
+    # Remove non-printable control chars (except tab, LF, CR)
+    text = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]", "", text)
+    return text.encode("utf-8")
+
+
+def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
+    """
+    Fallback: manually extract Atom/RSS entries using BeautifulSoup with
+    lxml-xml, which runs in recovery mode and handles mismatched/malformed tags.
+    Returns a list of raw item dicts with keys: id, title, link, content, pub_dt, pub_date.
+    """
+    import re
+    try:
+        soup = BeautifulSoup(raw, "lxml-xml")
+        items = []
+        for entry in soup.find_all(["entry", "item"]):
+            title_tag = entry.find("title")
+            link_tag = entry.find("link")
+            id_tag = entry.find("id") or entry.find("guid")
+            pub_tag = entry.find(["updated", "published", "pubDate"])
+
+            link = ""
+            if link_tag:
+                link = link_tag.get("href") or link_tag.get_text(strip=True)
+            item_id = (id_tag.get_text(strip=True) if id_tag else "") or link
+
+            pub_str_raw = pub_tag.get_text(strip=True) if pub_tag else ""
+            pub_dt = None
+            pub_date = None
+            if pub_str_raw:
+                for fmt in (
+                    "%Y-%m-%dT%H:%M:%SZ",
+                    "%Y-%m-%dT%H:%M:%S%z",
+                    "%a, %d %b %Y %H:%M:%S %z",
+                    "%a, %d %b %Y %H:%M:%S GMT",
+                    "%Y-%m-%d",
+                ):
+                    try:
+                        pub_dt = datetime.strptime(pub_str_raw[:25], fmt)
+                        if pub_dt.tzinfo is None:
+                            pub_dt = pub_dt.replace(tzinfo=timezone.utc)
+                        pub_date = pub_dt.strftime("%Y-%m-%d")
+                        break
+                    except ValueError:
+                        continue
+
+            content_tag = entry.find(["content", "summary", "description"])
+            content = ""
+            if content_tag:
+                inner = content_tag.get_text(separator=" ", strip=True)
+                content = _strip_html(inner) if "<" in inner else inner[:2500]
+
+            items.append({
+                "id": item_id,
+                "title": title_tag.get_text(strip=True) if title_tag else "Untitled",
+                "link": link or source_url,
+                "content": content,
+                "pub_dt": pub_dt,
+                "pub_date": pub_date,
+            })
+        return items
+    except Exception:
+        return []
+
+
 def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
     Returns (new_items, fallback_item, error).
     - new_items: list of items published after cutoff (not yet seen)
-    - fallback_item: the most recent item overall (for "last available" display),
-                     or None if feed is empty
+    - fallback_item: the most recent item overall (for "last available" display)
     - error: string or None
+    Three-level strategy:
+      1. feedparser directly on the URL
+      2. feedparser on cleaned raw bytes (strips invalid XML chars)
+      3. BeautifulSoup lxml-xml recovery mode (handles mismatched tags)
     """
     seen_ids = state["seen"]
     try:
+        # Level 1: standard feedparser
         feed = feedparser.parse(source["url"])
+        raw = None
+
         if feed.bozo and not feed.entries:
-            # Retry with raw bytes to handle encoding/character issues
+            # Level 2: fetch raw bytes, strip bad chars, retry feedparser
             try:
                 import urllib.request
                 raw = urllib.request.urlopen(
                     urllib.request.Request(source["url"], headers={"User-Agent": "Mozilla/5.0"}),
-                    timeout=15
+                    timeout=15,
                 ).read()
-                feed = feedparser.parse(raw)
+                feed = feedparser.parse(_clean_xml(raw))
             except Exception:
                 pass
-        if feed.bozo and not feed.entries:
-            return [], None, f"Feed parse error: {feed.bozo_exception}"
 
+        # Level 3: if feedparser still has no entries, use BS4/lxml recovery
+        if (feed.bozo and not feed.entries) or not feed.entries:
+            if raw is None:
+                try:
+                    import urllib.request
+                    raw = urllib.request.urlopen(
+                        urllib.request.Request(source["url"], headers={"User-Agent": "Mozilla/5.0"}),
+                        timeout=15,
+                    ).read()
+                except Exception:
+                    pass
+            if raw:
+                bs4_items = _bs4_parse_feed(raw, source["url"])
+                if bs4_items:
+                    # Process the manually-parsed items the same way
+                    new_items = []
+                    fallback_item = None
+                    fallback_pub_dt = None
+                    for item in bs4_items:
+                        pub_dt = item.pop("pub_dt", None)
+                        if pub_dt and (fallback_pub_dt is None or pub_dt > fallback_pub_dt):
+                            fallback_pub_dt = pub_dt
+                            fallback_item = item
+                        elif fallback_item is None:
+                            fallback_item = item
+                        if not item["id"] or item["id"] in seen_ids:
+                            continue
+                        if pub_dt and pub_dt < cutoff:
+                            continue
+                        new_items.append(item)
+                        seen_ids.add(item["id"])
+                    return new_items, fallback_item, None
+
+            if feed.bozo and not feed.entries:
+                return [], None, f"Feed parse error: {feed.bozo_exception}"
+
+        # Process feedparser entries normally
         new_items = []
         fallback_item = None
         fallback_pub_dt = None
