@@ -93,43 +93,39 @@ def _clean_xml(raw: bytes) -> bytes:
 def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
     """
     Fallback: manually extract Atom/RSS entries using BeautifulSoup.
-    Tries parsers in order: lxml-xml (recovery mode), lxml (HTML mode), html.parser.
-    Handles namespaced Atom feeds (e.g. SEC EDGAR) by searching all tags.
+    Uses html.parser first (most lenient — ignores XML namespaces and bad chars),
+    then lxml/lxml-xml as alternatives.
     Returns a list of raw item dicts: id, title, link, content, pub_dt, pub_date.
     """
-    import re
     soup = None
-    for parser in ("lxml-xml", "lxml", "html.parser"):
+    for parser in ("html.parser", "lxml", "lxml-xml"):
         try:
-            soup = BeautifulSoup(raw, parser)
-            break
+            candidate = BeautifulSoup(raw, parser)
+            # Validate this parser actually found feed entries
+            if candidate.find(["entry", "item"]):
+                soup = candidate
+                break
         except Exception:
             continue
     if not soup:
         return []
 
-    # Find entry/item tags — covers both plain and namespace-prefixed names
-    entries = soup.find_all(re.compile(r"^(entry|item)$", re.I))
-    if not entries:
-        # Atom feeds with default namespace can appear as e.g. "feed" > "entry" in lxml-xml
-        entries = [t for t in soup.find_all(True)
-                   if t.name and t.name.split(":")[-1].lower() in ("entry", "item")]
-
+    entries = soup.find_all(["entry", "item"])
     items = []
     for entry in entries:
-        def _find(*names):
+        # Use simple find with multiple candidate names
+        def _first(*names):
             for n in names:
-                # Try bare name and namespace-prefixed variants
-                t = entry.find(re.compile(rf"(?:^|:){re.escape(n)}$", re.I))
+                t = entry.find(n)
                 if t:
                     return t
             return None
 
-        title_tag = _find("title")
-        link_tag  = _find("link")
-        id_tag    = _find("id", "guid")
-        pub_tag   = _find("updated", "published", "pubDate", "dc:date")
-        content_tag = _find("content", "summary", "description")
+        title_tag   = _first("title")
+        link_tag    = _first("link")
+        id_tag      = _first("id", "guid")
+        pub_tag     = _first("updated", "published", "pubdate", "pubDate", "dc:date")
+        content_tag = _first("content", "summary", "description")
 
         link = ""
         if link_tag:
@@ -161,7 +157,7 @@ def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
             content = _strip_html(inner) if "<" in inner else inner[:2500]
 
         if not item_id:
-            continue  # skip entries we can't identify
+            continue
 
         items.append({
             "id": item_id,
