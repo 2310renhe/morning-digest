@@ -245,9 +245,12 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
             if "substack.com" in source["url"]:
                 try:
                     api_url = source["url"].replace("/feed", "/api/v1/posts?limit=20")
+                    print(f"    [Level 4] Trying Substack JSON API: {api_url}")
                     resp = requests.get(api_url, headers={"User-Agent": ua}, timeout=15)
+                    print(f"    [Level 4] Status: {resp.status_code}, Content-Type: {resp.headers.get('content-type', 'unknown')}")
                     if resp.status_code == 200:
                         posts = resp.json()
+                        print(f"    [Level 4] Got {len(posts) if isinstance(posts, list) else type(posts).__name__} posts")
                         if isinstance(posts, list) and posts:
                             new_items = []
                             fallback_item = None
@@ -280,8 +283,10 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
                                 new_items.append(item)
                                 seen_ids.add(item_id)
                             return new_items, fallback_item, None
-                except Exception:
-                    pass
+                    else:
+                        print(f"    [Level 4] Non-200 response, first 200 chars: {resp.text[:200]}")
+                except Exception as e:
+                    print(f"    [Level 4] Exception: {e}")
 
             if feed.bozo and not feed.entries:
                 return [], None, f"Feed parse error: {feed.bozo_exception}"
