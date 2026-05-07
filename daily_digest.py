@@ -469,86 +469,166 @@ def md_to_html_simple(text: str) -> str:
     return "\n".join(html_lines)
 
 
+
 def build_html(date_str: str, results: list) -> str:
     """
-    results is a list of dicts:
-      { name, summary, error, is_fresh, latest_date, latest_title, latest_link }
+    results is a list of dicts with category field.
+    Groups results by category for display.
     """
+    from collections import OrderedDict
+
+    CATEGORY_META = OrderedDict([
+        ("AI Opinion Leaders",   {"icon": "\U0001f9e0", "color": "#6c5ce7"}),
+        ("Investor Positioning", {"icon": "\U0001f4b0", "color": "#e17055"}),
+        ("Institutional Views",  {"icon": "\U0001f3db️", "color": "#0984e3"}),
+        ("Tech & AI Podcasts",   {"icon": "\U0001f399️", "color": "#00b894"}),
+        ("Research",             {"icon": "\U0001f4c4", "color": "#636e72"}),
+    ])
+
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
-    content_parts = []
 
+    # Group results by category, preserving order
+    grouped = OrderedDict()
+    for cat in CATEGORY_META:
+        grouped[cat] = []
+    grouped["Other"] = []
     for r in results:
-        name = r["name"]
-        summary = r.get("summary")
-        error = r.get("error")
-        is_fresh = r.get("is_fresh", False)
-        latest_date = r.get("latest_date")
-        latest_title = r.get("latest_title")
-        latest_link = r.get("latest_link")
+        cat = r.get("category", "Other")
+        if cat not in grouped:
+            grouped[cat] = []
+        grouped[cat].append(r)
 
-        # Header badge
-        if is_fresh and latest_date:
-            badge = f'<span class="badge fresh">ð {latest_date}</span>'
-        elif latest_date:
-            badge = f'<span class="badge stale">last: {latest_date}</span>'
-        else:
-            badge = ''
+    # Count fresh items per category for the nav
+    nav_parts = []
+    for cat, items in grouped.items():
+        if not items:
+            continue
+        meta = CATEGORY_META.get(cat, {"icon": "•", "color": "#666"})
+        fresh_count = sum(1 for r in items if r.get("is_fresh"))
+        label = f'{meta["icon"]} {cat}'
+        if fresh_count:
+            label += f' <span class="nav-count">{fresh_count}</span>'
+        cat_id = cat.lower().replace(" ", "-").replace("&", "and")
+        nav_parts.append(f'<a href="#{cat_id}" class="nav-pill" style="border-color:{meta["color"]}">{label}</a>')
 
-        block = f'<div class="source-block {"fresh" if is_fresh else "quiet"}">\n'
-        block += f'<h2>{name} {badge}</h2>\n'
+    nav_html = "\n    ".join(nav_parts)
 
-        if error:
-            block += f'<p class="error">â ï¸ {error}</p>\n'
+    # Build sections
+    sections = []
+    for cat, items in grouped.items():
+        if not items:
+            continue
+        meta = CATEGORY_META.get(cat, {"icon": "•", "color": "#666"})
+        cat_id = cat.lower().replace(" ", "-").replace("&", "and")
 
-        if summary:
-            block += md_to_html_simple(summary) + "\n"
-        elif not error and not is_fresh:
-            # Show latest available
-            if latest_title and latest_link:
-                block += f'<p class="quiet-note">No new posts. Latest: <a href="{latest_link}">{latest_title}</a></p>\n'
-            elif latest_link:
-                block += f'<p class="quiet-note">No changes detected. <a href="{latest_link}">View source â</a></p>\n'
+        source_blocks = []
+        for r in items:
+            name = r["name"]
+            summary = r.get("summary")
+            error = r.get("error")
+            is_fresh = r.get("is_fresh", False)
+            latest_date = r.get("latest_date")
+            latest_title = r.get("latest_title")
+            latest_link = r.get("latest_link")
+
+            if is_fresh and latest_date:
+                badge = f'<span class="badge fresh">{latest_date}</span>'
+            elif latest_date:
+                badge = f'<span class="badge stale">{latest_date}</span>'
             else:
-                block += '<p class="quiet-note">No new items.</p>\n'
+                badge = ''
 
-        block += "</div>"
-        content_parts.append(block)
+            block = f'<div class="source {"fresh" if is_fresh else "quiet"}">\n'
+            block += f'<h3>{name} {badge}</h3>\n'
 
-    content_html = "\n".join(content_parts) if content_parts else '<p class="empty">No sources configured.</p>'
+            if error:
+                block += f'<p class="error">{error}</p>\n'
+
+            if summary:
+                block += md_to_html_simple(summary) + "\n"
+            elif not error and not is_fresh:
+                if latest_title and latest_link:
+                    block += f'<p class="quiet-note">Latest: <a href="{latest_link}">{latest_title}</a></p>\n'
+                elif latest_link:
+                    block += f'<p class="quiet-note"><a href="{latest_link}">View source</a></p>\n'
+                else:
+                    block += '<p class="quiet-note">No new items.</p>\n'
+
+            block += "</div>"
+            source_blocks.append(block)
+
+        section = f'<section id="{cat_id}" class="category">\n'
+        section += f'<h2 style="border-left-color:{meta["color"]}">{meta["icon"]} {cat}</h2>\n'
+        section += "\n".join(source_blocks)
+        section += "\n</section>"
+        sections.append(section)
+
+    content_html = "\n".join(sections) if sections else '<p class="empty">No sources configured.</p>'
+
+    css = """
+    :root { --bg: #fafafa; --card: #fff; --text: #1a1a2e; --muted: #6b7280; --border: #e5e7eb; --accent: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --accent: #60a5fa; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    .container { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { margin-bottom: 2rem; }
+    header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+    header .subtitle { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; }
+    header .subtitle a { color: var(--accent); text-decoration: none; }
+    header .subtitle a:hover { text-decoration: underline; }
+    .nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 2rem; }
+    .nav-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.85rem; font-size: 0.8rem; font-weight: 500; color: var(--text); background: var(--card); border: 1.5px solid var(--border); border-left-width: 3px; border-radius: 8px; text-decoration: none; transition: all 0.15s; }
+    .nav-pill:hover { background: var(--bg); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .nav-count { background: #22c55e; color: #fff; font-size: 0.68rem; padding: 0.1rem 0.45rem; border-radius: 10px; font-weight: 600; }
+    .category { margin-bottom: 2.5rem; }
+    .category h2 { font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); border-left: 4px solid; padding-left: 0.75rem; margin-bottom: 1rem; }
+    .source { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; transition: box-shadow 0.15s; }
+    .source.fresh { border-left: 3px solid #22c55e; }
+    .source.quiet { opacity: 0.6; }
+    .source.quiet:hover { opacity: 0.85; }
+    .source h3 { font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .source p { margin: 0.4em 0; font-size: 0.9rem; }
+    .source ul { padding-left: 1.3em; margin: 0.4em 0; font-size: 0.9rem; }
+    .source li { margin-bottom: 0.25rem; }
+    .source a { color: var(--accent); text-decoration: none; }
+    .source a:hover { text-decoration: underline; }
+    .badge { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 6px; white-space: nowrap; }
+    .badge.fresh { background: #dcfce7; color: #166534; }
+    .badge.stale { background: var(--bg); color: var(--muted); }
+    @media (prefers-color-scheme: dark) {
+      .badge.fresh { background: #14532d; color: #86efac; }
+    }
+    .quiet-note { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+    .error { color: #ef4444; font-size: 0.85rem; }
+    .empty { color: var(--muted); font-style: italic; }
+    footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+    """
 
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morning Digest â {date_str}</title>
-  <style>
-    body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.7; }}
-    h1 {{ font-size: 1.8em; border-bottom: 2px solid #eee; padding-bottom: 10px; }}
-    h2 {{ font-size: 1.1em; margin-top: 2em; background: #f5f5f5; padding: 6px 14px; border-radius: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }}
-    a {{ color: #0066cc; }}
-    ul {{ padding-left: 1.4em; }}
-    li {{ margin-bottom: 4px; }}
-    p {{ margin: 0.6em 0; }}
-    .source-block {{ border-left: 3px solid #ddd; padding-left: 16px; margin-bottom: 2.5em; }}
-    .source-block.fresh {{ border-left-color: #2a9d2a; }}
-    .source-block.quiet {{ border-left-color: #ddd; opacity: 0.75; }}
-    .badge {{ font-size: 0.72em; font-weight: normal; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }}
-    .badge.fresh {{ background: #d4edda; color: #155724; }}
-    .badge.stale {{ background: #f0f0f0; color: #666; }}
-    .quiet-note {{ color: #888; font-size: 0.92em; font-style: italic; }}
-    .meta {{ color: #888; font-size: 0.9em; }}
-    .error {{ color: #c00; font-size: 0.9em; }}
-    .empty {{ color: #888; font-style: italic; }}
-    hr {{ border: none; border-top: 1px solid #eee; margin: 2em 0; }}
-  </style>
+  <title>Morning Digest &ndash; {date_str}</title>
+  <style>{css}</style>
 </head>
 <body>
-  <h1>â Morning Digest â {date_str}</h1>
-  <p class="meta">Generated {now_str} &nbsp;Â·&nbsp; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &nbsp;Â·&nbsp; <a href="archive/">archive</a></p>
+<div class="container">
+  <header>
+    <h1>Morning Digest</h1>
+    <p class="subtitle">{date_str} &middot; Generated {now_str} &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
+  </header>
+  <nav class="nav">
+    {nav_html}
+  </nav>
   {content_html}
-  <hr>
-  <p class="meta">Powered by <a href="https://github.com/2310renhe/morning-digest">morning-digest</a></p>
+  <footer>
+    <p>Powered by <a href="https://github.com/2310renhe/morning-digest">morning-digest</a></p>
+  </footer>
+</div>
 </body>
 </html>"""
 
@@ -624,9 +704,11 @@ def main():
         else:
             new_items, fallback, err = fetch_web(source, state, cutoff)
 
+        cat = source.get("category", "Other")
+
         if err and not new_items and not fallback:
             print(f"  ERROR: {err}")
-            results.append({"name": source["name"], "error": err, "is_fresh": False})
+            results.append({"name": source["name"], "category": cat, "error": err, "is_fresh": False})
             continue
 
         if new_items:
@@ -638,6 +720,7 @@ def main():
                 summary = summarize(client, source["name"], new_items)
                 results.append({
                     "name": source["name"],
+                    "category": cat,
                     "summary": summary,
                     "is_fresh": True,
                     "latest_date": latest_date,
@@ -648,6 +731,7 @@ def main():
                 print(f"  Summarization error: {e}")
                 results.append({
                     "name": source["name"],
+                    "category": cat,
                     "error": f"Summarization failed: {e}",
                     "is_fresh": True,
                     "latest_date": latest_date,
@@ -657,6 +741,7 @@ def main():
             print(f"  No new items. Latest: {fallback['title'] if fallback else 'unknown'} ({fallback.get('pub_date', '?') if fallback else '?'})")
             results.append({
                 "name": source["name"],
+                "category": cat,
                 "is_fresh": False,
                 "latest_date": fallback.get("pub_date") if fallback else None,
                 "latest_title": fallback.get("title") if fallback else None,

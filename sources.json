@@ -2,141 +2,169 @@
   {
     "name": "SemiAnalysis",
     "url": "https://newsletter.semianalysis.com/feed",
-    "type": "rss"
-  },
-  {
-    "name": "All-In Podcast",
-    "url": "https://rss.libsyn.com/shows/254861/destinations/1928300.xml",
-    "type": "podcast"
-  },
-  {
-    "name": "Situational Awareness LP – 13F Filings (SEC)",
-    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss"
-  },
-  {
-    "name": "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)",
-    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001536411&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss"
-  },
-  {
-    "name": "Philippe Laffont – Coatue Management 13F (SEC)",
-    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001135730&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss"
-  },
-  {
-    "name": "Chase Coleman – Tiger Global Management 13F (SEC)",
-    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001167483&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss"
-  },
-  {
-    "name": "Odd Lots (Bloomberg)",
-    "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8a94442e-5a74-4fa2-8b8d-ae27003a8d6b/982f5071-765c-403d-969d-ae27003a8d83/podcast.rss",
-    "type": "podcast"
-  },
-  {
-    "name": "Exchanges (Goldman Sachs)",
-    "url": "https://feeds.megaphone.fm/GLD9218176758",
-    "type": "podcast"
-  },
-  {
-    "name": "The Bid (BlackRock)",
-    "url": "https://rss.art19.com/the-bid",
-    "type": "podcast"
-  },
-  {
-    "name": "Money Stuff: The Podcast (Matt Levine)",
-    "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/ee4336cb-155f-4488-90e0-b1400134e40e/77e6a3a7-290d-4a82-8164-b14001353ef2/podcast.rss",
-    "type": "podcast"
-  },
-  {
-    "name": "AI + a16z",
-    "url": "https://feeds.simplecast.com/Hb_IuXOo",
-    "type": "podcast"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Andrej Karpathy – Blog",
     "url": "https://karpathy.github.io/feed.xml",
-    "type": "rss"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Andrej Karpathy – YouTube",
     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
-    "type": "rss"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Andrej Karpathy – GitHub Repos",
     "url": "https://github.com/karpathy?tab=repositories",
-    "type": "web"
+    "type": "web",
+    "category": "AI Opinion Leaders"
   },
   {
-    "name": "Garry Tan – GitHub Repos",
-    "url": "https://github.com/garrytan?tab=repositories",
-    "type": "web"
-  },
-  {
-    "name": "Lex Fridman Podcast",
-    "url": "https://lexfridman.com/feed/podcast/",
-    "type": "podcast"
-  },
-  {
-    "name": "Import AI – Jack Clark",
-    "url": "https://jack-clark.net/feed/",
-    "type": "rss"
-  },
-  {
-    "name": "The Batch – Andrew Ng (DeepLearning.AI)",
-    "url": "https://www.deeplearning.ai/the-batch/",
-    "type": "web"
-  },
-  {
-    "name": "Arxiv – Trading & Market Microstructure (q-fin.TR)",
-    "url": "https://rss.arxiv.org/rss/q-fin.TR",
-    "type": "rss"
-  },
-  {
-    "name": "Arxiv – Portfolio Management (q-fin.PM)",
-    "url": "https://rss.arxiv.org/rss/q-fin.PM",
-    "type": "rss"
-  },
-  {
-    "name": "Arxiv – Statistical Finance (q-fin.ST)",
-    "url": "https://rss.arxiv.org/rss/q-fin.ST",
-    "type": "rss"
-  },
-  {
-    "name": "Arxiv – Computational Finance (q-fin.CP)",
-    "url": "https://rss.arxiv.org/rss/q-fin.CP",
-    "type": "rss"
-  },
-  {
-    "name": "Dario Amodei – Essays",
-    "url": "https://darioamodei.com/",
-    "type": "web"
-  },
-  {
-    "name": "Zvi Mowshowitz – Don’t Worry About the Vase",
+    "name": "Zvi Mowshowitz – Don't Worry About the Vase",
     "url": "https://thezvi.substack.com/feed",
-    "type": "rss"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Scott Alexander – Astral Codex Ten",
     "url": "https://www.astralcodexten.com/feed",
-    "type": "rss"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Ethan Mollick – One Useful Thing",
     "url": "https://www.oneusefulthing.org/feed",
-    "type": "rss"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Simon Willison",
     "url": "https://simonwillison.net/atom/everything/",
-    "type": "rss"
+    "type": "rss",
+    "category": "AI Opinion Leaders"
+  },
+  {
+    "name": "Dario Amodei – Essays",
+    "url": "https://darioamodei.com/",
+    "type": "web",
+    "category": "AI Opinion Leaders"
+  },
+  {
+    "name": "Import AI – Jack Clark",
+    "url": "https://jack-clark.net/feed/",
+    "type": "rss",
+    "category": "AI Opinion Leaders"
+  },
+  {
+    "name": "The Batch – Andrew Ng (DeepLearning.AI)",
+    "url": "https://www.deeplearning.ai/the-batch/",
+    "type": "web",
+    "category": "AI Opinion Leaders"
+  },
+  {
+    "name": "Situational Awareness LP – 13F Filings (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss",
+    "category": "Investor Positioning"
+  },
+  {
+    "name": "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001536411&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss",
+    "category": "Investor Positioning"
+  },
+  {
+    "name": "Philippe Laffont – Coatue Management 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001135730&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss",
+    "category": "Investor Positioning"
+  },
+  {
+    "name": "Chase Coleman – Tiger Global Management 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001167483&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "rss",
+    "category": "Investor Positioning"
+  },
+  {
+    "name": "Garry Tan – GitHub Repos",
+    "url": "https://github.com/garrytan?tab=repositories",
+    "type": "web",
+    "category": "Investor Positioning"
+  },
+  {
+    "name": "Odd Lots (Bloomberg)",
+    "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8a94442e-5a74-4fa2-8b8d-ae27003a8d6b/982f5071-765c-403d-969d-ae27003a8d83/podcast.rss",
+    "type": "podcast",
+    "category": "Institutional Views"
+  },
+  {
+    "name": "Exchanges (Goldman Sachs)",
+    "url": "https://feeds.megaphone.fm/GLD9218176758",
+    "type": "podcast",
+    "category": "Institutional Views"
+  },
+  {
+    "name": "The Bid (BlackRock)",
+    "url": "https://rss.art19.com/the-bid",
+    "type": "podcast",
+    "category": "Institutional Views"
+  },
+  {
+    "name": "Money Stuff: The Podcast (Matt Levine)",
+    "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/ee4336cb-155f-4488-90e0-b1400134e40e/77e6a3a7-290d-4a82-8164-b14001353ef2/podcast.rss",
+    "type": "podcast",
+    "category": "Institutional Views"
+  },
+  {
+    "name": "All-In Podcast",
+    "url": "https://rss.libsyn.com/shows/254861/destinations/1928300.xml",
+    "type": "podcast",
+    "category": "Tech & AI Podcasts"
+  },
+  {
+    "name": "AI + a16z",
+    "url": "https://feeds.simplecast.com/Hb_IuXOo",
+    "type": "podcast",
+    "category": "Tech & AI Podcasts"
+  },
+  {
+    "name": "Lex Fridman Podcast",
+    "url": "https://lexfridman.com/feed/podcast/",
+    "type": "podcast",
+    "category": "Tech & AI Podcasts"
   },
   {
     "name": "Latent Space Podcast (swyx)",
     "url": "https://www.latent.space/feed",
-    "type": "podcast"
+    "type": "podcast",
+    "category": "Tech & AI Podcasts"
+  },
+  {
+    "name": "Arxiv – Trading & Market Microstructure (q-fin.TR)",
+    "url": "https://rss.arxiv.org/rss/q-fin.TR",
+    "type": "rss",
+    "category": "Research"
+  },
+  {
+    "name": "Arxiv – Portfolio Management (q-fin.PM)",
+    "url": "https://rss.arxiv.org/rss/q-fin.PM",
+    "type": "rss",
+    "category": "Research"
+  },
+  {
+    "name": "Arxiv – Statistical Finance (q-fin.ST)",
+    "url": "https://rss.arxiv.org/rss/q-fin.ST",
+    "type": "rss",
+    "category": "Research"
+  },
+  {
+    "name": "Arxiv – Computational Finance (q-fin.CP)",
+    "url": "https://rss.arxiv.org/rss/q-fin.CP",
+    "type": "rss",
+    "category": "Research"
   }
 ]
