@@ -77,75 +77,101 @@ def _parse_pub_date(entry) -> tuple:
 
 
 def _clean_xml(raw: bytes) -> bytes:
-    """Strip invalid XML 1.0 characters that cause expat to fail."""
+    """Strip invalid XML 1.0 characters and fix unescaped ampersands."""
     import re
     try:
         text = raw.decode("utf-8", errors="replace")
     except Exception:
         text = raw.decode("latin-1", errors="replace")
-    # Remove non-printable control chars (except tab, LF, CR)
+    # Remove invalid XML 1.0 control characters (keep tab=0x9, LF=0xA, CR=0xD)
     text = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]", "", text)
+    # Fix unescaped ampersands (not already part of a valid XML entity)
+    text = re.sub(r"&(?![a-zA-Z#][a-zA-Z0-9#]*;)", "&amp;", text)
     return text.encode("utf-8")
 
 
 def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
     """
-    Fallback: manually extract Atom/RSS entries using BeautifulSoup with
-    lxml-xml, which runs in recovery mode and handles mismatched/malformed tags.
-    Returns a list of raw item dicts with keys: id, title, link, content, pub_dt, pub_date.
+    Fallback: manually extract Atom/RSS entries using BeautifulSoup.
+    Tries parsers in order: lxml-xml (recovery mode), lxml (HTML mode), html.parser.
+    Handles namespaced Atom feeds (e.g. SEC EDGAR) by searching all tags.
+    Returns a list of raw item dicts: id, title, link, content, pub_dt, pub_date.
     """
     import re
-    try:
-        soup = BeautifulSoup(raw, "lxml-xml")
-        items = []
-        for entry in soup.find_all(["entry", "item"]):
-            title_tag = entry.find("title")
-            link_tag = entry.find("link")
-            id_tag = entry.find("id") or entry.find("guid")
-            pub_tag = entry.find(["updated", "published", "pubDate"])
-
-            link = ""
-            if link_tag:
-                link = link_tag.get("href") or link_tag.get_text(strip=True)
-            item_id = (id_tag.get_text(strip=True) if id_tag else "") or link
-
-            pub_str_raw = pub_tag.get_text(strip=True) if pub_tag else ""
-            pub_dt = None
-            pub_date = None
-            if pub_str_raw:
-                for fmt in (
-                    "%Y-%m-%dT%H:%M:%SZ",
-                    "%Y-%m-%dT%H:%M:%S%z",
-                    "%a, %d %b %Y %H:%M:%S %z",
-                    "%a, %d %b %Y %H:%M:%S GMT",
-                    "%Y-%m-%d",
-                ):
-                    try:
-                        pub_dt = datetime.strptime(pub_str_raw[:25], fmt)
-                        if pub_dt.tzinfo is None:
-                            pub_dt = pub_dt.replace(tzinfo=timezone.utc)
-                        pub_date = pub_dt.strftime("%Y-%m-%d")
-                        break
-                    except ValueError:
-                        continue
-
-            content_tag = entry.find(["content", "summary", "description"])
-            content = ""
-            if content_tag:
-                inner = content_tag.get_text(separator=" ", strip=True)
-                content = _strip_html(inner) if "<" in inner else inner[:2500]
-
-            items.append({
-                "id": item_id,
-                "title": title_tag.get_text(strip=True) if title_tag else "Untitled",
-                "link": link or source_url,
-                "content": content,
-                "pub_dt": pub_dt,
-                "pub_date": pub_date,
-            })
-        return items
-    except Exception:
+    soup = None
+    for parser in ("lxml-xml", "lxml", "html.parser"):
+        try:
+            soup = BeautifulSoup(raw, parser)
+            break
+        except Exception:
+            continue
+    if not soup:
         return []
+
+    # Find entry/item tags — covers both plain and namespace-prefixed names
+    entries = soup.find_all(re.compile(r"^(entry|item)$", re.I))
+    if not entries:
+        # Atom feeds with default namespace can appear as e.g. "feed" > "entry" in lxml-xml
+        entries = [t for t in soup.find_all(True)
+                   if t.name and t.name.split(":")[-1].lower() in ("entry", "item")]
+
+    items = []
+    for entry in entries:
+        def _find(*names):
+            for n in names:
+                # Try bare name and namespace-prefixed variants
+                t = entry.find(re.compile(rf"(?:^|:){re.escape(n)}$", re.I))
+                if t:
+                    return t
+            return None
+
+        title_tag = _find("title")
+        link_tag  = _find("link")
+        id_tag    = _find("id", "guid")
+        pub_tag   = _find("updated", "published", "pubDate", "dc:date")
+        content_tag = _find("content", "summary", "description")
+
+        link = ""
+        if link_tag:
+            link = link_tag.get("href") or link_tag.get_text(strip=True)
+        item_id = (id_tag.get_text(strip=True) if id_tag else "") or link
+
+        pub_str_raw = pub_tag.get_text(strip=True) if pub_tag else ""
+        pub_dt = None
+        pub_date = None
+        for fmt in (
+            "%Y-%m-%dT%H:%M:%SZ",
+            "%Y-%m-%dT%H:%M:%S%z",
+            "%a, %d %b %Y %H:%M:%S %z",
+            "%a, %d %b %Y %H:%M:%S GMT",
+            "%Y-%m-%d",
+        ):
+            try:
+                pub_dt = datetime.strptime(pub_str_raw[:25], fmt)
+                if pub_dt.tzinfo is None:
+                    pub_dt = pub_dt.replace(tzinfo=timezone.utc)
+                pub_date = pub_dt.strftime("%Y-%m-%d")
+                break
+            except ValueError:
+                continue
+
+        content = ""
+        if content_tag:
+            inner = content_tag.get_text(separator=" ", strip=True)
+            content = _strip_html(inner) if "<" in inner else inner[:2500]
+
+        if not item_id:
+            continue  # skip entries we can't identify
+
+        items.append({
+            "id": item_id,
+            "title": title_tag.get_text(strip=True) if title_tag else "Untitled",
+            "link": link or source_url,
+            "content": content,
+            "pub_dt": pub_dt,
+            "pub_date": pub_date,
+        })
+    return items
 
 
 def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
@@ -177,8 +203,8 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
             except Exception:
                 pass
 
-        # Level 3: if feedparser still has no entries, use BS4/lxml recovery
-        if (feed.bozo and not feed.entries) or not feed.entries:
+        # Level 3: if feedparser is still bozo with no entries, use BS4/lxml recovery
+        if feed.bozo and not feed.entries:
             if raw is None:
                 try:
                     import urllib.request
