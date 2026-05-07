@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Daily content digest — fetch new items, summarize with Groq, publish to GitHub Pages."""
+"""Daily content digest â fetch new items, summarize with Groq, publish to GitHub Pages."""
 
 import hashlib
 import json
@@ -36,7 +36,7 @@ LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "26"))
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 
-# ── State ─────────────────────────────────────────────────────────────────────
+# ââ State âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 def load_state() -> dict:
     if STATE_FILE.exists():
@@ -58,7 +58,7 @@ def save_state(state: dict):
     }, indent=2))
 
 
-# ── Fetching ──────────────────────────────────────────────────────────────────
+# ââ Fetching ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 def _strip_html(html: str, max_chars: int = 2500) -> str:
     return BeautifulSoup(html, "html.parser").get_text(separator=" ", strip=True)[:max_chars]
@@ -93,7 +93,7 @@ def _clean_xml(raw: bytes) -> bytes:
 def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
     """
     Fallback: manually extract Atom/RSS entries using BeautifulSoup.
-    Uses html.parser first (most lenient — ignores XML namespaces and bad chars),
+    Uses html.parser first (most lenient â ignores XML namespaces and bad chars),
     then lxml/lxml-xml as alternatives.
     Returns a list of raw item dicts: id, title, link, content, pub_dt, pub_date.
     """
@@ -182,9 +182,11 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
       3. BeautifulSoup lxml-xml recovery mode (handles mismatched tags)
     """
     seen_ids = state["seen"]
+    ua = "MorningDigestBot/1.0 (+https://github.com/2310renhe/morning-digest)"
     try:
-        # Level 1: standard feedparser
-        feed = feedparser.parse(source["url"])
+        # Level 1: feedparser with a browser-like User-Agent
+        # (SEC EDGAR and Cloudflare-protected sites block feedparser's default UA)
+        feed = feedparser.parse(source["url"], request_headers={"User-Agent": ua})
         raw = None
 
         if feed.bozo and not feed.entries:
@@ -192,10 +194,13 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
             try:
                 import urllib.request
                 raw = urllib.request.urlopen(
-                    urllib.request.Request(source["url"], headers={"User-Agent": "Mozilla/5.0"}),
+                    urllib.request.Request(source["url"], headers={"User-Agent": ua}),
                     timeout=15,
                 ).read()
                 feed = feedparser.parse(_clean_xml(raw))
+                if feed.bozo and not feed.entries:
+                    # Also try without cleaning (encoding-declaration mismatch)
+                    feed = feedparser.parse(raw)
             except Exception:
                 pass
 
@@ -205,13 +210,16 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
                 try:
                     import urllib.request
                     raw = urllib.request.urlopen(
-                        urllib.request.Request(source["url"], headers={"User-Agent": "Mozilla/5.0"}),
+                        urllib.request.Request(source["url"], headers={"User-Agent": ua}),
                         timeout=15,
                     ).read()
                 except Exception:
                     pass
             if raw:
-                bs4_items = _bs4_parse_feed(raw, source["url"])
+                # Try cleaned bytes first, then raw (handles encoding edge cases)
+                bs4_items = _bs4_parse_feed(_clean_xml(raw), source["url"])
+                if not bs4_items:
+                    bs4_items = _bs4_parse_feed(raw, source["url"])
                 if bs4_items:
                     # Process the manually-parsed items the same way
                     new_items = []
@@ -322,7 +330,7 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
         item = {"id": item_id, "title": title, "link": source["url"], "content": text, "pub_date": today}
 
         if item_id in seen_ids:
-            # No change — build fallback from stored info
+            # No change â build fallback from stored info
             stored = last_items.get(source["url"], {})
             fallback = {
                 "title": stored.get("title", title),
@@ -340,7 +348,7 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
         return [], None, str(e)
 
 
-# ── Summarization ─────────────────────────────────────────────────────────────
+# ââ Summarization âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 def summarize(client: Groq, source_name: str, items: list) -> str:
     blocks = []
@@ -361,11 +369,11 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
 Use this exact format:
 
 **New this period:**
-- [one-line bullet per item — what it is and why it matters]
+- [one-line bullet per item â what it is and why it matters]
 
 **Details:**
 **[Title](url)**
-2–3 sentences on the key point and takeaway.
+2â3 sentences on the key point and takeaway.
 
 Items:
 {combined}"""}
@@ -374,7 +382,7 @@ Items:
     return resp.choices[0].message.content
 
 
-# ── HTML output ───────────────────────────────────────────────────────────────
+# ââ HTML output âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 def md_to_html_simple(text: str) -> str:
     """Very lightweight markdown-to-HTML for the summary output."""
@@ -424,7 +432,7 @@ def build_html(date_str: str, results: list) -> str:
 
         # Header badge
         if is_fresh and latest_date:
-            badge = f'<span class="badge fresh">🆕 {latest_date}</span>'
+            badge = f'<span class="badge fresh">ð {latest_date}</span>'
         elif latest_date:
             badge = f'<span class="badge stale">last: {latest_date}</span>'
         else:
@@ -434,7 +442,7 @@ def build_html(date_str: str, results: list) -> str:
         block += f'<h2>{name} {badge}</h2>\n'
 
         if error:
-            block += f'<p class="error">⚠️ {error}</p>\n'
+            block += f'<p class="error">â ï¸ {error}</p>\n'
 
         if summary:
             block += md_to_html_simple(summary) + "\n"
@@ -443,7 +451,7 @@ def build_html(date_str: str, results: list) -> str:
             if latest_title and latest_link:
                 block += f'<p class="quiet-note">No new posts. Latest: <a href="{latest_link}">{latest_title}</a></p>\n'
             elif latest_link:
-                block += f'<p class="quiet-note">No changes detected. <a href="{latest_link}">View source →</a></p>\n'
+                block += f'<p class="quiet-note">No changes detected. <a href="{latest_link}">View source â</a></p>\n'
             else:
                 block += '<p class="quiet-note">No new items.</p>\n'
 
@@ -457,7 +465,7 @@ def build_html(date_str: str, results: list) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morning Digest — {date_str}</title>
+  <title>Morning Digest â {date_str}</title>
   <style>
     body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.7; }}
     h1 {{ font-size: 1.8em; border-bottom: 2px solid #eee; padding-bottom: 10px; }}
@@ -480,8 +488,8 @@ def build_html(date_str: str, results: list) -> str:
   </style>
 </head>
 <body>
-  <h1>☕ Morning Digest — {date_str}</h1>
-  <p class="meta">Generated {now_str} &nbsp;·&nbsp; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &nbsp;·&nbsp; <a href="archive/">archive</a></p>
+  <h1>â Morning Digest â {date_str}</h1>
+  <p class="meta">Generated {now_str} &nbsp;Â·&nbsp; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &nbsp;Â·&nbsp; <a href="archive/">archive</a></p>
   {content_html}
   <hr>
   <p class="meta">Powered by <a href="https://github.com/2310renhe/morning-digest">morning-digest</a></p>
@@ -495,7 +503,7 @@ def build_archive_index(dates: list) -> str:
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Morning Digest — Archive</title>
+  <title>Morning Digest â Archive</title>
   <style>
     body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }}
     a {{ color: #0066cc; }}
@@ -503,20 +511,20 @@ def build_archive_index(dates: list) -> str:
   </style>
 </head>
 <body>
-  <h1>☕ Digest Archive</h1>
+  <h1>â Digest Archive</h1>
   <ul>
 {items}
   </ul>
-  <p><a href="../index.html">← Today's digest</a></p>
+  <p><a href="../index.html">â Today's digest</a></p>
 </body>
 </html>"""
 
 
-# ── Email ─────────────────────────────────────────────────────────────────────
+# ââ Email âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 def send_email(subject: str, body: str):
     if not all([EMAIL_FROM, EMAIL_TO, EMAIL_PASSWORD]):
-        print("  Email not configured — skipping.")
+        print("  Email not configured â skipping.")
         return
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
@@ -530,7 +538,7 @@ def send_email(subject: str, body: str):
     print("  Email sent.")
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# ââ Main ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 def main():
     ARCHIVE_DIR.mkdir(exist_ok=True)
@@ -566,7 +574,7 @@ def main():
             continue
 
         if new_items:
-            print(f"  {len(new_items)} new item(s) — summarizing...")
+            print(f"  {len(new_items)} new item(s) â summarizing...")
             # Collect publish dates for the badge
             pub_dates = [i["pub_date"] for i in new_items if i.get("pub_date")]
             latest_date = max(pub_dates) if pub_dates else date_str
@@ -589,7 +597,7 @@ def main():
                     "latest_date": latest_date,
                 })
         else:
-            # No new items — show latest available
+            # No new items â show latest available
             print(f"  No new items. Latest: {fallback['title'] if fallback else 'unknown'} ({fallback.get('pub_date', '?') if fallback else '?'})")
             results.append({
                 "name": source["name"],
@@ -616,11 +624,11 @@ def main():
     # Email: only mention sources with fresh content
     fresh = [r for r in results if r.get("is_fresh") and r.get("summary")]
     if fresh:
-        subject = f"☕ Morning Digest — {date_str} | {len(fresh)} source{'s' if len(fresh) != 1 else ''} updated"
+        subject = f"â Morning Digest â {date_str} | {len(fresh)} source{'s' if len(fresh) != 1 else ''} updated"
         bullets = []
         for r in fresh:
             bullet_lines = [l.strip() for l in r["summary"].splitlines() if l.strip().startswith("- ")]
-            bullets.append(f"• {r['name']} ({len(bullet_lines)} items)")
+            bullets.append(f"â¢ {r['name']} ({len(bullet_lines)} items)")
         body = (
             f"New content in today's digest:\n\n"
             + "\n".join(bullets)
