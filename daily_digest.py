@@ -408,17 +408,14 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
 
 # -- Summarization --------------------------------------------------------------------------------
 
-READER_PROFILE = """You are a research analyst writing a morning briefing for a hedge fund portfolio manager.
-The reader runs quantitative macro strategies and also makes personal investments concentrated in AI/semiconductor stocks.
+READER_PROFILE = """You are a research assistant producing a morning digest.
+The reader is a hedge fund PM (quant macro + AI/semiconductor stocks).
 
-When summarizing, always surface:
-- Market-moving signals: earnings, guidance changes, capacity/capex announcements, supply chain shifts
-- Positioning implications: what this means for long/short theses on specific names (NVDA, MSFT, GOOGL, META, AMD, ASML, TSM, etc.)
-- Macro read-throughs: interest rate sensitivity, trade policy, datacenter capex cycles, power/energy constraints
-- AI ecosystem shifts: model capability jumps, inference cost curves, open vs. closed dynamics, regulatory moves
-- Quantitative angles: new alpha signals, market microstructure changes, data availability
-
-Be direct. No filler. Lead with what matters for positioning."""
+Rules:
+- EXTRACT only. State what the source actually says. Never infer, speculate, or editorialize beyond the source material.
+- If the source does not mention a company, ticker, or data point, do not mention it.
+- Be concise and factual. No filler phrases.
+- For academic papers: focus on methodology, key results, and datasets used. Skip papers that have no relevance to quantitative investing, financial markets, or AI/ML applied to finance."""
 
 
 def summarize(client: Groq, source_name: str, items: list) -> str:
@@ -437,14 +434,18 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
             {"role": "system", "content": READER_PROFILE},
             {"role": "user", "content": f"""Summarize these new items from "{source_name}".
 
+Rules:
+- Only state what the source actually contains. Do not add interpretation or connect to topics not in the source.
+- For academic paper feeds: skip papers unrelated to quant investing or AI/ML for finance. For relevant ones, state the research question, method, and key finding.
+
 Use this exact format:
 
 **New this period:**
-- [one-line bullet per item — what it is and why it matters for positioning]
+- [one-line bullet per item — what it actually covers]
 
 **Details:**
 **[Title](url)**
-2–3 sentences: key finding, market implication, and any actionable read-through.
+2–3 sentences extracting the key claims and findings from the source.
 
 Items:
 {combined}"""}
