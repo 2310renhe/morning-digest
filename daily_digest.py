@@ -172,6 +172,61 @@ def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
     return items
 
 
+def _fetch_podcast_transcript(feed_url: str, episode_id: str, ua: str) -> str:
+    """
+    Try to fetch a podcast transcript from <podcast:transcript> tags in the feed.
+    Returns plain text transcript (up to 20k chars) or empty string.
+    """
+    import re
+    try:
+        raw = requests.get(feed_url, headers={"User-Agent": ua}, timeout=15).text
+        # Find the <item> block containing this episode (match by guid/id)
+        # We search for transcript tags near the episode ID
+        # Strategy: find all items, match by episode_id, extract transcript URL
+        items = re.split(r'<item\b', raw)
+        for item_block in items:
+            if episode_id not in item_block:
+                continue
+            # Prefer text/plain format, fall back to SRT
+            # Attribute order varies, so match the full tag then extract url + type
+            all_tags = re.findall(r'<podcast:transcript([^>]+)/>', item_block)
+            txt_urls = []
+            srt_urls = []
+            for attrs in all_tags:
+                url_m = re.search(r'url="([^"]+)"', attrs)
+                type_m = re.search(r'type="([^"]+)"', attrs)
+                if not url_m:
+                    continue
+                t = type_m.group(1) if type_m else ""
+                u = url_m.group(1)
+                if "text/plain" in t:
+                    txt_urls.append(u)
+                elif "application/srt" in t:
+                    srt_urls.append(u)
+            transcript_url = (txt_urls[0] if txt_urls else srt_urls[0] if srt_urls else "")
+            if not transcript_url:
+                continue
+            transcript_url = transcript_url.replace("&amp;", "&")
+            resp = requests.get(transcript_url, headers={"User-Agent": ua}, timeout=20)
+            if resp.status_code != 200:
+                continue
+            text = resp.text
+            # Strip SRT timestamps if present (lines like "00:01:23,456 --> 00:01:25,789")
+            text = re.sub(r'\d{2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{2}:\d{2}:\d{2}[,\.]\d{3}\s*', '', text)
+            # Strip plain-text timestamps (lines like "00:01:23")
+            text = re.sub(r'^\d{2}:\d{2}:\d{2}\s*$', '', text, flags=re.MULTILINE)
+            # Strip SRT sequence numbers (standalone digits on a line)
+            text = re.sub(r'^\d+\s*$', '', text, flags=re.MULTILINE)
+            # Collapse blank lines
+            text = re.sub(r'\n{3,}', '\n\n', text).strip()
+            if len(text) > 500:  # sanity check — must be a real transcript
+                print(f"    [transcript] Got {len(text)} chars")
+                return text[:20000]
+    except Exception:
+        pass
+    return ""
+
+
 def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
     Returns (new_items, fallback_item, error).
@@ -742,6 +797,16 @@ def main():
             new_items, fallback, err = fetch_rss(source, state, cutoff)
         else:
             new_items, fallback, err = fetch_web(source, state, cutoff)
+
+        # For podcasts, try to enrich items with full transcripts
+        if stype == "podcast":
+            ua = "MorningDigest/1.0 contact@morningdigest.dev"
+            targets = new_items if new_items else ([fallback] if fallback else [])
+            for item in targets:
+                if item and item.get("id") and len(item.get("content", "")) < 2000:
+                    transcript = _fetch_podcast_transcript(source["url"], item["id"], ua)
+                    if transcript:
+                        item["content"] = transcript
 
         cat = source.get("category", "Other")
 
