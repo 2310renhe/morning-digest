@@ -79,11 +79,16 @@ The `build_html()` function generates a categorized page with:
 
 ## Summarization
 
-Uses Groq API (`llama-3.3-70b-versatile` by default) to summarize new items per source. The prompt asks for:
-- **New this period:** one-line bullets
-- **Details:** 2-3 sentence summaries with linked titles
+Uses Groq API (`llama-3.3-70b-versatile` by default) to summarize new items per source. Max 1500 tokens per source. Content is truncated to 2500 chars before sending.
 
-Max 1500 tokens per source. Content is truncated to 2500 chars before sending.
+**Reader profile (in `READER_PROFILE` constant):** Tailored for a hedge fund PM running quant macro strategies with personal AI/semiconductor stock investments. The LLM is prompted to surface:
+- Market-moving signals (earnings, guidance, capex, supply chain)
+- Positioning implications for specific names (NVDA, MSFT, GOOGL, META, AMD, ASML, TSM, etc.)
+- Macro read-throughs (rates, trade policy, datacenter capex cycles, power constraints)
+- AI ecosystem shifts (model capabilities, inference costs, open/closed dynamics, regulation)
+- Quantitative angles (new alpha signals, microstructure, data availability)
+
+**Summary persistence:** Summaries are cached in `state.json` under `summaries[source_name]`. When a source has no new items, the cached summary from its last update is displayed (dimmed) so every source always shows context, not just a bare title.
 
 ## Environment Variables
 

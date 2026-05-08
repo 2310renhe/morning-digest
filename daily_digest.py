@@ -43,18 +43,20 @@ def load_state() -> dict:
         data = json.loads(STATE_FILE.read_text())
         # Migrate old format (just a list of seen IDs)
         if isinstance(data, list):
-            return {"seen": set(data), "last_items": {}}
+            return {"seen": set(data), "last_items": {}, "summaries": {}}
         return {
             "seen": set(data.get("seen", [])),
             "last_items": data.get("last_items", {}),
+            "summaries": data.get("summaries", {}),
         }
-    return {"seen": set(), "last_items": {}}
+    return {"seen": set(), "last_items": {}, "summaries": {}}
 
 
 def save_state(state: dict):
     STATE_FILE.write_text(json.dumps({
         "seen": list(state["seen"])[-15000:],
         "last_items": state["last_items"],
+        "summaries": state["summaries"],
     }, indent=2))
 
 
@@ -406,6 +408,19 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
 
 # -- Summarization --------------------------------------------------------------------------------
 
+READER_PROFILE = """You are a research analyst writing a morning briefing for a hedge fund portfolio manager.
+The reader runs quantitative macro strategies and also makes personal investments concentrated in AI/semiconductor stocks.
+
+When summarizing, always surface:
+- Market-moving signals: earnings, guidance changes, capacity/capex announcements, supply chain shifts
+- Positioning implications: what this means for long/short theses on specific names (NVDA, MSFT, GOOGL, META, AMD, ASML, TSM, etc.)
+- Macro read-throughs: interest rate sensitivity, trade policy, datacenter capex cycles, power/energy constraints
+- AI ecosystem shifts: model capability jumps, inference cost curves, open vs. closed dynamics, regulatory moves
+- Quantitative angles: new alpha signals, market microstructure changes, data availability
+
+Be direct. No filler. Lead with what matters for positioning."""
+
+
 def summarize(client: Groq, source_name: str, items: list) -> str:
     blocks = []
     for item in items:
@@ -419,17 +434,17 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
         model=GROQ_MODEL,
         max_tokens=1500,
         messages=[
-            {"role": "system", "content": "You are a concise research assistant writing a morning digest. Be direct and informative."},
+            {"role": "system", "content": READER_PROFILE},
             {"role": "user", "content": f"""Summarize these new items from "{source_name}".
 
 Use this exact format:
 
 **New this period:**
-- [one-line bullet per item — what it is and why it matters]
+- [one-line bullet per item — what it is and why it matters for positioning]
 
 **Details:**
 **[Title](url)**
-2–3 sentences on the key point and takeaway.
+2–3 sentences: key finding, market implication, and any actionable read-through.
 
 Items:
 {combined}"""}
@@ -718,6 +733,11 @@ def main():
             latest_date = max(pub_dates) if pub_dates else date_str
             try:
                 summary = summarize(client, source["name"], new_items)
+                # Persist summary so stale items still show context on future runs
+                state["summaries"][source["name"]] = {
+                    "text": summary,
+                    "date": latest_date,
+                }
                 results.append({
                     "name": source["name"],
                     "category": cat,
@@ -737,17 +757,24 @@ def main():
                     "latest_date": latest_date,
                 })
         else:
-            # No new items — show latest available
-            print(f"  No new items. Latest: {fallback['title'] if fallback else 'unknown'} ({fallback.get('pub_date', '?') if fallback else '?'})")
-            results.append({
+            # No new items — show cached summary if available, otherwise just title
+            cached = state["summaries"].get(source["name"])
+            fb_title = fallback['title'] if fallback else 'unknown'
+            fb_date = fallback.get('pub_date', '?') if fallback else '?'
+            print(f"  No new items. Latest: {fb_title} ({fb_date})"
+                  + (" [cached summary]" if cached else ""))
+            result = {
                 "name": source["name"],
                 "category": cat,
                 "is_fresh": False,
-                "latest_date": fallback.get("pub_date") if fallback else None,
+                "latest_date": cached["date"] if cached else (fallback.get("pub_date") if fallback else None),
                 "latest_title": fallback.get("title") if fallback else None,
                 "latest_link": fallback.get("link") if fallback else source.get("url"),
                 "error": err,
-            })
+            }
+            if cached:
+                result["summary"] = cached["text"]
+            results.append(result)
 
     # Always write index.html
     html = build_html(date_str, results)
