@@ -1,5 +1,139 @@
 {
-  "seen": [],
-  "last_items": {},
-  "summaries": {}
+  "seen": [
+    "oai:arXiv.org:2605.06220v1",
+    "gid://art19-episode-locator/V0/HMcaWu1_Zf3Bcx_5hPZ3dlEKdTyiA9gjtNYOLyUTeM4",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "oai:arXiv.org:2412.00658v2",
+    "oai:arXiv.org:2605.05211v1",
+    "https://simonwillison.net/2026/May/7/big-words/#atom-everything",
+    "https://github.com/garrytan?tab=repositories#983dddf7e3a55ad3",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "https://www.latent.space/p/ainews-gpt-realtime-2-translate-and",
+    "https://simonwillison.net/2026/May/7/xai-anthropic/#atom-everything",
+    "oai:arXiv.org:2605.05739v1",
+    "oai:arXiv.org:2605.06570v1",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "https://www.deeplearning.ai/the-batch/#bf971214a69e8747",
+    "https://thezvi.substack.com/p/ai-167-the-prior-restraint-era-begins",
+    "oai:arXiv.org:2605.05376v1",
+    "oai:arXiv.org:2605.05140v2",
+    "oai:arXiv.org:2605.06281v1",
+    "oai:arXiv.org:2605.02040v2",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "oai:arXiv.org:2508.07068v2",
+    "oai:arXiv.org:2603.11046v3",
+    "oai:arXiv.org:2605.06604v1",
+    "https://github.com/karpathy?tab=repositories#e9e5abcfe0b3c8d8",
+    "oai:arXiv.org:2411.16666v4",
+    "https://simonwillison.net/2026/May/7/firefox-claude-mythos/#atom-everything"
+  ],
+  "last_items": {
+    "https://github.com/karpathy?tab=repositories": {
+      "title": "karpathy (Andrej) / Repositories \u00b7 GitHub",
+      "date": "2026-05-08"
+    },
+    "https://darioamodei.com/": {
+      "title": "Dario Amodei",
+      "date": "2026-05-08"
+    },
+    "https://www.deeplearning.ai/the-batch/": {
+      "title": "The Batch | DeepLearning.AI | AI News & Insights",
+      "date": "2026-05-08"
+    },
+    "https://github.com/garrytan?tab=repositories": {
+      "title": "garrytan (Garry Tan) / Repositories \u00b7 GitHub",
+      "date": "2026-05-08"
+    }
+  },
+  "summaries": {
+    "SemiAnalysis": {
+      "text": "**New this period:**\n- AI value capture and the shift to model labs, driven by rapid AI adoption and improving hardware and software.\n\n**Details:**\n**AI Value Capture - The Shift To Model Labs** (https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model)\nThe article discusses the rapid growth of AI adoption, with Anthropic's ARR increasing from $9B to over $44B and gross margins rising from 38% to over 70%. The value of tokens is dramatically improving businesses, with SemiAnalysis spending up to $10.95 million annually on Anthropic Claude tokens. New chips such as Blackwells can generate 30x more tokens per second, and inference providers' margins are widening while their revenue trends are in hyper growth.",
+      "date": "2026-05-01"
+    },
+    "Andrej Karpathy \u2013 Blog": {
+      "text": "**New this period:**\n- microgpt, a single file of 200 lines of pure Python that trains and infers a GPT, is introduced.\n\n**Details:**\n**microgpt (http://karpathy.github.io/2026/02/12/microgpt/)**\nThe microgpt project is a simplified implementation of a GPT-like neural network architecture, containing a dataset of documents, tokenizer, autograd engine, Adam optimizer, training loop, and inference loop. The project uses a dataset of 32,000 names as input and trains a model to learn patterns in the data and generate similar new documents. The model is able to generate new, plausible-sounding names, such as \"kamon\", \"ann\", and \"karai\", after training.",
+      "date": "2026-02-12"
+    },
+    "Andrej Karpathy \u2013 YouTube": {
+      "text": "**New this period:**\n- A puzzle covering 10 points as part of the 2026 Year of Math.\n\n**Details:**\n**Covering 10 points, a surprisingly tricky puzzle.** (https://www.youtube.com/shorts/QLu_ZsRc_G0)\nThe puzzle is part of a monthly series for the 2026 Year of Math. It presents a challenge involving 10 points. The puzzle is described as \"surprisingly tricky\".",
+      "date": "2026-04-16"
+    },
+    "Andrej Karpathy \u2013 GitHub Repos": {
+      "text": "**New this period:**\n- nanochat repository with 53,109 stars, a ChatGPT implementation\n- karpathy.github.io repository with 1,447 stars, containing the author's blog\n- autoresearch repository with 79,715 stars, for AI agents running research on single-GPU nanochat training\n- jobs repository with 1,632 stars, a research tool for exploring Bureau of Labor Statistics data\n- rustbpe repository with 449 stars, containing tiktoken training code\n- cpython repository with 68 stars, a fork of the Python programming language\n- hn-time-capsule repository with 620 stars, analyzing Hacker News discussions with LLMs\n- llm-council repository with 18,478 stars, for answering questions with LLMs\n- reader3 repository with 3,597 stars, for reading books with LLMs\n- nanoGPT repository, for training/finetuning medium-sized GPTs\n\n**Details:**\n**nanochat** (https://github.com/karpathy/nanochat)\nThe nanochat repository contains a ChatGPT implementation with 53,109 stars. It is described as \"The best ChatGPT that $100 can buy\" and was updated on May 5, 2026. The repository is authored by Andrej Karpathy and has 7,115 forks. \nThe autoresearch repository is related to AI agents running research on single-GPU nanochat training. \nAndrej Karpathy's profile on GitHub indicates he likes to train Deep Neural Nets on large datasets.",
+      "date": "2026-05-08"
+    },
+    "Zvi Mowshowitz \u2013 Don't Worry About the Vase": {
+      "text": "**New this period:**\n- TheZvi discusses the beginning of the \"Prior Restraint Era\" in AI model development.\n\n**Details:**\n**AI #167: The Prior Restraint Era Begins** (https://thezvi.substack.com/p/ai-167-the-prior-restraint-era-begins)\nThe source states that the era of training frontier models and then releasing them whenever desired is ending. It mentions the start of the \"Prior Restraint Era\" in AI model development, implying a change in how models are released. The post discusses the implications of this shift.",
+      "date": "2026-05-07"
+    },
+    "Scott Alexander \u2013 Astral Codex Ten": {
+      "text": "**New this period:**\n- The post discusses Reddit Vexillology and its views on flag design, including simplicity and the rule of tincture.\n\n**Details:**\n**Three Model Organisms For Taste (2026-05-08)**(https://www.astralcodexten.com/p/three-model-organisms-for-taste)\nThe post compares Reddit Vexillology to a simple model organism, allowing for observation of aesthetic dynamics. It outlines the \"code of good flags\", which includes simplicity, no images or text, and adherence to the rule of tincture, where \"metal\" (yellow and white) should not touch \"color\" (other colors). The post notes a growing resistance to these traditional vexillological guidelines, with some arguing for morecomplex designs.",
+      "date": "2026-05-08"
+    },
+    "Ethan Mollick \u2013 One Useful Thing": {
+      "text": "**New this period:**\n- GPT-5.5 and its capabilities in coding and procedurally generated 3D simulations\n\n**Details:**\n**Sign of the future: GPT-5.5** (https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55)\nThe author had early access to GPT-5.5 and believes it is a significant improvement in AI capabilities. GPT-5.5 Pro was given a coding challenge to build a procedurally generated 3D simulation of a harbor town's evolution, and it outperformed other AI models, including OpenAI's previous models and Kimi K2.6. GPT-5.5 Pro was able to model an evolving town and completed the task faster than its previous iteration, GPT-5.4 Pro.",
+      "date": "2026-04-23"
+    },
+    "Simon Willison": {
+      "text": "**New this period:**\n- llm-gemini 0.31 release notes\n- Big Words tool for generating simple slides\n- Behind the Scenes Hardening Firefox with Claude Mythos Preview\n- Notes on the xAI/Anthropic data center deal\n\n**Details:**\n**llm-gemini 0.31** (https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything)\nThe llm-gemini 0.31 release notes mention that gemini-3.1-flash-lite is no longer a preview. The author notes that this new non-preview model has not changed since the Gemini 3.1 Flash-Lite Preview model. The release is related to generative AI and llms.\n\n**Big Words** (https://simonwillison.net/2026/May/7/big-words/#atom-everything)\nThe Big Words tool is used to generate simple slides with text. The tool accepts query string arguments and turns them into a simple slide. The author used this tool to put together a talk and added a slide with text.\n\n**Behind the Scenes Hardening Firefox with Claude Mythos Preview** (https://simonwillison.net/2026/May/7/firefox-claude-mythos/#atom-everything)\nMozilla used the Claude Mythos preview to locate and fix hundreds of vulnerabilities in Firefox. The models got more capable and Mozilla improved their techniques for harnessing these models. They fixed around 20-30 security bugs in Firefox per month through 2025, which jumped to 423 in April.\n\n**Notes on the xAI/Anthropic data center deal** (https://simonwillison.net/2026/May/7/xai-anthropic/#atom-everything)\nAnthropic struck a deal with SpaceX/xAI to use the capacity of their Colossus data center. The data center has a bad environmental record, and Anthropic are severely compute-constrained. xAI are keeping their larger Colossus 2 data center for their own work, and they sent out a deprecation notice for Grok 4.1 Fast and several other models.",
+      "date": "2026-05-07"
+    },
+    "Dario Amodei \u2013 Essays": {
+      "text": "**New this period:**\n- Dario Amodei's background and experience in AI research and development\n- List of essays, research, and interviews by Dario Amodei\n\n**Details:**\n**Dario Amodei (https://darioamodei.com/)**\nDario Amodei is the CEO of Anthropic, a public benefit corporation focused on building safe and interpretable AI systems. He has a background in AI research, having led the development of large language models like GPT-2 and GPT-3 at OpenAI, and worked as a Senior Research Scientist at Google Brain. His website lists his essays, research, and interviews, including topics such as the urgency of interpretability and the need for basic transparency rules in AI.",
+      "date": "2026-05-08"
+    },
+    "Import AI \u2013 Jack Clark": {
+      "text": "**New this period:**\n- Automating AI research and potential for no-human-involved AI R&D by the end of 2028.\n\n**Details:**\n**Import AI 455: Automating AI Research** (https://jack-clark.net/2026/05/04/import-ai-455-automating-ai-research/)\nThe author believes there is a likely chance (60%+) that no-human-involved AI R&D will happen by the end of 2028, based on publicly available information from arXiv, bioRxiv, and NBER. The author thinks all the pieces are in place for automating the production of today's AI systems, and that scaling trends may lead to models being creative enough to substitute for human researchers. The author plans to spend most of 2026 working through the implications of automated AI R&D.",
+      "date": "2026-05-04"
+    },
+    "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
+      "text": "**New this period:**\n- GPT-5.5 Outperforms and Hallucinates\n- Kimi K2.6 Leads Open LLMs\n- AI Strains Climate Pledges\n- Strategic Thinking in LLMs vs. Humans\n- Introducing DeepLearning.AI Pro\n- Reinforcement Learning Heats Up\n- White House Orders Muscular AI Policy\n- GLM 5.1 Thinks Strategically\n- Meta Pivots From Open Weights\n- Big Pharma Bets On AI\n- Anthropic\u2019s Claude Mythos Problem\n- Nvidia\u2019s Open Salvo\n- OpenAI\u2019s Amazon Deal\n- Recursive Language Models\n\n**Details:**\n**The Batch | DeepLearning.AI | AI News & Insights (2026-05-08)** (https://www.deeplearning.ai/the-batch/)\nThe Batch provides updates on the latest AI news and insights, including GPT-5.5's performance and hallucinations, Kimi K2.6 leading open LLMs, and the White House's orders for a muscular AI policy. The newsletter also covers various AI-related topics, such as reinforcement learning, Meta's pivot from open weights, and Big Pharma's bets on AI. Additionally, it mentions the introduction of DeepLearning.AI Pro and the development of recursive language models.",
+      "date": "2026-05-08"
+    },
+    "Garry Tan \u2013 GitHub Repos": {
+      "text": "**New this period:**\n- Garry Tan's GitHub repositories, including gbrain, gstack, gbrain-evals, openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, and zurb-foundation-wysihtml5.\n\n**Details:**\n**Garry Tan's GitHub Repositories** (https://github.com/garrytan?tab=repositories)\nGarry Tan's GitHub repositories include various projects such as gbrain, an opinionated OpenClaw/Hermes Agent Brain, and gstack, a setup with 23 opinionated tools. The repositories are written in different programming languages, including TypeScript, HTML, Dockerfile, JavaScript, and Ruby. The repositories have various update dates, with some updated as recently as May 8, 2026.",
+      "date": "2026-05-08"
+    },
+    "Odd Lots (Bloomberg)": {
+      "text": "**New this period:**\n- Mariana Mazzucato discusses the need for more moonshots and her concept of the \"mission economy\" in an interview.\n\n**Details:**\n**Mariana Mazzucato Thinks We Need More Moonshots**(https://omny.fm/shows/odd-lots/mariana-mazzucato-thinks-we-need-more-moonshots)\nMariana Mazzucato, director of the University College London Institute for Innovation and Public Purpose, discusses her concept of the \"mission economy\" and state capacity. She also talks about preventing top talent from fleeing to the private sector and the role of consultants and governments in inefficiencies and civic failures. The conversation covers topics such as the initial public financing of Silicon Valley algorithms and the history of moonshots.",
+      "date": "2026-05-08"
+    },
+    "Exchanges (Goldman Sachs)": {
+      "text": "**New this period:**\n- Will AI Make Markets Less Efficient? podcast episode\n\n**Details:**\n**Will AI Make Markets Less Efficient?**(https://feeds.megaphone.fm/GLD9218176758)\nThis episode features Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management, discussing the impact of AI on quantitative investment strategies. Ali explains how AI is changing investment strategies in the quantitative investment space. The episode was recorded on May 1, 2026, and the opinions expressed are as of the date of publication, subject to change without notice.",
+      "date": "2026-05-06"
+    },
+    "The Bid (BlackRock)": {
+      "text": "**New this period:**\n- Retirement systems are undergoing a structural shift with traditional pensions declining and individuals taking on greater responsibility for financial outcomes.\n\n**Details:**\n**The Top Retirement Trends That Are Reshaping Investing, Income and Longevity** (https://rss.art19.com/the-bid)\nThe conversation between Oscar Pulido and Nick Nefouse explores the shift from accumulation to income generation in retirement planning, particularly during the \"retirement window\". Key insights include the impact of longevity on retirement timelines, the role of target date funds, and the convergence of global retirement systems. The discussion is based on sources including the BlackRock Retirement Trends Report, 2025, and a report from the Federal Reserve Bank of St. Louis.",
+      "date": "2026-05-08"
+    },
+    "Money Stuff: The Podcast (Matt Levine)": {
+      "text": "**New this period:**\n- Timeless Wisdom: A Mailbag Episode\n\n**Details:**\n**Timeless Wisdom: A Mailbag Episode**(https://omny.fm/shows/money-stuff-the-podcast/timeless-wisdom-a-mailbag-episode)\nKatie and Matt discuss various financial topics in a mailbag episode. They cover subjects including financial advisers, private credit, and finance book recommendations. The discussion also touches on call options, expected returns, and the market for corporate control, among other topics.",
+      "date": "2026-05-08"
+    },
+    "All-In Podcast": {
+      "text": "**New this period:**\n- OpenAI misses revenue and user targets\n- Comparison between Codex and Claude\n- Elon Musk vs Sam Altman trial\n- Big tech companies' earnings and Capex explosion\n- AI cybersecurity market growth\n- Peptide craze and Retatrutide\n\n**Details:**\n**OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze** (https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze)\nThe podcast discusses OpenAI missing its revenue and user targets, with Codex gaining on Claude. It also covers the trial between Elon Musk and Sam Altman, and the recent earnings and Capex explosion of big tech companies. Additionally, the podcast touches on the growth of the AI cybersecurity market and the increasing popularity of peptides, particularly Retatrutide.",
+      "date": "2026-05-01"
+    },
+    "AI + a16z": {
+      "text": "**New this period:**\n- The shift from vector databases to knowledge engines and its implications for AI systems.\n\n**Details:**\n**From Vector Databases to Knowledge Engines: The Next Layer of AI** (https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx)\nPeter Levine discusses with Ash Ashutosh the launch of Nexus and the evolution of AI systems from vector databases to knowledge engines. The conversation highlights the inefficiencies of traditional retrieval systems and the need for AI systems to support machine-to-machine interactions. Ashutosh explains how Pinecone is rethinking the stack for agentic applications, introducing new abstractions, query languages, and developer workflows to improve performance, accuracy, and cost.",
+      "date": "2026-05-05"
+    },
+    "Lex Fridman Podcast": {
+      "text": "**New this period:**\n- Lex Fridman interviews Jean-Baptiste Kempf and Kieran Kunhya about FFmpeg, the technology behind video on the internet.\n\n**Details:**\n**FFmpeg: The Incredible Technology Behind Video on the Internet**(https://lexfridman.com/ffmpeg/)\nJean-Baptiste Kempf and Kieran Kunhya discuss FFmpeg, its history, and its role in video playback. They explain how video playback works, video codecs and containers, and the development of FFmpeg. The conversation also covers the history of FFmpeg, reverse engineering codecs, and open-source burnout.",
+      "date": "2026-05-06"
+    },
+    "Latent Space Podcast (swyx)": {
+      "text": "**New this period:**\n- OpenAI launched GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper, new realtime voice APIs.\n\n**Details:**\n**[AINews] GPT-Realtime-2, -Translate, and -Whisper: new SOTA realtime voice APIs (2026-05-08)**(https://www.latent.space/p/ainews-gpt-realtime-2-translate-and)\nOpenAI launched three new streaming audio models in the Realtime API: GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper, with GPT-Realtime-2 positioned as its \u201cmost intelligent voice model yet\u201d. The models bring features such as preambles, parallel tool calls, stronger recovery behavior, and longer context. GPT-Realtime-2 shows a +15.2% bump in Big Bench Audio compared to the previous realtime-1.5 model.",
+      "date": "2026-05-08"
+    },
+    "Arxiv \u2013 Statistical Finance (q-fin.ST)": {
+      "text": "**New this period:**\n- A review of large language models for stock price forecasting\n- Probabilistic predictions of option prices with modular approximate Bayesian inference\n- CatNet algorithm for controlling false discovery rate in LSTM with SHAP feature importance\n\n**Details:**\n**A Review of Large Language Models for Stock Price Forecasting from a Hedge-Fund Perspective** (https://arxiv.org/abs/2605.05211)\nThis review synthesizes recent applications of large language models in stock price forecasting, including extracting sentiment from financial news and social media. The review pays particular attention to practical pitfalls such as fragility in sentiment analysis and dataset design. It aims to guide academic researchers and hedge fund managers in integrating large language models into real-world trading pipelines.\n\n**Probabilistic Predictions of Option Prices with Modular Approximate Bayesian Inference** (https://arxiv.org/abs/2412.00658)\nThis paper proposes a new approximate Bayesian inferential framework that exploits multiple information sources to enable fast calculation of probabilistic predictions of future option prices. The approach operates directly from the theoretical option pricing model and does not require an explicit statistical model for the observed option prices. The method is shown to produce accurate probabilistic option-price predictions in realistic scenarios.\n\n**CatNet: Controlling the False Discovery Rate in LSTM with SHAP Feature Importance and Gaussian Mirrors** (https://arxiv.org/abs/2411.16666)\nThe CatNet algorithm effectively controls False Discovery Rate and selects significant features in LSTM by employing the derivative of SHAP values to quantify feature importance. The algorithm constructs a vector-formed mirror statistic for FDR control with the Gaussian Mirror algorithm and proposes a new kernel-based independence measure. CatNet performs robustly on different model settings with both simulated and real-world data.",
+      "date": "2026-05-08"
+    },
+    "Arxiv \u2013 Computational Finance (q-fin.CP)": {
+      "text": "**New this period:**\n- Numerical methods for lambda quantiles: robust evaluation and portfolio optimisation\n- A Geometry-Aware Residual Correction of Hagan's SABR Implied Volatility Formula\n- Frustrated Dynamics of Distance Matrices\n- Multi-Dimensional Behavioral Evaluation of Agentic Stock Prediction Systems Using LLM Judges with Closed-Loop Reinforcement Learning Feedback\n- INEUS: Iterative Neural Solver for High-Dimensional PIDEs\n- SNAPO: Smooth Neural Adjoint Policy Optimization for Optimal Control via Differentiable Simulation\n- Proactive Market Making and Liquidity Analysis for Everlasting Options in DeFi Ecosystems\n- Analytic approximation for Bachelier option prices and applications\n- What Can Go Wrong During Caplet Stripping \n- On Utility Maximization under Multivariate Fake Stationary Affine Volterra Models\n\n**Details:**\n**Numerical methods for lambda quantiles: robust evaluation and portfolio optimisation** (https://arxiv.org/abs/2605.06220)\nThis work presents efficient algorithms for computing lambda quantiles and demonstrates their application in portfolio optimisation. A robust algorithm, \u039b-Newton-Bis, is developed to ensure global convergence. The algorithm's computational efficiency and practical relevance are demonstrated within a portfolio optimization framework.\n\n**A Geometry-Aware Residual Correction of Hagan's SABR Implied Volatility Formula** (https://arxiv.org/abs/2605.06604)\nThis paper proposes a hybrid methodology to improve the approximation of SABR implied volatility by combining analytical structure with machine learning. The approach augments the neural-network input representation with geometric features derived from the stochastic differential equations of the SABR model. Numerical experiments show that the method improves accuracy and robustness compared to both analytical approximations and standard neural-network approaches.\n\n**Frustrated Dynamics of Distance Matrices** (https://arxiv.org/abs/2605.05376)\nThe Frustrated Distance Matrix (FDM) model is introduced, a dynamic extension of the static distance-matrix ensemble. The model's entries are pairwise geodesic distances between N Brownian particles on the sphere evolving under quenched random pairwise couplings. The paper finds that the static BBS theory is preserved at every time, with the dynamics entering as a redistribution of spectral mass within that template.\n\n**Multi-Dimensional Behavioral Evaluation of Agentic Stock Prediction Systems Using LLM Judges with Closed-Loop Reinforcement Learning Feedback** (https://arxiv.org/abs/2605.05739)\nThis work presents a behavioral evaluation framework for agentic stock prediction systems, addressing the gap in individual decision quality hidden by aggregate metrics. The framework uses an ensemble of large language model judges to score behavioral traces along six domain-specific dimensions. The framework is used to convert deficient per-dimension scores into a penalty term added to the Soft Actor-Critic reward, resulting in improved performance.\n\n**INEUS: Iterative Neural Solver for High-Dimensional PIDEs** (https://arxiv.org/abs/2605.06281)\nINEUS, a meshfree iterative neural solver for partial integro-differential equations (PIDEs), is introduced. The method replaces explicit evaluation of nonlocal jump integrals with single-jump sampling and reformulates PIDE solving as recursive regression problems. INEUS delivers accurate and scalable solutions for various high-dimensional linear and nonlinear examples.\n\n**SNAPO: Smooth Neural Adjoint Policy Optimization for Optimal Control via Differentiable Simulation** (https://arxiv.org/abs/2605.06570)\nSNAPO, a framework that embeds a neural policy inside a known, differentiable simulator, is introduced. SNAPO computes exact gradients of the objective with respect to all policy parameters and inputs in a single adjoint pass. The framework is demonstrated on three domains, including natural gas storage, pension fund asset-liability management, and pharmaceutical manufacturing.\n\n**Proactive Market Making and Liquidity Analysis for Everlasting Options in DeFi Ecosystems** (https://arxiv.org/abs/2508.07068)\nThis paper analyzes markets for everlasting options using a dynamic proactive market maker. The behavior of funding fees and transaction costs across varying liquidity conditions is examined. The paper demonstrates that liquidity providers can achieve a net positive PnL by employing effective hedging strategies.\n\n**Analytic approximation for Bachelier option prices and applications** (https://arxiv.org/abs/2605.02040)\nAn analytic approximation for Bachelier option prices is derived using classical It\u00f4 calculus and Taylor expansions. The price for out-of-the-money and in-the-money options is written as an expansion with respect to the moneyness. The approximation is used as a control variate to reduce the variance of Monte Carlo option prices.\n\n**What Can Go Wrong During Caplet Stripping** (https://arxiv.org/abs/2605.05140)\nThis paper studies exact and near-exact extraction of caplet volatilities from market cap quotes and identifies sources of instability. Practical remedies, including continuous flat-linear and C1 flat-smooth kernels, are proposed to preserve bootstrap equivalence and enforce positivity.\n\n**On Utility Maximization under Multivariate Fake Stationary Affine Volterra Models** (https://arxiv.org/abs/2603.11046)\nThis paper tackles Merton's portfolio optimization problem in a Volterra stochastic environment described by a multivariate fake stationary Volterra-Heston model. The problem is solved using a stochastic factor solution to a Riccati backward stochastic differential equation (BSDE). The resulting optimal strategies are derived in semi-closed form, depending on the solutions to time-dependent multivariate Riccati-Volterra equations.",
+      "date": "2026-05-08"
+    }
+  }
 }
