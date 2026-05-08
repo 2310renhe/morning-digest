@@ -33,6 +33,12 @@
     .source li { margin-bottom: 0.25rem; }
     .source a { color: var(--accent); text-decoration: none; }
     .source a:hover { text-decoration: underline; }
+    .details-fold { margin-top: 0.5rem; }
+    .details-fold > summary { cursor: pointer; font-size: 0.8rem; font-weight: 500; color: var(--muted); padding: 0.3rem 0; user-select: none; }
+    .details-fold > summary:hover { color: var(--accent); }
+    .details-fold[open] > summary { margin-bottom: 0.3rem; }
+    .details-fold > summary::-webkit-details-marker { display: none; }
+    .details-fold > summary::marker { content: ""; }
     .badge { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 6px; white-space: nowrap; }
     .badge.fresh { background: #dcfce7; color: #166534; }
     .badge.stale { background: var(--bg); color: var(--muted); }
@@ -50,7 +56,7 @@
 <div class="container">
   <header>
     <h1>Morning Digest</h1>
-    <p class="subtitle">2026-05-08 &middot; Generated 2026-05-08 12:08 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
+    <p class="subtitle">2026-05-08 &middot; Generated 2026-05-08 12:20 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
   </header>
   <nav class="nav">
     <a href="#ai-opinion-leaders" class="nav-pill" style="border-color:#6c5ce7">🧠 AI Opinion Leaders</a>
@@ -70,7 +76,7 @@
   <li>SemiAnalysis introduces a new framework, the "One Chart to Rule Them All," to analyze GPU rental economics and value capture in the AI ecosystem.</li>
   <li>The article discusses the dynamics of the compute market, including demand for Nvidia systems, memory constraints, and the potential for Nvidia to increase pricing.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>AI Value Capture - The Shift To Model Labs (2026-05-01)</strong>(https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model)</p>
 <p>Extracting all key points from the source:</p>
 <ul>
@@ -96,6 +102,7 @@
   <li>The article estimates that SOCAMM contract pricing paid by Nvidia is ~$8/GB in 1Q26, with a potential exit '26 pricing of ~$13/GB.</li>
   <li>SemiAnalysis believes it is reasonable for Nvidia to charge 60% margin on SOCAMM, given the current environment and the company's supply chain edge.</li>
 </ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – Blog <span class="badge stale">2026-02-12</span></h3>
@@ -103,7 +110,7 @@
 <ul>
   <li>microgpt, a single file of 200 lines of pure Python with no dependencies that trains and inferences a GPT.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>microgpt (http://karpathy.github.io/2026/02/12/microgpt/)</strong></p>
 <p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
 <p>* The microgpt project is a 200-line Python script that trains and infers a GPT model with no dependencies.</p>
@@ -125,6 +132,7 @@
 <p>* The model is trained using a simple Adam optimizer and a cross-entropy loss function.</p>
 <p>* The script generates new, plausible-sounding names by sampling from the trained model.</p>
 <p>* The generated names are printed to the console, along with their corresponding token IDs and positions in the sequence.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – YouTube <span class="badge stale">2026-04-16</span></h3>
@@ -132,7 +140,7 @@
 <ul>
   <li>A YouTube video by Andrej Karpathy discussing a puzzle as part of the 2026 Year of Math.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Covering 10 points, a surprisingly tricky puzzle. (2026-04-16)(https://www.youtube.com/shorts/QLu_ZsRc_G0)</strong></p>
 <ul>
   <li>The video is part of a monthly series of puzzles for the 2026 Year of Math.</li>
@@ -141,6 +149,7 @@
   <li>The video was uploaded on 2026-04-16.</li>
   <li>Andrej Karpathy is the creator of the video.</li>
 </ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – GitHub Repos <span class="badge stale">2026-05-08</span></h3>
@@ -151,7 +160,7 @@
   <li>Repositories for natural language processing, computer vision, and other related topics.</li>
   <li>A list of Andrej Karpathy's GitHub statistics, including the number of followers, repositories, and stars.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Andrej Karpathy's GitHub Repositories (https://github.com/karpathy?tab=repositories)</strong></p>
 <p>Extract of key points from the source:</p>
 <ul>
@@ -189,6 +198,7 @@
 <p>  - arxiv-sanity-lite: a repository for arxiv papers tagging and recommendation with 1,583 stars and 192 forks.</p>
 <p>  - randomfun: a repository for notebooks and random fun with 1,165 stars and 141 forks.</p>
 <p>  - convnetjs: a repository for deep learning in JavaScript with 11,156 stars and 2,074 forks.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Zvi Mowshowitz – Don't Worry About the Vase <span class="badge stale">2026-05-08</span></h3>
@@ -196,7 +206,7 @@
 <ul>
   <li>Claude Code, Codex and Agentic Coding series update by Zvi Mowshowitz</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Claude Code, Codex and Agentic Coding #8 (2026-05-08)</strong>(https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54)</p>
 <ul>
   <li>The author started the series when everyone was going crazy for coding agents</li>
@@ -204,6 +214,7 @@
   <li>The author mentions the initial craze for coding agents when the series began </li>
   <li>Note: The provided text is limited, more information may be available in the full article, but based on the given text, these are the key points that can be extracted.</li>
 </ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>Scott Alexander – Astral Codex Ten <span class="badge stale">2026-05-08</span></h3>
@@ -213,7 +224,7 @@
   <li>The author critiques plot holes in movies, such as Star Wars, and how they affect the viewing experience.</li>
   <li>The author evaluates tech company names, such as Infinita and Vitalia, and discusses the importance of taste in naming companies.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Three Model Organisms For Taste (2026-05-08)</strong>(https://www.astralcodexten.com/p/three-model-organisms-for-taste)</p>
 <p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
 <ul>
@@ -231,6 +242,7 @@
   <li>The author mentions an AI-generated poetry Turing Test, and how some people liked AI poems that the author considered to be of bad taste.</li>
   <li>The author critiques the use of cliches in poetry, and how it can be seen as manipulative or insincere.</li>
 </ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>Ethan Mollick – One Useful Thing <span class="badge stale">2026-04-23</span></h3>
@@ -238,7 +250,7 @@
 <ul>
   <li>GPT-5.5, a new AI model, has been released with significant improvements in coding, image generation, and other areas.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Sign of the future: GPT-5.5 (https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55)</strong></p>
 <p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
 <ul>
@@ -254,6 +266,7 @@
   <li>Despite the significant improvements, the author notes that there are still rough edges, such as the AI's struggles with building long-form fiction and generating interesting hypotheses.</li>
   <li>The author concludes that GPT-5.5 is a noteworthy step in the development of AI, and that the capability gains appear to be accelerating.</li>
 </ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>Simon Willison <span class="badge stale">2026-05-07</span></h3>
@@ -264,7 +277,7 @@
   <li>Behind the Scenes Hardening Firefox with Claude Mythos Preview</li>
   <li>Notes on the xAI/Anthropic data center deal</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>llm-gemini 0.31</strong> (https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything)</p>
 <p>The llm-gemini 0.31 release notes mention that gemini-3.1-flash-lite is no longer a preview. The author notes that this new non-preview model has not changed since the Gemini 3.1 Flash-Lite Preview model. The release is related to generative AI and llms.</p>
 <p><strong>Big Words</strong> (https://simonwillison.net/2026/May/7/big-words/#atom-everything)</p>
@@ -273,6 +286,7 @@
 <p>Mozilla used the Claude Mythos preview to locate and fix hundreds of vulnerabilities in Firefox. The models got more capable and Mozilla improved their techniques for harnessing these models. They fixed around 20-30 security bugs in Firefox per month through 2025, which jumped to 423 in April.</p>
 <p><strong>Notes on the xAI/Anthropic data center deal</strong> (https://simonwillison.net/2026/May/7/xai-anthropic/#atom-everything)</p>
 <p>Anthropic struck a deal with SpaceX/xAI to use the capacity of their Colossus data center. The data center has a bad environmental record, and Anthropic are severely compute-constrained. xAI are keeping their larger Colossus 2 data center for their own work, and they sent out a deprecation notice for Grok 4.1 Fast and several other models.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Dario Amodei – Essays <span class="badge stale">2026-05-08</span></h3>
@@ -281,9 +295,10 @@
   <li>Dario Amodei's background and experience in AI research and development</li>
   <li>List of essays, research, and interviews by Dario Amodei</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Dario Amodei (https://darioamodei.com/)</strong></p>
 <p>Dario Amodei is the CEO of Anthropic, a public benefit corporation focused on building safe and interpretable AI systems. He has a background in AI research, having led the development of large language models like GPT-2 and GPT-3 at OpenAI, and worked as a Senior Research Scientist at Google Brain. His website lists his essays, research, and interviews, including topics such as the urgency of interpretability and the need for basic transparency rules in AI.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Import AI – Jack Clark <span class="badge stale">2026-05-04</span></h3>
@@ -291,9 +306,10 @@
 <ul>
   <li>Automating AI research and potential for no-human-involved AI R&D by the end of 2028.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Import AI 455: Automating AI Research</strong> (https://jack-clark.net/2026/05/04/import-ai-455-automating-ai-research/)</p>
 <p>The author believes there is a likely chance (60%+) that no-human-involved AI R&D will happen by the end of 2028, based on publicly available information from arXiv, bioRxiv, and NBER. The author thinks all the pieces are in place for automating the production of today's AI systems, and that scaling trends may lead to models being creative enough to substitute for human researchers. The author plans to spend most of 2026 working through the implications of automated AI R&D.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>The Batch – Andrew Ng (DeepLearning.AI) <span class="badge stale">2026-05-08</span></h3>
@@ -314,9 +330,10 @@
   <li>OpenAI’s Amazon Deal</li>
   <li>Recursive Language Models</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>The Batch | DeepLearning.AI | AI News & Insights (2026-05-08)</strong> (https://www.deeplearning.ai/the-batch/)</p>
 <p>The Batch provides updates on the latest AI news and insights, including GPT-5.5's performance and hallucinations, Kimi K2.6 leading open LLMs, and the White House's orders for a muscular AI policy. The newsletter also covers various AI-related topics, such as reinforcement learning, Meta's pivot from open weights, and Big Pharma's bets on AI. Additionally, it mentions the introduction of DeepLearning.AI Pro and the development of recursive language models.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Garry Tan – GitHub Repos <span class="badge stale">2026-05-08</span></h3>
@@ -324,9 +341,10 @@
 <ul>
   <li>Garry Tan's GitHub repositories, including gbrain, gstack, gbrain-evals, openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, and zurb-foundation-wysihtml5.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Garry Tan's GitHub Repositories</strong> (https://github.com/garrytan?tab=repositories)</p>
 <p>Garry Tan's GitHub repositories include various projects such as gbrain, an opinionated OpenClaw/Hermes Agent Brain, and gstack, a setup with 23 opinionated tools. The repositories are written in different programming languages, including TypeScript, HTML, Dockerfile, JavaScript, and Ruby. The repositories have various update dates, with some updated as recently as May 8, 2026.</p>
+</details>
 </div>
 </section>
 <section id="investor-positioning" class="category">
@@ -356,9 +374,10 @@
 <ul>
   <li>Mariana Mazzucato discusses the need for more moonshots and her concept of the "mission economy" in an interview.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Mariana Mazzucato Thinks We Need More Moonshots</strong>(https://omny.fm/shows/odd-lots/mariana-mazzucato-thinks-we-need-more-moonshots)</p>
 <p>Mariana Mazzucato, director of the University College London Institute for Innovation and Public Purpose, discusses her concept of the "mission economy" and state capacity. She also talks about preventing top talent from fleeing to the private sector and the role of consultants and governments in inefficiencies and civic failures. The conversation covers topics such as the initial public financing of Silicon Valley algorithms and the history of moonshots.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Exchanges (Goldman Sachs) <span class="badge stale">2026-05-06</span></h3>
@@ -366,7 +385,7 @@
 <ul>
   <li>Will AI Make Markets Less Efficient? podcast episode featuring Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Will AI Make Markets Less Efficient? (https://feeds.megaphone.fm/GLD9218176758)</strong></p>
 <p>Extract of key points:</p>
 <ul>
@@ -383,6 +402,7 @@
   <li>Disclosures applicable to research with respect to issuers are available through a Goldman Sachs representative or at http://www.gs.com/research/hedge.html</li>
   <li>The episode is available on the artificial intelligence insights page on GS.com</li>
 </ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>The Bid (BlackRock) <span class="badge stale">2026-05-08</span></h3>
@@ -390,9 +410,10 @@
 <ul>
   <li>Retirement systems are undergoing a structural shift with traditional pensions declining and individuals taking on greater responsibility for financial outcomes.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>The Top Retirement Trends That Are Reshaping Investing, Income and Longevity</strong> (https://rss.art19.com/the-bid)</p>
 <p>The conversation between Oscar Pulido and Nick Nefouse explores the shift from accumulation to income generation in retirement planning, particularly during the "retirement window". Key insights include the impact of longevity on retirement timelines, the role of target date funds, and the convergence of global retirement systems. The discussion is based on sources including the BlackRock Retirement Trends Report, 2025, and a report from the Federal Reserve Bank of St. Louis.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Money Stuff: The Podcast (Matt Levine) <span class="badge stale">2026-05-08</span></h3>
@@ -400,7 +421,7 @@
 <ul>
   <li>Matt Levine and Katie discuss various financial topics in a mailbag episode of the Money Stuff podcast.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Timeless Wisdom: A Mailbag Episode</strong>(https://omny.fm/shows/money-stuff-the-podcast/timeless-wisdom-a-mailbag-episode)</p>
 <p>Extract of key points from the source:</p>
 <ul>
@@ -417,6 +438,7 @@
   <li>The market for corporate control is discussed.</li>
   <li>The difference between corporate and human life cycles is explored.</li>
 </ul>
+</details>
 </div>
 </section>
 <section id="tech-and-ai-podcasts" class="category">
@@ -432,9 +454,10 @@
   <li>AI cybersecurity market growth</li>
   <li>Peptide craze and Retatrutide</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze</strong> (https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze)</p>
 <p>The podcast discusses OpenAI missing its revenue and user targets, with Codex gaining on Claude. It also covers the trial between Elon Musk and Sam Altman, and the recent earnings and Capex explosion of big tech companies. Additionally, the podcast touches on the growth of the AI cybersecurity market and the increasing popularity of peptides, particularly Retatrutide.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>AI + a16z <span class="badge stale">2026-05-05</span></h3>
@@ -442,9 +465,10 @@
 <ul>
   <li>The shift from vector databases to knowledge engines and its implications for AI systems.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>From Vector Databases to Knowledge Engines: The Next Layer of AI</strong> (https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx)</p>
 <p>Peter Levine discusses with Ash Ashutosh the launch of Nexus and the evolution of AI systems from vector databases to knowledge engines. The conversation highlights the inefficiencies of traditional retrieval systems and the need for AI systems to support machine-to-machine interactions. Ashutosh explains how Pinecone is rethinking the stack for agentic applications, introducing new abstractions, query languages, and developer workflows to improve performance, accuracy, and cost.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Lex Fridman Podcast <span class="badge stale">2026-05-06</span></h3>
@@ -452,9 +476,10 @@
 <ul>
   <li>Lex Fridman interviews Jean-Baptiste Kempf and Kieran Kunhya about FFmpeg, the technology behind video on the internet.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>FFmpeg: The Incredible Technology Behind Video on the Internet</strong>(https://lexfridman.com/ffmpeg/)</p>
 <p>Jean-Baptiste Kempf and Kieran Kunhya discuss FFmpeg, its history, and its role in video playback. They explain how video playback works, video codecs and containers, and the development of FFmpeg. The conversation also covers the history of FFmpeg, reverse engineering codecs, and open-source burnout.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Latent Space Podcast (swyx) <span class="badge stale">2026-05-08</span></h3>
@@ -462,9 +487,10 @@
 <ul>
   <li>OpenAI launched GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper, new realtime voice APIs.</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>[AINews] GPT-Realtime-2, -Translate, and -Whisper: new SOTA realtime voice APIs (2026-05-08)</strong>(https://www.latent.space/p/ainews-gpt-realtime-2-translate-and)</p>
 <p>OpenAI launched three new streaming audio models in the Realtime API: GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper, with GPT-Realtime-2 positioned as its “most intelligent voice model yet”. The models bring features such as preambles, parallel tool calls, stronger recovery behavior, and longer context. GPT-Realtime-2 shows a +15.2% bump in Big Bench Audio compared to the previous realtime-1.5 model.</p>
+</details>
 </div>
 </section>
 <section id="research" class="category">
@@ -485,13 +511,14 @@
   <li>Probabilistic predictions of option prices with modular approximate Bayesian inference</li>
   <li>CatNet algorithm for controlling false discovery rate in LSTM with SHAP feature importance</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>A Review of Large Language Models for Stock Price Forecasting from a Hedge-Fund Perspective</strong> (https://arxiv.org/abs/2605.05211)</p>
 <p>This review synthesizes recent applications of large language models in stock price forecasting, including extracting sentiment from financial news and social media. The review pays particular attention to practical pitfalls such as fragility in sentiment analysis and dataset design. It aims to guide academic researchers and hedge fund managers in integrating large language models into real-world trading pipelines.</p>
 <p><strong>Probabilistic Predictions of Option Prices with Modular Approximate Bayesian Inference</strong> (https://arxiv.org/abs/2412.00658)</p>
 <p>This paper proposes a new approximate Bayesian inferential framework that exploits multiple information sources to enable fast calculation of probabilistic predictions of future option prices. The approach operates directly from the theoretical option pricing model and does not require an explicit statistical model for the observed option prices. The method is shown to produce accurate probabilistic option-price predictions in realistic scenarios.</p>
 <p><strong>CatNet: Controlling the False Discovery Rate in LSTM with SHAP Feature Importance and Gaussian Mirrors</strong> (https://arxiv.org/abs/2411.16666)</p>
 <p>The CatNet algorithm effectively controls False Discovery Rate and selects significant features in LSTM by employing the derivative of SHAP values to quantify feature importance. The algorithm constructs a vector-formed mirror statistic for FDR control with the Gaussian Mirror algorithm and proposes a new kernel-based independence measure. CatNet performs robustly on different model settings with both simulated and real-world data.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Arxiv – Computational Finance (q-fin.CP) <span class="badge stale">2026-05-08</span></h3>
@@ -508,7 +535,7 @@
   <li>What Can Go Wrong During Caplet Stripping </li>
   <li>On Utility Maximization under Multivariate Fake Stationary Affine Volterra Models</li>
 </ul>
-<p><strong>Details:</strong></p>
+<details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Numerical methods for lambda quantiles: robust evaluation and portfolio optimisation</strong> (https://arxiv.org/abs/2605.06220)</p>
 <p>This work presents efficient algorithms for computing lambda quantiles and demonstrates their application in portfolio optimisation. A robust algorithm, Λ-Newton-Bis, is developed to ensure global convergence. The algorithm's computational efficiency and practical relevance are demonstrated within a portfolio optimization framework.</p>
 <p><strong>A Geometry-Aware Residual Correction of Hagan's SABR Implied Volatility Formula</strong> (https://arxiv.org/abs/2605.06604)</p>
@@ -529,6 +556,7 @@
 <p>This paper studies exact and near-exact extraction of caplet volatilities from market cap quotes and identifies sources of instability. Practical remedies, including continuous flat-linear and C1 flat-smooth kernels, are proposed to preserve bootstrap equivalence and enforce positivity.</p>
 <p><strong>On Utility Maximization under Multivariate Fake Stationary Affine Volterra Models</strong> (https://arxiv.org/abs/2603.11046)</p>
 <p>This paper tackles Merton's portfolio optimization problem in a Volterra stochastic environment described by a multivariate fake stationary Volterra-Heston model. The problem is solved using a stochastic factor solution to a Riccati backward stochastic differential equation (BSDE). The resulting optimal strategies are derived in semi-closed form, depending on the solutions to time-dependent multivariate Riccati-Volterra equations.</p>
+</details>
 </div>
 </section>
   <footer>

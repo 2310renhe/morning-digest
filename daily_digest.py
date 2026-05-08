@@ -569,7 +569,16 @@ def build_html(date_str: str, results: list) -> str:
                 block += f'<p class="error">{error}</p>\n'
 
             if summary:
-                block += md_to_html_simple(summary) + "\n"
+                # Split into bullets (always visible) and details (collapsible)
+                details_split = summary.split("**Details:**")
+                if len(details_split) == 2:
+                    bullets_md, details_md = details_split
+                    block += md_to_html_simple(bullets_md) + "\n"
+                    block += '<details class="details-fold"><summary>Details ▸</summary>\n'
+                    block += md_to_html_simple(details_md) + "\n"
+                    block += '</details>\n'
+                else:
+                    block += md_to_html_simple(summary) + "\n"
             elif not error and not is_fresh:
                 if latest_title and latest_link:
                     block += f'<p class="quiet-note">Latest: <a href="{latest_link}">{latest_title}</a></p>\n'
@@ -618,6 +627,12 @@ def build_html(date_str: str, results: list) -> str:
     .source li { margin-bottom: 0.25rem; }
     .source a { color: var(--accent); text-decoration: none; }
     .source a:hover { text-decoration: underline; }
+    .details-fold { margin-top: 0.5rem; }
+    .details-fold > summary { cursor: pointer; font-size: 0.8rem; font-weight: 500; color: var(--muted); padding: 0.3rem 0; user-select: none; }
+    .details-fold > summary:hover { color: var(--accent); }
+    .details-fold[open] > summary { margin-bottom: 0.3rem; }
+    .details-fold > summary::-webkit-details-marker { display: none; }
+    .details-fold > summary::marker { content: ""; }
     .badge { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 6px; white-space: nowrap; }
     .badge.fresh { background: #dcfce7; color: #166534; }
     .badge.stale { background: var(--bg); color: var(--muted); }
