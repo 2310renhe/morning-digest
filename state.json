@@ -1,32 +1,34 @@
 {
   "seen": [
-    "oai:arXiv.org:2411.16666v4",
-    "https://simonwillison.net/2026/May/7/big-words/#atom-everything",
-    "oai:arXiv.org:2412.00658v2",
-    "oai:arXiv.org:2605.05739v1",
-    "oai:arXiv.org:2508.07068v2",
-    "oai:arXiv.org:2605.02040v2",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://github.com/karpathy?tab=repositories#88001ef0003fb4ac",
     "https://thezvi.substack.com/p/ai-167-the-prior-restraint-era-begins",
+    "oai:arXiv.org:2605.05376v1",
+    "oai:arXiv.org:2605.06570v1",
+    "oai:arXiv.org:2605.05739v1",
     "oai:arXiv.org:2605.06604v1",
-    "oai:arXiv.org:2605.06220v1",
-    "oai:arXiv.org:2605.05140v2",
-    "oai:arXiv.org:2605.06281v1",
-    "https://github.com/garrytan?tab=repositories#eebeb28495bbe69f",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "https://simonwillison.net/2026/May/7/firefox-claude-mythos/#atom-everything",
+    "gid://art19-episode-locator/V0/HMcaWu1_Zf3Bcx_5hPZ3dlEKdTyiA9gjtNYOLyUTeM4",
+    "oai:arXiv.org:2411.16666v4",
+    "https://www.deeplearning.ai/the-batch/#bf971214a69e8747",
     "https://darioamodei.com/#28916f0e70fbc697",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "oai:arXiv.org:2605.05140v2",
+    "https://www.latent.space/p/ainews-gpt-realtime-2-translate-and",
+    "https://github.com/karpathy?tab=repositories#a0ecc03226399f54",
+    "oai:arXiv.org:2508.07068v2",
     "52d36a4f-fb2e-4e58-b28f-b44400e35917",
     "oai:arXiv.org:2603.11046v3",
-    "gid://art19-episode-locator/V0/HMcaWu1_Zf3Bcx_5hPZ3dlEKdTyiA9gjtNYOLyUTeM4",
-    "oai:arXiv.org:2605.05376v1",
+    "oai:arXiv.org:2605.06220v1",
+    "https://github.com/garrytan?tab=repositories#983dddf7e3a55ad3",
     "oai:arXiv.org:2605.05211v1",
-    "https://www.latent.space/p/ainews-gpt-realtime-2-translate-and",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "https://www.deeplearning.ai/the-batch/#bf971214a69e8747",
-    "https://simonwillison.net/2026/May/7/firefox-claude-mythos/#atom-everything",
-    "oai:arXiv.org:2605.06570v1",
     "https://simonwillison.net/2026/May/7/xai-anthropic/#atom-everything",
-    "https://github.com/karpathy?tab=repositories#88001ef0003fb4ac"
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://simonwillison.net/2026/May/7/big-words/#atom-everything",
+    "oai:arXiv.org:2605.02040v2",
+    "oai:arXiv.org:2605.06281v1",
+    "https://github.com/garrytan?tab=repositories#eebeb28495bbe69f",
+    "oai:arXiv.org:2412.00658v2"
   ],
   "last_items": {
     "https://github.com/karpathy?tab=repositories": {
@@ -48,7 +50,7 @@
   },
   "summaries": {
     "Andrej Karpathy \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- nanochat repository\n- karpathy.github.io repository\n- autoresearch repository\n- jobs repository\n- rustbpe repository\n- cpython repository\n- hn-time-capsule repository\n- llm-council repository\n- reader3 repository\n- nanoGPT repository\n\n**Details:**\n**nanochat**(https://github.com/karpathy/nanochat) \nnanochat is described as \"The best ChatGPT that $100 can buy\". It is a Python repository with 53,108 stars and was updated on May 5, 2026. \n**karpathy.github.io**(https://github.com/karpathy/karpathy.github.io) \nkarpathy.github.io is described as \"my blog\" and is a CSS repository with 1,446 stars, updated on April 10, 2026. \n**autoresearch**(https://github.com/karpathy/autoresearch) \nautoresearch is described as \"AI agents running research on single-GPU nanochat training automatically\" and is a Python repository with 79,712 stars, updated on March 26, 2026. \n**jobs**(https://github.com/karpathy/jobs) \njobs is a research tool for visually exploring Bureau of Labor Statistics Occupational Outlook Handbook data, described as a development tool, and is an HTML repository with 1,631 stars, updated on March 16, 2026. \n**rustbpe**(https://github.com/karpathy/rustbpe) \nrustbpe is described as \"The missing tiktoken training code\" and is a Rust repository with 448 stars, updated on January 3, 2026. \n**cpython**(https://github.com/karpathy/cpython) \ncpython is a fork of the Python programming language, a Python repository with 68 stars, updated on December 19, 2025. \n**hn-time-capsule**(https://github.com/karpathy/hn-time-capsule) \nhn-time-capsule is described as \"Analyzing Hacker News discussions from a decade ago in hindsight with LLMs\" and is a Python repository with 620 stars, updated on December 10, 2025. \n**llm-council**(https://github.com/karpathy/llm-council) \nllm-council is described as \"LLM Council works together to answer your hardest questions\" and is a Python repository with 18,477 stars, updated on November 22, 2025. \n**reader3**(https://github.com/karpathy/reader3) \nreader3 is described as \"Quick illustration of how one can easily read books together with LLMs\" and is a Python repository with 3,597 stars, updated on November 18, 2025. \n**nanoGPT**(https://github.com/karpathy/nanoGPT) \nnanoGPT is described as \"The simplest, fastest repository for training/finetuning medium-sized GPTs\" and is a Python repository.",
+      "text": "**New this period:**\n- Andrej Karpathy's GitHub repositories, including nanochat, karpathy.github.io, autoresearch, jobs, rustbpe, cpython, hn-time-capsule, llm-council, reader3, and nanoGPT.\n\n**Details:**\n**nanochat**(https://github.com/karpathy/nanochat) \nis a repository for the best ChatGPT that $100 can buy, updated on May 5, 2026. \n**autoresearch**(https://github.com/karpathy/autoresearch) \nis a repository for AI agents running research on single-GPU nanochat training automatically, updated on Mar 26, 2026. \n**jobs**(https://github.com/karpathy/jobs) \nis a research tool for visually exploring Bureau of Labor Statistics Occupational Outlook Handbook data, updated on Mar 16, 2026.",
       "date": "2026-05-08"
     },
     "Zvi Mowshowitz \u2013 Don't Worry About the Vase": {
@@ -72,7 +74,7 @@
       "date": "2026-05-08"
     },
     "Garry Tan \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Garry Tan's GitHub repositories, including gbrain, gstack, gbrain-evals, openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, and zurb-foundation-wysihtml5.\n\n**Details:**\n**gbrain (https://github.com/garrytan/gbrain)**\nGarry Tan's Opinionated OpenClaw/Hermes Agent Brain is a TypeScript repository with 13,787 stars and 1,756 forks, updated on May 8, 2026. It has an MIT License. The repository appears to be related to an AI agent brain. \nThe gbrain repository is part of Garry Tan's collection of repositories on GitHub. \n\n**gstack (https://github.com/garrytan/gstack)**\nGarry Tan's exact Claude Code setup is a TypeScript repository with 91,459 stars and 13,516 forks, updated on May 8, 2026. It has an MIT License and includes 23 opinionated tools. \nThe gstack repository serves various roles, including CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA. \n\n**gbrain-evals (https://github.com/garrytan/gbrain-evals)**\nGarry Tan's gbrain-evals is an HTML repository with 97 stars and 16 forks, updated on May 7, 2026. It has an MIT License. \nThe gbrain-evals repository is related to gbrain. \n\n**openclaw-render-template (https://github.com/garrytan/openclaw-render-template)**\nGarry Tan's openclaw-render-template is a Dockerfile repository with 2 stars, forked from chrysb/openclaw-render-template, updated on May 5, 2026. It has an MIT License and is powered by AlphaClaw. \nThe openclaw-render-template repository provides a one-click OpenClaw deploy on Render. \n\n**openclaw (https://github.com/garrytan/openclaw)**\nGarry Tan's openclaw is a TypeScript repository with 12 stars and 2 forks, forked from openclaw/openclaw, updated on April 20, 2026. It has an MIT License. \nThe openclaw repository is related to a personal AI assistant. \n\n**alphaclaw (https://github.com/garrytan/alphaclaw)**\nGarry Tan's alphaclaw is a JavaScript repository with 77 stars and 12 forks, forked from chrysb/alphaclaw, updated on April 5, 2026. It has an MIT License. \nThe alphaclaw repository is the ultimate setup harness for OpenClaw. \n\n**resend_robot (https://github.com/garrytan/resend_robot)**\nGarry Tan's resend_robot is a Ruby repository with 7 stars and 1 fork, updated on March 17, 2026. It has an MIT License. \nThe resend_robot repository is related to a robot. \n\n**Timber (https://github.com/garrytan/Timber)**\nGarry Tan's Timber is a JavaScript repository with 10 stars, forked from Shopify/Timber, updated on February 19, 2015. It has an MIT License. \nThe Timber repository is the ultimate Shopify theme framework. \n\n**zurb-foundation-wysihtml5 (https://github.com/garrytan/zurb-foundation-wysihtml5)**\nGarry Tan's zurb-foundation-wysihtml5 is a JavaScript repository with 35 stars and 10 forks, forked from jhollingworth/bootstrap-wysihtml5, updated on February 14, 2014. It has an MIT License. \nThe zurb-foundation-wysihtml5 repository is related to a WYSIHTML5 editor.",
+      "text": "**New this period:**\n- Garry Tan's GitHub repositories, including gbrain, gstack, gbrain-evals, openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, and zurb-foundation-wysihtml5.\n\n**Details:**\n**Garry Tan's GitHub Repositories** (https://github.com/garrytan?tab=repositories)\nGarry Tan's GitHub repositories include various projects such as gbrain, an opinionated OpenClaw/Hermes Agent Brain, and gstack, a setup with 23 opinionated tools. The repositories also include openclaw-render-template, a one-click OpenClaw deploy on Render, and alphaclaw, a setup harness for OpenClaw. Other repositories include resend_robot, a Ruby project, and Timber, a Shopify theme framework.",
       "date": "2026-05-08"
     },
     "Odd Lots (Bloomberg)": {
