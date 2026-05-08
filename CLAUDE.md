@@ -79,16 +79,16 @@ The `build_html()` function generates a categorized page with:
 
 ## Summarization
 
-Uses Groq API (`llama-3.3-70b-versatile` by default) to summarize new items per source. Max 1500 tokens per source. Content is truncated to 2500 chars before sending.
+Uses Groq API (`llama-3.3-70b-versatile` by default). Max 3000 output tokens per source.
 
-**Reader profile (in `READER_PROFILE` constant):** Tailored for a hedge fund PM running quant macro strategies with personal AI/semiconductor stock investments. The LLM is prompted to surface:
-- Market-moving signals (earnings, guidance, capex, supply chain)
-- Positioning implications for specific names (NVDA, MSFT, GOOGL, META, AMD, ASML, TSM, etc.)
-- Macro read-throughs (rates, trade policy, datacenter capex cycles, power constraints)
-- AI ecosystem shifts (model capabilities, inference costs, open/closed dynamics, regulation)
-- Quantitative angles (new alpha signals, microstructure, data availability)
+**Reader profile (in `READER_PROFILE` constant):** Tailored for a hedge fund PM (quant macro + AI/semiconductor stocks). The LLM is prompted to:
+- EXTRACT only — state what the source actually says, never infer or speculate
+- Be comprehensive — capture ALL key arguments, data points, and named entities
+- For academic papers: skip those unrelated to quant investing or AI/ML for finance; for relevant ones, state research question, method, and key finding
 
-**Summary persistence:** Summaries are cached in `state.json` under `summaries[source_name]`. When a source has no new items, the cached summary from its last update is displayed (dimmed) so every source always shows context, not just a bare title.
+**Content limits:** Full content stored at fetch time (up to 20k chars), but capped at 12k chars when sent to the LLM to stay within Groq's free-tier rate limit (100k tokens/day across all 28 sources).
+
+**Summary persistence:** Summaries are cached in `state.json` under `summaries[source_name]`. When a source has no new items, the cached summary is displayed (dimmed). If no cached summary exists, the most recent available item is summarized on the spot, so every source always shows context.
 
 ## Environment Variables
 
