@@ -50,7 +50,7 @@
 <div class="container">
   <header>
     <h1>Morning Digest</h1>
-    <p class="subtitle">2026-05-08 &middot; Generated 2026-05-08 18:56 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
+    <p class="subtitle">2026-05-08 &middot; Generated 2026-05-08 19:03 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
   </header>
   <nav class="nav">
     <a href="#ai-opinion-leaders" class="nav-pill" style="border-color:#6c5ce7">🧠 AI Opinion Leaders <span class="nav-count">7</span></a>
@@ -63,205 +63,39 @@
 <h2 style="border-left-color:#6c5ce7">🧠 AI Opinion Leaders</h2>
 <div class="source quiet">
 <h3>SemiAnalysis <span class="badge stale">2026-05-01</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>SemiAnalysis discusses the shift to model labs and the capture of value in the AI ecosystem, highlighting Anthropic's revenue growth and increasing margins.</li>
-  <li>The article explores the rapid pace of AI adoption, the increasing value of tokens, and the declining cost of generating them.</li>
-  <li>SemiAnalysis introduces a new framework, the "One Chart to Rule Them All," to analyze GPU rental economics and value capture in the AI ecosystem.</li>
-  <li>The article discusses the dynamics of the compute market, including demand for Nvidia systems, memory constraints, and the potential for Nvidia to increase pricing.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>AI Value Capture - The Shift To Model Labs (2026-05-01)</strong>(https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model)</p>
-<p>Extracting all key points from the source:</p>
-<ul>
-  <li>The AI industry has seen rapid advancements, with model releases, software breakthroughs, and hardware improvements compressing multi-year cycles into weeks.</li>
-  <li>Agentic AI has crossed a real inflection point, driving a step-change in the value of tokens, while software and hardware improvements have reduced the cost of generating them.</li>
-  <li>Anthropic's ARR has exploded from $9B to over $44B, with gross margins on their inference infrastructure increasing from 38% to over 70%.</li>
-  <li>End users are enjoying a huge return on investment (ROI) from consuming tokens, with tasks that used to take tens of person-hours now being accomplished in minutes with a few dollars' worth of tokens.</li>
-  <li>SemiAnalysis has seen a surge in revenue and margins, with annualized token spend reaching as high as $10.95 million, allowing them to outcompete competitors and gain market share.</li>
-  <li>New chips like Blackwells can generate 30x more tokens per second than Hoppers, while ASICs like TPUv7 and Trainium 3 show similar improvements.</li>
-  <li>Inference providers like Fireworks, Baseten, and Fal are seeing widening margins and hyper-growth revenue trends.</li>
-  <li>Memory prices have increased 6x in the past year, and Neocloud GPU rental pricing is surging, with 1-year H100 rental contract prices up 40% from the bottom in October 2025.</li>
-  <li>TSMC and Nvidia have not reacted to the recent boom in AI value generation, with TSMC not raising prices and Nvidia not fully adjusting its pricing framework.</li>
-  <li>The article introduces a new framework, the "One Chart to Rule Them All," to analyze GPU rental economics and value capture in the AI ecosystem.</li>
-  <li>The framework explores the dynamics of the compute market, including demand for Nvidia systems, memory constraints, and the potential for Nvidia to increase pricing.</li>
-  <li>SemiAnalysis estimates that the true blended price per million tokens for running Opus 4.7 on agentic tasks is $0.99, despite the sticker price being $5/$25 per MTok.</li>
-  <li>The cost of producing each token has plummeted, with the average blended price per million tokens falling dramatically over the past few months.</li>
-  <li>Agentic workloads have extremely high input-to-output ratios and high cache hit rates, making them more efficient and cost-effective.</li>
-  <li>Anthropic's margin expansion has come from cost reductions, with the company able to generate the same tokens for cheaper.</li>
-  <li>The gap between the price of a frontier-level token and the economic value of the work that can be produced by said token is the largest it's ever been.</li>
-  <li>Nvidia's pricing framework has not fully adjusted to reflect the shift in the market, with the company still operating within a framework shaped by prior assumptions.</li>
-  <li>The market has structurally shifted, with demand scaling faster and more persistently than supply can respond, yet Nvidia's pricing framework remains anchored to prior assumptions.</li>
-  <li>SOCAMM (System-On-Chip Attached Memory Module) is a key variable in understanding Nvidia's pricing strategy, with the company having secured substantial SOCAMM volume under a long-term agreement (LTA) format.</li>
-  <li>The article estimates that SOCAMM contract pricing paid by Nvidia is ~$8/GB in 1Q26, with a potential exit '26 pricing of ~$13/GB.</li>
-  <li>SemiAnalysis believes it is reasonable for Nvidia to charge 60% margin on SOCAMM, given the current environment and the company's supply chain edge.</li>
-</ul>
+<p class="quiet-note">Latest: <a href="https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model">AI Value Capture - The Shift To Model Labs</a></p>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – Blog <span class="badge stale">2026-02-12</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>microgpt, a single file of 200 lines of pure Python with no dependencies that trains and inferences a GPT.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>microgpt (http://karpathy.github.io/2026/02/12/microgpt/)</strong></p>
-<p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
-<p>* The microgpt project is a 200-line Python script that trains and infers a GPT model with no dependencies.</p>
-<p>* The script is a culmination of multiple projects (micrograd, makemore, nanogpt, etc.) and a decade-long obsession to simplify LLMs to their bare essentials.</p>
-<p>* The script contains the full algorithmic content of what is needed: dataset of documents, tokenizer, autograd engine, a GPT-2-like neural network architecture, the Adam optimizer, training loop, and inference loop.</p>
-<p>* The dataset used is a list of 32,000 names, one per line, which is used to train the model to generate new, plausible-sounding names.</p>
-<p>* The tokenizer is a simple character-level tokenizer that assigns a unique integer to each character in the dataset.</p>
-<p>* The autograd engine is implemented from scratch using a single class called `Value`, which wraps a scalar number and tracks how it was computed.</p>
-<p>* The `Value` class has a `backward` method that walks the computation graph in reverse topological order, applying the chain rule at each step.</p>
-<p>* The model architecture is a stateless function that takes a token, a position, the parameters, and the cached keys/values from previous positions, and returns logits over what token the model thinks should come next in the sequence.</p>
-<p>* The model uses a combination of attention and MLP blocks to process the input sequence.</p>
-<p>* The attention block projects the current token into three vectors: a query, a key, and a value, and uses these vectors to compute attention weights and a weighted sum of the cached values.</p>
-<p>* The MLP block is a two-layer feed-forward network that projects up to 4x the embedding dimension, applies ReLU, and projects back down.</p>
-<p>* The model uses residual connections to add the output of each block back to its input.</p>
-<p>* The final hidden state is projected to vocabulary size by `lm_head`, producing one logit per token in the vocabulary.</p>
-<p>* The script is available on GitHub and can be run as a Google Colab notebook.</p>
-<p>* The author has also created a video explaining the autograd engine and the `Value` class.</p>
-<p>* The script has been simplified to its bare essentials, with no unnecessary dependencies or code.</p>
-<p>* The model is trained using a simple Adam optimizer and a cross-entropy loss function.</p>
-<p>* The script generates new, plausible-sounding names by sampling from the trained model.</p>
-<p>* The generated names are printed to the console, along with their corresponding token IDs and positions in the sequence.</p>
+<p class="quiet-note">Latest: <a href="http://karpathy.github.io/2026/02/12/microgpt/">microgpt</a></p>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – YouTube <span class="badge stale">2026-04-16</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>A YouTube video by Andrej Karpathy discussing a puzzle as part of the 2026 Year of Math.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Covering 10 points, a surprisingly tricky puzzle. (2026-04-16)(https://www.youtube.com/shorts/QLu_ZsRc_G0)</strong></p>
-<ul>
-  <li>The video is part of a monthly series of puzzles for the 2026 Year of Math.</li>
-  <li>The puzzle involves covering 10 points.</li>
-  <li>The puzzle is described as "surprisingly tricky". </li>
-  <li>The video was uploaded on 2026-04-16.</li>
-  <li>Andrej Karpathy is the creator of the video.</li>
-</ul>
+<p class="quiet-note">Latest: <a href="https://www.youtube.com/shorts/QLu_ZsRc_G0">Covering 10 points, a surprisingly tricky puzzle.</a></p>
 </div>
 <div class="source fresh">
 <h3>Andrej Karpathy – GitHub Repos <span class="badge fresh">2026-05-08</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>Andrej Karpathy's GitHub repositories overview, including a list of his public repositories.</li>
-  <li>Various repositories related to AI, machine learning, and deep learning, such as nanochat, autoresearch, and nanoGPT.</li>
-  <li>Repositories for natural language processing, computer vision, and other related topics.</li>
-  <li>A list of Andrej Karpathy's GitHub statistics, including the number of followers, repositories, and stars.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Andrej Karpathy's GitHub Repositories (https://github.com/karpathy?tab=repositories)</strong></p>
-<p>Extract of key points from the source:</p>
-<ul>
-  <li>Andrej Karpathy has 182k followers and is following 8 users on GitHub.</li>
-  <li>He has a Twitter account (@karpathy) and is affiliated with Stanford.</li>
-  <li>His GitHub repositories include:</li>
-</ul>
-<p>  - nanochat: a ChatGPT implementation with 53,118 stars and 7,117 forks.</p>
-<p>  - karpathy.github.io: his personal blog with 1,447 stars and 291 forks.</p>
-<p>  - autoresearch: a repository for AI agents running research on single-GPU nanochat training with 79,764 stars and 11,622 forks.</p>
-<p>  - jobs: a research tool for exploring Bureau of Labor Statistics data with 1,633 stars and 327 forks.</p>
-<p>  - rustbpe: a repository for the missing tiktoken training code with 450 stars and 50 forks.</p>
-<p>  - cpython: a fork of the Python programming language repository with 68 stars and 7 forks.</p>
-<p>  - hn-time-capsule: a repository for analyzing Hacker News discussions with LLMs with 620 stars and 61 forks.</p>
-<p>  - llm-council: a repository for LLM Council with 18,487 stars and 3,580 forks.</p>
-<p>  - reader3: a repository for reading books with LLMs with 3,597 stars and 458 forks.</p>
-<p>  - nanoGPT: a repository for training medium-sized GPTs with 57,726 stars and 9,901 forks.</p>
-<p>  - rendergit: a repository for rendering git repositories as static HTML pages with 2,266 stars and 240 forks.</p>
-<p>  - llm.c: a repository for LLM training in C/CUDA with 29,839 stars and 3,579 forks.</p>
-<p>  - nn-zero-to-hero: a repository for neural networks with 21,746 stars and 3,182 forks.</p>
-<p>  - minGPT: a repository for a minimal PyTorch re-implementation of OpenAI GPT with 24,324 stars and 3,239 forks.</p>
-<p>  - build-nanogpt: a repository for building nanoGPT from scratch with 4,983 stars and 797 forks.</p>
-<p>  - micrograd: a repository for a tiny autograd engine and neural net library with 15,778 stars and 2,425 forks.</p>
-<p>  - llama2.c: a repository for inference Llama 2 in pure C with 19,477 stars and 2,537 forks.</p>
-<p>  - LLM101n: a repository for building a storyteller with 36,895 stars and 2,019 forks.</p>
-<p>  - minbpe: a repository for minimal BPE algorithm implementation with 10,476 stars and 1,042 forks.</p>
-<p>  - makemore: a repository for an autoregressive character-level language model with 3,893 stars and 968 forks.</p>
-<p>  - calorie: a repository for a calorie counter web app with 147 stars and 15 forks.</p>
-<p>  - lecun1989-repro: a repository for reproducing Yann LeCun's 1989 paper with 758 stars and 86 forks.</p>
-<p>  - ng-video-lecture: a repository for a video lecture with 4,694 stars and 1,285 forks.</p>
-<p>  - char-rnn: a repository for character-level language models with 12,036 stars and 2,627 forks.</p>
-<p>  - notpygamejs: a repository for a game making library with 101 stars and 21 forks.</p>
-<p>  - researchpooler: a repository for automating research publications discovery with 425 stars and 75 forks.</p>
-<p>  - karpathy: a root repository with 119 stars and 16 forks.</p>
-<p>  - arxiv-sanity-lite: a repository for arxiv papers tagging and recommendation with 1,583 stars and 192 forks.</p>
-<p>  - randomfun: a repository for notebooks and random fun with 1,165 stars and 141 forks.</p>
-<p>  - convnetjs: a repository for deep learning in JavaScript with 11,156 stars and 2,074 forks.</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98015, Requested 5478. Please try again in 50m17.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source fresh">
 <h3>Zvi Mowshowitz – Don't Worry About the Vase <span class="badge fresh">2026-05-08</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>Claude Code, Codex and Agentic Coding series update by Zvi Mowshowitz</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Claude Code, Codex and Agentic Coding #8 (2026-05-08)</strong>(https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54)</p>
-<ul>
-  <li>The author started the series when everyone was going crazy for coding agents</li>
-  <li>The series is about Claude Code, Codex, and Agentic Coding</li>
-  <li>The author mentions the initial craze for coding agents when the series began </li>
-  <li>Note: The provided text is limited, more information may be available in the full article, but based on the given text, these are the key points that can be extracted.</li>
-</ul>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98014, Requested 3425. Please try again in 20m43.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source fresh">
 <h3>Scott Alexander – Astral Codex Ten <span class="badge fresh">2026-05-08</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>The author discusses Reddit Vexillology and the debate over good flag design, including the use of simple shapes, colors, and the Rule of Tincture.</li>
-  <li>The author critiques plot holes in movies, such as Star Wars, and how they affect the viewing experience.</li>
-  <li>The author evaluates tech company names, such as Infinita and Vitalia, and discusses the importance of taste in naming companies.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Three Model Organisms For Taste (2026-05-08)</strong>(https://www.astralcodexten.com/p/three-model-organisms-for-taste)</p>
-<p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
-<ul>
-  <li>The author compares Reddit Vexillology to the c. elegans of aesthetics, allowing for the observation of dynamics of interest.</li>
-  <li>The author discusses the rules of good flag design, including simplicity, no images or text, and the Rule of Tincture.</li>
-  <li>The Rule of Tincture states that "never put metal on metal, or color on color", with metals being yellow and white, and colors being every other color.</li>
-  <li>The author mentions that some US states hold contests to design new flags, and online vexillologists critique the entries based on these rules.</li>
-  <li>The author notes that there is a resistance to these rules, with counterarguments including that battlefield recognition is no longer a main use case for flags, and that medieval flags often broke these rules.</li>
-  <li>The author suggests that the origins of the Rule of Tincture may be related to medieval craftsmanship, and that it may not be a timeless aesthetic truth.</li>
-  <li>The author mentions that many iconic flags, including America, Brazil, and the United Nations, violate these conventions.</li>
-  <li>The author discusses plot holes in movies, such as Star Wars, and how they affect the viewing experience.</li>
-  <li>The author evaluates tech company names, such as Infinita and Vitalia, and discusses the importance of taste in naming companies.</li>
-  <li>The author critiques the name Infinita as trying too hard for an easy win, and prefers the name Vitalia as more clever and subtle.</li>
-  <li>The author discusses the concept of "easy wins" in art and design, and how they can be seen as tasteless or manipulative.</li>
-  <li>The author mentions an AI-generated poetry Turing Test, and how some people liked AI poems that the author considered to be of bad taste.</li>
-  <li>The author critiques the use of cliches in poetry, and how it can be seen as manipulative or insincere.</li>
-</ul>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98013, Requested 5677. Please try again in 53m8.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source quiet">
 <h3>Ethan Mollick – One Useful Thing <span class="badge stale">2026-04-23</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>GPT-5.5, a new AI model, has been released with significant improvements in coding, image generation, and other areas.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Sign of the future: GPT-5.5 (https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55)</strong></p>
-<p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
-<ul>
-  <li>The author had early access to GPT-5.5 and believes it is a significant improvement over previous models.</li>
-  <li>GPT-5.5 was given a coding challenge to build a procedurally generated 3D simulation of a harbor town from 3000 BCE to 3000 AD, and it successfully completed the task.</li>
-  <li>The author compared GPT-5.5 to other AI models, including OpenAI's first reasoning model (o3) and the current best open weights model (Kimi K2.6), and found that GPT-5.5 was significantly better.</li>
-  <li>GPT-5.5 Pro is much faster than its previous iteration, GPT-5.4 Pro, taking 20 minutes to complete the task compared to 33 minutes.</li>
-  <li>The author emphasizes the importance of considering AI as a set of three interlinked concepts: models, apps, and harnesses.</li>
-  <li>OpenAI has made advances in all three areas, including the new GPT-5.5 model, improvements in apps such as OpenAI Codex, and new harnesses like the image model GPT-imagegen-2.</li>
-  <li>The new image model can render high-quality text and create almost any picture described, and the author demonstrates its capabilities with examples such as the "Otter Test".</li>
-  <li>The author used GPT-5.5 to sort out hundreds of anonymized data files on crowdfunding and generate a new hypothesis, and found the results to be impressive.</li>
-  <li>GPT-5.5 was also used to create an entirely new tabletop roleplaying game, including rules, tables, and illustrations, and to simulate players experiencing the game and revise the rules based on the results.</li>
-  <li>Despite the significant improvements, the author notes that there are still rough edges, such as the AI's struggles with building long-form fiction and generating interesting hypotheses.</li>
-  <li>The author concludes that GPT-5.5 is a noteworthy step in the development of AI, and that the capability gains appear to be accelerating.</li>
-</ul>
+<p class="quiet-note">Latest: <a href="https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55">Sign of the future: GPT-5.5</a></p>
 </div>
 <div class="source fresh">
 <h3>Simon Willison <span class="badge fresh">2026-05-07</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 96804, Requested 4723. Please try again in 21m59.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98012, Requested 4723. Please try again in 39m23.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source fresh">
 <h3>Dario Amodei – Essays <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 96794, Requested 3703. Please try again in 7m9.407999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98012, Requested 3703. Please try again in 24m41.759999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source quiet">
 <h3>Import AI – Jack Clark <span class="badge stale">2026-05-04</span></h3>
@@ -269,11 +103,11 @@
 </div>
 <div class="source fresh">
 <h3>The Batch – Andrew Ng (DeepLearning.AI) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 96793, Requested 4522. Please try again in 18m56.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98011, Requested 4522. Please try again in 36m28.511999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source fresh">
 <h3>Garry Tan – GitHub Repos <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 96757, Requested 4847. Please try again in 23m5.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98010, Requested 4847. Please try again in 41m8.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 </section>
 <section id="investor-positioning" class="category">
@@ -299,59 +133,19 @@
 <h2 style="border-left-color:#0984e3">🏛️ Institutional Views</h2>
 <div class="source fresh">
 <h3>Odd Lots (Bloomberg) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 96753, Requested 3570. Please try again in 4m39.072s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98007, Requested 3570. Please try again in 22m42.528s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source quiet">
 <h3>Exchanges (Goldman Sachs) <span class="badge stale">2026-05-06</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>Will AI Make Markets Less Efficient? podcast episode featuring Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Will AI Make Markets Less Efficient? (https://feeds.megaphone.fm/GLD9218176758)</strong></p>
-<p>Extract of key points:</p>
-<ul>
-  <li>The episode discusses how AI is changing investment strategies in the quantitative investment space</li>
-  <li>Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management, is the guest</li>
-  <li>The episode was recorded on May 1, 2026</li>
-  <li>The opinions and views expressed are as of the date of publication, subject to change without notice</li>
-  <li>The material provided is intended for informational purposes only and does not constitute investment advice</li>
-  <li>The episode may contain forward-looking statements</li>
-  <li>Past performance is not indicative of future results</li>
-  <li>Goldman Sachs disclaims any liability whatsoever for reliance on the information for any purpose</li>
-  <li>A transcript is provided for convenience, but Goldman Sachs is not responsible for any errors in the transcript</li>
-  <li>The material should not be copied, distributed, published, or reproduced without the express written consent of Goldman Sachs</li>
-  <li>Disclosures applicable to research with respect to issuers are available through a Goldman Sachs representative or at http://www.gs.com/research/hedge.html</li>
-  <li>The episode is available on the artificial intelligence insights page on GS.com</li>
-</ul>
+<p class="quiet-note">Latest: <a href="https://feeds.megaphone.fm/GLD9218176758">Will AI Make Markets Less Efficient?</a></p>
 </div>
 <div class="source fresh">
 <h3>The Bid (BlackRock) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97822, Requested 4077. Please try again in 27m20.736s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98004, Requested 4077. Please try again in 29m57.984s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source fresh">
 <h3>Money Stuff: The Podcast (Matt Levine) <span class="badge fresh">2026-05-08</span></h3>
-<p><strong>New this period:</strong></p>
-<ul>
-  <li>Matt Levine and Katie discuss various financial topics in a mailbag episode of the Money Stuff podcast.</li>
-</ul>
-<p><strong>Details:</strong></p>
-<p><strong>Timeless Wisdom: A Mailbag Episode</strong>(https://omny.fm/shows/money-stuff-the-podcast/timeless-wisdom-a-mailbag-episode)</p>
-<p>Extract of key points from the source:</p>
-<ul>
-  <li>The episode is a mailbag episode where Katie and Matt discuss various topics.</li>
-  <li>Discussion topics include financial advisers.</li>
-  <li>The conversation touches on private credit.</li>
-  <li>Finance book recommendations are shared.</li>
-  <li>The concept of call options on time is explored.</li>
-  <li>Expected returns are discussed.</li>
-  <li>Seating charts are mentioned as a topic of conversation.</li>
-  <li>The idea that rain can create liquidity is talked about.</li>
-  <li>The distinction between E and S vs. G is addressed.</li>
-  <li>The "church of capital allocation" is referenced.</li>
-  <li>The market for corporate control is discussed.</li>
-  <li>The difference between corporate and human life cycles is explored.</li>
-</ul>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98004, Requested 3475. Please try again in 21m17.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 </section>
 <section id="tech-and-ai-podcasts" class="category">
@@ -370,7 +164,7 @@
 </div>
 <div class="source fresh">
 <h3>Latent Space Podcast (swyx) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98474, Requested 4151. Please try again in 37m48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97994, Requested 6136. Please try again in 59m28.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 </section>
 <section id="research" class="category">
@@ -385,11 +179,11 @@
 </div>
 <div class="source fresh">
 <h3>Arxiv – Statistical Finance (q-fin.ST) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98474, Requested 1877. Please try again in 5m3.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97994, Requested 3998. Please try again in 28m41.088s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 <div class="source fresh">
 <h3>Arxiv – Computational Finance (q-fin.CP) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98474, Requested 6110. Please try again in 1h6m0.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97994, Requested 5832. Please try again in 55m5.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
 </div>
 </section>
   <footer>
