@@ -427,6 +427,10 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
             block += f"\n{item['content']}"
         blocks.append(block)
     combined = "\n\n---\n\n".join(blocks)
+    # Cap total content sent to LLM (~12k chars ≈ ~3k tokens) to stay within rate limits
+    # while still capturing the bulk of most articles
+    if len(combined) > 12000:
+        combined = combined[:12000] + "\n\n[content truncated]"
     resp = client.chat.completions.create(
         model=GROQ_MODEL,
         max_tokens=3000,
