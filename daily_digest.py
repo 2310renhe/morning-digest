@@ -62,7 +62,7 @@ def save_state(state: dict):
 
 # -- Fetching -------------------------------------------------------------------------------------
 
-def _strip_html(html: str, max_chars: int = 2500) -> str:
+def _strip_html(html: str, max_chars: int = 20000) -> str:
     return BeautifulSoup(html, "html.parser").get_text(separator=" ", strip=True)[:max_chars]
 
 
@@ -156,7 +156,7 @@ def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
         content = ""
         if content_tag:
             inner = content_tag.get_text(separator=" ", strip=True)
-            content = _strip_html(inner) if "<" in inner else inner[:2500]
+            content = _strip_html(inner) if "<" in inner else inner[:20000]
 
         if not item_id:
             continue
@@ -271,7 +271,7 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
                             )
                             # Feedly provides summary or content
                             content_obj = entry.get("summary") or entry.get("content") or {}
-                            content = (content_obj.get("content") or "")[:2500]
+                            content = _strip_html((content_obj.get("content") or ""))
                             pub_dt = None
                             pub_date = None
                             ts = entry.get("published")
@@ -379,7 +379,7 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
             tag.decompose()
         main = soup.find("main") or soup.find("article") or soup.find(id="content") or soup.body
         text = (main or soup).get_text(separator="\n", strip=True)
-        text = "\n".join(l for l in text.splitlines() if l.strip())[:3000]
+        text = "\n".join(l for l in text.splitlines() if l.strip())[:20000]
         content_hash = hashlib.sha256(text.encode()).hexdigest()[:16]
         item_id = f"{source['url']}#{content_hash}"
         title = soup.title.string.strip() if soup.title and soup.title.string else source["name"]
@@ -414,7 +414,7 @@ The reader is a hedge fund PM (quant macro + AI/semiconductor stocks).
 Rules:
 - EXTRACT only. State what the source actually says. Never infer, speculate, or editorialize beyond the source material.
 - If the source does not mention a company, ticker, or data point, do not mention it.
-- Be concise and factual. No filler phrases.
+- Be thorough — capture ALL key arguments, data points, and conclusions from the source. Do not stop at the first point.
 - For academic papers: focus on methodology, key results, and datasets used. Skip papers that have no relevance to quantitative investing, financial markets, or AI/ML applied to finance."""
 
 
@@ -429,13 +429,14 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
     combined = "\n\n---\n\n".join(blocks)
     resp = client.chat.completions.create(
         model=GROQ_MODEL,
-        max_tokens=1500,
+        max_tokens=3000,
         messages=[
             {"role": "system", "content": READER_PROFILE},
             {"role": "user", "content": f"""Summarize these new items from "{source_name}".
 
 Rules:
 - Only state what the source actually contains. Do not add interpretation or connect to topics not in the source.
+- Be comprehensive — extract every key claim, data point, and named entity (companies, people, products, figures). Do not omit major arguments or sections.
 - For academic paper feeds: skip papers unrelated to quant investing or AI/ML for finance. For relevant ones, state the research question, method, and key finding.
 
 Use this exact format:
@@ -445,7 +446,10 @@ Use this exact format:
 
 **Details:**
 **[Title](url)**
-2–3 sentences extracting the key claims and findings from the source.
+Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:
+- [key point 1]
+- [key point 2]
+- ...
 
 Items:
 {combined}"""}
