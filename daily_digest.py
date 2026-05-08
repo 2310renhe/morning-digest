@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Daily content digest â fetch new items, summarize with Groq, publish to GitHub Pages."""
+"""Daily content digest — fetch new items, summarize with Groq, publish to GitHub Pages."""
 
 import hashlib
 import json
@@ -36,7 +36,7 @@ LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "26"))
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 
-# ââ State âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -- State ----------------------------------------------------------------------------------------
 
 def load_state() -> dict:
     if STATE_FILE.exists():
@@ -58,7 +58,7 @@ def save_state(state: dict):
     }, indent=2))
 
 
-# ââ Fetching ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -- Fetching -------------------------------------------------------------------------------------
 
 def _strip_html(html: str, max_chars: int = 2500) -> str:
     return BeautifulSoup(html, "html.parser").get_text(separator=" ", strip=True)[:max_chars]
@@ -93,7 +93,7 @@ def _clean_xml(raw: bytes) -> bytes:
 def _bs4_parse_feed(raw: bytes, source_url: str) -> list:
     """
     Fallback: manually extract Atom/RSS entries using BeautifulSoup.
-    Uses html.parser first (most lenient â ignores XML namespaces and bad chars),
+    Uses html.parser first (most lenient — ignores XML namespaces and bad chars),
     then lxml/lxml-xml as alternatives.
     Returns a list of raw item dicts: id, title, link, content, pub_dt, pub_date.
     """
@@ -386,7 +386,7 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
         item = {"id": item_id, "title": title, "link": source["url"], "content": text, "pub_date": today}
 
         if item_id in seen_ids:
-            # No change â build fallback from stored info
+            # No change — build fallback from stored info
             stored = last_items.get(source["url"], {})
             fallback = {
                 "title": stored.get("title", title),
@@ -404,7 +404,7 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
         return [], None, str(e)
 
 
-# ââ Summarization âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -- Summarization --------------------------------------------------------------------------------
 
 def summarize(client: Groq, source_name: str, items: list) -> str:
     blocks = []
@@ -425,11 +425,11 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
 Use this exact format:
 
 **New this period:**
-- [one-line bullet per item â what it is and why it matters]
+- [one-line bullet per item — what it is and why it matters]
 
 **Details:**
 **[Title](url)**
-2â3 sentences on the key point and takeaway.
+2–3 sentences on the key point and takeaway.
 
 Items:
 {combined}"""}
@@ -438,7 +438,7 @@ Items:
     return resp.choices[0].message.content
 
 
-# ââ HTML output âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -- HTML output ----------------------------------------------------------------------------------
 
 def md_to_html_simple(text: str) -> str:
     """Very lightweight markdown-to-HTML for the summary output."""
@@ -639,7 +639,7 @@ def build_archive_index(dates: list) -> str:
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Morning Digest â Archive</title>
+  <title>Morning Digest — Archive</title>
   <style>
     body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }}
     a {{ color: #0066cc; }}
@@ -647,20 +647,20 @@ def build_archive_index(dates: list) -> str:
   </style>
 </head>
 <body>
-  <h1>â Digest Archive</h1>
+  <h1>☕ Digest Archive</h1>
   <ul>
 {items}
   </ul>
-  <p><a href="../index.html">â Today's digest</a></p>
+  <p><a href="../index.html">← Today's digest</a></p>
 </body>
 </html>"""
 
 
-# ââ Email âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -- Email ----------------------------------------------------------------------------------------
 
 def send_email(subject: str, body: str):
     if not all([EMAIL_FROM, EMAIL_TO, EMAIL_PASSWORD]):
-        print("  Email not configured â skipping.")
+        print("  Email not configured — skipping.")
         return
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
@@ -674,7 +674,7 @@ def send_email(subject: str, body: str):
     print("  Email sent.")
 
 
-# ââ Main ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -- Main -----------------------------------------------------------------------------------------
 
 def main():
     ARCHIVE_DIR.mkdir(exist_ok=True)
@@ -712,7 +712,7 @@ def main():
             continue
 
         if new_items:
-            print(f"  {len(new_items)} new item(s) â summarizing...")
+            print(f"  {len(new_items)} new item(s) — summarizing...")
             # Collect publish dates for the badge
             pub_dates = [i["pub_date"] for i in new_items if i.get("pub_date")]
             latest_date = max(pub_dates) if pub_dates else date_str
@@ -737,7 +737,7 @@ def main():
                     "latest_date": latest_date,
                 })
         else:
-            # No new items â show latest available
+            # No new items — show latest available
             print(f"  No new items. Latest: {fallback['title'] if fallback else 'unknown'} ({fallback.get('pub_date', '?') if fallback else '?'})")
             results.append({
                 "name": source["name"],
@@ -765,11 +765,11 @@ def main():
     # Email: only mention sources with fresh content
     fresh = [r for r in results if r.get("is_fresh") and r.get("summary")]
     if fresh:
-        subject = f"â Morning Digest â {date_str} | {len(fresh)} source{'s' if len(fresh) != 1 else ''} updated"
+        subject = f"☕ Morning Digest — {date_str} | {len(fresh)} source{'s' if len(fresh) != 1 else ''} updated"
         bullets = []
         for r in fresh:
             bullet_lines = [l.strip() for l in r["summary"].splitlines() if l.strip().startswith("- ")]
-            bullets.append(f"â¢ {r['name']} ({len(bullet_lines)} items)")
+            bullets.append(f"• {r['name']} ({len(bullet_lines)} items)")
         body = (
             f"New content in today's digest:\n\n"
             + "\n".join(bullets)
