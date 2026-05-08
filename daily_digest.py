@@ -758,12 +758,25 @@ def main():
                     "latest_date": latest_date,
                 })
         else:
-            # No new items — show cached summary if available, otherwise just title
+            # No new items — use cached summary, or generate one from fallback item
             cached = state["summaries"].get(source["name"])
             fb_title = fallback['title'] if fallback else 'unknown'
             fb_date = fallback.get('pub_date', '?') if fallback else '?'
-            print(f"  No new items. Latest: {fb_title} ({fb_date})"
-                  + (" [cached summary]" if cached else ""))
+
+            if not cached and fallback and fallback.get("content"):
+                # No cached summary yet — summarize the latest available item
+                print(f"  No new items. Summarizing latest: {fb_title} ({fb_date})")
+                try:
+                    summary = summarize(client, source["name"], [fallback])
+                    cached = {"text": summary, "date": fb_date}
+                    state["summaries"][source["name"]] = cached
+                    save_state(state)
+                except Exception as e:
+                    print(f"  Summarization error: {e}")
+            else:
+                print(f"  No new items. Latest: {fb_title} ({fb_date})"
+                      + (" [cached summary]" if cached else ""))
+
             result = {
                 "name": source["name"],
                 "category": cat,
