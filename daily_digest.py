@@ -405,6 +405,129 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
         return [], None, str(e)
 
 
+def fetch_13f(source: dict, state: dict) -> tuple:
+    """
+    Parse SEC EDGAR 13F-HR filing for a fund.
+    Returns (holdings_text, filing_date, filing_url, error).
+    holdings_text is a markdown table of top holdings with % of portfolio.
+    """
+    ua = "MorningDigest/1.0 contact@morningdigest.dev"
+    try:
+        # Step 1: Get latest filing link from EDGAR RSS
+        resp = requests.get(source["url"], headers={"User-Agent": ua}, timeout=15)
+        soup = BeautifulSoup(resp.text, "xml")
+        entry = soup.find("entry")
+        if not entry:
+            return None, None, None, "No filings found"
+
+        filing_url = entry.find("link")["href"]
+        filing_date = entry.find("updated").text[:10] if entry.find("updated") else None
+
+        # Check if we already processed this filing
+        cache_key = f"13f_{source['name']}"
+        cached = state.get("summaries", {}).get(cache_key)
+        if cached and cached.get("filing_url") == filing_url:
+            return cached["text"], filing_date, filing_url, None
+
+        # Step 2: Find the XML holdings file from the filing index
+        # Collect all candidate XML links, prefer the plain one (not XSL-wrapped)
+        resp2 = requests.get(filing_url, headers={"User-Agent": ua}, timeout=15)
+        soup2 = BeautifulSoup(resp2.text, "html.parser")
+        xml_candidates = []
+        table = soup2.find("table", class_="tableFile")
+        if table:
+            for a in table.find_all("a", href=True):
+                href = a["href"]
+                fname = href.split("/")[-1].lower()
+                if fname.endswith(".xml") and "primary_doc" not in fname:
+                    xml_candidates.append("https://www.sec.gov" + href)
+        # Prefer the plain XML (not inside xslForm13F_X02/ subdir)
+        xml_url = None
+        for url in xml_candidates:
+            if "xslForm13F" not in url:
+                xml_url = url
+                break
+        if not xml_url and xml_candidates:
+            xml_url = xml_candidates[0]
+
+        if not xml_url:
+            return None, filing_date, filing_url, "Could not find holdings XML"
+
+        # Step 3: Parse holdings XML
+        # Strip namespace prefixes (some filers use ns1:, n1:, etc.)
+        # then use html.parser which lowercases tags
+        import re as _re
+        resp3 = requests.get(xml_url, headers={"User-Agent": ua}, timeout=15)
+        raw_xml = _re.sub(r'<(/?)[a-zA-Z]\w*:', r'<\1', resp3.text)
+        soup3 = BeautifulSoup(raw_xml, "html.parser")
+
+        holdings = []
+        for info in soup3.find_all("infotable"):
+            name = info.find("nameofissuer")
+            value = info.find("value")
+            shares = info.find("sshprnamt")
+            if name and value:
+                try:
+                    raw_val = int(value.text.strip().replace(",", ""))
+                except ValueError:
+                    continue
+                holdings.append({
+                    "name": name.text.strip().title(),
+                    "raw_val": raw_val,
+                    "shares": int(shares.text.strip().replace(",", "")) if shares else 0,
+                })
+
+        if not holdings:
+            return None, filing_date, filing_url, "No holdings found in XML"
+
+        # Auto-detect value scale.
+        # Some 13F filers (Druckenmiller) report <value> in $thousands (SEC standard).
+        # Others (Coatue, Tiger Global, SALP) report in raw dollars.
+        # Heuristic: if median raw_val > 1,000,000, positions are in dollars
+        # (a $1B median in thousands would be unrealistically large for a single position).
+        # Normalize everything to $thousands for uniform downstream math.
+        median_val = sorted(h["raw_val"] for h in holdings)[len(holdings)//2]
+        in_dollars = median_val > 1_000_000
+        scale = 1000 if in_dollars else 1  # divide dollars→thousands; keep thousands as-is
+        for h in holdings:
+            h["value_k"] = h["raw_val"] // scale  # now in $thousands for all filers
+
+        holdings.sort(key=lambda x: x["value_k"], reverse=True)
+        total_k = sum(h["value_k"] for h in holdings)
+        total_b = total_k / 1_000_000  # thousands / 1M = billions
+
+        def _fmt_value(value_k: int) -> str:
+            """Format a $thousands value as $XB or $XM."""
+            if value_k >= 1_000_000:
+                return f"${value_k / 1_000_000:.2f}B"
+            return f"${value_k / 1_000:.1f}M"
+
+        # Build markdown table — top 20 holdings
+        lines = [
+            f"**{len(holdings)} positions · ${total_b:.1f}B AUM · as of {filing_date}**\n",
+            "| # | Name | Value | % of Portfolio |",
+            "|---|------|-------|---------------|",
+        ]
+        for i, h in enumerate(holdings[:20], 1):
+            pct = h["value_k"] / total_k * 100
+            val_str = _fmt_value(h["value_k"])
+            lines.append(f"| {i} | {h['name']} | {val_str} | {pct:.1f}% |")
+
+        text = "\n".join(lines)
+
+        # Cache in state
+        state.setdefault("summaries", {})[cache_key] = {
+            "text": text,
+            "date": filing_date,
+            "filing_url": filing_url,
+        }
+
+        return text, filing_date, filing_url, None
+
+    except Exception as e:
+        return None, None, None, str(e)
+
+
 def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
     Returns (new_items, fallback_item, error).
@@ -522,27 +645,62 @@ Items:
 def md_to_html_simple(text: str) -> str:
     """Very lightweight markdown-to-HTML for the summary output."""
     import re
+
+    def _inline(line: str) -> str:
+        line = re.sub(r'\*\*\[(.+?)\]\((.+?)\)\*\*', r'<strong><a href="\2">\1</a></strong>', line)
+        line = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', line)
+        line = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', line)
+        return line
+
     lines = text.split("\n")
     html_lines = []
     in_ul = False
+    in_table = False
+    table_rows = []
+
+    def _flush_table():
+        nonlocal in_table, table_rows
+        if not table_rows:
+            in_table = False
+            return
+        html_lines.append('<table class="holdings-table">')
+        for i, row in enumerate(table_rows):
+            cells = [c.strip() for c in row.strip().strip("|").split("|")]
+            tag = "th" if i == 0 else "td"
+            html_lines.append("  <tr>" + "".join(f"<{tag}>{_inline(c)}</{tag}>" for c in cells) + "</tr>")
+        html_lines.append("</table>")
+        table_rows = []
+        in_table = False
+
     for line in lines:
-        # Bold links: **[text](url)**
-        line = re.sub(r'\*\*\[(.+?)\]\((.+?)\)\*\*', r'<strong><a href="\2">\1</a></strong>', line)
-        # Regular links: [text](url)
-        line = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', line)
-        # Bold: **text**
-        line = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', line)
-        if line.startswith("- "):
-            if not in_ul:
-                html_lines.append("<ul>")
-                in_ul = True
-            html_lines.append(f"  <li>{line[2:]}</li>")
-        else:
+        is_table_row = line.strip().startswith("|") and line.strip().endswith("|")
+        is_separator = is_table_row and re.match(r"^\s*\|[\s\-:|]+\|\s*$", line)
+
+        if is_table_row and not is_separator:
             if in_ul:
                 html_lines.append("</ul>")
                 in_ul = False
-            if line.strip():
-                html_lines.append(f"<p>{line}</p>")
+            in_table = True
+            table_rows.append(line)
+        elif is_separator:
+            pass  # skip the |---|---| divider line
+        else:
+            if in_table:
+                _flush_table()
+            if line.startswith("- "):
+                if not in_ul:
+                    html_lines.append("<ul>")
+                    in_ul = True
+                html_lines.append(f"  <li>{_inline(line[2:])}</li>")
+            else:
+                if in_ul:
+                    html_lines.append("</ul>")
+                    in_ul = False
+                if line.strip():
+                    html_lines.append(f"<p>{_inline(line)}</p>")
+
+    if in_table:
+        _flush_table()
     if in_ul:
         html_lines.append("</ul>")
     return "\n".join(html_lines)
@@ -697,6 +855,10 @@ def build_html(date_str: str, results: list) -> str:
     .quiet-note { color: var(--muted); font-size: 0.85rem; font-style: italic; }
     .error { color: #ef4444; font-size: 0.85rem; }
     .empty { color: var(--muted); font-style: italic; }
+    .holdings-table { border-collapse: collapse; width: 100%; font-size: 0.82rem; margin: 0.5rem 0; }
+    .holdings-table th { background: var(--bg); color: var(--muted); font-weight: 600; text-align: left; padding: 0.3rem 0.6rem; border-bottom: 2px solid var(--border); }
+    .holdings-table td { padding: 0.25rem 0.6rem; border-bottom: 1px solid var(--border); }
+    .holdings-table tr:hover td { background: var(--bg); }
     footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
     footer a { color: var(--accent); text-decoration: none; }
     """
@@ -793,7 +955,24 @@ def main():
         stype = source.get("type", "rss").lower()
         print(f"[{stype}] {source['name']} ...")
 
-        if stype in ("rss", "podcast"):
+        if stype == "sec13f":
+            holdings_text, filing_date, filing_url, err = fetch_13f(source, state)
+            cat = source.get("category", "Other")
+            if err and not holdings_text:
+                print(f"  ERROR: {err}")
+                results.append({"name": source["name"], "category": cat, "error": err, "is_fresh": False})
+            else:
+                save_state(state)
+                results.append({
+                    "name": source["name"],
+                    "category": cat,
+                    "summary": holdings_text,
+                    "is_fresh": False,
+                    "latest_date": filing_date,
+                    "latest_link": filing_url,
+                })
+            continue
+        elif stype in ("rss", "podcast"):
             new_items, fallback, err = fetch_rss(source, state, cutoff)
         else:
             new_items, fallback, err = fetch_web(source, state, cutoff)

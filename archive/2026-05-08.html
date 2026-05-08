@@ -33,6 +33,12 @@
     .source li { margin-bottom: 0.25rem; }
     .source a { color: var(--accent); text-decoration: none; }
     .source a:hover { text-decoration: underline; }
+    .details-fold { margin-top: 0.5rem; }
+    .details-fold > summary { cursor: pointer; font-size: 0.8rem; font-weight: 500; color: var(--muted); padding: 0.3rem 0; user-select: none; }
+    .details-fold > summary:hover { color: var(--accent); }
+    .details-fold[open] > summary { margin-bottom: 0.3rem; }
+    .details-fold > summary::-webkit-details-marker { display: none; }
+    .details-fold > summary::marker { content: ""; }
     .badge { font-size: 0.7rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 6px; white-space: nowrap; }
     .badge.fresh { background: #dcfce7; color: #166534; }
     .badge.stale { background: var(--bg); color: var(--muted); }
@@ -42,6 +48,10 @@
     .quiet-note { color: var(--muted); font-size: 0.85rem; font-style: italic; }
     .error { color: #ef4444; font-size: 0.85rem; }
     .empty { color: var(--muted); font-style: italic; }
+    .holdings-table { border-collapse: collapse; width: 100%; font-size: 0.82rem; margin: 0.5rem 0; }
+    .holdings-table th { background: var(--bg); color: var(--muted); font-weight: 600; text-align: left; padding: 0.3rem 0.6rem; border-bottom: 2px solid var(--border); }
+    .holdings-table td { padding: 0.25rem 0.6rem; border-bottom: 1px solid var(--border); }
+    .holdings-table tr:hover td { background: var(--bg); }
     footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
     footer a { color: var(--accent); text-decoration: none; }
     </style>
@@ -50,7 +60,7 @@
 <div class="container">
   <header>
     <h1>Morning Digest</h1>
-    <p class="subtitle">2026-05-08 &middot; Generated 2026-05-08 19:03 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
+    <p class="subtitle">2026-05-08 &middot; Generated 2026-05-08 14:37 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
   </header>
   <nav class="nav">
     <a href="#ai-opinion-leaders" class="nav-pill" style="border-color:#6c5ce7">🧠 AI Opinion Leaders <span class="nav-count">7</span></a>
@@ -63,108 +73,346 @@
 <h2 style="border-left-color:#6c5ce7">🧠 AI Opinion Leaders</h2>
 <div class="source quiet">
 <h3>SemiAnalysis <span class="badge stale">2026-05-01</span></h3>
-<p class="quiet-note">Latest: <a href="https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model">AI Value Capture - The Shift To Model Labs</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>SemiAnalysis discusses the shift to model labs and the capture of value in the AI ecosystem, highlighting Anthropic's revenue growth and increasing margins.</li>
+  <li>The article explores the rapid pace of AI adoption, the increasing value of tokens, and the declining cost of generating them.</li>
+  <li>SemiAnalysis introduces a new framework, the "One Chart to Rule Them All," to analyze GPU rental economics and value capture in the AI ecosystem.</li>
+  <li>The article discusses the dynamics of the compute market, including demand for Nvidia systems, memory constraints, and the potential for Nvidia to increase pricing.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>AI Value Capture - The Shift To Model Labs (2026-05-01)</strong>(https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model)</p>
+<p>Extracting all key points from the source:</p>
+<ul>
+  <li>The AI industry has seen rapid advancements, with model releases, software breakthroughs, and hardware improvements compressing multi-year cycles into weeks.</li>
+  <li>Agentic AI has crossed a real inflection point, driving a step-change in the value of tokens, while software and hardware improvements have reduced the cost of generating them.</li>
+  <li>Anthropic's ARR has exploded from $9B to over $44B, with gross margins on their inference infrastructure increasing from 38% to over 70%.</li>
+  <li>End users are enjoying a huge return on investment (ROI) from consuming tokens, with tasks that used to take tens of person-hours now being accomplished in minutes with a few dollars' worth of tokens.</li>
+  <li>SemiAnalysis has seen a surge in revenue and margins, with annualized token spend reaching as high as $10.95 million, allowing them to outcompete competitors and gain market share.</li>
+  <li>New chips like Blackwells can generate 30x more tokens per second than Hoppers, while ASICs like TPUv7 and Trainium 3 show similar improvements.</li>
+  <li>Inference providers like Fireworks, Baseten, and Fal are seeing widening margins and hyper-growth revenue trends.</li>
+  <li>Memory prices have increased 6x in the past year, and Neocloud GPU rental pricing is surging, with 1-year H100 rental contract prices up 40% from the bottom in October 2025.</li>
+  <li>TSMC and Nvidia have not reacted to the recent boom in AI value generation, with TSMC not raising prices and Nvidia not fully adjusting its pricing framework.</li>
+  <li>The article introduces a new framework, the "One Chart to Rule Them All," to analyze GPU rental economics and value capture in the AI ecosystem.</li>
+  <li>The framework explores the dynamics of the compute market, including demand for Nvidia systems, memory constraints, and the potential for Nvidia to increase pricing.</li>
+  <li>SemiAnalysis estimates that the true blended price per million tokens for running Opus 4.7 on agentic tasks is $0.99, despite the sticker price being $5/$25 per MTok.</li>
+  <li>The cost of producing each token has plummeted, with the average blended price per million tokens falling dramatically over the past few months.</li>
+  <li>Agentic workloads have extremely high input-to-output ratios and high cache hit rates, making them more efficient and cost-effective.</li>
+  <li>Anthropic's margin expansion has come from cost reductions, with the company able to generate the same tokens for cheaper.</li>
+  <li>The gap between the price of a frontier-level token and the economic value of the work that can be produced by said token is the largest it's ever been.</li>
+  <li>Nvidia's pricing framework has not fully adjusted to reflect the shift in the market, with the company still operating within a framework shaped by prior assumptions.</li>
+  <li>The market has structurally shifted, with demand scaling faster and more persistently than supply can respond, yet Nvidia's pricing framework remains anchored to prior assumptions.</li>
+  <li>SOCAMM (System-On-Chip Attached Memory Module) is a key variable in understanding Nvidia's pricing strategy, with the company having secured substantial SOCAMM volume under a long-term agreement (LTA) format.</li>
+  <li>The article estimates that SOCAMM contract pricing paid by Nvidia is ~$8/GB in 1Q26, with a potential exit '26 pricing of ~$13/GB.</li>
+  <li>SemiAnalysis believes it is reasonable for Nvidia to charge 60% margin on SOCAMM, given the current environment and the company's supply chain edge.</li>
+</ul>
+</details>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – Blog <span class="badge stale">2026-02-12</span></h3>
-<p class="quiet-note">Latest: <a href="http://karpathy.github.io/2026/02/12/microgpt/">microgpt</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>microgpt, a single file of 200 lines of pure Python with no dependencies that trains and inferences a GPT.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>microgpt (http://karpathy.github.io/2026/02/12/microgpt/)</strong></p>
+<p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
+<p>* The microgpt project is a 200-line Python script that trains and infers a GPT model with no dependencies.</p>
+<p>* The script is a culmination of multiple projects (micrograd, makemore, nanogpt, etc.) and a decade-long obsession to simplify LLMs to their bare essentials.</p>
+<p>* The script contains the full algorithmic content of what is needed: dataset of documents, tokenizer, autograd engine, a GPT-2-like neural network architecture, the Adam optimizer, training loop, and inference loop.</p>
+<p>* The dataset used is a list of 32,000 names, one per line, which is used to train the model to generate new, plausible-sounding names.</p>
+<p>* The tokenizer is a simple character-level tokenizer that assigns a unique integer to each character in the dataset.</p>
+<p>* The autograd engine is implemented from scratch using a single class called `Value`, which wraps a scalar number and tracks how it was computed.</p>
+<p>* The `Value` class has a `backward` method that walks the computation graph in reverse topological order, applying the chain rule at each step.</p>
+<p>* The model architecture is a stateless function that takes a token, a position, the parameters, and the cached keys/values from previous positions, and returns logits over what token the model thinks should come next in the sequence.</p>
+<p>* The model uses a combination of attention and MLP blocks to process the input sequence.</p>
+<p>* The attention block projects the current token into three vectors: a query, a key, and a value, and uses these vectors to compute attention weights and a weighted sum of the cached values.</p>
+<p>* The MLP block is a two-layer feed-forward network that projects up to 4x the embedding dimension, applies ReLU, and projects back down.</p>
+<p>* The model uses residual connections to add the output of each block back to its input.</p>
+<p>* The final hidden state is projected to vocabulary size by `lm_head`, producing one logit per token in the vocabulary.</p>
+<p>* The script is available on GitHub and can be run as a Google Colab notebook.</p>
+<p>* The author has also created a video explaining the autograd engine and the `Value` class.</p>
+<p>* The script has been simplified to its bare essentials, with no unnecessary dependencies or code.</p>
+<p>* The model is trained using a simple Adam optimizer and a cross-entropy loss function.</p>
+<p>* The script generates new, plausible-sounding names by sampling from the trained model.</p>
+<p>* The generated names are printed to the console, along with their corresponding token IDs and positions in the sequence.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – YouTube <span class="badge stale">2026-04-16</span></h3>
-<p class="quiet-note">Latest: <a href="https://www.youtube.com/shorts/QLu_ZsRc_G0">Covering 10 points, a surprisingly tricky puzzle.</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>A YouTube video by Andrej Karpathy discussing a puzzle as part of the 2026 Year of Math.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>Covering 10 points, a surprisingly tricky puzzle. (2026-04-16)(https://www.youtube.com/shorts/QLu_ZsRc_G0)</strong></p>
+<ul>
+  <li>The video is part of a monthly series of puzzles for the 2026 Year of Math.</li>
+  <li>The puzzle involves covering 10 points.</li>
+  <li>The puzzle is described as "surprisingly tricky". </li>
+  <li>The video was uploaded on 2026-04-16.</li>
+  <li>Andrej Karpathy is the creator of the video.</li>
+</ul>
+</details>
 </div>
 <div class="source fresh">
 <h3>Andrej Karpathy – GitHub Repos <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98015, Requested 5478. Please try again in 50m17.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source fresh">
 <h3>Zvi Mowshowitz – Don't Worry About the Vase <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98014, Requested 3425. Please try again in 20m43.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source fresh">
 <h3>Scott Alexander – Astral Codex Ten <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98013, Requested 5677. Please try again in 53m8.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source quiet">
 <h3>Ethan Mollick – One Useful Thing <span class="badge stale">2026-04-23</span></h3>
-<p class="quiet-note">Latest: <a href="https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55">Sign of the future: GPT-5.5</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>GPT-5.5, a new AI model, has been released with significant improvements in coding, image generation, and other areas.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>Sign of the future: GPT-5.5 (https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55)</strong></p>
+<p>Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:</p>
+<ul>
+  <li>The author had early access to GPT-5.5 and believes it is a significant improvement over previous models.</li>
+  <li>GPT-5.5 was given a coding challenge to build a procedurally generated 3D simulation of a harbor town from 3000 BCE to 3000 AD, and it successfully completed the task.</li>
+  <li>The author compared GPT-5.5 to other AI models, including OpenAI's first reasoning model (o3) and the current best open weights model (Kimi K2.6), and found that GPT-5.5 was significantly better.</li>
+  <li>GPT-5.5 Pro is much faster than its previous iteration, GPT-5.4 Pro, taking 20 minutes to complete the task compared to 33 minutes.</li>
+  <li>The author emphasizes the importance of considering AI as a set of three interlinked concepts: models, apps, and harnesses.</li>
+  <li>OpenAI has made advances in all three areas, including the new GPT-5.5 model, improvements in apps such as OpenAI Codex, and new harnesses like the image model GPT-imagegen-2.</li>
+  <li>The new image model can render high-quality text and create almost any picture described, and the author demonstrates its capabilities with examples such as the "Otter Test".</li>
+  <li>The author used GPT-5.5 to sort out hundreds of anonymized data files on crowdfunding and generate a new hypothesis, and found the results to be impressive.</li>
+  <li>GPT-5.5 was also used to create an entirely new tabletop roleplaying game, including rules, tables, and illustrations, and to simulate players experiencing the game and revise the rules based on the results.</li>
+  <li>Despite the significant improvements, the author notes that there are still rough edges, such as the AI's struggles with building long-form fiction and generating interesting hypotheses.</li>
+  <li>The author concludes that GPT-5.5 is a noteworthy step in the development of AI, and that the capability gains appear to be accelerating.</li>
+</ul>
+</details>
 </div>
 <div class="source fresh">
-<h3>Simon Willison <span class="badge fresh">2026-05-07</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98012, Requested 4723. Please try again in 39m23.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<h3>Simon Willison <span class="badge fresh">2026-05-08</span></h3>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source fresh">
 <h3>Dario Amodei – Essays <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98012, Requested 3703. Please try again in 24m41.759999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source quiet">
 <h3>Import AI – Jack Clark <span class="badge stale">2026-05-04</span></h3>
-<p class="quiet-note">Latest: <a href="https://jack-clark.net/2026/05/04/import-ai-455-automating-ai-research/">Import AI 455: Automating AI Research</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>Automating AI research and potential for no-human-involved AI R&D by the end of 2028.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>Import AI 455: Automating AI Research</strong> (https://jack-clark.net/2026/05/04/import-ai-455-automating-ai-research/)</p>
+<p>The author believes there is a likely chance (60%+) that no-human-involved AI R&D will happen by the end of 2028, based on publicly available information from arXiv, bioRxiv, and NBER. The author thinks all the pieces are in place for automating the production of today's AI systems, and that scaling trends may lead to models being creative enough to substitute for human researchers. The author plans to spend most of 2026 working through the implications of automated AI R&D.</p>
+</details>
 </div>
 <div class="source fresh">
 <h3>The Batch – Andrew Ng (DeepLearning.AI) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98011, Requested 4522. Please try again in 36m28.511999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source fresh">
 <h3>Garry Tan – GitHub Repos <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98010, Requested 4847. Please try again in 41m8.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 </section>
 <section id="investor-positioning" class="category">
 <h2 style="border-left-color:#e17055">💰 Investor Positioning</h2>
 <div class="source quiet">
 <h3>Situational Awareness LP – 13F Filings (SEC) <span class="badge stale">2026-02-11</span></h3>
-<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/2045724/000204572426000002/0002045724-26-000002-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+<p><strong>29 positions · $5.5B AUM · as of 2026-02-11</strong></p>
+<table class="holdings-table">
+  <tr><th>#</th><th>Name</th><th>Value</th><th>% of Portfolio</th></tr>
+  <tr><td>1</td><td>Bloom Energy Corp</td><td>$875.5M</td><td>15.9%</td></tr>
+  <tr><td>2</td><td>Coreweave Inc</td><td>$774.4M</td><td>14.0%</td></tr>
+  <tr><td>3</td><td>Intel Corp</td><td>$746.8M</td><td>13.5%</td></tr>
+  <tr><td>4</td><td>Lumentum Hldgs Inc</td><td>$478.6M</td><td>8.7%</td></tr>
+  <tr><td>5</td><td>Coreweave Inc</td><td>$436.7M</td><td>7.9%</td></tr>
+  <tr><td>6</td><td>Core Scientific Inc New</td><td>$418.7M</td><td>7.6%</td></tr>
+  <tr><td>7</td><td>Iren Limited</td><td>$328.6M</td><td>6.0%</td></tr>
+  <tr><td>8</td><td>Applied Digital Corp</td><td>$278.0M</td><td>5.0%</td></tr>
+  <tr><td>9</td><td>Sandisk Corp</td><td>$250.2M</td><td>4.5%</td></tr>
+  <tr><td>10</td><td>Cipher Mining Inc</td><td>$154.5M</td><td>2.8%</td></tr>
+  <tr><td>11</td><td>Eqt Corp</td><td>$133.0M</td><td>2.4%</td></tr>
+  <tr><td>12</td><td>Coherent Corp</td><td>$88.6M</td><td>1.6%</td></tr>
+  <tr><td>13</td><td>Solaris Energy Infras Inc</td><td>$85.8M</td><td>1.6%</td></tr>
+  <tr><td>14</td><td>Tower Semiconductor Ltd</td><td>$84.9M</td><td>1.5%</td></tr>
+  <tr><td>15</td><td>Riot Platforms Inc</td><td>$78.1M</td><td>1.4%</td></tr>
+  <tr><td>16</td><td>Kilroy Rlty Corp</td><td>$49.6M</td><td>0.9%</td></tr>
+  <tr><td>17</td><td>Hut 8 Corp</td><td>$39.5M</td><td>0.7%</td></tr>
+  <tr><td>18</td><td>Eqt Corp</td><td>$37.5M</td><td>0.7%</td></tr>
+  <tr><td>19</td><td>Bloom Energy Corp</td><td>$35.5M</td><td>0.6%</td></tr>
+  <tr><td>20</td><td>Whitefiber Inc</td><td>$27.8M</td><td>0.5%</td></tr>
+</table>
 </div>
 <div class="source quiet">
 <h3>Stanley Druckenmiller – Duquesne Family Office 13F (SEC) <span class="badge stale">2026-02-17</span></h3>
-<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/1536411/000153641126000002/0001536411-26-000002-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+<p><strong>62 positions · $4.5B AUM · as of 2026-02-17</strong></p>
+<table class="holdings-table">
+  <tr><th>#</th><th>Name</th><th>Value</th><th>% of Portfolio</th></tr>
+  <tr><td>1</td><td>Natera Inc</td><td>$575.3M</td><td>12.8%</td></tr>
+  <tr><td>2</td><td>Select Sector Spdr Tr</td><td>$301.0M</td><td>6.7%</td></tr>
+  <tr><td>3</td><td>Insmed Inc</td><td>$257.9M</td><td>5.7%</td></tr>
+  <tr><td>4</td><td>Invesco Exchange Traded Fd T</td><td>$224.9M</td><td>5.0%</td></tr>
+  <tr><td>5</td><td>Teva Pharmaceutical Inds Ltd</td><td>$183.4M</td><td>4.1%</td></tr>
+  <tr><td>6</td><td>Woodward Inc</td><td>$178.7M</td><td>4.0%</td></tr>
+  <tr><td>7</td><td>Amazon Com Inc</td><td>$170.3M</td><td>3.8%</td></tr>
+  <tr><td>8</td><td>Taiwan Semiconductor Mfg Ltd</td><td>$165.0M</td><td>3.7%</td></tr>
+  <tr><td>9</td><td>Coupang Inc</td><td>$159.8M</td><td>3.6%</td></tr>
+  <tr><td>10</td><td>Ishares Inc</td><td>$134.3M</td><td>3.0%</td></tr>
+  <tr><td>11</td><td>Alphabet Inc</td><td>$120.5M</td><td>2.7%</td></tr>
+  <tr><td>12</td><td>Sea Ltd</td><td>$120.4M</td><td>2.7%</td></tr>
+  <tr><td>13</td><td>Ishares Inc</td><td>$112.9M</td><td>2.5%</td></tr>
+  <tr><td>14</td><td>Newamsterdam Pharma Company</td><td>$107.7M</td><td>2.4%</td></tr>
+  <tr><td>15</td><td>Mercadolibre Inc</td><td>$95.0M</td><td>2.1%</td></tr>
+  <tr><td>16</td><td>Bbb Foods Inc</td><td>$89.3M</td><td>2.0%</td></tr>
+  <tr><td>17</td><td>Restaurant Brands Intl Inc</td><td>$82.5M</td><td>1.8%</td></tr>
+  <tr><td>18</td><td>Cogent Biosciences Inc</td><td>$78.7M</td><td>1.8%</td></tr>
+  <tr><td>19</td><td>Alcoa Corp</td><td>$73.1M</td><td>1.6%</td></tr>
+  <tr><td>20</td><td>Entegris Inc</td><td>$71.1M</td><td>1.6%</td></tr>
+</table>
 </div>
 <div class="source quiet">
 <h3>Philippe Laffont – Coatue Management 13F (SEC) <span class="badge stale">2026-02-17</span></h3>
-<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/1135730/000091957426001239/0000919574-26-001239-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+<p><strong>257 positions · $40.0B AUM · as of 2026-02-17</strong></p>
+<table class="holdings-table">
+  <tr><th>#</th><th>Name</th><th>Value</th><th>% of Portfolio</th></tr>
+  <tr><td>1</td><td>Meta Platforms Inc</td><td>$1.70B</td><td>4.2%</td></tr>
+  <tr><td>2</td><td>Amazon Com Inc</td><td>$1.52B</td><td>3.8%</td></tr>
+  <tr><td>3</td><td>Microsoft Corp</td><td>$1.21B</td><td>3.0%</td></tr>
+  <tr><td>4</td><td>Nvidia Corporation</td><td>$1.20B</td><td>3.0%</td></tr>
+  <tr><td>5</td><td>Ge Vernova Inc</td><td>$1.10B</td><td>2.8%</td></tr>
+  <tr><td>6</td><td>Taiwan Semiconductor Mfg Ltd</td><td>$1.05B</td><td>2.6%</td></tr>
+  <tr><td>7</td><td>Alphabet Inc</td><td>$1.02B</td><td>2.6%</td></tr>
+  <tr><td>8</td><td>Broadcom Inc</td><td>$1.01B</td><td>2.5%</td></tr>
+  <tr><td>9</td><td>Constellation Energy Corp</td><td>$926.6M</td><td>2.3%</td></tr>
+  <tr><td>10</td><td>Spotify Technology S A</td><td>$831.4M</td><td>2.1%</td></tr>
+  <tr><td>11</td><td>Reddit Inc</td><td>$825.7M</td><td>2.1%</td></tr>
+  <tr><td>12</td><td>Lam Research Corp</td><td>$821.8M</td><td>2.1%</td></tr>
+  <tr><td>13</td><td>Applovin Corp</td><td>$777.2M</td><td>1.9%</td></tr>
+  <tr><td>14</td><td>Eaton Corp Plc</td><td>$766.4M</td><td>1.9%</td></tr>
+  <tr><td>15</td><td>Microsoft Corp</td><td>$746.7M</td><td>1.9%</td></tr>
+  <tr><td>16</td><td>Nu Hldgs Ltd</td><td>$736.6M</td><td>1.8%</td></tr>
+  <tr><td>17</td><td>Taiwan Semiconductor Mfg Ltd</td><td>$732.8M</td><td>1.8%</td></tr>
+  <tr><td>18</td><td>Alphabet Inc</td><td>$684.4M</td><td>1.7%</td></tr>
+  <tr><td>19</td><td>Tesla Inc</td><td>$650.7M</td><td>1.6%</td></tr>
+  <tr><td>20</td><td>Applied Matls Inc</td><td>$590.0M</td><td>1.5%</td></tr>
+</table>
 </div>
 <div class="source quiet">
 <h3>Chase Coleman – Tiger Global Management 13F (SEC) <span class="badge stale">2026-02-17</span></h3>
-<p class="quiet-note">Latest: <a href="https://www.sec.gov/Archives/edgar/data/1167483/000091957426001143/0000919574-26-001143-index.htm">13F-HR  - Quarterly report filed by institutional managers, Holdings</a></p>
+<p><strong>54 positions · $29.7B AUM · as of 2026-02-17</strong></p>
+<table class="holdings-table">
+  <tr><th>#</th><th>Name</th><th>Value</th><th>% of Portfolio</th></tr>
+  <tr><td>1</td><td>Alphabet Inc</td><td>$3.33B</td><td>11.2%</td></tr>
+  <tr><td>2</td><td>Microsoft Corp</td><td>$2.65B</td><td>8.9%</td></tr>
+  <tr><td>3</td><td>Amazon Com Inc</td><td>$2.31B</td><td>7.8%</td></tr>
+  <tr><td>4</td><td>Nvidia Corporation</td><td>$2.05B</td><td>6.9%</td></tr>
+  <tr><td>5</td><td>Sea Ltd</td><td>$1.97B</td><td>6.6%</td></tr>
+  <tr><td>6</td><td>Meta Platforms Inc</td><td>$1.82B</td><td>6.1%</td></tr>
+  <tr><td>7</td><td>Take-Two Interactive Softwar</td><td>$1.50B</td><td>5.0%</td></tr>
+  <tr><td>8</td><td>Taiwan Semiconductor Mfg Ltd</td><td>$1.13B</td><td>3.8%</td></tr>
+  <tr><td>9</td><td>Broadcom Inc</td><td>$995.2M</td><td>3.3%</td></tr>
+  <tr><td>10</td><td>Apollo Global Mgmt Inc</td><td>$898.9M</td><td>3.0%</td></tr>
+  <tr><td>11</td><td>Reddit Inc</td><td>$883.6M</td><td>3.0%</td></tr>
+  <tr><td>12</td><td>Applovin Corp</td><td>$871.2M</td><td>2.9%</td></tr>
+  <tr><td>13</td><td>Flutter Entmt Plc</td><td>$860.9M</td><td>2.9%</td></tr>
+  <tr><td>14</td><td>Spotify Technology S A</td><td>$732.5M</td><td>2.5%</td></tr>
+  <tr><td>15</td><td>Lam Research Corp</td><td>$667.7M</td><td>2.2%</td></tr>
+  <tr><td>16</td><td>Ge Vernova Inc</td><td>$635.9M</td><td>2.1%</td></tr>
+  <tr><td>17</td><td>Coupang Inc</td><td>$619.6M</td><td>2.1%</td></tr>
+  <tr><td>18</td><td>Veeva Sys Inc</td><td>$540.3M</td><td>1.8%</td></tr>
+  <tr><td>19</td><td>Corpay Inc</td><td>$527.3M</td><td>1.8%</td></tr>
+  <tr><td>20</td><td>Grab Holdings Limited</td><td>$463.7M</td><td>1.6%</td></tr>
+</table>
 </div>
 </section>
 <section id="institutional-views" class="category">
 <h2 style="border-left-color:#0984e3">🏛️ Institutional Views</h2>
 <div class="source fresh">
 <h3>Odd Lots (Bloomberg) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98007, Requested 3570. Please try again in 22m42.528s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source quiet">
 <h3>Exchanges (Goldman Sachs) <span class="badge stale">2026-05-06</span></h3>
-<p class="quiet-note">Latest: <a href="https://feeds.megaphone.fm/GLD9218176758">Will AI Make Markets Less Efficient?</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>Will AI Make Markets Less Efficient? podcast episode featuring Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>Will AI Make Markets Less Efficient? (https://feeds.megaphone.fm/GLD9218176758)</strong></p>
+<p>Extract of key points:</p>
+<ul>
+  <li>The episode discusses how AI is changing investment strategies in the quantitative investment space</li>
+  <li>Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management, is the guest</li>
+  <li>The episode was recorded on May 1, 2026</li>
+  <li>The opinions and views expressed are as of the date of publication, subject to change without notice</li>
+  <li>The material provided is intended for informational purposes only and does not constitute investment advice</li>
+  <li>The episode may contain forward-looking statements</li>
+  <li>Past performance is not indicative of future results</li>
+  <li>Goldman Sachs disclaims any liability whatsoever for reliance on the information for any purpose</li>
+  <li>A transcript is provided for convenience, but Goldman Sachs is not responsible for any errors in the transcript</li>
+  <li>The material should not be copied, distributed, published, or reproduced without the express written consent of Goldman Sachs</li>
+  <li>Disclosures applicable to research with respect to issuers are available through a Goldman Sachs representative or at http://www.gs.com/research/hedge.html</li>
+  <li>The episode is available on the artificial intelligence insights page on GS.com</li>
+</ul>
+</details>
 </div>
 <div class="source fresh">
 <h3>The Bid (BlackRock) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98004, Requested 4077. Please try again in 29m57.984s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source fresh">
 <h3>Money Stuff: The Podcast (Matt Levine) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98004, Requested 3475. Please try again in 21m17.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 </section>
 <section id="tech-and-ai-podcasts" class="category">
 <h2 style="border-left-color:#00b894">🎙️ Tech & AI Podcasts</h2>
 <div class="source quiet">
 <h3>All-In Podcast <span class="badge stale">2026-05-01</span></h3>
-<p class="quiet-note">Latest: <a href="https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze">OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>OpenAI misses revenue and user targets</li>
+  <li>Comparison between Codex and Claude</li>
+  <li>Elon Musk vs Sam Altman trial</li>
+  <li>Big tech companies' earnings and Capex explosion</li>
+  <li>AI cybersecurity market growth</li>
+  <li>Peptide craze and Retatrutide</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze</strong> (https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze)</p>
+<p>The podcast discusses OpenAI missing its revenue and user targets, with Codex gaining on Claude. It also covers the trial between Elon Musk and Sam Altman, and the recent earnings and Capex explosion of big tech companies. Additionally, the podcast touches on the growth of the AI cybersecurity market and the increasing popularity of peptides, particularly Retatrutide.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>AI + a16z <span class="badge stale">2026-05-05</span></h3>
-<p class="quiet-note">Latest: <a href="https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx">From Vector Databases to Knowledge Engines: The Next Layer of AI</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>The shift from vector databases to knowledge engines and its implications for AI systems.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>From Vector Databases to Knowledge Engines: The Next Layer of AI</strong> (https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx)</p>
+<p>Peter Levine discusses with Ash Ashutosh the launch of Nexus and the evolution of AI systems from vector databases to knowledge engines. The conversation highlights the inefficiencies of traditional retrieval systems and the need for AI systems to support machine-to-machine interactions. Ashutosh explains how Pinecone is rethinking the stack for agentic applications, introducing new abstractions, query languages, and developer workflows to improve performance, accuracy, and cost.</p>
+</details>
 </div>
 <div class="source quiet">
 <h3>Lex Fridman Podcast <span class="badge stale">2026-05-06</span></h3>
-<p class="quiet-note">Latest: <a href="https://lexfridman.com/ffmpeg/?utm_source=rss&utm_medium=rss&utm_campaign=ffmpeg">#496 – FFmpeg: The Incredible Technology Behind Video on the Internet</a></p>
+<p><strong>New this period:</strong></p>
+<ul>
+  <li>Lex Fridman interviews Jean-Baptiste Kempf and Kieran Kunhya about FFmpeg, the technology behind video on the internet.</li>
+</ul>
+<details class="details-fold"><summary>Details ▸</summary>
+<p><strong>FFmpeg: The Incredible Technology Behind Video on the Internet</strong>(https://lexfridman.com/ffmpeg/)</p>
+<p>Jean-Baptiste Kempf and Kieran Kunhya discuss FFmpeg, its history, and its role in video playback. They explain how video playback works, video codecs and containers, and the development of FFmpeg. The conversation also covers the history of FFmpeg, reverse engineering codecs, and open-source burnout.</p>
+</details>
 </div>
 <div class="source fresh">
 <h3>Latent Space Podcast (swyx) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97994, Requested 6136. Please try again in 59m28.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 </section>
 <section id="research" class="category">
@@ -179,11 +427,11 @@
 </div>
 <div class="source fresh">
 <h3>Arxiv – Statistical Finance (q-fin.ST) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97994, Requested 3998. Please try again in 28m41.088s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 <div class="source fresh">
 <h3>Arxiv – Computational Finance (q-fin.CP) <span class="badge fresh">2026-05-08</span></h3>
-<p class="error">Summarization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 97994, Requested 5832. Please try again in 55m5.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}</p>
+<p class="error">Summarization failed: Connection error.</p>
 </div>
 </section>
   <footer>

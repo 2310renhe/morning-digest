@@ -68,25 +68,25 @@
   {
     "name": "Situational Awareness LP – 13F Filings (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss",
+    "type": "sec13f",
     "category": "Investor Positioning"
   },
   {
     "name": "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001536411&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss",
+    "type": "sec13f",
     "category": "Investor Positioning"
   },
   {
     "name": "Philippe Laffont – Coatue Management 13F (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001135730&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss",
+    "type": "sec13f",
     "category": "Investor Positioning"
   },
   {
     "name": "Chase Coleman – Tiger Global Management 13F (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001167483&type=13F&dateb=&owner=include&count=10&output=atom",
-    "type": "rss",
+    "type": "sec13f",
     "category": "Investor Positioning"
   },
   {
