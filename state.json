@@ -1,19 +1,20 @@
 {
   "seen": [
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
     "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "github:garrytan/gbrain:2026-05-10",
+    "https://darioamodei.com/#28916f0e70fbc697",
     "258befee-0a77-412f-bc07-b44300b368b2",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
+    "github:garrytan/openclaw-render-template:2026-05-10",
     "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "github:garrytan/gstack:2026-05-10"
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "github:garrytan/gstack:2026-05-10",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "github:garrytan/gbrain:2026-05-10",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -203,8 +204,8 @@
       "date": "2026-04-23"
     },
     "Simon Willison": {
-      "text": "**New this period:**\n- Luke Curley discusses OpenAI's WebRTC problem and its impact on low-latency voice AI\n\n**Details:**\n**OpenAI's WebRTC Problem**(https://simonwillison.net/2026/May/9/luke-curley/#atom-everything)\nExtract of key points:\n- WebRTC is designed to degrade and drop audio packets during poor network conditions to keep latency low\n- This can result in distorted audio on conference calls\n- The design prioritizes rapid back-and-forth in conference calls over waiting for audio packets\n- Luke Curley suggests that waiting an extra 200ms for a prompt to be accurate would be preferable to a garbage prompt\n- LLMs (Large Language Models) are not particularly responsive anyway\n- It is impossible to retransmit a WebRTC audio packet within a browser, as the implementation is hard-coded for real-time latency\n- Discord tried to retransmit WebRTC audio packets but was unable to do so due to the hard-coded implementation\n- The issue is relevant to OpenAI's delivery of low-latency voice AI at scale",
-      "date": "2026-05-09"
+      "text": "**New this period:**\n- Quoting Andrew Quinn on the importance of reinventing wheels in programming to reach the edge of knowledge\n\n**Details:**\n**Quoting Andrew Quinn (https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything)**\nExtract of key points from the source:\n- Andrew Quinn discusses his early life fascination with programming and the guilt of not knowing if a better implementation of a tool already exists\n- He mentions the example of writing a TSV-aware search and replace versus learning about awk to solve the problem\n- Quinn's central conceit is that feeling guilty about not knowing existing implementations is a trap\n- He believes that reinventing a few wheels is necessary to get to the edge of what is known about a subject, suggesting 4 or 5 wheels in most domains and 20 or 30 in rigorous fields like mathematics or computer science\n- Quinn argues that reinventing wheels and asking directed questions will propel learning faster than idle study, even if the study time is multiplied\n- The quote is from a footnote on replacing a 3 GB SQLite database with a 10 MB FST binary\n- Tags mentioned include careers and SQLite",
+      "date": "2026-05-10"
     },
     "Dario Amodei \u2013 Essays": {
       "text": "**New this period:**\n- Dario Amodei's background and experience in AI research and development\n- List of essays, research, and interviews by Dario Amodei\n\n**Details:**\n**Dario Amodei (https://darioamodei.com/)**\nDario Amodei is the CEO of Anthropic, a public benefit corporation focused on building safe and interpretable AI systems. He has a background in AI research, having led the development of large language models like GPT-2 and GPT-3 at OpenAI, and worked as a Senior Research Scientist at Google Brain. His website lists his essays, research, and interviews, including topics such as the urgency of interpretability and the need for basic transparency rules in AI.",
