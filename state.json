@@ -1,16 +1,28 @@
 {
   "seen": [
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "github:garrytan/gstack:2026-05-10",
-    "github:garrytan/openclaw-render-template:2026-05-10",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
     "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "https://github.com/karpathy?tab=repositories#2b3e3d39e31d38c2",
     "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
-    "github:garrytan/gbrain:2026-05-10",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything"
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "https://github.com/garrytan?tab=repositories#d27bc7f811395ce8",
+    "https://github.com/garrytan?tab=repositories#21b76c6ccc5be1d6",
+    "https://github.com/karpathy?tab=repositories#6347a5a24effea3f",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "https://github.com/garrytan?tab=repositories#d8864512c0eba35c",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "https://github.com/karpathy?tab=repositories#74e24ae5b520c320"
   ],
   "last_items": {
+    "https://github.com/karpathy?tab=repositories": {
+      "title": "karpathy (Andrej) / Repositories \u00b7 GitHub",
+      "date": "2026-05-10"
+    },
     "https://darioamodei.com/": {
       "title": "Dario Amodei",
       "date": "2026-05-08"
@@ -19,153 +31,9 @@
       "title": "The Batch | DeepLearning.AI | AI News & Insights",
       "date": "2026-05-08"
     },
-    "https://github.com/karpathy?tab=repositories:repos": {
-      "karpathy/nanochat": {
-        "updated": "2026-05-05T03:17:23Z"
-      },
-      "karpathy/karpathy.github.io": {
-        "updated": "2026-04-10T23:50:09Z"
-      },
-      "karpathy/autoresearch": {
-        "updated": "2026-03-26T00:07:37Z"
-      },
-      "karpathy/jobs": {
-        "updated": "2026-03-16T04:05:24Z"
-      },
-      "karpathy/rustbpe": {
-        "updated": "2026-01-03T22:24:54Z"
-      },
-      "karpathy/cpython": {
-        "updated": "2025-12-19T06:13:32Z"
-      },
-      "karpathy/hn-time-capsule": {
-        "updated": "2025-12-10T16:59:29Z"
-      },
-      "karpathy/llm-council": {
-        "updated": "2025-11-22T23:35:21Z"
-      },
-      "karpathy/reader3": {
-        "updated": "2025-11-18T02:37:51Z"
-      },
-      "karpathy/nanoGPT": {
-        "updated": "2025-11-12T19:52:34Z"
-      },
-      "karpathy/rendergit": {
-        "updated": "2025-08-21T19:12:34Z"
-      },
-      "karpathy/llm.c": {
-        "updated": "2025-06-26T17:03:40Z"
-      },
-      "karpathy/nn-zero-to-hero": {
-        "updated": "2024-08-18T12:16:26Z"
-      },
-      "karpathy/minGPT": {
-        "updated": "2024-08-15T04:09:40Z"
-      },
-      "karpathy/build-nanogpt": {
-        "updated": "2024-08-13T12:28:52Z"
-      },
-      "karpathy/micrograd": {
-        "updated": "2024-08-08T12:54:44Z"
-      },
-      "karpathy/llama2.c": {
-        "updated": "2024-08-06T09:44:40Z"
-      },
-      "karpathy/LLM101n": {
-        "updated": "2024-08-01T01:20:33Z"
-      },
-      "karpathy/minbpe": {
-        "updated": "2024-07-01T14:20:22Z"
-      },
-      "karpathy/makemore": {
-        "updated": "2024-06-04T19:32:27Z"
-      },
-      "karpathy/calorie": {
-        "updated": "2024-05-30T18:08:16Z"
-      },
-      "karpathy/lecun1989-repro": {
-        "updated": "2024-02-03T23:42:16Z"
-      },
-      "karpathy/ng-video-lecture": {
-        "updated": "2024-01-31T13:43:36Z"
-      },
-      "karpathy/char-rnn": {
-        "updated": "2023-10-24T17:15:27Z"
-      },
-      "karpathy/notpygamejs": {
-        "updated": "2023-10-17T14:11:25Z"
-      },
-      "karpathy/researchpooler": {
-        "updated": "2023-09-01T20:21:55Z"
-      },
-      "karpathy/karpathy": {
-        "updated": "2023-07-25T02:26:54Z"
-      },
-      "karpathy/arxiv-sanity-lite": {
-        "updated": "2023-06-19T16:23:02Z"
-      },
-      "karpathy/randomfun": {
-        "updated": "2023-04-18T17:49:08Z"
-      },
-      "karpathy/convnetjs": {
-        "updated": "2023-01-07T21:33:23Z"
-      }
-    },
-    "https://github.com/garrytan?tab=repositories:repos": {
-      "garrytan/openclaw-render-template": {
-        "updated": "2026-05-10T15:36:22Z"
-      },
-      "garrytan/gbrain": {
-        "updated": "2026-05-10T14:52:13Z"
-      },
-      "garrytan/gstack": {
-        "updated": "2026-05-10T13:57:25Z"
-      },
-      "garrytan/gbrain-evals": {
-        "updated": "2026-05-07T23:27:54Z"
-      },
-      "garrytan/openclaw": {
-        "updated": "2026-04-20T22:57:18Z"
-      },
-      "garrytan/alphaclaw": {
-        "updated": "2026-04-05T16:45:26Z"
-      },
-      "garrytan/resend_robot": {
-        "updated": "2026-03-17T23:24:23Z"
-      },
-      "garrytan/Timber": {
-        "updated": "2015-02-19T02:06:14Z"
-      },
-      "garrytan/zurb-foundation-wysihtml5": {
-        "updated": "2014-02-14T18:05:26Z"
-      },
-      "garrytan/rubber": {
-        "updated": "2012-07-30T07:12:42Z"
-      },
-      "garrytan/protomultiselect": {
-        "updated": "2012-07-18T20:27:16Z"
-      },
-      "garrytan/tinymce": {
-        "updated": "2010-05-19T22:22:36Z"
-      },
-      "garrytan/mongomapper": {
-        "updated": "2009-09-29T23:19:25Z"
-      },
-      "garrytan/ebayapi": {
-        "updated": "2009-08-18T22:01:18Z"
-      },
-      "garrytan/liquid": {
-        "updated": "2009-01-16T14:55:18Z"
-      },
-      "garrytan/thinking-sphinx": {
-        "updated": "2009-01-16T11:55:10Z"
-      },
-      "garrytan/spawn": {
-        "updated": "2008-12-28T12:25:43Z"
-      },
-      "garrytan/oembed_links": {
-        "updated": "2008-11-21T14:55:32Z"
-      }
+    "https://github.com/garrytan?tab=repositories": {
+      "title": "garrytan (Garry Tan) / Repositories \u00b7 GitHub",
+      "date": "2026-05-10"
     }
   },
   "summaries": {
@@ -182,8 +50,8 @@
       "date": "2026-04-16"
     },
     "Andrej Karpathy \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Andrej Karpathy's GitHub repositories overview, including a list of his public repositories.\n- Various repositories related to AI, machine learning, and deep learning, such as nanochat, autoresearch, and nanoGPT.\n- Repositories for natural language processing, computer vision, and other related topics.\n- A list of Andrej Karpathy's GitHub statistics, including the number of followers, repositories, and stars.\n\n**Details:**\n**Andrej Karpathy's GitHub Repositories (https://github.com/karpathy?tab=repositories)**\nExtract of key points from the source:\n- Andrej Karpathy has 182k followers and is following 8 users on GitHub.\n- He has a Twitter account (@karpathy) and is affiliated with Stanford.\n- His GitHub repositories include:\n  - nanochat: a ChatGPT implementation with 53,118 stars and 7,117 forks.\n  - karpathy.github.io: his personal blog with 1,447 stars and 291 forks.\n  - autoresearch: a repository for AI agents running research on single-GPU nanochat training with 79,764 stars and 11,622 forks.\n  - jobs: a research tool for exploring Bureau of Labor Statistics data with 1,633 stars and 327 forks.\n  - rustbpe: a repository for the missing tiktoken training code with 450 stars and 50 forks.\n  - cpython: a fork of the Python programming language repository with 68 stars and 7 forks.\n  - hn-time-capsule: a repository for analyzing Hacker News discussions with LLMs with 620 stars and 61 forks.\n  - llm-council: a repository for LLM Council with 18,487 stars and 3,580 forks.\n  - reader3: a repository for reading books with LLMs with 3,597 stars and 458 forks.\n  - nanoGPT: a repository for training medium-sized GPTs with 57,726 stars and 9,901 forks.\n  - rendergit: a repository for rendering git repositories as static HTML pages with 2,266 stars and 240 forks.\n  - llm.c: a repository for LLM training in C/CUDA with 29,839 stars and 3,579 forks.\n  - nn-zero-to-hero: a repository for neural networks with 21,746 stars and 3,182 forks.\n  - minGPT: a repository for a minimal PyTorch re-implementation of OpenAI GPT with 24,324 stars and 3,239 forks.\n  - build-nanogpt: a repository for building nanoGPT from scratch with 4,983 stars and 797 forks.\n  - micrograd: a repository for a tiny autograd engine and neural net library with 15,778 stars and 2,425 forks.\n  - llama2.c: a repository for inference Llama 2 in pure C with 19,477 stars and 2,537 forks.\n  - LLM101n: a repository for building a storyteller with 36,895 stars and 2,019 forks.\n  - minbpe: a repository for minimal BPE algorithm implementation with 10,476 stars and 1,042 forks.\n  - makemore: a repository for an autoregressive character-level language model with 3,893 stars and 968 forks.\n  - calorie: a repository for a calorie counter web app with 147 stars and 15 forks.\n  - lecun1989-repro: a repository for reproducing Yann LeCun's 1989 paper with 758 stars and 86 forks.\n  - ng-video-lecture: a repository for a video lecture with 4,694 stars and 1,285 forks.\n  - char-rnn: a repository for character-level language models with 12,036 stars and 2,627 forks.\n  - notpygamejs: a repository for a game making library with 101 stars and 21 forks.\n  - researchpooler: a repository for automating research publications discovery with 425 stars and 75 forks.\n  - karpathy: a root repository with 119 stars and 16 forks.\n  - arxiv-sanity-lite: a repository for arxiv papers tagging and recommendation with 1,583 stars and 192 forks.\n  - randomfun: a repository for notebooks and random fun with 1,165 stars and 141 forks.\n  - convnetjs: a repository for deep learning in JavaScript with 11,156 stars and 2,074 forks.",
-      "date": "2026-05-08"
+      "text": "**New this period:**\n- Andrej Karpathy's GitHub repositories, including projects related to deep learning, natural language processing, and research tools.\n\n**Details:**\n**Andrej Karpathy's GitHub Repositories**(https://github.com/karpathy?tab=repositories)\nExtract key points from the source:\n- Andrej Karpathy has 182k followers on GitHub.\n- He has 8 repositories that he is following.\n- His repositories include:\n  - nanochat: a ChatGPT that can be purchased for $100, with 53,194 stars and 7,135 forks.\n  - karpathy.github.io: his personal blog, with 1,464 stars and 292 forks.\n  - autoresearch: a tool for automating research, with 80,134 stars and 11,670 forks.\n  - jobs: a research tool for exploring Bureau of Labor Statistics data, with 1,648 stars and 330 forks.\n  - rustbpe: a Rust implementation of the Byte Pair Encoding algorithm, with 450 stars and 52 forks.\n  - cpython: a fork of the Python programming language, with 68 stars and 7 forks.\n  - hn-time-capsule: a project analyzing Hacker News discussions, with 622 stars and 61 forks.\n  - llm-council: a council for answering questions with LLMs, with 18,554 stars and 3,596 forks.\n  - reader3: a tool for reading books with LLMs, with 3,604 stars and 458 forks.\n  - nanoGPT: a simple repository for training medium-sized GPTs, with 57,813 stars and 9,912 forks.\n  - rendergit: a tool for rendering git repositories as HTML pages, with 2,272 stars and 241 forks.\n  - llm.c: a C implementation of LLM training, with 29,844 stars and 3,580 forks.\n  - nn-zero-to-hero: a tutorial on neural networks, with 21,762 stars and 3,188 forks.\n  - minGPT: a minimal PyTorch re-implementation of the OpenAI GPT, with 24,342 stars and 3,239 forks.\n  - build-nanogpt: a video and code lecture on building nanoGPT, with 4,992 stars and 799 forks.\n  - micrograd: a tiny autograd engine and neural net library, with 15,800 stars and 2,428 forks.\n  - llama2.c: a C implementation of Llama 2 inference, with 19,481 stars and 2,542 forks.\n  - LLM101n: a project for building a storyteller, with 36,903 stars and 2,019 forks.\n  - minbpe: a minimal implementation of the Byte Pair Encoding algorithm, with 10,476 stars and 1,043 forks.\n  - makemore: an autoregressive character-level language model, with 3,898 stars and 969 forks.\n  - calorie: a simple calorie counter web app, with 147 stars and 15 forks.\n  - lecun1989-repro: a reproduction of Yann LeCun's 1989 paper on backpropagation, with 758 stars and 86 forks.\n  - ng-video-lecture: a video lecture on Python, with 4,697 stars and 1,285 forks.\n  - char-rnn: a character-level language model in Torch, with 12,037 stars and 2,627 forks.\n  - notpygamejs: a game making library for Canvas, with 101 stars and 21 forks.\n  - researchpooler: a tool for automating research publications discovery, with 429 stars and 76 forks.\n  - karpathy: the root repository, with 122 stars and 16 forks.\n  - arxiv-sanity-lite: a tool for tagging and recommending arXiv papers, with 1,585 stars and 193 forks.\n  - randomfun: a collection of notebooks and random projects, with 1,165 stars and 141 forks.\n  - convnetjs: a library for deep learning in JavaScript, with 11,157 stars and 2,074 forks.",
+      "date": "2026-05-10"
     },
     "Zvi Mowshowitz \u2013 Don't Worry About the Vase": {
       "text": "**New this period:**\n- Claude Code, Codex and Agentic Coding series update by Zvi Mowshowitz\n\n**Details:**\n**Claude Code, Codex and Agentic Coding #8 (2026-05-08)**(https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54)\n- The author started the series when everyone was going crazy for coding agents\n- The series is about Claude Code, Codex, and Agentic Coding\n- The author mentions the initial craze for coding agents when the series began \n- Note: The provided text is limited, more information may be available in the full article, but based on the given text, these are the key points that can be extracted.",
@@ -198,8 +66,8 @@
       "date": "2026-04-23"
     },
     "Simon Willison": {
-      "text": "**New this period:**\n- llm-gemini 0.31 release notes\n- Big Words tool for generating simple slides\n- Behind the Scenes Hardening Firefox with Claude Mythos Preview\n- Notes on the xAI/Anthropic data center deal\n\n**Details:**\n**llm-gemini 0.31** (https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything)\nThe llm-gemini 0.31 release notes mention that gemini-3.1-flash-lite is no longer a preview. The author notes that this new non-preview model has not changed since the Gemini 3.1 Flash-Lite Preview model. The release is related to generative AI and llms.\n\n**Big Words** (https://simonwillison.net/2026/May/7/big-words/#atom-everything)\nThe Big Words tool is used to generate simple slides with text. The tool accepts query string arguments and turns them into a simple slide. The author used this tool to put together a talk and added a slide with text.\n\n**Behind the Scenes Hardening Firefox with Claude Mythos Preview** (https://simonwillison.net/2026/May/7/firefox-claude-mythos/#atom-everything)\nMozilla used the Claude Mythos preview to locate and fix hundreds of vulnerabilities in Firefox. The models got more capable and Mozilla improved their techniques for harnessing these models. They fixed around 20-30 security bugs in Firefox per month through 2025, which jumped to 423 in April.\n\n**Notes on the xAI/Anthropic data center deal** (https://simonwillison.net/2026/May/7/xai-anthropic/#atom-everything)\nAnthropic struck a deal with SpaceX/xAI to use the capacity of their Colossus data center. The data center has a bad environmental record, and Anthropic are severely compute-constrained. xAI are keeping their larger Colossus 2 data center for their own work, and they sent out a deprecation notice for Grok 4.1 Fast and several other models.",
-      "date": "2026-05-07"
+      "text": "**New this period:**\n- Luke Curley discusses OpenAI's WebRTC problem and its impact on low-latency voice AI\n\n**Details:**\n**OpenAI's WebRTC Problem**(https://simonwillison.net/2026/May/9/luke-curley/#atom-everything)\nExtract of key points:\n- WebRTC is designed to degrade and drop audio packets during poor network conditions to keep latency low\n- This can result in distorted audio on conference calls\n- The design prioritizes rapid back-and-forth in conference calls over waiting for audio packets\n- Luke Curley suggests that waiting an extra 200ms for a prompt to be accurate would be preferable to a garbage prompt\n- LLMs (Large Language Models) are not particularly responsive anyway\n- It is impossible to retransmit a WebRTC audio packet within a browser, as the implementation is hard-coded for real-time latency\n- Discord tried to retransmit WebRTC audio packets but was unable to do so due to the hard-coded implementation\n- The issue is relevant to OpenAI's delivery of low-latency voice AI at scale",
+      "date": "2026-05-09"
     },
     "Dario Amodei \u2013 Essays": {
       "text": "**New this period:**\n- Dario Amodei's background and experience in AI research and development\n- List of essays, research, and interviews by Dario Amodei\n\n**Details:**\n**Dario Amodei (https://darioamodei.com/)**\nDario Amodei is the CEO of Anthropic, a public benefit corporation focused on building safe and interpretable AI systems. He has a background in AI research, having led the development of large language models like GPT-2 and GPT-3 at OpenAI, and worked as a Senior Research Scientist at Google Brain. His website lists his essays, research, and interviews, including topics such as the urgency of interpretability and the need for basic transparency rules in AI.",
@@ -214,11 +82,11 @@
       "date": "2026-05-08"
     },
     "Garry Tan \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Garry Tan's GitHub repositories, including gbrain, gstack, gbrain-evals, openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, and zurb-foundation-wysihtml5.\n\n**Details:**\n**Garry Tan's GitHub Repositories** (https://github.com/garrytan?tab=repositories)\nGarry Tan's GitHub repositories include various projects such as gbrain, an opinionated OpenClaw/Hermes Agent Brain, and gstack, a setup with 23 opinionated tools. The repositories are written in different programming languages, including TypeScript, HTML, Dockerfile, JavaScript, and Ruby. The repositories have various update dates, with some updated as recently as May 8, 2026.",
-      "date": "2026-05-08"
+      "text": "**New this period:**\n- Garry Tan's GitHub repositories, including gbrain, gstack, gbrain-evals, openclaw-render-template, openclaw, alphaclaw, resend_robot, Timber, zurb-foundation-wysihtml5, rubber, protomultiselect, tinymce, mongomapper, ebayapi, liquid, thinking-sphinx, spawn, and oembed_links.\n\n**Details:**\n**Garry Tan's GitHub Repositories**(https://github.com/garrytan?tab=repositories)\nExtract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:\n- Garry Tan has 8.4k followers and is following 11 people on GitHub.\n- He is a part of Y Combinator and is based in San Francisco, CA.\n- His blog is available at https://blog.garrytan.com, and his YouTube channel is at https://youtube.com/garrytan.\n- He has 4 achievements with 4 badges each and 3 other achievements with 3 badges each.\n- His repositories include:\n  - gbrain: Garry's Opinionated OpenClaw/Hermes Agent Brain, with 14,364 stars and 1,855 forks, written in TypeScript and updated on May 10, 2026.\n  - gstack: Use Garry Tan's exact Claude Code setup, with 92,730 stars and 13,710 forks, written in TypeScript and updated on May 10, 2026.\n  - gbrain-evals: with 103 stars and 17 forks, written in HTML and updated on May 7, 2026.\n  - openclaw-render-template: Fastest one-click OpenClaw deploy on Render, with 2 stars and 0 forks, written in Dockerfile and updated on May 5, 2026.\n  - openclaw: Your own personal AI assistant, with 12 stars and 2 forks, written in TypeScript and updated on Apr 20, 2026.\n  - alphaclaw: The ultimate setup harness for OpenClaw, with 79 stars and 13 forks, written in JavaScript and updated on Apr 5, 2026.\n  - resend_robot: with 7 stars and 1 fork, written in Ruby and updated on Mar 17, 2026.\n  - Timber: The ultimate Shopify theme framework, with 11 stars and 0 forks, written in JavaScript and updated on Feb 19, 2015.\n  - zurb-foundation-wysihtml5: with 35 stars and 10 forks, written in JavaScript and updated on Feb 14, 2014.\n  - rubber: A capistrano/rails plugin, with 4 stars and 0 forks, written in Ruby and updated on Jul 30, 2012.\n  - protomultiselect: Facebook style multiselect input, with 17 stars and 5 forks, written in JavaScript and updated on Jul 18, 2012.\n  - tinymce: TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor control, with 5 stars and 1 fork, written in JavaScript and updated on May 19, 2010.\n  - mongomapper: Awesome gem for modeling your domain and storing it in mongo, with 3 stars and 1 fork, written in Ruby and updated on Sep 29, 2009.\n  - ebayapi: Ruby interface to the eBay XML Trading API, with 12 stars and 1 fork, written in Ruby and updated on Aug 18, 2009.\n  - liquid: Liquid markup language, with 5 stars and 0 forks, written in Ruby and updated on Jan 16, 2009.\n  - thinking-sphinx: Sphinx plugin for Rails and Merb, with 12 stars and 0 forks, written in Ruby and updated on Jan 16, 2009.\n  - spawn: spawn plugin for Rails to easily fork or thread long-running code blocks, with 5 stars and 0 forks, written in Ruby and updated on Dec 28, 2008.\n  - oembed_links: A quick way to transform all links inside a string w/ their oEmbed information, with 6 stars and 0 forks, written in Ruby and updated on Nov 21, 2008.",
+      "date": "2026-05-10"
     },
     "Odd Lots (Bloomberg)": {
-      "text": "**New this period:**\n- Mariana Mazzucato discusses the need for more moonshots and her concept of the \"mission economy\" in an interview.\n\n**Details:**\n**Mariana Mazzucato Thinks We Need More Moonshots**(https://omny.fm/shows/odd-lots/mariana-mazzucato-thinks-we-need-more-moonshots)\nMariana Mazzucato, director of the University College London Institute for Innovation and Public Purpose, discusses her concept of the \"mission economy\" and state capacity. She also talks about preventing top talent from fleeing to the private sector and the role of consultants and governments in inefficiencies and civic failures. The conversation covers topics such as the initial public financing of Silicon Valley algorithms and the history of moonshots.",
+      "text": "**New this period:**\n- Mariana Mazzucato discusses the need for more moonshots and a new approach to innovation and industrial policy, emphasizing the importance of government's role in driving innovation and entrepreneurship.\n\n**Details:**\n**Mariana Mazzucato Thinks We Need More Moonshots (https://omny.fm/shows/odd-lots/mariana-mazzucato-thinks-we-need-more-moonshots)**\nExtract of key points from the source:\n- Mariana Mazzucato, Professor at University College London and founder of the Institute for Public Purpose, discusses her work on innovation, technology, and the role of government in driving entrepreneurship.\n- She mentions that the government of Spain is leading the way in new economic thinking and that she is meeting with the Prime Minister and Minister for the Economy to discuss a new council called the Global Council for a Common Good Economy.\n- Mazzucato emphasizes the need for a narrative change and cultural change in how governments approach innovation and entrepreneurship, citing the example of venture capitalists bragging about their failures, while governments are often criticized for theirs.\n- She discusses her book \"The Entrepreneurial State\" and how it has been received by governments, including the Prime Minister of Spain, who are interested in learning from her ideas on rethinking government and industrial strategy.\n- Mazzucato notes that while there has been a shift in thinking about industrial policy since the 2020 pandemic, it is not enough to simply invest money in innovation, but rather to have a strategic approach that focuses on big problems and missions, rather than picking winners or sectors.\n- She gives the example of a moonshot for healthy, tasty, and sustainable school lunches, which would require interministerial coordination and innovation across multiple areas.\n- Mazzucato distinguishes between state capacity, which refers to the literal ability of a government to do things, and state capability, which refers to the ability to think strategically and be agile and flexible.\n- She emphasizes the importance of building dynamic capabilities in government, rather than just relying on administrative routines and capacity.",
       "date": "2026-05-08"
     },
     "Exchanges (Goldman Sachs)": {
@@ -230,12 +98,12 @@
       "date": "2026-05-08"
     },
     "Money Stuff: The Podcast (Matt Levine)": {
-      "text": "**New this period:**\n- Matt Levine and Katie discuss various financial topics in a mailbag episode of the Money Stuff podcast.\n\n**Details:**\n**Timeless Wisdom: A Mailbag Episode**(https://omny.fm/shows/money-stuff-the-podcast/timeless-wisdom-a-mailbag-episode)\nExtract of key points from the source:\n- The episode is a mailbag episode where Katie and Matt discuss various topics.\n- Discussion topics include financial advisers.\n- The conversation touches on private credit.\n- Finance book recommendations are shared.\n- The concept of call options on time is explored.\n- Expected returns are discussed.\n- Seating charts are mentioned as a topic of conversation.\n- The idea that rain can create liquidity is talked about.\n- The distinction between E and S vs. G is addressed.\n- The \"church of capital allocation\" is referenced.\n- The market for corporate control is discussed.\n- The difference between corporate and human life cycles is explored.",
+      "text": "**New this period:**\n- Timeless Wisdom: A Mailbag Episode from the Money Stuff Podcast, discussing various topics including the host's financial advisor, favorite finance books, and a question from a listener about finance books.\n\n**Details:**\n**Timeless Wisdom: A Mailbag Episode (https://omny.fm/shows/money-stuff-the-podcast/timeless-wisdom-a-mailbag-episode)**\nExtract of key points from the source:\n- The episode is a mailbag episode, where the hosts answer questions from listeners.\n- The hosts, Matt Levine and Katie Greifeld, discuss a question from Pierre about why Matt has a financial advisor and if he reads Money Stuff.\n- Matt Levine explains that he has a financial advisor for tax and other advising, not for investment advice, and that he owns a small amount of Blue Owl credit fund, which he wants to sell due to potential conflicts of interest.\n- Matt Levine mentions that his financial advisor did not know who he was when they first met, but now is at least aware of his newsletter.\n- Katie Greifeld mentions that she also has a financial advisor and is invested in index funds.\n- A listener, Justin, asks about the hosts' favorite finance books, mentioning that he recently read \"When Genius Failed\" and the Jamie Dimon biography \"Last Man Standing\".\n- Matt Levine mentions that he doesn't really have favorite finance books, but likes to read fiction, particularly sci-fi and fantasy.\n- Matt Levine recommends several finance books, including:\n  - \"Liar's Poker\" and \"Barbarians at the Gate\"\n  - \"Diary of a Very Bad Year\" by Keith Gessen, which is an interview with an anonymous hedge fund manager about the 2008 financial crisis\n  - \"Expected Returns\" by Antti Ilmanen, which is about the theory of investing and why certain investments pay more than others\n  - \"The Bond King\" by Mary Childs, which is a biography of Bill Gross and the story of PIMCO\n- Matt Levine shares anecdotes from each of these books, including a quote from \"Diary of a Very Bad Year\" about how private investments can be like writing call options on one's own time.",
       "date": "2026-05-08"
     },
     "All-In Podcast": {
-      "text": "**New this period:**\n- OpenAI misses revenue and user targets\n- Comparison between Codex and Claude\n- Elon Musk vs Sam Altman trial\n- Big tech companies' earnings and Capex explosion\n- AI cybersecurity market growth\n- Peptide craze and Retatrutide\n\n**Details:**\n**OpenAI Misses Targets, Codex vs Claude, Elon vs Sam Trial, Big Hyperscaler Beats, Peptide Craze** (https://allinchamathjason.libsyn.com/openai-misses-targets-codex-vs-claude-elon-vs-sam-trial-big-hyperscaler-beats-peptide-craze)\nThe podcast discusses OpenAI missing its revenue and user targets, with Codex gaining on Claude. It also covers the trial between Elon Musk and Sam Altman, and the recent earnings and Capex explosion of big tech companies. Additionally, the podcast touches on the growth of the AI cybersecurity market and the increasing popularity of peptides, particularly Retatrutide.",
-      "date": "2026-05-01"
+      "text": "**New this period:**\n- Discussion on Elon's Anthropic deal, the potential for Anthropic to become the next AI monopoly, and the \"FDA for AI\" panic.\n- Conversation on trading the AI boom, the state of the economy, and the potential applications of AI in areas like healthcare and education.\n\n**Details:**\n**Elon's Anthropic Deal, The Next AI Monopoly?, \"FDA for AI\" Panic, Trading the AI Boom (2026-05-08)**\nExtract of key points:\n- The podcast discusses the SpaceX-Anthropic deal, with Elon Musk's involvement and the potential implications for Anthropic's growth trajectory.\n- The hosts consider whether Anthropic could become the next great monopoly, and whether the current excitement is an overreaction.\n- The conversation turns to the \"FDA for AI\" freakout, with the White House's thoughts on AI safety and regulation.\n- The hosts discuss how AI can be used for positive applications, such as giving, healthcare, and education innovation.\n- The podcast also covers trading the AI market, the state of the economy, and the potential for AI to drive growth.\n- The hosts mention various companies and organizations, including Anthropic, SpaceX, and NVIDIA.\n- They reference several news articles and tweets, including those from Elon Musk, Shaun Maguire, and the New York Times.\n- The podcast also mentions the White House's National Policy Framework for Artificial Intelligence Legislative Recommendations.",
+      "date": "2026-05-08"
     },
     "AI + a16z": {
       "text": "**New this period:**\n- The shift from vector databases to knowledge engines and its implications for AI systems.\n\n**Details:**\n**From Vector Databases to Knowledge Engines: The Next Layer of AI** (https://ai-a16z.simplecast.com/episodes/from-vector-databases-to-knowledge-engines-the-next-layer-of-ai-8KtL2DHx)\nPeter Levine discusses with Ash Ashutosh the launch of Nexus and the evolution of AI systems from vector databases to knowledge engines. The conversation highlights the inefficiencies of traditional retrieval systems and the need for AI systems to support machine-to-machine interactions. Ashutosh explains how Pinecone is rethinking the stack for agentic applications, introducing new abstractions, query languages, and developer workflows to improve performance, accuracy, and cost.",
@@ -246,8 +114,8 @@
       "date": "2026-05-06"
     },
     "Latent Space Podcast (swyx)": {
-      "text": "**New this period:**\n- OpenAI launched GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper, new realtime voice APIs.\n\n**Details:**\n**[AINews] GPT-Realtime-2, -Translate, and -Whisper: new SOTA realtime voice APIs (2026-05-08)**(https://www.latent.space/p/ainews-gpt-realtime-2-translate-and)\nOpenAI launched three new streaming audio models in the Realtime API: GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper, with GPT-Realtime-2 positioned as its \u201cmost intelligent voice model yet\u201d. The models bring features such as preambles, parallel tool calls, stronger recovery behavior, and longer context. GPT-Realtime-2 shows a +15.2% bump in Big Bench Audio compared to the previous realtime-1.5 model.",
-      "date": "2026-05-08"
+      "text": "**New this period:**\n- Anthropic is growing 10x/year while other companies are laying off 10% of their workforce, with a valuation of $1-1.2T, surpassing OpenAI as the 11th-15th most valuable company in the world.\n- OpenAI's GPT-5.5 and Codex rollout, including new features and updates, such as GPT-5.5 Cyber and Codex \"switch to Codex\" flow.\n- Zyphra's open-model release, including ZAYA1-74B-Preview and ZAYA1-VL-8B, and updates to vLLM and SGLang.\n- Research on post-training, optimization, and alignment, including DGPO, Aurora, sparsity, and Claude \"why\".\n- Advances in agent architecture, runtimes, and search/tooling, including Direct Corpus Interaction and enterprise data agents.\n- DeepMind's AI co-mathematician, AlphaEvolve, and Figure's Helix-02 robotics demos.\n\n**Details:**\n**[AINews] Anthropic growing 10x/year while everyone else is laying off >10% of their workforce (2026-05-09)**(https://www.latent.space/p/ainews-anthropic-growing-10xyear)\n- Anthropic is growing 10x/year, with a valuation of $1-1.2T, surpassing OpenAI as the 11th-15th most valuable company in the world.\n- Block, Coinbase, and Cloudflare have laid off 40%, 14%, and 20% of their workforce, respectively, citing AI readiness.\n- OpenAI's GPT-5.5 family is expanding across modalities and products, including gpt-image-2, GPT-5.5, GPT-5.5 Pro, GPT-5.5 Instant, GPT-Realtime-2, realtime translate, and GPT-5.5 Cyber.\n- OpenAI's Codex is becoming a long-running agent runtime, with a new \"switch to Codex\" flow and the ability to pursue tasks indefinitely.\n- Zyphra has released ZAYA1-74B-Preview, a 74B total / 4B active MoE model, and ZAYA1-VL-8B, a 700M active / 8B total MoE VLM.\n- vLLM has landed DeepSeek V4 support, and vLLM-Omni v0.20.0 has shipped with updates, including Qwen3-Omni throughput and TTS latency/RTF reductions.\n- Open models are increasingly \"good enough\" for coding and agent workloads, with Kimi K2.6 on Baseten being 5x cheaper than Opus 4.7 with similar performance.\n- Research on post-training, optimization, and alignment includes DGPO, Aurora, sparsity, and Claude \"why\", with Anthropic eliminating the Claude 4 blackmail behavior.\n- Advances in agent architecture, runtimes, and search/tooling include Direct Corpus Interaction, enterprise data agents, and the use of HTML as an agent interface layer.\n- DeepMind's AI co-mathematician has scored 48% on FrontierMath Tier 4, and AlphaEvolve is being used for Google AI infrastructure and molecular simulations.\n- Figure's Helix-02 robots have demonstrated coordinated household competence, making a bed together fully autonomously without an explicit communication channel.",
+      "date": "2026-05-09"
     },
     "Arxiv \u2013 Statistical Finance (q-fin.ST)": {
       "text": "**New this period:**\n- A review of large language models for stock price forecasting\n- Probabilistic predictions of option prices with modular approximate Bayesian inference\n- CatNet algorithm for controlling false discovery rate in LSTM with SHAP feature importance\n\n**Details:**\n**A Review of Large Language Models for Stock Price Forecasting from a Hedge-Fund Perspective** (https://arxiv.org/abs/2605.05211)\nThis review synthesizes recent applications of large language models in stock price forecasting, including extracting sentiment from financial news and social media. The review pays particular attention to practical pitfalls such as fragility in sentiment analysis and dataset design. It aims to guide academic researchers and hedge fund managers in integrating large language models into real-world trading pipelines.\n\n**Probabilistic Predictions of Option Prices with Modular Approximate Bayesian Inference** (https://arxiv.org/abs/2412.00658)\nThis paper proposes a new approximate Bayesian inferential framework that exploits multiple information sources to enable fast calculation of probabilistic predictions of future option prices. The approach operates directly from the theoretical option pricing model and does not require an explicit statistical model for the observed option prices. The method is shown to produce accurate probabilistic option-price predictions in realistic scenarios.\n\n**CatNet: Controlling the False Discovery Rate in LSTM with SHAP Feature Importance and Gaussian Mirrors** (https://arxiv.org/abs/2411.16666)\nThe CatNet algorithm effectively controls False Discovery Rate and selects significant features in LSTM by employing the derivative of SHAP values to quantify feature importance. The algorithm constructs a vector-formed mirror statistic for FDR control with the Gaussian Mirror algorithm and proposes a new kernel-based independence measure. CatNet performs robustly on different model settings with both simulated and real-world data.",
