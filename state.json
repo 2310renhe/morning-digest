@@ -1,28 +1,21 @@
 {
   "seen": [
     "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "https://github.com/karpathy?tab=repositories#2b3e3d39e31d38c2",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "https://github.com/garrytan?tab=repositories#d27bc7f811395ce8",
-    "https://github.com/garrytan?tab=repositories#21b76c6ccc5be1d6",
-    "https://github.com/karpathy?tab=repositories#6347a5a24effea3f",
     "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "https://darioamodei.com/#28916f0e70fbc697",
     "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://github.com/garrytan?tab=repositories#d8864512c0eba35c",
     "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
     "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "https://github.com/karpathy?tab=repositories#74e24ae5b520c320"
+    "github:garrytan/gbrain:2026-05-10",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "github:garrytan/gstack:2026-05-10"
   ],
   "last_items": {
-    "https://github.com/karpathy?tab=repositories": {
-      "title": "karpathy (Andrej) / Repositories \u00b7 GitHub",
-      "date": "2026-05-10"
-    },
     "https://darioamodei.com/": {
       "title": "Dario Amodei",
       "date": "2026-05-08"
@@ -31,9 +24,153 @@
       "title": "The Batch | DeepLearning.AI | AI News & Insights",
       "date": "2026-05-08"
     },
-    "https://github.com/garrytan?tab=repositories": {
-      "title": "garrytan (Garry Tan) / Repositories \u00b7 GitHub",
-      "date": "2026-05-10"
+    "https://github.com/karpathy?tab=repositories:repos": {
+      "karpathy/nanochat": {
+        "updated": "2026-05-05T03:17:23Z"
+      },
+      "karpathy/karpathy.github.io": {
+        "updated": "2026-04-10T23:50:09Z"
+      },
+      "karpathy/autoresearch": {
+        "updated": "2026-03-26T00:07:37Z"
+      },
+      "karpathy/jobs": {
+        "updated": "2026-03-16T04:05:24Z"
+      },
+      "karpathy/rustbpe": {
+        "updated": "2026-01-03T22:24:54Z"
+      },
+      "karpathy/cpython": {
+        "updated": "2025-12-19T06:13:32Z"
+      },
+      "karpathy/hn-time-capsule": {
+        "updated": "2025-12-10T16:59:29Z"
+      },
+      "karpathy/llm-council": {
+        "updated": "2025-11-22T23:35:21Z"
+      },
+      "karpathy/reader3": {
+        "updated": "2025-11-18T02:37:51Z"
+      },
+      "karpathy/nanoGPT": {
+        "updated": "2025-11-12T19:52:34Z"
+      },
+      "karpathy/rendergit": {
+        "updated": "2025-08-21T19:12:34Z"
+      },
+      "karpathy/llm.c": {
+        "updated": "2025-06-26T17:03:40Z"
+      },
+      "karpathy/nn-zero-to-hero": {
+        "updated": "2024-08-18T12:16:26Z"
+      },
+      "karpathy/minGPT": {
+        "updated": "2024-08-15T04:09:40Z"
+      },
+      "karpathy/build-nanogpt": {
+        "updated": "2024-08-13T12:28:52Z"
+      },
+      "karpathy/micrograd": {
+        "updated": "2024-08-08T12:54:44Z"
+      },
+      "karpathy/llama2.c": {
+        "updated": "2024-08-06T09:44:40Z"
+      },
+      "karpathy/LLM101n": {
+        "updated": "2024-08-01T01:20:33Z"
+      },
+      "karpathy/minbpe": {
+        "updated": "2024-07-01T14:20:22Z"
+      },
+      "karpathy/makemore": {
+        "updated": "2024-06-04T19:32:27Z"
+      },
+      "karpathy/calorie": {
+        "updated": "2024-05-30T18:08:16Z"
+      },
+      "karpathy/lecun1989-repro": {
+        "updated": "2024-02-03T23:42:16Z"
+      },
+      "karpathy/ng-video-lecture": {
+        "updated": "2024-01-31T13:43:36Z"
+      },
+      "karpathy/char-rnn": {
+        "updated": "2023-10-24T17:15:27Z"
+      },
+      "karpathy/notpygamejs": {
+        "updated": "2023-10-17T14:11:25Z"
+      },
+      "karpathy/researchpooler": {
+        "updated": "2023-09-01T20:21:55Z"
+      },
+      "karpathy/karpathy": {
+        "updated": "2023-07-25T02:26:54Z"
+      },
+      "karpathy/arxiv-sanity-lite": {
+        "updated": "2023-06-19T16:23:02Z"
+      },
+      "karpathy/randomfun": {
+        "updated": "2023-04-18T17:49:08Z"
+      },
+      "karpathy/convnetjs": {
+        "updated": "2023-01-07T21:33:23Z"
+      }
+    },
+    "https://github.com/garrytan?tab=repositories:repos": {
+      "garrytan/openclaw-render-template": {
+        "updated": "2026-05-10T15:56:51Z"
+      },
+      "garrytan/gbrain": {
+        "updated": "2026-05-10T15:47:13Z"
+      },
+      "garrytan/gstack": {
+        "updated": "2026-05-10T13:57:25Z"
+      },
+      "garrytan/gbrain-evals": {
+        "updated": "2026-05-07T23:27:54Z"
+      },
+      "garrytan/openclaw": {
+        "updated": "2026-04-20T22:57:18Z"
+      },
+      "garrytan/alphaclaw": {
+        "updated": "2026-04-05T16:45:26Z"
+      },
+      "garrytan/resend_robot": {
+        "updated": "2026-03-17T23:24:23Z"
+      },
+      "garrytan/Timber": {
+        "updated": "2015-02-19T02:06:14Z"
+      },
+      "garrytan/zurb-foundation-wysihtml5": {
+        "updated": "2014-02-14T18:05:26Z"
+      },
+      "garrytan/rubber": {
+        "updated": "2012-07-30T07:12:42Z"
+      },
+      "garrytan/protomultiselect": {
+        "updated": "2012-07-18T20:27:16Z"
+      },
+      "garrytan/tinymce": {
+        "updated": "2010-05-19T22:22:36Z"
+      },
+      "garrytan/mongomapper": {
+        "updated": "2009-09-29T23:19:25Z"
+      },
+      "garrytan/ebayapi": {
+        "updated": "2009-08-18T22:01:18Z"
+      },
+      "garrytan/liquid": {
+        "updated": "2009-01-16T14:55:18Z"
+      },
+      "garrytan/thinking-sphinx": {
+        "updated": "2009-01-16T11:55:10Z"
+      },
+      "garrytan/spawn": {
+        "updated": "2008-12-28T12:25:43Z"
+      },
+      "garrytan/oembed_links": {
+        "updated": "2008-11-21T14:55:32Z"
+      }
     }
   },
   "summaries": {
