@@ -461,18 +461,34 @@ def fetch_13f(source: dict, state: dict) -> tuple:
         raw_xml = _re.sub(r'<(/?)[a-zA-Z]\w*:', r'<\1', resp3.text)
         soup3 = BeautifulSoup(raw_xml, "html.parser")
 
+        # Patterns that are generic share-class labels, not meaningful fund names
+        import re as _re2
+        _GENERIC_CLASS = _re2.compile(
+            r'^(COM( NEW| STK)?|SHS( NEW)?|CAP STK( CL [A-Z])?|CL [A-Z] (COM|SHS)|'
+            r'ORD( SHS)?|ADR|UNIT|DEPOSITARY SHS?|TR UNIT|NEW)$', _re2.I
+        )
+
+        def _holding_name(issuer: str, cls: str) -> str:
+            """Combine issuer + titleOfClass when class carries real information (ETF series etc.)."""
+            issuer = issuer.strip().title()
+            cls = cls.strip().upper() if cls else ""
+            if cls and not _GENERIC_CLASS.match(cls):
+                return f"{issuer} – {cls}"
+            return issuer
+
         holdings = []
         for info in soup3.find_all("infotable"):
             name = info.find("nameofissuer")
             value = info.find("value")
             shares = info.find("sshprnamt")
+            cls_tag = info.find("titleofclass")
             if name and value:
                 try:
                     raw_val = int(value.text.strip().replace(",", ""))
                 except ValueError:
                     continue
                 holdings.append({
-                    "name": name.text.strip().title(),
+                    "name": _holding_name(name.text, cls_tag.text if cls_tag else ""),
                     "raw_val": raw_val,
                     "shares": int(shares.text.strip().replace(",", "")) if shares else 0,
                 })
@@ -526,6 +542,102 @@ def fetch_13f(source: dict, state: dict) -> tuple:
 
     except Exception as e:
         return None, None, None, str(e)
+
+
+def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
+    """
+    Specialised fetcher for GitHub profile ?tab=repositories pages.
+    Parses individual repo cards (name, description, last-pushed datetime).
+    Returns (new_items, fallback_item, error) where:
+      - new_items contains repos that are brand-new OR were pushed within cutoff window
+      - Each item's title distinguishes "New repo" vs "Updated repo"
+    State key: last_items[url] = {repo_path: {"updated": iso_str, "desc": str}}
+    """
+    import re as _re
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; DailyDigestBot/1.0)"}
+    try:
+        resp = requests.get(source["url"], headers=headers, timeout=15)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        # Parse all repo cards
+        current: dict = {}
+        for li in soup.find_all("li", attrs={"itemprop": "owns"}):
+            a_tag = li.find("a", attrs={"itemprop": "name codeRepository"})
+            desc_tag = li.find("p", attrs={"itemprop": "description"})
+            time_tag = li.find("relative-time")
+            if not a_tag:
+                continue
+            repo_path = a_tag.get("href", "").strip("/")   # e.g. "karpathy/nanochat"
+            repo_name = a_tag.get_text(strip=True)
+            desc = desc_tag.get_text(strip=True) if desc_tag else ""
+            updated_iso = time_tag.get("datetime", "") if time_tag else ""
+            if repo_path:
+                current[repo_path] = {"name": repo_name, "desc": desc, "updated": updated_iso}
+
+        if not current:
+            return [], None, "No repos found on page"
+
+        stored: dict = state["last_items"].get(source["url"] + ":repos", {})
+
+        new_items = []
+        most_recent_item = None
+        most_recent_dt = None
+
+        for repo_path, info in current.items():
+            repo_url = f"https://github.com/{repo_path}"
+            updated_iso = info["updated"]
+            pub_dt = None
+            pub_date = None
+            if updated_iso:
+                try:
+                    pub_dt = datetime.fromisoformat(updated_iso.replace("Z", "+00:00"))
+                    pub_date = pub_dt.strftime("%Y-%m-%d")
+                except ValueError:
+                    pass
+
+            # Track most-recent for fallback display
+            if pub_dt and (most_recent_dt is None or pub_dt > most_recent_dt):
+                most_recent_dt = pub_dt
+                most_recent_item = {
+                    "title": info["name"],
+                    "link": repo_url,
+                    "pub_date": pub_date,
+                    "content": info["desc"],
+                }
+
+            # "New repo" only meaningful if we have prior state to compare against.
+            # On first run (stored empty), only report recently-updated repos.
+            is_new_repo = bool(stored) and repo_path not in stored
+            is_recently_updated = pub_dt and pub_dt >= cutoff
+
+            if not is_new_repo and not is_recently_updated:
+                continue
+
+            kind = "New repo" if is_new_repo else "Updated"
+            item_id = f"github:{repo_path}:{pub_date or 'unknown'}"
+            if item_id in state["seen"]:
+                continue
+
+            new_items.append({
+                "id": item_id,
+                "title": f"[{kind}] {info['name']}",
+                "link": repo_url,
+                "pub_date": pub_date,
+                "content": info["desc"],
+            })
+            state["seen"].add(item_id)
+
+        # Persist current snapshot so next run can detect new repos
+        state["last_items"][source["url"] + ":repos"] = {
+            path: {"updated": d["updated"]} for path, d in current.items()
+        }
+
+        fallback = most_recent_item
+        return new_items, fallback, None
+
+    except Exception as e:
+        return [], None, str(e)
 
 
 def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
@@ -974,6 +1086,8 @@ def main():
             continue
         elif stype in ("rss", "podcast"):
             new_items, fallback, err = fetch_rss(source, state, cutoff)
+        elif stype == "web" and "github.com" in source["url"] and "tab=repositories" in source["url"]:
+            new_items, fallback, err = fetch_github_repos(source, state, cutoff)
         else:
             new_items, fallback, err = fetch_web(source, state, cutoff)
 
