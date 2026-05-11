@@ -406,11 +406,68 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
         return [], None, str(e)
 
 
+def _ytd_return(ticker: str, session: requests.Session) -> str:
+    """Fetch YTD % return for a ticker via Yahoo Finance chart API.
+    Uses chartPreviousClose (Dec 31 last year) vs regularMarketPrice.
+    Returns formatted string like '+12.3%' or '—' on failure.
+    """
+    from datetime import datetime as _dt
+    try:
+        now = _dt.now()
+        period1 = int(_dt(now.year, 1, 1).timestamp())
+        period2 = int(now.timestamp())
+        r = session.get(
+            f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}",
+            params={"period1": period1, "period2": period2, "interval": "1mo"},
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=8,
+        )
+        meta = r.json()["chart"]["result"][0]["meta"]
+        prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+        cur  = meta.get("regularMarketPrice")
+        if prev and cur and prev > 0:
+            pct = (cur - prev) / prev * 100
+            return f"+{pct:.1f}%" if pct >= 0 else f"{pct:.1f}%"
+    except Exception:
+        pass
+    return "—"
+
+
+def _name_to_ticker(name: str, session: requests.Session) -> str:
+    """Resolve a company name to its primary US-listed ticker via Yahoo Finance search.
+    Prefers plain symbols without exchange suffixes (no '.') on NASDAQ/NYSE/NYSEArca.
+    Returns '' on failure or if no clean US ticker found.
+    """
+    _US_EXCHANGES = {"NMS", "NYQ", "PCX", "NGM", "ASE", "BTS"}  # NASDAQ, NYSE, Arca, etc.
+    try:
+        r = session.get(
+            "https://query2.finance.yahoo.com/v1/finance/search",
+            params={"q": name, "quotesCount": 5, "newsCount": 0, "enableFuzzyQuery": "false"},
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=8,
+        )
+        quotes = r.json().get("quotes", [])
+        # Prefer plain US-exchange tickers (no '.' in symbol)
+        for q in quotes:
+            sym = q.get("symbol", "")
+            exch = q.get("exchange", "")
+            if sym and "." not in sym and (exch in _US_EXCHANGES or not exch):
+                return sym
+        # Fallback: first result without exchange suffix
+        for q in quotes:
+            sym = q.get("symbol", "")
+            if sym and "." not in sym:
+                return sym
+    except Exception:
+        pass
+    return ""
+
+
 def fetch_13f(source: dict, state: dict) -> tuple:
     """
     Parse SEC EDGAR 13F-HR filing for a fund.
     Returns (holdings_text, filing_date, filing_url, error).
-    holdings_text is a markdown table of top holdings with % of portfolio.
+    holdings_text is a markdown table of top holdings with % of portfolio + YTD return.
     """
     ua = "MorningDigest/1.0 contact@morningdigest.dev"
     try:
@@ -512,6 +569,40 @@ def fetch_13f(source: dict, state: dict) -> tuple:
         holdings.sort(key=lambda x: x["value_k"], reverse=True)
         total_k = sum(h["value_k"] for h in holdings)
         total_b = total_k / 1_000_000  # thousands / 1M = billions
+        n_all = len(holdings)
+        top = holdings[:20]
+
+        # ── Ticker resolution + YTD (refreshed daily, cached by filing_url) ──
+        import time as _time
+        from datetime import date as _date
+        today_str = str(_date.today())
+
+        cached_tmap  = cached.get("ticker_map", {}) if cached and cached.get("filing_url") == filing_url else {}
+        cached_ytd   = cached.get("ytd", {})        if cached and cached.get("ytd_date") == today_str else {}
+
+        ytd_session = requests.Session()
+
+        ticker_map = {}  # name -> ticker
+        ytd = {}         # ticker -> ytd string
+
+        for h in top:
+            name_key = h["name"]
+            # Resolve ticker
+            if name_key in cached_tmap:
+                ticker = cached_tmap[name_key]
+            else:
+                ticker = _name_to_ticker(name_key, ytd_session)
+                _time.sleep(0.1)
+            ticker_map[name_key] = ticker
+            h["ticker"] = ticker
+
+            # Fetch YTD (use cache if fresh, else re-fetch)
+            if ticker:
+                if ticker in cached_ytd:
+                    ytd[ticker] = cached_ytd[ticker]
+                else:
+                    ytd[ticker] = _ytd_return(ticker, ytd_session)
+                    _time.sleep(0.1)
 
         def _fmt_value(value_k: int) -> str:
             """Format a $thousands value as $XB or $XM."""
@@ -519,24 +610,29 @@ def fetch_13f(source: dict, state: dict) -> tuple:
                 return f"${value_k / 1_000_000:.2f}B"
             return f"${value_k / 1_000:.1f}M"
 
-        # Build markdown table — top 20 holdings
+        # Build markdown table — top 20 holdings with YTD
         lines = [
-            f"**{len(holdings)} positions · ${total_b:.1f}B AUM · as of {filing_date}**\n",
-            "| # | Name | Value | % of Portfolio |",
-            "|---|------|-------|---------------|",
+            f"**{n_all} positions · ${total_b:.1f}B AUM · as of {filing_date}**\n",
+            "| # | Name | Ticker | Value | % of Portfolio | YTD |",
+            "|---|------|--------|-------|----------------|-----|",
         ]
-        for i, h in enumerate(holdings[:20], 1):
-            pct = h["value_k"] / total_k * 100
+        for i, h in enumerate(top, 1):
+            pct     = h["value_k"] / total_k * 100
             val_str = _fmt_value(h["value_k"])
-            lines.append(f"| {i} | {h['name']} | {val_str} | {pct:.1f}% |")
+            ticker  = h.get("ticker", "")
+            ytd_str = ytd.get(ticker, "—") if ticker else "—"
+            lines.append(f"| {i} | {h['name']} | {ticker} | {val_str} | {pct:.1f}% | {ytd_str} |")
 
         text = "\n".join(lines)
 
-        # Cache in state
+        # Cache: separate filing data (long-lived) from YTD (daily)
         state.setdefault("summaries", {})[cache_key] = {
             "text": text,
             "date": filing_date,
             "filing_url": filing_url,
+            "ticker_map": ticker_map,
+            "ytd": ytd,
+            "ytd_date": today_str,
         }
 
         return text, filing_date, filing_url, None
@@ -808,35 +904,51 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
         # Infer current holdings
         positions = _infer_holdings(fd_holdings, unique_trades, fd_cutoff)
 
+        # ── YTD returns (refreshed daily) ─────────────────────────────────────
+        import time as _time
+        today_str = str(_date.today())
+        cached_ytd = cached.get("ytd", {}) if cached and cached.get("ytd_date") == today_str else {}
+
+        ytd_session = requests.Session()
+        ytd = {}
+        active_positions = [p for p in positions if p["inferred_mid"] > 0]
+        for p in active_positions:
+            ticker = p["ticker"]
+            if not ticker or len(ticker) > 6:
+                continue
+            if ticker in cached_ytd:
+                ytd[ticker] = cached_ytd[ticker]
+            else:
+                ytd[ticker] = _ytd_return(ticker, ytd_session)
+                _time.sleep(0.1)
+
         # ── build output (13F-style) ──────────────────────────────────────────
         name = (source.get("politician_first", "") + " " + source.get("politician_last", "")).strip()
-        today_str = _date.today().strftime("%Y-%m-%d")
 
-        # Only count positions with a meaningful inferred value (exclude ~$0 closed)
-        active_positions = [p for p in positions if p["inferred_mid"] > 0]
         total_est = sum(p["inferred_mid"] for p in active_positions)
         total_str = _fmt_dollars(total_est)
         n_pos = len(active_positions)
 
         text_parts = []
 
-        # Header matches 13F style: "N positions · $XM AUM · as of DATE"
+        # Header matches 13F style
         text_parts.append(
             f"**{n_pos} positions · {total_str} est. portfolio · "
             f"FD: Dec 31 {fd_year_str} + PTR through {latest_ptr_date}**\n"
         )
 
-        # Main table — ranked by estimated value, % of portfolio, with status
-        text_parts.append("| # | Ticker | Name | Type | Est. Value | % | Status | Last PTR |")
-        text_parts.append("|---|--------|------|------|------------|---|--------|----------|")
+        # Main table — ranked by estimated value, % of portfolio, YTD, status
+        text_parts.append("| # | Ticker | Name | Type | Est. Value | % | YTD | Status | Last PTR |")
+        text_parts.append("|---|--------|------|------|------------|---|-----|--------|----------|")
         for i, p in enumerate(active_positions, 1):
             pct = p["inferred_mid"] / total_est * 100 if total_est else 0
             est = _fmt_dollars(p["inferred_mid"])
             short_name = p["name"][:30] + "…" if len(p["name"]) > 30 else p["name"]
             last = p["latest_date"] or "—"
+            ytd_str = ytd.get(p["ticker"], "—")
             text_parts.append(
                 f"| {i} | {p['ticker']} | {short_name} | {p['kind']} "
-                f"| {est} | {pct:.1f}% | {p['status']} | {last} |"
+                f"| {est} | {pct:.1f}% | {ytd_str} | {p['status']} | {last} |"
             )
 
         # Closed positions footnote
@@ -845,15 +957,6 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
             tickers = ", ".join(p["ticker"] for p in closed)
             text_parts.append(f"\n*Closed since FD baseline: {tickers}*")
 
-        # Section 2: Recent PTR transactions
-        text_parts.append(f"\n**Recent Transactions (PTR log)**\n")
-        text_parts.append("| Date | Action | Ticker | Type | Amount |")
-        text_parts.append("|------|--------|--------|------|--------|")
-        for t in unique_trades[:20]:
-            text_parts.append(
-                f"| {t['date']} | {t['action']} | {t['ticker']} | {t['kind']} | {t['amount']} |"
-            )
-
         text = "\n".join(text_parts)
 
         state.setdefault("summaries", {})[cache_key] = {
@@ -861,6 +964,8 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
             "date": latest_ptr_date,
             "fd_doc_id": fd_doc_id,
             "ptr_ids": list(ptr_links.keys()),
+            "ytd": ytd,
+            "ytd_date": today_str,
         }
         return text, latest_ptr_date, None, None
 
