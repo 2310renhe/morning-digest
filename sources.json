@@ -66,6 +66,16 @@
     "category": "AI Opinion Leaders"
   },
   {
+    "name": "Nancy Pelosi – House PTR Trades",
+    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure/ViewSearch",
+    "type": "congress_trades",
+    "category": "Investor Positioning",
+    "politician_last": "Pelosi",
+    "politician_first": "Nancy",
+    "politician_state": "CA",
+    "politician_district": "11"
+  },
+  {
     "name": "Situational Awareness LP – 13F Filings (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002045724&type=13F&dateb=&owner=include&count=10&output=atom",
     "type": "sec13f",

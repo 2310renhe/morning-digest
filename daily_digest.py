@@ -2,6 +2,7 @@
 """Daily content digest — fetch new items, summarize with Groq, publish to GitHub Pages."""
 
 import hashlib
+import io
 import json
 import os
 import smtplib
@@ -539,6 +540,161 @@ def fetch_13f(source: dict, state: dict) -> tuple:
         }
 
         return text, filing_date, filing_url, None
+
+    except Exception as e:
+        return None, None, None, str(e)
+
+
+def fetch_congress_trades(source: dict, state: dict) -> tuple:
+    """
+    Fetch and parse House PTR (Periodic Transaction Report) filings for a member of Congress.
+    Returns (text, latest_date, filing_url, error).
+
+    Source config fields:
+      politician_last, politician_first, politician_state, politician_district
+
+    Strategy:
+      1. POST to House clerk search (with CSRF token) to get list of PTR filing IDs.
+      2. Compare with cached filing_ids in state — skip re-parse if unchanged.
+      3. Download any new PDFs and extract transactions with pypdf + regex.
+      4. Return a markdown table of all transactions sorted newest-first.
+    """
+    import re as _re
+    try:
+        import pypdf as _pypdf
+    except ImportError:
+        return None, None, None, "pypdf not installed (add to requirements.txt)"
+
+    ua = "MorningDigest/1.0 contact@morningdigest.dev"
+    base = "https://disclosures-clerk.house.gov"
+    cache_key = f"congress_{source['name']}"
+    cached = state.get("summaries", {}).get(cache_key, {})
+
+    try:
+        session = requests.Session()
+        session.headers.update({"User-Agent": ua})
+
+        # Step 1: get CSRF token
+        resp = session.get(f"{base}/FinancialDisclosure/ViewSearch", timeout=15)
+        soup = BeautifulSoup(resp.text, "html.parser")
+        token_tag = soup.find("input", {"name": "__RequestVerificationToken"})
+        token = token_tag["value"] if token_tag else ""
+
+        # Step 2: search for PTR filings across two years to catch recent ones
+        filing_links = {}  # {doc_id: pdf_path}
+        from datetime import date as _date
+        current_year = _date.today().year
+        for year in [str(current_year), str(current_year - 1)]:
+            resp2 = session.post(
+                f"{base}/FinancialDisclosure/ViewMemberSearchResult",
+                data={
+                    "LastName": source.get("politician_last", ""),
+                    "FirstName": source.get("politician_first", ""),
+                    "State": source.get("politician_state", ""),
+                    "District": source.get("politician_district", ""),
+                    "FilingYear": year,
+                    "DocType": "P",
+                    "__RequestVerificationToken": token,
+                },
+                timeout=15,
+            )
+            soup2 = BeautifulSoup(resp2.text, "html.parser")
+            for a in soup2.find_all("a", href=_re.compile(r"ptr-pdfs")):
+                href = a["href"]
+                doc_id = href.split("/")[-1].replace(".pdf", "")
+                filing_links[doc_id] = href
+
+        if not filing_links:
+            return None, None, None, "No PTR filings found"
+
+        # Step 3: check if any new filings since last run
+        cached_ids = set(cached.get("filing_ids", []))
+        new_ids = set(filing_links) - cached_ids
+
+        if not new_ids and cached.get("text"):
+            return cached["text"], cached.get("date"), None, None
+
+        # Step 4: parse all filings (all known, to build complete picture)
+        def _parse_ptr_pdf(pdf_bytes: bytes) -> list:
+            reader = _pypdf.PdfReader(io.BytesIO(pdf_bytes))
+            text = ""
+            for page in reader.pages:
+                text += (page.extract_text() or "") + "\n"
+            text = _re.sub(r'[ \t]+', ' ', text)
+            pattern = _re.compile(
+                r'(?:SP\s+)?'
+                r'(.+?)'
+                r'\(([A-Z0-9./: ^]+)\)'
+                r'\s*\[([A-Z]+)\]'
+                r'\s*(P|S)(?:\s*\(partial\))?'
+                r'\s+(\d{2}/\d{2}/\d{4})'
+                r'\d{2}/\d{2}/\d{4}'
+                r'\s*(\$[\d,]+\s*-\s*\$[\d,]+)',
+                _re.DOTALL,
+            )
+            trades = []
+            for m in pattern.finditer(text):
+                asset_code = m.group(3)
+                action = "Purchase" if m.group(4) == "P" else "Sale"
+                kind = "Options" if asset_code == "OP" else "Stock" if asset_code == "ST" else asset_code
+                ticker = m.group(2).strip()
+                amount = _re.sub(r'\s+', ' ', m.group(6)).strip()
+                date_str = m.group(5)
+                trades.append({"ticker": ticker, "kind": kind, "action": action,
+                               "date": date_str, "amount": amount})
+            return trades
+
+        all_trades = []
+        latest_date = None
+        for doc_id, href in sorted(filing_links.items(), reverse=True):
+            pdf_url = f"{base}/{href}"
+            try:
+                resp3 = session.get(pdf_url, timeout=20)
+                trades = _parse_ptr_pdf(resp3.content)
+                all_trades.extend(trades)
+            except Exception:
+                continue
+
+        if not all_trades:
+            return None, None, None, "No transactions parsed from PDFs"
+
+        # Sort by date descending
+        def _parse_date(d):
+            try:
+                from datetime import datetime as _dt
+                return _dt.strptime(d, "%m/%d/%Y")
+            except Exception:
+                return datetime.min
+        all_trades.sort(key=lambda t: _parse_date(t["date"]), reverse=True)
+
+        # Deduplicate (same ticker + action + date + amount can appear across re-filings)
+        seen_trades = set()
+        unique_trades = []
+        for t in all_trades:
+            key = (t["ticker"], t["action"], t["date"], t["amount"])
+            if key not in seen_trades:
+                seen_trades.add(key)
+                unique_trades.append(t)
+
+        latest_date = unique_trades[0]["date"] if unique_trades else None
+        name = source.get("politician_first", "") + " " + source.get("politician_last", "")
+
+        lines = [
+            f"**{name.strip()} · {len(unique_trades)} transactions · latest: {latest_date}**\n",
+            "| Date | Action | Ticker | Type | Amount |",
+            "|------|--------|--------|------|--------|",
+        ]
+        for t in unique_trades[:30]:
+            lines.append(f"| {t['date']} | {t['action']} | {t['ticker']} | {t['kind']} | {t['amount']} |")
+
+        text = "\n".join(lines)
+
+        state.setdefault("summaries", {})[cache_key] = {
+            "text": text,
+            "date": latest_date,
+            "filing_ids": list(filing_links.keys()),
+        }
+        return text, latest_date, None, None
 
     except Exception as e:
         return None, None, None, str(e)
@@ -1082,6 +1238,26 @@ def main():
                     "is_fresh": False,
                     "latest_date": filing_date,
                     "latest_link": filing_url,
+                })
+            continue
+
+        if stype == "congress_trades":
+            trades_text, latest_date, _, err = fetch_congress_trades(source, state)
+            cat = source.get("category", "Other")
+            if err and not trades_text:
+                print(f"  ERROR: {err}")
+                results.append({"name": source["name"], "category": cat, "error": err, "is_fresh": False})
+            else:
+                save_state(state)
+                cache_key = f"congress_{source['name']}"
+                cached_ids = state.get("summaries", {}).get(cache_key, {}).get("filing_ids", [])
+                print(f"  {len(cached_ids)} PTR filings, latest: {latest_date}")
+                results.append({
+                    "name": source["name"],
+                    "category": cat,
+                    "summary": trades_text,
+                    "is_fresh": False,
+                    "latest_date": latest_date,
                 })
             continue
         elif stype in ("rss", "podcast"):
