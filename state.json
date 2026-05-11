@@ -1,33 +1,36 @@
 {
   "seen": [
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "github:garrytan/gbrain:2026-05-10",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "https://www.astralcodexten.com/p/open-thread-433",
-    "oai:arXiv.org:2604.19604v4",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "github:garrytan/gstack:2026-05-10",
-    "oai:arXiv.org:2601.18991v2",
-    "3efa7cbf-112c-4bce-a845-443700608a00",
-    "oai:arXiv.org:2605.06818v1",
-    "oai:arXiv.org:2605.06688v1",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "oai:arXiv.org:2511.07571v2",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "github:garrytan/gbrain:2026-05-11",
-    "oai:arXiv.org:2605.06670v1",
-    "oai:arXiv.org:2605.06677v1",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
-    "a7009176-dd7f-474d-916a-b44700369509",
     "https://darioamodei.com/#28916f0e70fbc697",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything"
+    "github:garrytan/gstack:2026-05-10",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "oai:arXiv.org:2511.07571v2",
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2601.18991v2",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "github:garrytan/gbrain:2026-05-11",
+    "oai:arXiv.org:2605.06677v1",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "oai:arXiv.org:2605.06818v1",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "github:garrytan/gbrain:2026-05-10",
+    "oai:arXiv.org:2605.06688v1",
+    "3efa7cbf-112c-4bce-a845-443700608a00",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "oai:arXiv.org:2605.06670v1",
+    "github:garrytan/gstack:2026-05-11",
+    "oai:arXiv.org:2604.19604v4",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -131,14 +134,14 @@
       }
     },
     "https://github.com/garrytan?tab=repositories:repos": {
+      "garrytan/gstack": {
+        "updated": "2026-05-11T17:18:14Z"
+      },
       "garrytan/gbrain": {
-        "updated": "2026-05-11T05:36:21Z"
+        "updated": "2026-05-11T16:51:35Z"
       },
       "garrytan/openclaw-render-template": {
         "updated": "2026-05-10T17:33:17Z"
-      },
-      "garrytan/gstack": {
-        "updated": "2026-05-10T13:57:25Z"
       },
       "garrytan/gbrain-evals": {
         "updated": "2026-05-07T23:27:54Z"
@@ -217,8 +220,8 @@
       "date": "2026-04-23"
     },
     "Simon Willison": {
-      "text": "**New this period:**\n- The New York Times issued an Editors' Note regarding an article that incorrectly quoted Pierre Poilievre, the Conservative leader, due to an A.I.-generated summary.\n\n**Details:**\n**Quoting New York Times Editors\u2019 Note (2026-05-10)**(https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything)\nExtract of key points:\n- The New York Times updated an article after learning that a remark attributed to Pierre Poilievre was actually an A.I.-generated summary of his views on Canadian politics.\n- The A.I. tool rendered the summary as a quotation, which was not accurate.\n- The reporter should have checked the accuracy of what the A.I. tool returned.\n- The article now accurately quotes from a speech delivered by Mr. Poilievre in April.\n- In the speech, Mr. Poilievre did not refer to politicians who changed allegiances as turncoats.\n- The note is tagged with topics including ai-ethics, hallucinations, generative-ai, new-york-times, journalism, ai, and llms.",
-      "date": "2026-05-10"
+      "text": "**New this period:**\n- Simon Willison discusses Shopify's internal coding agent tool, River, and its role in creating a learning environment.\n- Tobias L\u00fctke's approach to learning and coding at Shopify is highlighted, emphasizing the importance of transparency and public channels.\n- The concept of \"Lehrwerkstatt\" (a teaching workshop) is introduced, where the whole shop floor is the classroom and learning occurs through osmosis.\n\n**Details:**\n**Learning on the Shop floor (https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything)**\nExtract of key points:\n- Tobias L\u00fctke describes Shopify's internal coding agent tool, River, which operates entirely in public on their Slack.\n- River does not respond to direct messages, instead suggesting the creation of a public channel for conversations.\n- Every conversation with River is searchable, and anyone at Shopify can jump in and participate.\n- Over 100 people participate in Tobias L\u00fctke's channel, reacting to threads, adding context, and helping with reviews.\n- The goal is to create a \"Lehrwerkstatt\" (teaching workshop) environment, where the whole shop floor is the classroom.\n- This approach is based on the idea of \"osmosis learning\", where learning occurs through visibility and transparency, without requiring a curriculum or training plan.\n- The success of Midjourney is cited as an example, where the primary interface was public Discord channels, facilitating shared learning and experimentation.\n- Tags mentioned include: ai, slack, generative-ai, llms, midjourney, coding-agents, tobias-lutke.",
+      "date": "2026-05-11"
     },
     "Dario Amodei \u2013 Essays": {
       "text": "**New this period:**\n- Dario Amodei's background and experience in AI research and development\n- List of essays, research, and interviews by Dario Amodei\n\n**Details:**\n**Dario Amodei (https://darioamodei.com/)**\nDario Amodei is the CEO of Anthropic, a public benefit corporation focused on building safe and interpretable AI systems. He has a background in AI research, having led the development of large language models like GPT-2 and GPT-3 at OpenAI, and worked as a Senior Research Scientist at Google Brain. His website lists his essays, research, and interviews, including topics such as the urgency of interpretability and the need for basic transparency rules in AI.",
@@ -233,7 +236,7 @@
       "date": "2026-05-08"
     },
     "Garry Tan \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Garry Tan's GitHub repository update for gbrain, an Opinionated OpenClaw/Hermes Agent Brain.\n\n**Details:**\n**gbrain (https://github.com/garrytan/gbrain)**\nExtract of key points from the source:\n- The repository is for Garry's Opinionated OpenClaw/Hermes Agent Brain, referred to as gbrain.\n- The update was made on 2026-05-11.\n- The repository is associated with Garry Tan.\n- The project involves OpenClaw and Hermes Agent Brain.\n- No specific details on the implementation, methodology, or application of gbrain are provided in the given source.",
+      "text": "**New this period:**\n- Garry Tan's GitHub repository update, specifically the gstack project\n\n**Details:**\n**[gstack](https://github.com/garrytan/gstack)**\nExtract of key points from the source:\n- The gstack repository is an opinionated setup of 23 tools by Garry Tan\n- These tools are intended to serve various roles, including:\n  - CEO\n  - Designer\n  - Engineering Manager\n  - Release Manager\n  - Documentation Engineer\n  - QA\n- The setup is referred to as \"Claude Code\" \n- The repository was updated on 2026-05-11",
       "date": "2026-05-11"
     },
     "Odd Lots (Bloomberg)": {
@@ -241,8 +244,8 @@
       "date": "2026-05-11"
     },
     "Exchanges (Goldman Sachs)": {
-      "text": "**New this period:**\n- Will AI Make Markets Less Efficient? podcast episode featuring Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management\n\n**Details:**\n**Will AI Make Markets Less Efficient? (https://feeds.megaphone.fm/GLD9218176758)**\nExtract of key points:\n- The episode discusses how AI is changing investment strategies in the quantitative investment space\n- Osman Ali, global co-head of Quantitative Investment Strategies in Goldman Sachs Asset Management, is the guest\n- The episode was recorded on May 1, 2026\n- The opinions and views expressed are as of the date of publication, subject to change without notice\n- The material provided is intended for informational purposes only and does not constitute investment advice\n- The episode may contain forward-looking statements\n- Past performance is not indicative of future results\n- Goldman Sachs disclaims any liability whatsoever for reliance on the information for any purpose\n- A transcript is provided for convenience, but Goldman Sachs is not responsible for any errors in the transcript\n- The material should not be copied, distributed, published, or reproduced without the express written consent of Goldman Sachs\n- Disclosures applicable to research with respect to issuers are available through a Goldman Sachs representative or at http://www.gs.com/research/hedge.html\n- The episode is available on the artificial intelligence insights page on GS.com",
-      "date": "2026-05-06"
+      "text": "**New this period:**\n- Private credit market stresses and longer-term outlook discussion with Howard Marks, Michael Arougheti, and Amanda Lynam\n\n**Details:**\n**Cracks in Private Credit (https://feeds.megaphone.fm/GLD9218176758)**\nExtract of key points from the source:\n- The private credit market has come under pressure due to high-profile defaults, concerns about valuations, and exposure to the software industry vulnerable to AI disruption.\n- There has been a surge in redemption requests in the private credit market.\n- Howard Marks, co-founder and co-chairman of Oaktree Capital Management, discusses private credit stresses.\n- Michael Arougheti, co-founder and CEO of Ares Management, shares his views on the private credit market.\n- Amanda Lynam, chief credit strategist in Goldman Sachs Research, provides insights on the recent private credit stresses and the longer-term outlook.\n- The episode explores the latest Top of Mind report.\n- The discussion was recorded on April 11, 15, 21, and May 1, 2026.\n- The opinions and views expressed are as of the date of publication, subject to change without notice.\n- The material provided is intended for informational purposes only and does not constitute investment advice.\n- Past performance is not indicative of future results.\n- Goldman Sachs disclaims any liability whatsoever for reliance on the information provided for any purpose.\n- Disclosures applicable to research with respect to issuers mentioned are available through a Goldman Sachs representative or at http://www.gs.com/research/hedge.html.",
+      "date": "2026-05-11"
     },
     "The Bid (BlackRock)": {
       "text": "**New this period:**\n- Retirement systems are undergoing a structural shift with traditional pensions declining and individuals taking on greater responsibility for financial outcomes.\n\n**Details:**\n**The Top Retirement Trends That Are Reshaping Investing, Income and Longevity** (https://rss.art19.com/the-bid)\nThe conversation between Oscar Pulido and Nick Nefouse explores the shift from accumulation to income generation in retirement planning, particularly during the \"retirement window\". Key insights include the impact of longevity on retirement timelines, the role of target date funds, and the convergence of global retirement systems. The discussion is based on sources including the BlackRock Retirement Trends Report, 2025, and a report from the Federal Reserve Bank of St. Louis.",
@@ -299,6 +302,16 @@
     "Arxiv \u2013 Trading & Market Microstructure (q-fin.TR)": {
       "text": "**New this period:**\n- A mean-field game approach to model stablecoin market dynamics, focusing on who restores the peg during de-pegging events.\n\n**Details:**\n**Who Restores the Peg? A Mean-Field Game Approach to Model Stablecoin Market Dynamics**(https://arxiv.org/abs/2601.18991)\nExtract of key points:\n- The paper examines the behavior of market participants during stablecoin de-pegging events and the collective actions that restore or break the peg.\n- USDC and USDT are the dominant stablecoins pegged to $1, with a total market capitalization of over $300B.\n- The authors develop a dynamic, agent-based mean-field game framework for fiat-collateralized stablecoins.\n- The framework models the strategic interaction of a large population of arbitrageurs and retail traders across primary and secondary markets during a de-peg episode.\n- The equilibrium formulation endogenously maps market frictions into a market-clearing price path and implied net order flows.\n- The authors use three historical de-peg events to calibrate the equilibrium, which reproduces observed recovery half-lives.\n- The results yield an order flow decomposition, showing that system-wide stress is predominantly stabilized by primary-market arbitrage.\n- A quantitative sensitivity analysis identifies a non-linear breakdown threshold, beyond which a de-peg becomes markedly slower to reverse.",
       "date": "2026-05-11"
+    },
+    "congress_Nancy Pelosi \u2013 House PTR Trades": {
+      "text": "**Nancy Pelosi \u00b7 27 transactions \u00b7 latest: 01/16/2026**\n\n| Date | Action | Ticker | Type | Amount |\n|------|--------|--------|------|--------|\n| 01/16/2026 | Purchase | AB | AB | $1,000,001 - $5,000,000 |\n| 01/16/2026 | Purchase | GOOGL | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | AMZN | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | NVDA | Stock | $250,001 - $500,000 |\n| 01/16/2026 | Purchase | VST | Stock | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Sale | GOOGL | Stock | $1,000,001 - $5,000,000 |\n| 12/30/2025 | Purchase | AMZN | Options | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | AAPL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/30/2025 | Purchase | NVDA | Options | $100,001 - $250,000 |\n| 12/30/2025 | Sale | PYPL | Stock | $250,001 - $500,000 |\n| 12/30/2025 | Sale | DIS | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Sale | AMZN | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/24/2025 | Sale | NVDA | Stock | $1,000,001 - $5,000,000 |\n| 10/22/2025 | Sale | AAPL | Stock | $100,001 - $250,000 |\n| 06/20/2025 | Purchase | AVGO | Stock | $1,000,001 - $5,000,000 |\n| 01/14/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | AMZN | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | NVDA | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | TEM | Options | $50,001 - $100,000 |\n| 01/14/2025 | Purchase | VST | Options | $500,001 - $1,000,000 |\n| 12/31/2024 | Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/31/2024 | Sale | NVDA | Stock | $1,000,001 - $5,000,000 |\n| 12/20/2024 | Purchase | NVDA | Stock | $500,001 - $1,000,000 |\n| 12/20/2024 | Purchase | PANW | Stock | $1,000,001 - $5,000,000 |",
+      "date": "01/16/2026",
+      "filing_ids": [
+        "20033725",
+        "20026590",
+        "20030630",
+        "20033337"
+      ]
     }
   }
 }
