@@ -433,33 +433,75 @@ def _ytd_return(ticker: str, session: requests.Session) -> str:
     return "—"
 
 
+def _cusips_to_tickers(cusips: list, session: requests.Session) -> dict:
+    """Batch-resolve CUSIPs to primary US equity tickers via OpenFIGI API (no key needed).
+    Returns dict of cusip -> ticker string. Missing/failed entries are absent.
+    """
+    import time as _time
+    _US_EXCH = {"US", "UN", "UA", "UQ", "UR", "UP", "UW", "UT"}  # US equity exchange codes
+    result = {}
+    batch_size = 10  # OpenFIGI free-tier limit per request
+    for i in range(0, len(cusips), batch_size):
+        batch = cusips[i:i + batch_size]
+        body = [{"idType": "ID_CUSIP", "idValue": c} for c in batch]
+        try:
+            r = session.post(
+                "https://api.openfigi.com/v3/mapping",
+                json=body,
+                headers={"Content-Type": "application/json"},
+                timeout=12,
+            )
+            for cusip, item in zip(batch, r.json()):
+                data = item.get("data", [])
+                # Prefer US exchange + Equity
+                for d in data:
+                    if (d.get("marketSector") == "Equity"
+                            and d.get("exchCode", "") in _US_EXCH
+                            and d.get("ticker")):
+                        result[cusip] = d["ticker"]
+                        break
+                else:
+                    # Fallback: any equity ticker
+                    for d in data:
+                        if d.get("marketSector") == "Equity" and d.get("ticker"):
+                            result[cusip] = d["ticker"]
+                            break
+        except Exception:
+            pass
+        _time.sleep(0.4)
+    return result
+
+
 def _name_to_ticker(name: str, session: requests.Session) -> str:
     """Resolve a company name to its primary US-listed ticker via Yahoo Finance search.
+    Strips "– CLASS DESCRIPTION" suffixes added by _holding_name before searching.
     Prefers plain symbols without exchange suffixes (no '.') on NASDAQ/NYSE/NYSEArca.
     Returns '' on failure or if no clean US ticker found.
     """
-    _US_EXCHANGES = {"NMS", "NYQ", "PCX", "NGM", "ASE", "BTS"}  # NASDAQ, NYSE, Arca, etc.
-    try:
-        r = session.get(
-            "https://query2.finance.yahoo.com/v1/finance/search",
-            params={"q": name, "quotesCount": 5, "newsCount": 0, "enableFuzzyQuery": "false"},
-            headers={"User-Agent": "Mozilla/5.0"},
-            timeout=8,
-        )
-        quotes = r.json().get("quotes", [])
-        # Prefer plain US-exchange tickers (no '.' in symbol)
-        for q in quotes:
-            sym = q.get("symbol", "")
-            exch = q.get("exchange", "")
-            if sym and "." not in sym and (exch in _US_EXCHANGES or not exch):
-                return sym
-        # Fallback: first result without exchange suffix
-        for q in quotes:
-            sym = q.get("symbol", "")
-            if sym and "." not in sym:
-                return sym
-    except Exception:
-        pass
+    import re as _re
+    _US_EXCHANGES = {"NMS", "NYQ", "PCX", "NGM", "ASE", "BTS"}
+    # Strip "– SUFFIX" appended by _holding_name for non-generic class labels
+    clean = _re.sub(r'\s*[–\-]\s*.+$', '', name).strip()
+    for query in ([clean, name] if clean != name else [name]):
+        try:
+            r = session.get(
+                "https://query2.finance.yahoo.com/v1/finance/search",
+                params={"q": query, "quotesCount": 5, "newsCount": 0, "enableFuzzyQuery": "false"},
+                headers={"User-Agent": "Mozilla/5.0"},
+                timeout=8,
+            )
+            quotes = r.json().get("quotes", [])
+            for q in quotes:
+                sym = q.get("symbol", "")
+                exch = q.get("exchange", "")
+                if sym and "." not in sym and (exch in _US_EXCHANGES or not exch):
+                    return sym
+            for q in quotes:
+                sym = q.get("symbol", "")
+                if sym and "." not in sym:
+                    return sym
+        except Exception:
+            pass
     return ""
 
 
@@ -481,10 +523,13 @@ def fetch_13f(source: dict, state: dict) -> tuple:
         filing_url = entry.find("link")["href"]
         filing_date = entry.find("updated").text[:10] if entry.find("updated") else None
 
-        # Check if we already processed this filing
+        # Check if we already processed this filing AND YTD is fresh (today)
+        from datetime import date as _date
+        today_str = str(_date.today())
         cache_key = f"13f_{source['name']}"
         cached = state.get("summaries", {}).get(cache_key)
-        if cached and cached.get("filing_url") == filing_url:
+        if (cached and cached.get("filing_url") == filing_url
+                and cached.get("ytd_date") == today_str):
             return cached["text"], filing_date, filing_url, None
 
         # Step 2: Find the XML holdings file from the filing index
@@ -540,6 +585,7 @@ def fetch_13f(source: dict, state: dict) -> tuple:
             value = info.find("value")
             shares = info.find("sshprnamt")
             cls_tag = info.find("titleofclass")
+            cusip_tag = info.find("cusip")
             if name and value:
                 try:
                     raw_val = int(value.text.strip().replace(",", ""))
@@ -549,6 +595,7 @@ def fetch_13f(source: dict, state: dict) -> tuple:
                     "name": _holding_name(name.text, cls_tag.text if cls_tag else ""),
                     "raw_val": raw_val,
                     "shares": int(shares.text.strip().replace(",", "")) if shares else 0,
+                    "cusip": cusip_tag.get_text(strip=True) if cusip_tag else "",
                 })
 
         if not holdings:
@@ -574,29 +621,38 @@ def fetch_13f(source: dict, state: dict) -> tuple:
 
         # ── Ticker resolution + YTD (refreshed daily, cached by filing_url) ──
         import time as _time
-        from datetime import date as _date
-        today_str = str(_date.today())
 
-        cached_tmap  = cached.get("ticker_map", {}) if cached and cached.get("filing_url") == filing_url else {}
-        cached_ytd   = cached.get("ytd", {})        if cached and cached.get("ytd_date") == today_str else {}
+        # Load cached ticker map if this is the same filing (avoids re-querying APIs)
+        cached_tmap = cached.get("ticker_map", {}) if cached and cached.get("filing_url") == filing_url else {}
+        cached_ytd  = cached.get("ytd", {})        if cached and cached.get("ytd_date") == today_str else {}
 
         ytd_session = requests.Session()
+
+        # Step 1: Resolve tickers via CUSIP (OpenFIGI) for holdings not already cached
+        uncached_top = [h for h in top if h["name"] not in cached_tmap]
+        cusip_map = {}  # cusip -> ticker
+        if uncached_top:
+            cusips = [h["cusip"] for h in uncached_top if h.get("cusip")]
+            if cusips:
+                cusip_map = _cusips_to_tickers(cusips, ytd_session)
 
         ticker_map = {}  # name -> ticker
         ytd = {}         # ticker -> ytd string
 
         for h in top:
             name_key = h["name"]
-            # Resolve ticker
             if name_key in cached_tmap:
                 ticker = cached_tmap[name_key]
             else:
-                ticker = _name_to_ticker(name_key, ytd_session)
-                _time.sleep(0.1)
+                # Try CUSIP first, fall back to name search
+                ticker = cusip_map.get(h.get("cusip", ""), "")
+                if not ticker:
+                    ticker = _name_to_ticker(name_key, ytd_session)
+                    _time.sleep(0.15)
             ticker_map[name_key] = ticker
             h["ticker"] = ticker
 
-            # Fetch YTD (use cache if fresh, else re-fetch)
+            # Fetch YTD (use today's cache if available, else re-fetch)
             if ticker:
                 if ticker in cached_ytd:
                     ytd[ticker] = cached_ytd[ticker]
