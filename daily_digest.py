@@ -854,11 +854,12 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
         # Fetch PTR list (current + prior two years)
         ptr_links = _search("P", [str(y) for y in range(current_year - 2, current_year + 1)])
 
-        # Check cache — skip re-parse if nothing new
+        # Check cache — skip PDF re-parse only if filings unchanged AND YTD is fresh (today)
         cached_fd   = cached.get("fd_doc_id")
         cached_ptrs = set(cached.get("ptr_ids", []))
         new_ptrs    = set(ptr_links) - cached_ptrs
-        if (not new_ptrs and fd_doc_id == cached_fd and cached.get("text")):
+        ytd_fresh   = cached.get("ytd_date") == str(_date.today())
+        if (not new_ptrs and fd_doc_id == cached_fd and cached.get("text") and ytd_fresh):
             return cached["text"], cached.get("date"), None, None
 
         # Parse FD
