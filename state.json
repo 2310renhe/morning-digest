@@ -1,36 +1,36 @@
 {
   "seen": [
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "github:garrytan/gstack:2026-05-10",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
-    "oai:arXiv.org:2511.07571v2",
-    "https://www.astralcodexten.com/p/open-thread-433",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
-    "oai:arXiv.org:2601.18991v2",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "github:garrytan/gbrain:2026-05-11",
-    "oai:arXiv.org:2605.06677v1",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "oai:arXiv.org:2605.06818v1",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
     "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
     "github:garrytan/gbrain:2026-05-10",
-    "oai:arXiv.org:2605.06688v1",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
     "3efa7cbf-112c-4bce-a845-443700608a00",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "github:garrytan/gbrain:2026-05-11",
     "oai:arXiv.org:2605.06670v1",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "github:garrytan/gstack:2026-05-10",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
     "github:garrytan/gstack:2026-05-11",
     "oai:arXiv.org:2604.19604v4",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2605.06688v1",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "oai:arXiv.org:2511.07571v2",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "oai:arXiv.org:2605.06818v1",
     "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917"
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "oai:arXiv.org:2605.06677v1",
+    "oai:arXiv.org:2601.18991v2"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -304,13 +304,19 @@
       "date": "2026-05-11"
     },
     "congress_Nancy Pelosi \u2013 House PTR Trades": {
-      "text": "**Nancy Pelosi \u00b7 27 transactions \u00b7 latest: 01/16/2026**\n\n| Date | Action | Ticker | Type | Amount |\n|------|--------|--------|------|--------|\n| 01/16/2026 | Purchase | AB | AB | $1,000,001 - $5,000,000 |\n| 01/16/2026 | Purchase | GOOGL | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | AMZN | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | NVDA | Stock | $250,001 - $500,000 |\n| 01/16/2026 | Purchase | VST | Stock | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Sale | GOOGL | Stock | $1,000,001 - $5,000,000 |\n| 12/30/2025 | Purchase | AMZN | Options | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | AAPL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/30/2025 | Purchase | NVDA | Options | $100,001 - $250,000 |\n| 12/30/2025 | Sale | PYPL | Stock | $250,001 - $500,000 |\n| 12/30/2025 | Sale | DIS | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Sale | AMZN | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/24/2025 | Sale | NVDA | Stock | $1,000,001 - $5,000,000 |\n| 10/22/2025 | Sale | AAPL | Stock | $100,001 - $250,000 |\n| 06/20/2025 | Purchase | AVGO | Stock | $1,000,001 - $5,000,000 |\n| 01/14/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | AMZN | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | NVDA | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | TEM | Options | $50,001 - $100,000 |\n| 01/14/2025 | Purchase | VST | Options | $500,001 - $1,000,000 |\n| 12/31/2024 | Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/31/2024 | Sale | NVDA | Stock | $1,000,001 - $5,000,000 |\n| 12/20/2024 | Purchase | NVDA | Stock | $500,001 - $1,000,000 |\n| 12/20/2024 | Purchase | PANW | Stock | $1,000,001 - $5,000,000 |",
+      "text": "**Inferred Holdings \u2014 Nancy Pelosi (as of 2026-05-11)**\n*FD baseline: Dec 31 2023 \u00b7 PTR activity through 01/16/2026*\n\n| Ticker | Type | FD Value (Dec 31) | Est. Value | Status | Last Activity |\n|--------|------|-------------------|------------|--------|---------------|\n| NVDA | Stock | $5,000,001\u2013$25,000,000 | $16.7M | ~ Active trading | 01/16/2026 |\n| CRM | Stock | $5,000,001\u2013$25,000,000 | $15.0M | \u2022 Unchanged | \u2014 |\n| GOOGL | Stock | $5,000,001\u2013$25,000,000 | $13.5M | ~ Active trading | 01/16/2026 |\n| AMZN | Stock | $5,000,001\u2013$25,000,000 | $13.3M | ~ Active trading | 01/16/2026 |\n| MSFT | Stock | $5,000,001\u2013$25,000,000 | $12.0M | \u2193 Reduced | 07/26/2024 |\n| AVGO | Options | $1,000,001\u2013$5,000,000 | $9.0M | \u2191 Added | 06/20/2025 |\n| PANW | Stock | $1,000,001\u2013$5,000,000 | $6.9M | \u2191 Added | 12/20/2024 |\n| AXP | Stock | $1,000,001\u2013$5,000,000 | $3.0M | \u2022 Unchanged | \u2014 |\n| CRWD | Stock | $1,000,001\u2013$5,000,000 | $3.0M | \u2022 Unchanged | \u2014 |\n| NFLX | Stock | $1,000,001\u2013$5,000,000 | $3.0M | \u2022 Unchanged | \u2014 |\n| AB | AB | \u2014 | $3.0M | \u2191 New (PTR) | 01/16/2026 |\n| V | Stock | $1,000,001\u2013$5,000,000 | $2.2M | \u2193 Reduced | 07/01/2024 |\n| VST | Options | \u2014 | $925K | \u2191 New (PTR) | 01/16/2026 |\n| CMCSA | Stock | $500,001\u2013$1,000,000 | $750K | \u2022 Unchanged | \u2014 |\n| SQ | Stock | $250,001\u2013$500,000 | $375K | \u2022 Unchanged | \u2014 |\n| DBX | Stock | $250,001\u2013$500,000 | $375K | \u2022 Unchanged | \u2014 |\n| IBKR | Stock | $250,001\u2013$500,000 | $375K | \u2022 Unchanged | \u2014 |\n| MORN | Stock | $250,001\u2013$500,000 | $375K | \u2022 Unchanged | \u2014 |\n| RBLX | Stock | $250,001\u2013$500,000 | $375K | \u2022 Unchanged | \u2014 |\n| T | Stock | $100,001\u2013$250,000 | $175K | \u2022 Unchanged | \u2014 |\n| TEM | Options | \u2014 | $75K | \u2191 New (PTR) | 01/14/2025 |\n| QCOM | Stock | $15,001\u2013$50,000 | $33K | \u2022 Unchanged | \u2014 |\n| WBD | Stock | $15,001\u2013$50,000 | $33K | \u2022 Unchanged | \u2014 |\n| CLNE | Stock | $1,001\u2013$15,000 | $8K | \u2022 Unchanged | \u2014 |\n| AAPL | Stock | $25,000,001\u2013$50,000,000 | ~$0 | ~ Active trading | 12/30/2025 |\n| PYPL | Stock | $250,001\u2013$500,000 | ~$0 | \u2717 Closed | 12/30/2025 |\n| DIS | Stock | $1,000,001\u2013$5,000,000 | ~$0 | \u2717 Closed | 12/30/2025 |\n| TSLA | Stock | \u2014 | ~$0 | \u2717 Closed | 06/24/2024 |\n\n**Recent Transactions (PTR log)**\n\n| Date | Action | Ticker | Type | Amount |\n|------|--------|--------|------|--------|\n| 01/16/2026 | Purchase | AB | AB | $1,000,001 - $5,000,000 |\n| 01/16/2026 | Purchase | GOOGL | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | AMZN | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | NVDA | Stock | $250,001 - $500,000 |\n| 01/16/2026 | Purchase | VST | Stock | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Partial Sale | GOOGL | Stock | $1,000,001 - $5,000,000 |\n| 12/30/2025 | Purchase | AMZN | Options | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | AAPL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Partial Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/30/2025 | Purchase | NVDA | Options | $100,001 - $250,000 |\n| 12/30/2025 | Sale | PYPL | Stock | $250,001 - $500,000 |\n| 12/30/2025 | Sale | DIS | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Partial Sale | AMZN | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Partial Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/24/2025 | Partial Sale | NVDA | Stock | $1,000,001 - $5,000,000 |\n| 10/22/2025 | Partial Sale | AAPL | Stock | $100,001 - $250,000 |\n| 06/20/2025 | Purchase | AVGO | Stock | $1,000,001 - $5,000,000 |\n| 01/14/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | AMZN | Options | $250,001 - $500,000 |",
       "date": "01/16/2026",
-      "filing_ids": [
-        "20033725",
+      "fd_doc_id": "10066169",
+      "ptr_ids": [
+        "20024542",
+        "20024625",
+        "20025368",
+        "20025535",
+        "20025819",
         "20026590",
         "20030630",
-        "20033337"
+        "20033337",
+        "20033725"
       ]
     }
   }
