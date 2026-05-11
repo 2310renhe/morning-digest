@@ -547,19 +547,18 @@ def fetch_13f(source: dict, state: dict) -> tuple:
 
 def fetch_congress_trades(source: dict, state: dict) -> tuple:
     """
-    Fetch and parse House PTR (Periodic Transaction Report) filings for a member of Congress.
+    Fetch House PTR + Annual FD filings and infer real-time holdings.
     Returns (text, latest_date, filing_url, error).
 
-    Source config fields:
-      politician_last, politician_first, politician_state, politician_district
-
     Strategy:
-      1. POST to House clerk search (with CSRF token) to get list of PTR filing IDs.
-      2. Compare with cached filing_ids in state — skip re-parse if unchanged.
-      3. Download any new PDFs and extract transactions with pypdf + regex.
-      4. Return a markdown table of all transactions sorted newest-first.
+      1. Fetch most recent Annual FD → baseline holdings as of Dec 31 of that year.
+      2. Fetch all PTR filings from that year+1 onwards → transaction flow.
+      3. Apply PTRs chronologically to infer current position status per ticker.
+      4. Show inferred holdings table + recent transaction log.
+    Caches separately for FD doc IDs and PTR doc IDs; re-parses only on new filings.
     """
     import re as _re
+    from datetime import datetime as _dt, date as _date
     try:
         import pypdf as _pypdf
     except ImportError:
@@ -570,131 +569,284 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
     cache_key = f"congress_{source['name']}"
     cached = state.get("summaries", {}).get(cache_key, {})
 
+    # ── helpers ──────────────────────────────────────────────────────────────
+
+    def _parse_date(d: str):
+        try:
+            return _dt.strptime(d, "%m/%d/%Y")
+        except Exception:
+            return _dt.min
+
+    def _amount_midpoint(s: str) -> float:
+        """Return midpoint dollar value for a House disclosure amount range string."""
+        nums = [float(x.replace(",", "")) for x in _re.findall(r"[\d,]+", s)]
+        if len(nums) >= 2:
+            return (nums[0] + nums[1]) / 2
+        if len(nums) == 1:
+            return nums[0]
+        return 0.0
+
+    def _fmt_dollars(v: float) -> str:
+        if v >= 1_000_000:
+            return f"${v/1_000_000:.1f}M"
+        if v >= 1_000:
+            return f"${v/1_000:.0f}K"
+        return f"${v:.0f}"
+
+    def _parse_ptr_pdf(pdf_bytes: bytes) -> list:
+        """Parse PTR PDF → list of trade dicts."""
+        reader = _pypdf.PdfReader(io.BytesIO(pdf_bytes))
+        text = _re.sub(r'[ \t]+', ' ', "".join(p.extract_text() or "" for p in reader.pages))
+        pat = _re.compile(
+            r'(?:SP\s+)?(.+?)\(([A-Z0-9./: ^]+)\)\s*\[([A-Z]+)\]'
+            r'\s*(P|S)(\s*\(partial\))?'
+            r'\s+(\d{2}/\d{2}/\d{4})\d{2}/\d{2}/\d{4}'
+            r'\s*(\$[\d,]+\s*-\s*\$[\d,]+)',
+            _re.DOTALL,
+        )
+        trades = []
+        for m in pat.finditer(text):
+            code = m.group(3)
+            raw_action = m.group(4)
+            partial = bool(m.group(5))
+            kind = "Options" if code == "OP" else "Stock" if code == "ST" else code
+            action = ("Purchase" if raw_action == "P"
+                      else ("Partial Sale" if partial else "Sale"))
+            trades.append({
+                "ticker": m.group(2).strip(),
+                "kind": kind, "action": action,
+                "date": m.group(6),
+                "amount": _re.sub(r'\s+', ' ', m.group(7)).strip(),
+            })
+        return trades
+
+    def _parse_fd_pdf(pdf_bytes: bytes) -> dict:
+        """Parse Annual FD PDF → {ticker: {name, lo_str, hi_str, mid, kind}} for equities/options."""
+        reader = _pypdf.PdfReader(io.BytesIO(pdf_bytes))
+        text = _re.sub(r'[ \t]+', ' ', "".join(p.extract_text() or "" for p in reader.pages))
+        pat = _re.compile(
+            r'(.+?)\(([A-Z0-9./: ^]+)\)\s*\[([A-Z]+)\]\s*(?:SP|JT)\s+'
+            r'(\$[\d,]+)\s*-\s*\n?\s*(\$[\d,]+)',
+            _re.MULTILINE,
+        )
+        holdings = {}
+        for m in pat.finditer(text):
+            code = m.group(3)
+            if code not in ("ST", "OP"):
+                continue
+            ticker = m.group(2).strip()
+            name = _re.sub(r'\s+', ' ', m.group(1)).strip().rstrip('-').strip()
+            lo_str, hi_str = m.group(4), m.group(5)
+            mid = (_amount_midpoint(lo_str) + _amount_midpoint(hi_str)) / 2
+            kind = "Options" if code == "OP" else "Stock"
+            holdings[ticker] = {"name": name, "lo": lo_str, "hi": hi_str,
+                                 "mid": mid, "kind": kind}
+        return holdings
+
+    def _infer_holdings(fd_holdings: dict, ptr_trades: list, fd_cutoff: _dt) -> list:
+        """
+        Apply PTR transactions after fd_cutoff to FD baseline.
+        Returns list of position dicts sorted by estimated value desc.
+        """
+        # positions: {ticker: {kind, fd_mid, fd_range, adjustments[], status}}
+        positions = {}
+        for ticker, h in fd_holdings.items():
+            positions[ticker] = {
+                "ticker": ticker, "name": h["name"], "kind": h["kind"],
+                "fd_mid": h["mid"], "fd_range": f"{h['lo']}–{h['hi']}",
+                "adjustments": [],   # list of (date, action, amount_str, mid)
+                "closed": False,
+            }
+
+        # apply PTRs chronologically
+        for t in sorted(ptr_trades, key=lambda x: _parse_date(x["date"])):
+            if _parse_date(t["date"]) <= fd_cutoff:
+                continue
+            ticker = t["ticker"]
+            if ticker not in positions:
+                positions[ticker] = {
+                    "ticker": ticker, "name": ticker, "kind": t["kind"],
+                    "fd_mid": 0.0, "fd_range": "—",
+                    "adjustments": [], "closed": False,
+                }
+            pos = positions[ticker]
+            mid = _amount_midpoint(t["amount"])
+            pos["adjustments"].append((t["date"], t["action"], t["amount"], mid))
+            if t["action"] == "Sale":
+                pos["closed"] = True
+            elif t["action"] in ("Purchase",):
+                pos["closed"] = False   # re-opened or added
+
+        # compute inferred value and status label for each position
+        results = []
+        for ticker, pos in positions.items():
+            adj = pos["adjustments"]
+            buys   = sum(a[3] for a in adj if "Purchase" in a[1])
+            sells  = sum(a[3] for a in adj if "Sale" in a[1])
+            latest_date = adj[-1][0] if adj else None
+
+            inferred_mid = pos["fd_mid"] + buys - sells
+
+            if pos["closed"] and inferred_mid <= 0:
+                status = "✗ Closed"
+            elif pos["fd_mid"] == 0:
+                status = "↑ New (PTR)"
+            elif sells > 0 and buys > 0:
+                status = "~ Active trading"
+            elif sells > 0:
+                status = "↓ Reduced" if not pos["closed"] else "✗ Closed"
+            elif buys > 0:
+                status = "↑ Added"
+            else:
+                status = "• Unchanged"
+
+            results.append({
+                "ticker": ticker,
+                "name": pos["name"],
+                "kind": pos["kind"],
+                "fd_range": pos["fd_range"],
+                "inferred_mid": max(inferred_mid, 0.0),
+                "status": status,
+                "latest_date": latest_date,
+                "adj_count": len(adj),
+            })
+
+        results.sort(key=lambda x: x["inferred_mid"], reverse=True)
+        return results
+
+    # ── main logic ───────────────────────────────────────────────────────────
     try:
         session = requests.Session()
         session.headers.update({"User-Agent": ua})
 
-        # Step 1: get CSRF token
+        # Get CSRF token
         resp = session.get(f"{base}/FinancialDisclosure/ViewSearch", timeout=15)
-        soup = BeautifulSoup(resp.text, "html.parser")
-        token_tag = soup.find("input", {"name": "__RequestVerificationToken"})
-        token = token_tag["value"] if token_tag else ""
+        token = (BeautifulSoup(resp.text, "html.parser")
+                 .find("input", {"name": "__RequestVerificationToken"}) or {})
+        token = token.get("value", "") if hasattr(token, "get") else ""
 
-        # Step 2: search for PTR filings across two years to catch recent ones
-        filing_links = {}  # {doc_id: pdf_path}
-        from datetime import date as _date
         current_year = _date.today().year
-        for year in [str(current_year), str(current_year - 1)]:
-            resp2 = session.post(
-                f"{base}/FinancialDisclosure/ViewMemberSearchResult",
-                data={
-                    "LastName": source.get("politician_last", ""),
-                    "FirstName": source.get("politician_first", ""),
-                    "State": source.get("politician_state", ""),
-                    "District": source.get("politician_district", ""),
-                    "FilingYear": year,
-                    "DocType": "P",
-                    "__RequestVerificationToken": token,
-                },
-                timeout=15,
-            )
-            soup2 = BeautifulSoup(resp2.text, "html.parser")
-            for a in soup2.find_all("a", href=_re.compile(r"ptr-pdfs")):
-                href = a["href"]
-                doc_id = href.split("/")[-1].replace(".pdf", "")
-                filing_links[doc_id] = href
 
-        if not filing_links:
-            return None, None, None, "No PTR filings found"
+        def _search(doc_type, years):
+            links = {}
+            for year in years:
+                r = session.post(
+                    f"{base}/FinancialDisclosure/ViewMemberSearchResult",
+                    data={"LastName": source.get("politician_last", ""),
+                          "FirstName": source.get("politician_first", ""),
+                          "State": source.get("politician_state", ""),
+                          "District": source.get("politician_district", ""),
+                          "FilingYear": year, "DocType": doc_type,
+                          "__RequestVerificationToken": token},
+                    timeout=15,
+                )
+                for a in BeautifulSoup(r.text, "html.parser").find_all("a", href=True):
+                    href = a["href"]
+                    if doc_type == "P" and "ptr-pdfs" in href:
+                        doc_id = href.split("/")[-1].replace(".pdf", "")
+                        links[doc_id] = href
+                    elif doc_type == "" and "financial-pdfs" in href:
+                        doc_id = href.split("/")[-1].replace(".pdf", "")
+                        links[doc_id] = href
+            return links
 
-        # Step 3: check if any new filings since last run
-        cached_ids = set(cached.get("filing_ids", []))
-        new_ids = set(filing_links) - cached_ids
+        # Fetch FD list (search last 3 years to find the most recent one)
+        fd_links = _search("", [str(y) for y in range(current_year - 2, current_year + 1)])
+        # Use the most recent FD
+        fd_doc_id = sorted(fd_links.keys())[-1] if fd_links else None
 
-        if not new_ids and cached.get("text"):
+        # Fetch PTR list (current + prior two years)
+        ptr_links = _search("P", [str(y) for y in range(current_year - 2, current_year + 1)])
+
+        # Check cache — skip re-parse if nothing new
+        cached_fd   = cached.get("fd_doc_id")
+        cached_ptrs = set(cached.get("ptr_ids", []))
+        new_ptrs    = set(ptr_links) - cached_ptrs
+        if (not new_ptrs and fd_doc_id == cached_fd and cached.get("text")):
             return cached["text"], cached.get("date"), None, None
 
-        # Step 4: parse all filings (all known, to build complete picture)
-        def _parse_ptr_pdf(pdf_bytes: bytes) -> list:
-            reader = _pypdf.PdfReader(io.BytesIO(pdf_bytes))
-            text = ""
-            for page in reader.pages:
-                text += (page.extract_text() or "") + "\n"
-            text = _re.sub(r'[ \t]+', ' ', text)
-            pattern = _re.compile(
-                r'(?:SP\s+)?'
-                r'(.+?)'
-                r'\(([A-Z0-9./: ^]+)\)'
-                r'\s*\[([A-Z]+)\]'
-                r'\s*(P|S)(?:\s*\(partial\))?'
-                r'\s+(\d{2}/\d{2}/\d{4})'
-                r'\d{2}/\d{2}/\d{4}'
-                r'\s*(\$[\d,]+\s*-\s*\$[\d,]+)',
-                _re.DOTALL,
-            )
-            trades = []
-            for m in pattern.finditer(text):
-                asset_code = m.group(3)
-                action = "Purchase" if m.group(4) == "P" else "Sale"
-                kind = "Options" if asset_code == "OP" else "Stock" if asset_code == "ST" else asset_code
-                ticker = m.group(2).strip()
-                amount = _re.sub(r'\s+', ' ', m.group(6)).strip()
-                date_str = m.group(5)
-                trades.append({"ticker": ticker, "kind": kind, "action": action,
-                               "date": date_str, "amount": amount})
-            return trades
-
-        all_trades = []
-        latest_date = None
-        for doc_id, href in sorted(filing_links.items(), reverse=True):
-            pdf_url = f"{base}/{href}"
+        # Parse FD
+        fd_holdings = {}
+        fd_cutoff = _dt(2000, 1, 1)  # default: ancient date (apply all PTRs)
+        fd_year_str = "unknown"
+        if fd_doc_id:
             try:
-                resp3 = session.get(pdf_url, timeout=20)
-                trades = _parse_ptr_pdf(resp3.content)
-                all_trades.extend(trades)
+                r = session.get(f"{base}/{fd_links[fd_doc_id]}", timeout=20)
+                fd_holdings = _parse_fd_pdf(r.content)
+                # Determine FD snapshot date = Dec 31 of the year BEFORE the filing year
+                # (FD filed in year Y covers holdings as of Dec 31 of year Y-1)
+                # Extract year from href path e.g. "public_disc/financial-pdfs/2025/..."
+                m = _re.search(r'financial-pdfs/(\d{4})/', fd_links[fd_doc_id])
+                filing_year = int(m.group(1)) if m else current_year
+                fd_year = filing_year - 1
+                fd_cutoff = _dt(fd_year, 12, 31)
+                fd_year_str = str(fd_year)
+                print(f"    FD parsed: {len(fd_holdings)} equity positions (snapshot: Dec 31 {fd_year})")
+            except Exception as e:
+                print(f"    FD parse error: {e}")
+
+        # Parse all PTRs
+        all_trades = []
+        for doc_id, href in sorted(ptr_links.items()):
+            try:
+                r = session.get(f"{base}/{href}", timeout=20)
+                all_trades.extend(_parse_ptr_pdf(r.content))
             except Exception:
                 continue
 
-        if not all_trades:
-            return None, None, None, "No transactions parsed from PDFs"
-
-        # Sort by date descending
-        def _parse_date(d):
-            try:
-                from datetime import datetime as _dt
-                return _dt.strptime(d, "%m/%d/%Y")
-            except Exception:
-                return datetime.min
-        all_trades.sort(key=lambda t: _parse_date(t["date"]), reverse=True)
-
-        # Deduplicate (same ticker + action + date + amount can appear across re-filings)
-        seen_trades = set()
+        # Deduplicate PTR trades
+        seen = set()
         unique_trades = []
         for t in all_trades:
             key = (t["ticker"], t["action"], t["date"], t["amount"])
-            if key not in seen_trades:
-                seen_trades.add(key)
+            if key not in seen:
+                seen.add(key)
                 unique_trades.append(t)
+        unique_trades.sort(key=lambda t: _parse_date(t["date"]), reverse=True)
+        latest_ptr_date = unique_trades[0]["date"] if unique_trades else None
 
-        latest_date = unique_trades[0]["date"] if unique_trades else None
-        name = source.get("politician_first", "") + " " + source.get("politician_last", "")
+        # Infer current holdings
+        positions = _infer_holdings(fd_holdings, unique_trades, fd_cutoff)
 
-        lines = [
-            f"**{name.strip()} · {len(unique_trades)} transactions · latest: {latest_date}**\n",
-            "| Date | Action | Ticker | Type | Amount |",
-            "|------|--------|--------|------|--------|",
-        ]
-        for t in unique_trades[:30]:
-            lines.append(f"| {t['date']} | {t['action']} | {t['ticker']} | {t['kind']} | {t['amount']} |")
+        # ── build output ──────────────────────────────────────────────────────
+        name = (source.get("politician_first", "") + " " + source.get("politician_last", "")).strip()
+        today_str = _date.today().strftime("%Y-%m-%d")
 
-        text = "\n".join(lines)
+        text_parts = []
+
+        # Section 1: Inferred holdings
+        text_parts.append(
+            f"**Inferred Holdings — {name} (as of {today_str})**\n"
+            f"*FD baseline: Dec 31 {fd_year_str} · PTR activity through {latest_ptr_date}*\n"
+        )
+        text_parts.append("| Ticker | Type | FD Value (Dec 31) | Est. Value | Status | Last Activity |")
+        text_parts.append("|--------|------|-------------------|------------|--------|---------------|")
+        for p in positions:
+            fd_val = p["fd_range"] if p["fd_range"] != "—" else "—"
+            est = _fmt_dollars(p["inferred_mid"]) if p["inferred_mid"] > 0 else "~$0"
+            last = p["latest_date"] or "—"
+            text_parts.append(
+                f"| {p['ticker']} | {p['kind']} | {fd_val} | {est} | {p['status']} | {last} |"
+            )
+
+        # Section 2: Recent PTR transactions
+        text_parts.append(f"\n**Recent Transactions (PTR log)**\n")
+        text_parts.append("| Date | Action | Ticker | Type | Amount |")
+        text_parts.append("|------|--------|--------|------|--------|")
+        for t in unique_trades[:20]:
+            text_parts.append(
+                f"| {t['date']} | {t['action']} | {t['ticker']} | {t['kind']} | {t['amount']} |"
+            )
+
+        text = "\n".join(text_parts)
 
         state.setdefault("summaries", {})[cache_key] = {
             "text": text,
-            "date": latest_date,
-            "filing_ids": list(filing_links.keys()),
+            "date": latest_ptr_date,
+            "fd_doc_id": fd_doc_id,
+            "ptr_ids": list(ptr_links.keys()),
         }
-        return text, latest_date, None, None
+        return text, latest_ptr_date, None, None
 
     except Exception as e:
         return None, None, None, str(e)
