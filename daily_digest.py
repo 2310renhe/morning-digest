@@ -808,26 +808,42 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
         # Infer current holdings
         positions = _infer_holdings(fd_holdings, unique_trades, fd_cutoff)
 
-        # ── build output ──────────────────────────────────────────────────────
+        # ── build output (13F-style) ──────────────────────────────────────────
         name = (source.get("politician_first", "") + " " + source.get("politician_last", "")).strip()
         today_str = _date.today().strftime("%Y-%m-%d")
 
+        # Only count positions with a meaningful inferred value (exclude ~$0 closed)
+        active_positions = [p for p in positions if p["inferred_mid"] > 0]
+        total_est = sum(p["inferred_mid"] for p in active_positions)
+        total_str = _fmt_dollars(total_est)
+        n_pos = len(active_positions)
+
         text_parts = []
 
-        # Section 1: Inferred holdings
+        # Header matches 13F style: "N positions · $XM AUM · as of DATE"
         text_parts.append(
-            f"**Inferred Holdings — {name} (as of {today_str})**\n"
-            f"*FD baseline: Dec 31 {fd_year_str} · PTR activity through {latest_ptr_date}*\n"
+            f"**{n_pos} positions · {total_str} est. portfolio · "
+            f"FD: Dec 31 {fd_year_str} + PTR through {latest_ptr_date}**\n"
         )
-        text_parts.append("| Ticker | Type | FD Value (Dec 31) | Est. Value | Status | Last Activity |")
-        text_parts.append("|--------|------|-------------------|------------|--------|---------------|")
-        for p in positions:
-            fd_val = p["fd_range"] if p["fd_range"] != "—" else "—"
-            est = _fmt_dollars(p["inferred_mid"]) if p["inferred_mid"] > 0 else "~$0"
+
+        # Main table — ranked by estimated value, % of portfolio, with status
+        text_parts.append("| # | Ticker | Name | Type | Est. Value | % | Status | Last PTR |")
+        text_parts.append("|---|--------|------|------|------------|---|--------|----------|")
+        for i, p in enumerate(active_positions, 1):
+            pct = p["inferred_mid"] / total_est * 100 if total_est else 0
+            est = _fmt_dollars(p["inferred_mid"])
+            short_name = p["name"][:30] + "…" if len(p["name"]) > 30 else p["name"]
             last = p["latest_date"] or "—"
             text_parts.append(
-                f"| {p['ticker']} | {p['kind']} | {fd_val} | {est} | {p['status']} | {last} |"
+                f"| {i} | {p['ticker']} | {short_name} | {p['kind']} "
+                f"| {est} | {pct:.1f}% | {p['status']} | {last} |"
             )
+
+        # Closed positions footnote
+        closed = [p for p in positions if p["inferred_mid"] <= 0 and p["status"].startswith("✗")]
+        if closed:
+            tickers = ", ".join(p["ticker"] for p in closed)
+            text_parts.append(f"\n*Closed since FD baseline: {tickers}*")
 
         # Section 2: Recent PTR transactions
         text_parts.append(f"\n**Recent Transactions (PTR log)**\n")
