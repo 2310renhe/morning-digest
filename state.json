@@ -1,36 +1,36 @@
 {
   "seen": [
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "github:garrytan/gstack:2026-05-10",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "github:garrytan/gstack:2026-05-11",
+    "oai:arXiv.org:2605.06688v1",
+    "oai:arXiv.org:2605.06677v1",
+    "a7009176-dd7f-474d-916a-b44700369509",
     "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
     "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "oai:arXiv.org:2605.06670v1",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "github:garrytan/gbrain:2026-05-11",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
     "oai:arXiv.org:2511.07571v2",
-    "https://www.astralcodexten.com/p/open-thread-433",
     "github:garrytan/openclaw-render-template:2026-05-10",
+    "github:garrytan/gbrain:2026-05-10",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
     "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
     "oai:arXiv.org:2601.18991v2",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "github:garrytan/gbrain:2026-05-11",
-    "oai:arXiv.org:2605.06677v1",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "oai:arXiv.org:2605.06818v1",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
-    "github:garrytan/gbrain:2026-05-10",
-    "oai:arXiv.org:2605.06688v1",
     "3efa7cbf-112c-4bce-a845-443700608a00",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "oai:arXiv.org:2605.06670v1",
-    "github:garrytan/gstack:2026-05-11",
-    "oai:arXiv.org:2604.19604v4",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917"
+    "oai:arXiv.org:2605.06818v1",
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "github:garrytan/gstack:2026-05-10",
+    "oai:arXiv.org:2604.19604v4"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -302,6 +302,22 @@
     "Arxiv \u2013 Trading & Market Microstructure (q-fin.TR)": {
       "text": "**New this period:**\n- A mean-field game approach to model stablecoin market dynamics, focusing on who restores the peg during de-pegging events.\n\n**Details:**\n**Who Restores the Peg? A Mean-Field Game Approach to Model Stablecoin Market Dynamics**(https://arxiv.org/abs/2601.18991)\nExtract of key points:\n- The paper examines the behavior of market participants during stablecoin de-pegging events and the collective actions that restore or break the peg.\n- USDC and USDT are the dominant stablecoins pegged to $1, with a total market capitalization of over $300B.\n- The authors develop a dynamic, agent-based mean-field game framework for fiat-collateralized stablecoins.\n- The framework models the strategic interaction of a large population of arbitrageurs and retail traders across primary and secondary markets during a de-peg episode.\n- The equilibrium formulation endogenously maps market frictions into a market-clearing price path and implied net order flows.\n- The authors use three historical de-peg events to calibrate the equilibrium, which reproduces observed recovery half-lives.\n- The results yield an order flow decomposition, showing that system-wide stress is predominantly stabilized by primary-market arbitrage.\n- A quantitative sensitivity analysis identifies a non-linear breakdown threshold, beyond which a de-peg becomes markedly slower to reverse.",
       "date": "2026-05-11"
+    },
+    "congress_Nancy Pelosi \u2013 House PTR Trades": {
+      "text": "**24 positions \u00b7 $104.5M est. portfolio \u00b7 FD: Dec 31 2023 + PTR through 01/16/2026**\n\n| # | Ticker | Name | Type | Est. Value | % | Status | Last PTR |\n|---|--------|------|------|------------|---|--------|----------|\n| 1 | NVDA | NVIDIA Corporation - Common St\u2026 | Stock | $16.7M | 16.0% | ~ Active trading | 01/16/2026 |\n| 2 | CRM | Salesforce.com Inc | Stock | $15.0M | 14.4% | \u2022 Unchanged | \u2014 |\n| 3 | GOOGL | Alphabet Inc. - Class A | Stock | $13.5M | 12.9% | ~ Active trading | 01/16/2026 |\n| 4 | AMZN | Amazon.com, Inc. | Stock | $13.3M | 12.7% | ~ Active trading | 01/16/2026 |\n| 5 | MSFT | Microsoft Corporation | Stock | $12.0M | 11.5% | \u2193 Reduced | 07/26/2024 |\n| 6 | AVGO | Broadcom Inc. - Common Stock | Options | $9.0M | 8.6% | \u2191 Added | 06/20/2025 |\n| 7 | PANW | Palo Alto Networks, Inc. - Com\u2026 | Stock | $6.9M | 6.6% | \u2191 Added | 12/20/2024 |\n| 8 | AXP | American Express Company | Stock | $3.0M | 2.9% | \u2022 Unchanged | \u2014 |\n| 9 | CRWD | CrowdStrike Holdings, Inc. - C\u2026 | Stock | $3.0M | 2.9% | \u2022 Unchanged | \u2014 |\n| 10 | NFLX | Netflix, Inc. | Stock | $3.0M | 2.9% | \u2022 Unchanged | \u2014 |\n| 11 | AB | AB | AB | $3.0M | 2.9% | \u2191 New (PTR) | 01/16/2026 |\n| 12 | V | Visa Inc. | Stock | $2.2M | 2.2% | \u2193 Reduced | 07/01/2024 |\n| 13 | VST | VST | Options | $925K | 0.9% | \u2191 New (PTR) | 01/16/2026 |\n| 14 | CMCSA | Comcast Corporation - Class A | Stock | $750K | 0.7% | \u2022 Unchanged | \u2014 |\n| 15 | SQ | Block, Inc. Class A Common Sto\u2026 | Stock | $375K | 0.4% | \u2022 Unchanged | \u2014 |\n| 16 | DBX | Dropbox, Inc. - Class A | Stock | $375K | 0.4% | \u2022 Unchanged | \u2014 |\n| 17 | IBKR | Interactive Brokers Group, Inc\u2026 | Stock | $375K | 0.4% | \u2022 Unchanged | \u2014 |\n| 18 | MORN | Morningstar, Inc. | Stock | $375K | 0.4% | \u2022 Unchanged | \u2014 |\n| 19 | RBLX | Roblox Corporation Class A | Stock | $375K | 0.4% | \u2022 Unchanged | \u2014 |\n| 20 | T | AT&T Inc. | Stock | $175K | 0.2% | \u2022 Unchanged | \u2014 |\n| 21 | TEM | TEM | Options | $75K | 0.1% | \u2191 New (PTR) | 01/14/2025 |\n| 22 | QCOM | QUALCOMM Incorporated | Stock | $33K | 0.0% | \u2022 Unchanged | \u2014 |\n| 23 | WBD | Warner Bros. Discovery, Inc. -\u2026 | Stock | $33K | 0.0% | \u2022 Unchanged | \u2014 |\n| 24 | CLNE | Clean Energy Fuels Corp. | Stock | $8K | 0.0% | \u2022 Unchanged | \u2014 |\n\n*Closed since FD baseline: PYPL, DIS, TSLA*\n\n**Recent Transactions (PTR log)**\n\n| Date | Action | Ticker | Type | Amount |\n|------|--------|--------|------|--------|\n| 01/16/2026 | Purchase | AB | AB | $1,000,001 - $5,000,000 |\n| 01/16/2026 | Purchase | GOOGL | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | AMZN | Stock | $500,001 - $1,000,000 |\n| 01/16/2026 | Purchase | NVDA | Stock | $250,001 - $500,000 |\n| 01/16/2026 | Purchase | VST | Stock | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Partial Sale | GOOGL | Stock | $1,000,001 - $5,000,000 |\n| 12/30/2025 | Purchase | AMZN | Options | $100,001 - $250,000 |\n| 12/30/2025 | Purchase | AAPL | Options | $250,001 - $500,000 |\n| 12/30/2025 | Partial Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/30/2025 | Purchase | NVDA | Options | $100,001 - $250,000 |\n| 12/30/2025 | Sale | PYPL | Stock | $250,001 - $500,000 |\n| 12/30/2025 | Sale | DIS | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Partial Sale | AMZN | Stock | $1,000,001 - $5,000,000 |\n| 12/24/2025 | Partial Sale | AAPL | Stock | $5,000,001 - $25,000,000 |\n| 12/24/2025 | Partial Sale | NVDA | Stock | $1,000,001 - $5,000,000 |\n| 10/22/2025 | Partial Sale | AAPL | Stock | $100,001 - $250,000 |\n| 06/20/2025 | Purchase | AVGO | Stock | $1,000,001 - $5,000,000 |\n| 01/14/2025 | Purchase | GOOGL | Options | $250,001 - $500,000 |\n| 01/14/2025 | Purchase | AMZN | Options | $250,001 - $500,000 |",
+      "date": "01/16/2026",
+      "fd_doc_id": "10066169",
+      "ptr_ids": [
+        "20024542",
+        "20024625",
+        "20025368",
+        "20025535",
+        "20025819",
+        "20026590",
+        "20030630",
+        "20033337",
+        "20033725"
+      ]
     }
   }
 }
