@@ -66,6 +66,12 @@
     "category": "AI Opinion Leaders"
   },
   {
+    "name": "Investor Positioning – Summary",
+    "url": "",
+    "type": "investor_summary",
+    "category": "Investor Positioning"
+  },
+  {
     "name": "Nancy Pelosi – House PTR Trades",
     "url": "https://disclosures-clerk.house.gov/FinancialDisclosure/ViewSearch",
     "type": "congress_trades",

@@ -406,31 +406,59 @@ def fetch_rss(source: dict, state: dict, cutoff: datetime) -> tuple:
         return [], None, str(e)
 
 
-def _ytd_return(ticker: str, session: requests.Session) -> str:
-    """Fetch YTD % return for a ticker via Yahoo Finance chart API.
-    Uses chartPreviousClose (Dec 31 last year) vs regularMarketPrice.
-    Returns formatted string like '+12.3%' or '—' on failure.
+def _fetch_market_data(tickers: list, session: requests.Session) -> dict:
+    """Batch-fetch YTD return + forward P/E for a list of tickers.
+
+    Returns dict: ticker -> {"ytd": "+12.3%", "ytd_pct": 12.3, "fwd_pe": "24.5x"}
+    Uses Yahoo Finance quote API (batch, for fwd P/E) + chart API (per-ticker, for YTD).
     """
     from datetime import datetime as _dt
+    import time as _time
+
+    result = {t: {"ytd": "—", "ytd_pct": None, "fwd_pe": "—"} for t in tickers}
+    if not tickers:
+        return result
+
+    # ── Step 1: forward P/E via yfinance (handles Yahoo auth transparently) ──
     try:
-        now = _dt.now()
-        period1 = int(_dt(now.year, 1, 1).timestamp())
-        period2 = int(now.timestamp())
-        r = session.get(
-            f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}",
-            params={"period1": period1, "period2": period2, "interval": "1mo"},
-            headers={"User-Agent": "Mozilla/5.0"},
-            timeout=8,
-        )
-        meta = r.json()["chart"]["result"][0]["meta"]
-        prev = meta.get("chartPreviousClose") or meta.get("previousClose")
-        cur  = meta.get("regularMarketPrice")
-        if prev and cur and prev > 0:
-            pct = (cur - prev) / prev * 100
-            return f"+{pct:.1f}%" if pct >= 0 else f"{pct:.1f}%"
-    except Exception:
-        pass
-    return "—"
+        import yfinance as _yf
+        for ticker in tickers:
+            try:
+                info = _yf.Ticker(ticker).info
+                fpe = info.get("forwardPE")
+                # Ignore negative forward P/E (loss-making companies)
+                if fpe and fpe > 0:
+                    result[ticker]["fwd_pe"] = f"{fpe:.1f}x"
+            except Exception:
+                pass
+            _time.sleep(0.05)
+    except ImportError:
+        pass  # yfinance not installed; fwd_pe stays "—"
+
+    # ── Step 2: chart API → YTD (Dec 31 close vs today) ─────────────────────
+    now = _dt.now()
+    period1 = int(_dt(now.year, 1, 1).timestamp())
+    period2 = int(now.timestamp())
+    for ticker in tickers:
+        try:
+            r = session.get(
+                f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}",
+                params={"period1": period1, "period2": period2, "interval": "1mo"},
+                headers={"User-Agent": "Mozilla/5.0"},
+                timeout=8,
+            )
+            meta = r.json()["chart"]["result"][0]["meta"]
+            prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+            cur  = meta.get("regularMarketPrice")
+            if prev and cur and prev > 0:
+                pct = (cur - prev) / prev * 100
+                result[ticker]["ytd_pct"] = pct
+                result[ticker]["ytd"] = f"+{pct:.1f}%" if pct >= 0 else f"{pct:.1f}%"
+        except Exception:
+            pass
+        _time.sleep(0.1)
+
+    return result
 
 
 def _cusips_to_tickers(cusips: list, session: requests.Session) -> dict:
@@ -619,76 +647,74 @@ def fetch_13f(source: dict, state: dict) -> tuple:
         n_all = len(holdings)
         top = holdings[:20]
 
-        # ── Ticker resolution + YTD (refreshed daily, cached by filing_url) ──
+        # ── Ticker resolution ─────────────────────────────────────────────────
         import time as _time
 
-        # Load cached ticker map if this is the same filing (avoids re-querying APIs)
-        cached_tmap = cached.get("ticker_map", {}) if cached and cached.get("filing_url") == filing_url else {}
-        cached_ytd  = cached.get("ytd", {})        if cached and cached.get("ytd_date") == today_str else {}
+        # Load cached ticker map if this is the same filing (avoids re-querying OpenFIGI)
+        cached_tmap  = cached.get("ticker_map", {}) if cached and cached.get("filing_url") == filing_url else {}
+        cached_mdata = cached.get("market_data", {}) if cached and cached.get("ytd_date") == today_str else {}
 
-        ytd_session = requests.Session()
+        mkt_session = requests.Session()
 
-        # Step 1: Resolve tickers via CUSIP (OpenFIGI) for holdings not already cached
+        # CUSIP → ticker via OpenFIGI for uncached holdings
         uncached_top = [h for h in top if h["name"] not in cached_tmap]
-        cusip_map = {}  # cusip -> ticker
+        cusip_map = {}
         if uncached_top:
             cusips = [h["cusip"] for h in uncached_top if h.get("cusip")]
             if cusips:
-                cusip_map = _cusips_to_tickers(cusips, ytd_session)
+                cusip_map = _cusips_to_tickers(cusips, mkt_session)
 
-        ticker_map = {}  # name -> ticker
-        ytd = {}         # ticker -> ytd string
-
+        ticker_map = {}
         for h in top:
             name_key = h["name"]
             if name_key in cached_tmap:
                 ticker = cached_tmap[name_key]
             else:
-                # Try CUSIP first, fall back to name search
                 ticker = cusip_map.get(h.get("cusip", ""), "")
                 if not ticker:
-                    ticker = _name_to_ticker(name_key, ytd_session)
+                    ticker = _name_to_ticker(name_key, mkt_session)
                     _time.sleep(0.15)
             ticker_map[name_key] = ticker
             h["ticker"] = ticker
 
-            # Fetch YTD (use today's cache if available, else re-fetch)
-            if ticker:
-                if ticker in cached_ytd:
-                    ytd[ticker] = cached_ytd[ticker]
-                else:
-                    ytd[ticker] = _ytd_return(ticker, ytd_session)
-                    _time.sleep(0.1)
+        # ── Market data (YTD + fwd P/E), refreshed daily ─────────────────────
+        all_tickers = [h["ticker"] for h in top if h.get("ticker")]
+        missing_tickers = [t for t in all_tickers if t not in cached_mdata]
+        market_data = dict(cached_mdata)
+        if missing_tickers:
+            market_data.update(_fetch_market_data(missing_tickers, mkt_session))
 
         def _fmt_value(value_k: int) -> str:
-            """Format a $thousands value as $XB or $XM."""
             if value_k >= 1_000_000:
                 return f"${value_k / 1_000_000:.2f}B"
             return f"${value_k / 1_000:.1f}M"
 
-        # Build markdown table — top 20 holdings with YTD
+        # ── Build markdown table ───────────────────────────────────────────────
         lines = [
             f"**{n_all} positions · ${total_b:.1f}B AUM · as of {filing_date}**\n",
-            "| # | Name | Ticker | Value | % of Portfolio | YTD |",
-            "|---|------|--------|-------|----------------|-----|",
+            "| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |",
+            "|---|------|--------|-------|----------------|-----|---------|",
         ]
+        positions_data = []
         for i, h in enumerate(top, 1):
             pct     = h["value_k"] / total_k * 100
             val_str = _fmt_value(h["value_k"])
             ticker  = h.get("ticker", "")
-            ytd_str = ytd.get(ticker, "—") if ticker else "—"
-            lines.append(f"| {i} | {h['name']} | {ticker} | {val_str} | {pct:.1f}% | {ytd_str} |")
+            mdata   = market_data.get(ticker, {}) if ticker else {}
+            ytd_str = mdata.get("ytd", "—")
+            fpe_str = mdata.get("fwd_pe", "—")
+            lines.append(f"| {i} | {h['name']} | {ticker} | {val_str} | {pct:.1f}% | {ytd_str} | {fpe_str} |")
+            positions_data.append({
+                "ticker": ticker, "name": h["name"], "value_k": h["value_k"],
+                "ytd": ytd_str, "ytd_pct": mdata.get("ytd_pct"), "fwd_pe": fpe_str,
+            })
 
         text = "\n".join(lines)
 
-        # Cache: separate filing data (long-lived) from YTD (daily)
         state.setdefault("summaries", {})[cache_key] = {
-            "text": text,
-            "date": filing_date,
-            "filing_url": filing_url,
-            "ticker_map": ticker_map,
-            "ytd": ytd,
-            "ytd_date": today_str,
+            "text": text, "date": filing_date, "filing_url": filing_url,
+            "ticker_map": ticker_map, "market_data": market_data,
+            "ytd_date": today_str, "positions": positions_data,
         }
 
         return text, filing_date, filing_url, None
@@ -961,73 +987,178 @@ def fetch_congress_trades(source: dict, state: dict) -> tuple:
         # Infer current holdings
         positions = _infer_holdings(fd_holdings, unique_trades, fd_cutoff)
 
-        # ── YTD returns (refreshed daily) ─────────────────────────────────────
-        import time as _time
+        # ── Market data: YTD + fwd P/E (refreshed daily) ─────────────────────
         today_str = str(_date.today())
-        cached_ytd = cached.get("ytd", {}) if cached and cached.get("ytd_date") == today_str else {}
+        cached_mdata = cached.get("market_data", {}) if cached and cached.get("ytd_date") == today_str else {}
 
-        ytd_session = requests.Session()
-        ytd = {}
         active_positions = [p for p in positions if p["inferred_mid"] > 0]
-        for p in active_positions:
-            ticker = p["ticker"]
-            if not ticker or len(ticker) > 6:
-                continue
-            if ticker in cached_ytd:
-                ytd[ticker] = cached_ytd[ticker]
-            else:
-                ytd[ticker] = _ytd_return(ticker, ytd_session)
-                _time.sleep(0.1)
+        valid_tickers = [p["ticker"] for p in active_positions if p.get("ticker") and len(p["ticker"]) <= 6]
+        missing_tickers = [t for t in valid_tickers if t not in cached_mdata]
+        market_data = dict(cached_mdata)
+        if missing_tickers:
+            market_data.update(_fetch_market_data(missing_tickers, requests.Session()))
 
-        # ── build output (13F-style) ──────────────────────────────────────────
+        # ── Build output (13F-style) ──────────────────────────────────────────
         name = (source.get("politician_first", "") + " " + source.get("politician_last", "")).strip()
 
         total_est = sum(p["inferred_mid"] for p in active_positions)
         total_str = _fmt_dollars(total_est)
         n_pos = len(active_positions)
 
-        text_parts = []
-
-        # Header matches 13F style
-        text_parts.append(
+        text_parts = [
             f"**{n_pos} positions · {total_str} est. portfolio · "
             f"FD: Dec 31 {fd_year_str} + PTR through {latest_ptr_date}**\n"
-        )
+        ]
 
-        # Main table — ranked by estimated value, % of portfolio, YTD, status
-        text_parts.append("| # | Ticker | Name | Type | Est. Value | % | YTD | Status | Last PTR |")
-        text_parts.append("|---|--------|------|------|------------|---|-----|--------|----------|")
+        text_parts.append("| # | Ticker | Name | Type | Est. Value | % | YTD | Fwd P/E | Status | Last PTR |")
+        text_parts.append("|---|--------|------|------|------------|---|-----|---------|--------|----------|")
+        positions_data = []
         for i, p in enumerate(active_positions, 1):
-            pct = p["inferred_mid"] / total_est * 100 if total_est else 0
-            est = _fmt_dollars(p["inferred_mid"])
-            short_name = p["name"][:30] + "…" if len(p["name"]) > 30 else p["name"]
-            last = p["latest_date"] or "—"
-            ytd_str = ytd.get(p["ticker"], "—")
+            pct       = p["inferred_mid"] / total_est * 100 if total_est else 0
+            est       = _fmt_dollars(p["inferred_mid"])
+            short_name = p["name"][:28] + "…" if len(p["name"]) > 28 else p["name"]
+            last      = p["latest_date"] or "—"
+            ticker    = p["ticker"]
+            mdata     = market_data.get(ticker, {}) if ticker else {}
+            ytd_str   = mdata.get("ytd", "—")
+            fpe_str   = mdata.get("fwd_pe", "—")
             text_parts.append(
-                f"| {i} | {p['ticker']} | {short_name} | {p['kind']} "
-                f"| {est} | {pct:.1f}% | {ytd_str} | {p['status']} | {last} |"
+                f"| {i} | {ticker} | {short_name} | {p['kind']} "
+                f"| {est} | {pct:.1f}% | {ytd_str} | {fpe_str} | {p['status']} | {last} |"
             )
+            positions_data.append({
+                "ticker": ticker, "name": p["name"],
+                "value_k": int(p["inferred_mid"] / 1000),
+                "ytd": ytd_str, "ytd_pct": mdata.get("ytd_pct"), "fwd_pe": fpe_str,
+            })
 
-        # Closed positions footnote
         closed = [p for p in positions if p["inferred_mid"] <= 0 and p["status"].startswith("✗")]
         if closed:
-            tickers = ", ".join(p["ticker"] for p in closed)
-            text_parts.append(f"\n*Closed since FD baseline: {tickers}*")
+            text_parts.append(f"\n*Closed since FD baseline: {', '.join(p['ticker'] for p in closed)}*")
 
         text = "\n".join(text_parts)
 
         state.setdefault("summaries", {})[cache_key] = {
-            "text": text,
-            "date": latest_ptr_date,
-            "fd_doc_id": fd_doc_id,
-            "ptr_ids": list(ptr_links.keys()),
-            "ytd": ytd,
-            "ytd_date": today_str,
+            "text": text, "date": latest_ptr_date,
+            "fd_doc_id": fd_doc_id, "ptr_ids": list(ptr_links.keys()),
+            "market_data": market_data, "ytd_date": today_str,
+            "positions": positions_data,
         }
         return text, latest_ptr_date, None, None
 
     except Exception as e:
         return None, None, None, str(e)
+
+
+def fetch_investor_summary(state: dict, all_sources: list) -> str:
+    """
+    Generate a cross-investor summary card for the Investor Positioning section.
+    Reads structured 'positions' lists from each investor's cached data in state.
+
+    Returns markdown with two tables:
+      1. Top 10 consensus positions (held by most investors, by $ weight)
+      2. Top 10 best YTD performers across all tracked positions
+    """
+    from collections import defaultdict
+
+    # Short display names for each source
+    _SHORT = {
+        "Situational Awareness LP – 13F Filings (SEC)": "SALP",
+        "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)": "Druckenmiller",
+        "Philippe Laffont – Coatue Management 13F (SEC)": "Coatue",
+        "Chase Coleman – Tiger Global Management 13F (SEC)": "Tiger Global",
+        "Nancy Pelosi – House PTR Trades": "Pelosi",
+    }
+
+    # Collect all positions from cached investor data
+    investor_data = {}   # short_name -> list of position dicts
+    for source in all_sources:
+        stype = source.get("type", "")
+        if stype not in ("sec13f", "congress_trades"):
+            continue
+        prefix = "13f" if stype == "sec13f" else "congress"
+        key = f"{prefix}_{source['name']}"
+        cached = state.get("summaries", {}).get(key, {})
+        positions = cached.get("positions", [])
+        if positions:
+            short = _SHORT.get(source["name"], source["name"].split("–")[0].strip())
+            investor_data[short] = positions
+
+    if not investor_data:
+        return "*(Investor data not yet available — will populate after first full run)*"
+
+    # Aggregate by ticker across all investors
+    ticker_agg = defaultdict(lambda: {
+        "names": [], "investors": [], "total_value_k": 0,
+        "ytd_pct": None, "ytd": "—", "fwd_pe": "—",
+    })
+    for investor, positions in investor_data.items():
+        for p in positions:
+            t = p.get("ticker", "")
+            if not t:
+                continue
+            agg = ticker_agg[t]
+            agg["names"].append(p.get("name", t))
+            agg["investors"].append(investor)
+            agg["total_value_k"] += p.get("value_k", 0)
+            if agg["ytd_pct"] is None and p.get("ytd_pct") is not None:
+                agg["ytd_pct"] = p["ytd_pct"]
+                agg["ytd"] = p.get("ytd", "—")
+            if agg["fwd_pe"] == "—" and p.get("fwd_pe", "—") != "—":
+                agg["fwd_pe"] = p["fwd_pe"]
+
+    def _fmt_k(value_k: int) -> str:
+        if value_k >= 1_000_000:
+            return f"${value_k / 1_000_000:.1f}B"
+        return f"${value_k / 1_000:.0f}M"
+
+    n_investors = len(investor_data)
+    tracked = ", ".join(investor_data.keys())
+    lines = [f"**Cross-Investor Summary** · {n_investors} investors tracked: {tracked}\n"]
+
+    # Table 1: Consensus positions (held by 2+ investors), ranked by # holders then $ weight
+    consensus = sorted(
+        ticker_agg.items(),
+        key=lambda x: (-len(set(x[1]["investors"])), -x[1]["total_value_k"])
+    )
+    lines += [
+        "**Top 10 Consensus Positions** *(ranked by number of investors holding)*\n",
+        "| # | Ticker | Name | Holders | Combined $ | YTD | Fwd P/E |",
+        "|---|--------|------|---------|------------|-----|---------|",
+    ]
+    count = 0
+    for ticker, agg in consensus:
+        holders = sorted(set(agg["investors"]))
+        if len(holders) < 2:
+            continue
+        name = agg["names"][0][:28] + "…" if len(agg["names"][0]) > 28 else agg["names"][0]
+        holders_str = ", ".join(holders)
+        lines.append(
+            f"| {count+1} | {ticker} | {name} | {len(holders)} ({holders_str}) "
+            f"| {_fmt_k(agg['total_value_k'])} | {agg['ytd']} | {agg['fwd_pe']} |"
+        )
+        count += 1
+        if count >= 10:
+            break
+    if count == 0:
+        lines.append("| — | *(no overlapping positions yet)* | | | | | |")
+
+    # Table 2: Top 10 YTD performers across all tracked positions
+    with_ytd = [(t, agg) for t, agg in ticker_agg.items() if agg["ytd_pct"] is not None]
+    with_ytd.sort(key=lambda x: x[1]["ytd_pct"], reverse=True)
+    lines += [
+        "\n**Top 10 YTD Performers** *(across all tracked positions)*\n",
+        "| # | Ticker | Name | YTD | Fwd P/E | Held by |",
+        "|---|--------|------|-----|---------|---------|",
+    ]
+    for rank, (ticker, agg) in enumerate(with_ytd[:10], 1):
+        name = agg["names"][0][:28] + "…" if len(agg["names"][0]) > 28 else agg["names"][0]
+        holders_str = ", ".join(sorted(set(agg["investors"])))
+        lines.append(
+            f"| {rank} | {ticker} | {name} | {agg['ytd']} | {agg['fwd_pe']} | {holders_str} |"
+        )
+
+    return "\n".join(lines)
 
 
 def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
@@ -1551,6 +1682,8 @@ def main():
 
     for source in sources:
         stype = source.get("type", "rss").lower()
+        if stype == "investor_summary":
+            continue  # deferred — processed after all individual investor sources
         print(f"[{stype}] {source['name']} ...")
 
         if stype == "sec13f":
@@ -1676,6 +1809,23 @@ def main():
             if cached:
                 result["summary"] = cached["text"]
             results.append(result)
+
+    # ── Deferred pass: investor_summary (needs all individual investor data in state) ──
+    for source in sources:
+        if source.get("type", "").lower() != "investor_summary":
+            continue
+        print(f"[investor_summary] {source['name']} ...")
+        summary_text = fetch_investor_summary(state, sources)
+        results.insert(
+            next((i for i, r in enumerate(results) if r.get("category") == source.get("category")), 0),
+            {
+                "name": source["name"],
+                "category": source.get("category", "Investor Positioning"),
+                "summary": summary_text,
+                "is_fresh": True,
+                "latest_date": date_str,
+            }
+        )
 
     # Always write index.html
     html = build_html(date_str, results)
