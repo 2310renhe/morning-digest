@@ -1217,16 +1217,19 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
 
 Below are today's summaries from AI thought leaders, tech podcasts, and institutional research.
 
-Your task: identify HIGH-CONVICTION LONG or SHORT trade ideas that are DIRECTLY AND SPECIFICALLY supported by the content below. Do not add outside knowledge or opinions not present in the source material.
+Your task: identify HIGH-CONVICTION LONG or SHORT trade ideas that are DIRECTLY AND SPECIFICALLY named or discussed in the content below.
 
-Rules:
-- Cite only what the sources explicitly state or strongly imply
-- Prefer specific tickers over vague sector calls; include sector ETF if no single ticker fits
-- Assign conviction: HIGH (multiple sources agree, or explicit bullish/bearish statement), MEDIUM (single strong source), LOW (inferential)
-- 5–8 ideas maximum, ordered by conviction then expected magnitude
-- For each idea: provide the specific evidence from the summaries that supports it
+STRICT RULES — violations will invalidate the analysis:
+- ONLY include companies, tickers, or sectors that are explicitly named in the summaries
+- Do NOT infer trades for companies that are merely adjacent to the topic (e.g. if the text discusses EDA software, do not recommend NVDA just because NVDA uses EDA)
+- Do NOT use outside knowledge — every trade must be traceable to a specific sentence in the source material
+- If a company is named only as an example or comparison, it does not qualify as a HIGH conviction idea
+- Prefer specific tickers; use sector ETFs (SMH, SOXX, XLK) only when multiple companies in the sector are discussed
+- Assign conviction honestly: HIGH = multiple sources or explicit bullish/bearish statement about that specific company; MEDIUM = one strong source with clear implication; LOW = single source, weak signal
+- 5–8 ideas maximum, ordered by conviction then expected impact
+- Each supporting note must quote or closely paraphrase the source text as evidence
 
-Output format — first a summary table, then one short supporting paragraph per idea:
+Output format:
 
 **Table:**
 | # | Asset | Ticker | Direction | Conviction | Source(s) |
@@ -1234,7 +1237,7 @@ Output format — first a summary table, then one short supporting paragraph per
 | 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | ... |
 
 **Supporting notes:**
-**1. [Asset]** — [one paragraph citing the specific evidence]
+**1. [Asset]** — [cite the specific text from the summary that supports this trade]
 ...
 """
 
