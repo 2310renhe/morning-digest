@@ -1163,19 +1163,70 @@ def fetch_investor_summary(state: dict, all_sources: list) -> str:
 
 def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     """
-    Synthesize cached summaries from AI opinion leaders, podcasts, and institutional
-    views into high-conviction trade ideas, using the Groq LLM.
+    Two-pass trade idea synthesis:
 
-    Input: all cached summaries for sources in the target categories.
-    Output: markdown table of trade ideas + brief supporting notes per idea.
-    Caches by SHA-256 of the combined input text; re-runs only when content changes.
+    Pass 1 — Per-source extraction:
+      For each source in target categories, call Groq with just that source's summary
+      and extract any explicitly-named trade signals (ticker, direction, conviction,
+      supporting quote). Results cached per source by summary hash; only re-runs
+      when that specific source's summary changes.
+
+    Pass 2 — Synthesis:
+      Aggregate all per-source signals into a final ranked table. Conviction is
+      boosted when multiple sources flag the same ticker. One Groq call total.
+      Cached by hash of all per-source signal blocks combined.
     """
     import hashlib as _hashlib
+    import time as _time
 
     _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
-    # Collect all cached summaries for target categories, freshest sources first
-    snippets = []
+    EXTRACT_PROMPT = """\
+You are extracting raw trade signals from a single source summary for a quant macro hedge fund.
+
+RULES:
+- Only extract companies or tickers that are EXPLICITLY NAMED in this text.
+- Only include a signal if there is a clear directional implication (positive = LONG, negative = SHORT) for that specific company — stated or strongly implied by the source.
+- Do NOT infer adjacents. Do NOT use outside knowledge.
+- If the company is named only as a passing example or comparison with no directional view, skip it.
+- If there are no clear signals, output exactly: NONE
+
+Output format — one line per signal, pipe-separated:
+TICKER | Full Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | exact or close paraphrase of the supporting sentence
+
+Conviction guide:
+  HIGH   = source makes an explicit, strong bullish/bearish case for this specific company
+  MEDIUM = source presents meaningful evidence pointing in a direction
+  LOW    = one weak or indirect reference
+"""
+
+    SYNTHESIS_PROMPT = """\
+You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
+
+Below are trade signals extracted independently from each source. Your job:
+1. Aggregate signals for the same ticker across sources — if multiple sources flag the same ticker in the same direction, that increases conviction.
+2. Produce a final ranked table of 5–8 ideas, ordered by conviction then expected impact.
+3. Assign final conviction: HIGH if 2+ sources agree, or 1 source with a very explicit bullish/bearish call; MEDIUM if 1 solid source; LOW if weak/single reference.
+4. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ companies in the sector appear.
+5. Do NOT add any tickers not present in the signals below. No outside knowledge.
+
+Output format:
+
+**Table:**
+| # | Asset | Ticker | Direction | Conviction | Source(s) |
+|---|-------|--------|-----------|------------|-----------|
+| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Source A, Source B |
+
+**Supporting notes:**
+**1. [Asset]** — [synthesise the evidence from the sources listed]
+...
+"""
+
+    today = __import__("datetime").date.today().isoformat()
+    signals_store = state.setdefault("summaries", {}).setdefault("_ai_signals_per_source", {})
+
+    # ── Pass 1: per-source extraction ────────────────────────────────────────
+    per_source_blocks = []   # list of "### Source\n<signals text>"
     for source in all_sources:
         if source.get("category") not in _TARGET_CATEGORIES:
             continue
@@ -1183,71 +1234,55 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
         if stype in ("investor_summary", "ai_synthesis"):
             continue
         name = source["name"]
-        cached = state.get("summaries", {}).get(name, {})
-        text = cached.get("text", "")
-        if not text:
+        cached_sum = state.get("summaries", {}).get(name, {})
+        summary_text = cached_sum.get("text", "")
+        if not summary_text:
             continue
-        date = cached.get("date", "")
-        snippets.append((name, date, text))
 
-    if not snippets:
-        return "*(No source summaries available yet — will populate after first full run)*"
+        # Check per-source extraction cache
+        summary_hash = _hashlib.sha256(summary_text.encode()).hexdigest()[:16]
+        cached_sig = signals_store.get(name, {})
+        if cached_sig.get("summary_hash") == summary_hash and cached_sig.get("signals"):
+            signals_text = cached_sig["signals"]
+        else:
+            # Call Groq for this source
+            try:
+                resp = client.chat.completions.create(
+                    model=GROQ_MODEL,
+                    max_tokens=600,
+                    messages=[
+                        {"role": "system", "content": EXTRACT_PROMPT},
+                        {"role": "user", "content": f"Source: {name}\n\n{summary_text[:4000]}"},
+                    ],
+                )
+                signals_text = resp.choices[0].message.content.strip()
+            except Exception as e:
+                signals_text = f"ERROR: {e}"
+            signals_store[name] = {"summary_hash": summary_hash, "signals": signals_text, "date": today}
+            _time.sleep(0.3)  # avoid Groq rate limit
 
-    # Build combined input, cap at 10k chars to stay within Groq rate limits
-    combined_parts = []
-    total = 0
-    for name, date, text in snippets:
-        header = f"### {name}{f' ({date})' if date else ''}\n"
-        chunk = header + text[:1500]   # cap per-source at 1500 chars
-        if total + len(chunk) > 10000:
-            break
-        combined_parts.append(chunk)
-        total += len(chunk)
-    combined = "\n\n---\n\n".join(combined_parts)
+        if signals_text and signals_text.upper() != "NONE" and not signals_text.startswith("ERROR"):
+            per_source_blocks.append(f"### {name}\n{signals_text}")
 
-    # Cache check
-    input_hash = _hashlib.sha256(combined.encode()).hexdigest()[:16]
+    if not per_source_blocks:
+        return "*(No trade signals extracted from today's sources)*"
+
+    # ── Pass 2: synthesis ─────────────────────────────────────────────────────
+    aggregated = "\n\n".join(per_source_blocks)
+    agg_hash = _hashlib.sha256(aggregated.encode()).hexdigest()[:16]
+
     cache_key = "ai_trade_ideas"
     cached_out = state.get("summaries", {}).get(cache_key, {})
-    if cached_out.get("input_hash") == input_hash and cached_out.get("text"):
+    if cached_out.get("input_hash") == agg_hash and cached_out.get("text"):
         return cached_out["text"]
-
-    # Call LLM
-    TRADE_PROMPT = """You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
-
-Below are today's summaries from AI thought leaders, tech podcasts, and institutional research.
-
-Your task: identify HIGH-CONVICTION LONG or SHORT trade ideas that are DIRECTLY AND SPECIFICALLY named or discussed in the content below.
-
-STRICT RULES — violations will invalidate the analysis:
-- ONLY include companies, tickers, or sectors that are explicitly named in the summaries
-- Do NOT infer trades for companies that are merely adjacent to the topic (e.g. if the text discusses EDA software, do not recommend NVDA just because NVDA uses EDA)
-- Do NOT use outside knowledge — every trade must be traceable to a specific sentence in the source material
-- If a company is named only as an example or comparison, it does not qualify as a HIGH conviction idea
-- Prefer specific tickers; use sector ETFs (SMH, SOXX, XLK) only when multiple companies in the sector are discussed
-- Assign conviction honestly: HIGH = multiple sources or explicit bullish/bearish statement about that specific company; MEDIUM = one strong source with clear implication; LOW = single source, weak signal
-- 5–8 ideas maximum, ordered by conviction then expected impact
-- Each supporting note must quote or closely paraphrase the source text as evidence
-
-Output format:
-
-**Table:**
-| # | Asset | Ticker | Direction | Conviction | Source(s) |
-|---|-------|--------|-----------|------------|-----------|
-| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | ... |
-
-**Supporting notes:**
-**1. [Asset]** — [cite the specific text from the summary that supports this trade]
-...
-"""
 
     try:
         resp = client.chat.completions.create(
             model=GROQ_MODEL,
             max_tokens=2000,
             messages=[
-                {"role": "system", "content": TRADE_PROMPT},
-                {"role": "user", "content": f"Source summaries:\n\n{combined}"},
+                {"role": "system", "content": SYNTHESIS_PROMPT},
+                {"role": "user", "content": f"Per-source signals:\n\n{aggregated}"},
             ],
         )
         text = resp.choices[0].message.content
@@ -1256,8 +1291,8 @@ Output format:
 
     state.setdefault("summaries", {})[cache_key] = {
         "text": text,
-        "input_hash": input_hash,
-        "date": __import__("datetime").date.today().isoformat(),
+        "input_hash": agg_hash,
+        "date": today,
     }
     return text
 
