@@ -36,7 +36,7 @@ daily_digest.py       -- main script: fetch -> dedupe -> summarize -> render -> 
 
 | Category | Sources | Description |
 |----------|---------|-------------|
-| AI Opinion Leaders | 12 | Blogs, newsletters, GitHub repos (Karpathy, SemiAnalysis, Zvi, Scott Alexander, Ethan Mollick, Simon Willison, Dario Amodei, Jack Clark, Andrew Ng, Garry Tan) |
+| AI Opinion Leaders | 13 | AI Trade Ideas synthesis card + blogs, newsletters, GitHub repos (Karpathy, SemiAnalysis, Zvi, Scott Alexander, Ethan Mollick, Simon Willison, Dario Amodei, Jack Clark, Andrew Ng, Garry Tan) |
 | Investor Positioning | 7 | Cross-investor summary card + SEC 13F filings (SALP, Druckenmiller, Coatue, Tiger Global) + House PTR/FD (Pelosi) |
 | Institutional Views | 4 | Podcasts (Odd Lots, Goldman Sachs Exchanges, BlackRock The Bid, Money Stuff) |
 | Tech & AI Podcasts | 4 | Podcasts (All-In, AI+a16z, Lex Fridman, Latent Space) |
@@ -94,6 +94,57 @@ daily_digest.py       -- main script: fetch -> dedupe -> summarize -> render -> 
       "market_data": {...},
       "ytd_date": "2026-05-11",
       "positions": [{"ticker": "NVDA", "name": "NVIDIA Corporation", "value_k": 16700, ...}, ...]
+    }
+  }
+}
+```
+
+## AI Trade Ideas Pipeline
+
+### Source type: `ai_synthesis`
+
+Handler: `fetch_ai_trade_ideas(state, all_sources, client)`
+
+**Purpose:** Reads cached summaries from all AI Opinion Leaders, Tech & AI Podcasts, and Institutional Views sources, then calls Groq to infer a short list of high-conviction trade ideas directly supported by the source material.
+
+**Deferred execution:** Like `investor_summary`, the `ai_synthesis` source is skipped in the main fetch loop and processed in a second pass after all other sources have been summarized. This ensures all upstream summaries are in `state["summaries"]` before synthesis runs.
+
+**Input construction:**
+- Collects `state["summaries"][source_name]["text"]` for sources in `{"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}`.
+- Skips `investor_summary` and `ai_synthesis` source types (no circular reads).
+- Caps each source at **1,500 chars** and the total input at **10,000 chars** to stay within Groq's rate limit.
+
+**Caching:** The combined input is SHA-256 hashed. If `state["summaries"]["ai_trade_ideas"]["input_hash"]` matches the current hash, the cached result is returned without re-calling Groq. This means the synthesis only re-runs when at least one upstream summary has changed.
+
+**Strict sourcing rules (TRADE_PROMPT):**
+- Only include tickers/companies **explicitly named** in the summaries.
+- Every trade must be traceable to a specific sentence — no outside-knowledge inference.
+- Companies named only as examples or comparisons do not qualify as HIGH conviction.
+- Prefer specific tickers; use sector ETFs (SMH, SOXX, XLK) only when multiple companies in the sector are discussed.
+- Each supporting note must quote or closely paraphrase the source text as evidence.
+
+**Output format:**
+
+```
+**AI Trade Ideas** (synthesized from today's AI/tech sources)
+
+| Conviction | Ticker | Direction | Theme | Supporting evidence |
+|------------|--------|-----------|-------|---------------------|
+| HIGH       | NVDA   | Long      | ...   | "SemiAnalysis: ..." |
+...
+
+*Generated from N sources. Ideas are extracted from source material only — not investment advice.*
+```
+
+**State cache schema:**
+
+```json
+{
+  "summaries": {
+    "ai_trade_ideas": {
+      "text": "..rendered markdown table..",
+      "input_hash": "sha256hex",
+      "date": "2026-05-12"
     }
   }
 }
