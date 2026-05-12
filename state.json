@@ -1,68 +1,68 @@
 {
   "seen": [
-    "oai:arXiv.org:2605.06677v1",
-    "oai:arXiv.org:2507.15437v3",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
-    "oai:arXiv.org:2510.04092v3",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "oai:arXiv.org:2410.14927v2",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "oai:arXiv.org:2605.02326v2",
-    "oai:arXiv.org:2605.03184v2",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
-    "oai:arXiv.org:2605.09061v1",
-    "oai:arXiv.org:2601.18991v2",
-    "github:garrytan/gbrain:2026-05-10",
-    "github:garrytan/gstack:2026-05-11",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "oai:arXiv.org:2605.10400v1",
-    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "oai:arXiv.org:2605.10486v1",
-    "oai:arXiv.org:2605.02040v3",
-    "oai:arXiv.org:2605.06670v1",
     "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "https://www.astralcodexten.com/p/open-thread-433",
+    "oai:arXiv.org:2605.06677v1",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2507.15437v3",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "oai:arXiv.org:2605.10486v1",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "oai:arXiv.org:2511.07571v2",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "oai:arXiv.org:2307.09077v2",
+    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
+    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
+    "oai:arXiv.org:2409.06551v5",
+    "oai:arXiv.org:2510.04092v3",
     "oai:arXiv.org:2605.09310v1",
-    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
-    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
-    "oai:arXiv.org:2605.06818v1",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "oai:arXiv.org:2507.07107v2",
+    "oai:arXiv.org:2505.02635v2",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "github:garrytan/gbrain:2026-05-12",
+    "3efa7cbf-112c-4bce-a845-443700608a00",
     "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "oai:arXiv.org:2605.10428v1",
-    "oai:arXiv.org:2605.09712v1",
     "oai:arXiv.org:2510.15995v3",
+    "github:garrytan/gstack:2026-05-11",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "oai:arXiv.org:2605.10400v1",
+    "oai:arXiv.org:2601.18991v2",
+    "oai:arXiv.org:2506.06654v3",
+    "oai:arXiv.org:2605.02326v2",
+    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
+    "oai:arXiv.org:2605.03184v2",
+    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "oai:arXiv.org:2410.14927v2",
+    "github:garrytan/gbrain:2026-05-11",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "oai:arXiv.org:2605.09123v1",
+    "oai:arXiv.org:2605.09061v1",
+    "oai:arXiv.org:2604.19604v4",
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
+    "oai:arXiv.org:2502.06830v5",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "oai:arXiv.org:2605.10447v1",
+    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
     "github:garrytan/gstack:2026-05-10",
     "github:garrytan/gstack:2026-05-12",
-    "oai:arXiv.org:2505.02635v2",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
-    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
-    "github:garrytan/gbrain:2026-05-12",
-    "oai:arXiv.org:2506.06654v3",
-    "oai:arXiv.org:2507.07107v2",
-    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
-    "3efa7cbf-112c-4bce-a845-443700608a00",
-    "oai:arXiv.org:2409.06551v5",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
-    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
-    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "oai:arXiv.org:2511.07571v2",
-    "github:garrytan/gbrain:2026-05-11",
+    "oai:arXiv.org:2605.10428v1",
     "oai:arXiv.org:2605.06688v1",
-    "oai:arXiv.org:2604.19604v4",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "oai:arXiv.org:2605.10447v1",
-    "oai:arXiv.org:2502.06830v5",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "oai:arXiv.org:2605.09123v1",
-    "oai:arXiv.org:2307.09077v2",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54"
+    "oai:arXiv.org:2605.02040v3",
+    "oai:arXiv.org:2605.06670v1",
+    "oai:arXiv.org:2605.09712v1",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "oai:arXiv.org:2605.06818v1",
+    "github:garrytan/gbrain:2026-05-10",
+    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "https://thezvi.substack.com/p/childhood-and-education-18-do-the"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -1759,9 +1759,111 @@
       "date": "2026-05-12"
     },
     "ai_trade_ideas": {
-      "text": "**Table:**\n| # | Asset | Ticker | Direction | Conviction | Source(s) |\n|---|-------|--------|-----------|------------|-----------|\n| 1 | AMD | AMD | LONG | HIGH | SemiAnalysis |\n| 2 | Electronic Design Automation (EDA) sector | SOXX | LONG | MEDIUM | SemiAnalysis |\n| 3 | NVIDIA | NVDA | LONG | MEDIUM | SemiAnalysis, Ethan Mollick \u2013 One Useful Thing |\n| 4 | OpenAI-related stocks (e.g. MSFT) | MSFT | LONG | MEDIUM | Ethan Mollick \u2013 One Useful Thing, Andrej Karpathy \u2013 Blog |\n| 5 | Semiconductor sector | SMH | LONG | MEDIUM | SemiAnalysis, Ethan Mollick \u2013 One Useful Thing |\n\n**Supporting notes:**\n\n**1. AMD** \u2014 The SemiAnalysis report mentions AMD's latest MI455X, which packs 320 billion transistors across 12 logic dies on 2nm and 3nm processes, testing a company's tooling, methodology, and human capital organization. This suggests that AMD is pushing the boundaries of semiconductor technology, which could lead to increased demand for their products and drive growth. With a strong product lineup and a shrinking engineering talent base, AMD may be well-positioned to capitalize on the growing demand for complex semiconductors.\n\n**2. Electronic Design Automation (EDA) sector** \u2014 The SemiAnalysis report highlights the importance of EDA in the semiconductor industry, particularly in the face of increasing chip design complexity, silicon area, and power per package. The report notes that verification, the process of proving a design does what it should before committing it to silicon, consumes up to 70% of total project effort. This suggests that EDA companies, which provide the tools and software necessary for verification, may see increased demand for their products and services.\n\n**3. NVIDIA** \u2014 While not explicitly mentioned in the source material, NVIDIA is a major player in the semiconductor industry, particularly in the field of artificial intelligence (AI) and graphic processing units (GPUs). The SemiAnalysis report notes that AI demand has driven the explosion in compute, resulting in increasing chip design complexity, which could lead to increased demand for NVIDIA's products. Additionally, the Ethan Mollick \u2013 One Useful Thing report mentions the release of GPT-5.5, a new AI model with significant improvements in coding, image generation, and other areas, which could drive demand for NVIDIA's GPUs.\n\n**4. OpenAI-related stocks (e.g. MSFT)** \u2014 The Ethan Mollick \u2013 One Useful Thing report mentions the release of GPT-5.5, a new AI model with significant improvements in coding, image generation, and other areas. OpenAI is a leading AI research organization, and its technology is used in various applications, including those developed by Microsoft (MSFT). The report also mentions that OpenAI has made advances in all three areas, including the new GPT-5.5 model, improvements in apps such as OpenAI Codex, and new harnesses like the image model GPT-imagegen-2. This could drive demand for MSFT's products and services, particularly those related to AI and cloud computing.\n\n**5. Semiconductor sector** \u2014 The SemiAnalysis report highlights the growing demand for complex semiconductors, driven by the increasing need for computing power and AI capabilities. The report notes that the rush to bring compute to market quickly has put design teams under pressure to compress timelines and speed up validation cycles, which could lead to increased demand for semiconductor products and services. The Ethan Mollick \u2013 One Useful Thing report also mentions the release of GPT-5.5, which could drive demand for semiconductors and related products.",
-      "input_hash": "af72d22da17d01c1",
+      "text": "**Table:**\n| # | Asset | Ticker | Direction | Conviction | Source(s) |\n|---|-------|--------|-----------|------------|-----------|\n| 1 | GitLab | GTLAB | LONG | HIGH | Simon Willison |\n| 2 | AppLovin | APP | LONG | LOW | All-In Podcast |\n\n**Supporting notes:**\n**1. GitLab** \u2014 GitLab has a HIGH conviction LONG signal due to two separate mentions by Simon Willison, indicating a strong bullish view. The signals suggest that GitLab believes the agentic era will increase demand for software, leading to growth in the developer platform market. This is expected to multiply demand for software and increase the value of software for builders.\n**2. AppLovin** \u2014 AppLovin has a LOW conviction LONG signal due to a single mention by the All-In Podcast, which is sponsored by AppLovin's AI advertising platform, Axon.ai. The mention is not a strong endorsement, but rather a subtle promotion, resulting in a lower conviction level.",
+      "input_hash": "c584ab4843ff0fce",
       "date": "2026-05-12"
+    },
+    "_ai_signals_per_source": {
+      "SemiAnalysis": {
+        "summary_hash": "37c4af787da060cf",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Andrej Karpathy \u2013 Blog": {
+        "summary_hash": "9a054ef7dd14fd21",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Andrej Karpathy \u2013 YouTube": {
+        "summary_hash": "ffcc5d6309250fb6",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Andrej Karpathy \u2013 GitHub Repos": {
+        "summary_hash": "16f7f431684348e0",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Zvi Mowshowitz \u2013 Don't Worry About the Vase": {
+        "summary_hash": "62d090810a98e46b",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Scott Alexander \u2013 Astral Codex Ten": {
+        "summary_hash": "40e17cc49cfcf926",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Ethan Mollick \u2013 One Useful Thing": {
+        "summary_hash": "38ec013722f7e842",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Simon Willison": {
+        "summary_hash": "0ef0d0610715c667",
+        "signals": "GTLAB | GitLab | LONG | MEDIUM | GitLab believes the agentic era will multiply demand for software, as the cost and time of producing and managing software collapse.\nGTLAB | GitLab | LONG | MEDIUM | The company anticipates an increase in the value of software for builders, with the developer platform market growing from tens of dollars per user per month to hundreds or thousands. \nCOIN | Coinbase | NONE, mentioned as comparison, no directional view | \nNONE, 37signals mentioned as comparison, no directional view",
+        "date": "2026-05-12"
+      },
+      "Dario Amodei \u2013 Essays": {
+        "summary_hash": "b063e7ec1b792bbe",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Import AI \u2013 Jack Clark": {
+        "summary_hash": "6017cace2dbab52f",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
+        "summary_hash": "528de128eef1bf83",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Garry Tan \u2013 GitHub Repos": {
+        "summary_hash": "969077a7052cfc5c",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Odd Lots (Bloomberg)": {
+        "summary_hash": "90cae6bb172172aa",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Exchanges (Goldman Sachs)": {
+        "summary_hash": "3342c6b1f6560b04",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "The Bid (BlackRock)": {
+        "summary_hash": "17a60ce29d10e3ff",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Money Stuff: The Podcast (Matt Levine)": {
+        "summary_hash": "c4167c93dd5f12ec",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "All-In Podcast": {
+        "summary_hash": "ae7c7d7c8ca4d1fd",
+        "signals": "APP | AppLovin | LONG | LOW | The episode is sponsored by Axon.ai, AppLovin's AI advertising platform, which reaches over a billion daily active users. \n\nNONE of the other companies mentioned have a clear directional implication.",
+        "date": "2026-05-12"
+      },
+      "AI + a16z": {
+        "summary_hash": "b78ec64e19346a25",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Lex Fridman Podcast": {
+        "summary_hash": "72cc56dc72c621d1",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      },
+      "Latent Space Podcast (swyx)": {
+        "summary_hash": "a88e3a7c06736706",
+        "signals": "NONE",
+        "date": "2026-05-12"
+      }
     }
   }
 }
