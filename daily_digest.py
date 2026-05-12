@@ -1161,6 +1161,104 @@ def fetch_investor_summary(state: dict, all_sources: list) -> str:
     return "\n".join(lines)
 
 
+def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
+    """
+    Synthesize cached summaries from AI opinion leaders, podcasts, and institutional
+    views into high-conviction trade ideas, using the Groq LLM.
+
+    Input: all cached summaries for sources in the target categories.
+    Output: markdown table of trade ideas + brief supporting notes per idea.
+    Caches by SHA-256 of the combined input text; re-runs only when content changes.
+    """
+    import hashlib as _hashlib
+
+    _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
+
+    # Collect all cached summaries for target categories, freshest sources first
+    snippets = []
+    for source in all_sources:
+        if source.get("category") not in _TARGET_CATEGORIES:
+            continue
+        stype = source.get("type", "")
+        if stype in ("investor_summary", "ai_synthesis"):
+            continue
+        name = source["name"]
+        cached = state.get("summaries", {}).get(name, {})
+        text = cached.get("text", "")
+        if not text:
+            continue
+        date = cached.get("date", "")
+        snippets.append((name, date, text))
+
+    if not snippets:
+        return "*(No source summaries available yet — will populate after first full run)*"
+
+    # Build combined input, cap at 10k chars to stay within Groq rate limits
+    combined_parts = []
+    total = 0
+    for name, date, text in snippets:
+        header = f"### {name}{f' ({date})' if date else ''}\n"
+        chunk = header + text[:1500]   # cap per-source at 1500 chars
+        if total + len(chunk) > 10000:
+            break
+        combined_parts.append(chunk)
+        total += len(chunk)
+    combined = "\n\n---\n\n".join(combined_parts)
+
+    # Cache check
+    input_hash = _hashlib.sha256(combined.encode()).hexdigest()[:16]
+    cache_key = "ai_trade_ideas"
+    cached_out = state.get("summaries", {}).get(cache_key, {})
+    if cached_out.get("input_hash") == input_hash and cached_out.get("text"):
+        return cached_out["text"]
+
+    # Call LLM
+    TRADE_PROMPT = """You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
+
+Below are today's summaries from AI thought leaders, tech podcasts, and institutional research.
+
+Your task: identify HIGH-CONVICTION LONG or SHORT trade ideas that are DIRECTLY AND SPECIFICALLY supported by the content below. Do not add outside knowledge or opinions not present in the source material.
+
+Rules:
+- Cite only what the sources explicitly state or strongly imply
+- Prefer specific tickers over vague sector calls; include sector ETF if no single ticker fits
+- Assign conviction: HIGH (multiple sources agree, or explicit bullish/bearish statement), MEDIUM (single strong source), LOW (inferential)
+- 5–8 ideas maximum, ordered by conviction then expected magnitude
+- For each idea: provide the specific evidence from the summaries that supports it
+
+Output format — first a summary table, then one short supporting paragraph per idea:
+
+**Table:**
+| # | Asset | Ticker | Direction | Conviction | Source(s) |
+|---|-------|--------|-----------|------------|-----------|
+| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | ... |
+
+**Supporting notes:**
+**1. [Asset]** — [one paragraph citing the specific evidence]
+...
+"""
+
+    try:
+        resp = client.chat.completions.create(
+            model=GROQ_MODEL,
+            max_tokens=2000,
+            messages=[
+                {"role": "system", "content": TRADE_PROMPT},
+                {"role": "user", "content": f"Source summaries:\n\n{combined}"},
+            ],
+        )
+        text = resp.choices[0].message.content
+    except Exception as e:
+        text = f"*(Trade idea synthesis failed: {e})*"
+
+    state.setdefault("summaries", {})[cache_key] = {
+        "text": text,
+        "input_hash": input_hash,
+        "date": __import__("datetime").date.today().isoformat(),
+    }
+    return text
+
+
 def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
     Specialised fetcher for GitHub profile ?tab=repositories pages.
@@ -1682,8 +1780,8 @@ def main():
 
     for source in sources:
         stype = source.get("type", "rss").lower()
-        if stype == "investor_summary":
-            continue  # deferred — processed after all individual investor sources
+        if stype in ("investor_summary", "ai_synthesis"):
+            continue  # deferred — processed after all other sources
         print(f"[{stype}] {source['name']} ...")
 
         if stype == "sec13f":
@@ -1810,22 +1908,30 @@ def main():
                 result["summary"] = cached["text"]
             results.append(result)
 
-    # ── Deferred pass: investor_summary (needs all individual investor data in state) ──
+    # ── Deferred pass: investor_summary + ai_synthesis ────────────────────────
     for source in sources:
-        if source.get("type", "").lower() != "investor_summary":
-            continue
-        print(f"[investor_summary] {source['name']} ...")
-        summary_text = fetch_investor_summary(state, sources)
-        results.insert(
-            next((i for i, r in enumerate(results) if r.get("category") == source.get("category")), 0),
-            {
-                "name": source["name"],
-                "category": source.get("category", "Investor Positioning"),
-                "summary": summary_text,
-                "is_fresh": True,
-                "latest_date": date_str,
-            }
-        )
+        stype = source.get("type", "").lower()
+
+        if stype == "investor_summary":
+            print(f"[investor_summary] {source['name']} ...")
+            summary_text = fetch_investor_summary(state, sources)
+            cat = source.get("category", "Investor Positioning")
+            results.insert(
+                next((i for i, r in enumerate(results) if r.get("category") == cat), 0),
+                {"name": source["name"], "category": cat,
+                 "summary": summary_text, "is_fresh": True, "latest_date": date_str},
+            )
+
+        elif stype == "ai_synthesis":
+            print(f"[ai_synthesis] {source['name']} ...")
+            ideas_text = fetch_ai_trade_ideas(state, sources, client)
+            save_state(state)
+            cat = source.get("category", "AI Opinion Leaders")
+            results.insert(
+                next((i for i, r in enumerate(results) if r.get("category") == cat), 0),
+                {"name": source["name"], "category": cat,
+                 "summary": ideas_text, "is_fresh": True, "latest_date": date_str},
+            )
 
     # Always write index.html
     html = build_html(date_str, results)

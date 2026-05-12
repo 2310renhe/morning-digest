@@ -1,5 +1,11 @@
 [
   {
+    "name": "AI Trade Ideas",
+    "url": "",
+    "type": "ai_synthesis",
+    "category": "AI Opinion Leaders"
+  },
+  {
     "name": "SemiAnalysis",
     "url": "https://newsletter.semianalysis.com/feed",
     "type": "rss",
