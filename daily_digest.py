@@ -1182,66 +1182,78 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
     EXTRACT_PROMPT = """\
-You are a senior quant macro analyst. Extract specific, non-obvious trade signals from the source below.
+You are a senior quant macro analyst. Extract trade signals from this source summary.
 
-STEP 1 — Write one sentence:
-THESIS: [the source's core specific argument or finding]
+STEP 1 — One sentence:
+THESIS: [the source's specific core argument or finding]
 
-STEP 2 — Extract signals that flow directly from that thesis. Four tiers:
-EXPLICIT  = source names a PUBLIC company with a clear directional view (quote required)
-IMPLICIT  = source's specific thesis implies a view on a public company not named (must be thesis-specific, not generic)
-PROXY     = source discusses a PRIVATE company → map to most exposed PUBLIC company (stake/revenue/supply dependency)
-UPSTREAM  = non-obvious 2nd/3rd-order beneficiaries in the value chain (components, infrastructure, inputs)
+STEP 2 — Two tiers of signals:
 
-BANNED — do not produce these (too generic to be useful):
-✗ [source mentions AI] → LONG NVDA/MSFT/AMZN
+EXPLICIT — a publicly traded company is directly named in the source with a clear bullish or bearish implication.
+  • Requires a direct quote or close paraphrase as evidence.
+  • These are ground truth — capture everything the source explicitly discusses.
+
+DERIVED — non-obvious plays that flow from the EXPLICIT names or the THESIS.
+  • Supply chain: what does the explicit company buy, consume, or depend on?
+  • Value chain: who benefits or loses one or two steps away?
+  • Private companies (OpenAI, Anthropic, xAI, Groq, Mistral, etc.) have no public ticker — route them to their most exposed public company and explain the stake/dependency.
+  • The thesis implies demand for a specific input or infrastructure that a named public company supplies.
+  • Must be specific to THIS source's thesis — not generic "AI growing → NVDA/MSFT/AMZN".
+
+BANNED (too generic — reject these):
+✗ [source discusses AI] → LONG NVDA or MSFT or AMZN
 ✗ [company is growing] → needs cloud → LONG cloud providers
-✗ Any signal that would apply to every AI article
+✗ Any signal that would apply to every AI-related article this week
 
-REQUIRED specificity test: "This source specifically says [X] → [TICKER] benefits via [non-obvious mechanism]."
+Specificity test — only output a DERIVED signal if you can complete:
+"Because this source specifically says [X], [TICKER] benefits via [concrete non-obvious mechanism]."
 
-GOOD signal examples:
-  Data center power density rising 10x per rack → UPSTREAM | VRT | Vertiv | LONG | HIGH | Liquid cooling mandatory above 10kW/rack; Vertiv leads liquid cooling | Source: rack density 10x implies air cooling failure
-  EDA tools compressing chip design from months to weeks → UPSTREAM | MRVL | Marvell | LONG | MED | Faster iteration lets fabless designers like Marvell ship more variants per cycle | EDA acceleration cuts Marvell time-to-tape-out
-  Inference shifting to edge devices → IMPLICIT | QCOM | Qualcomm | LONG | HIGH | Snapdragon NPUs dominate mobile inference; edge shift directly grows Qualcomm TAM
+Good DERIVED examples:
+  Source: EDA tools dominate chip design → DERIVED | MRVL | Marvell | LONG | MED | Faster EDA iteration shortens tape-out cycles for fabless designers; Marvell ships 5+ chip families per year and directly benefits | EDA compression → Marvell TAM expansion via more design starts per year
+  Source: data center racks scaling to 100kW+ → DERIVED | VRT | Vertiv | LONG | HIGH | Air cooling fails above ~30kW/rack; Vertiv is the dominant liquid cooling vendor for hyperscalers | Rack density growth forces liquid cooling mandate
+  Source: OpenAI expanding aggressively → DERIVED | MSFT | Microsoft | LONG | MED | Microsoft holds ~49% of OpenAI and hosts it on Azure; OpenAI revenue growth directly flows to Azure line | OpenAI → MSFT equity stake + Azure hosting revenue
 
-PRIVATE company routing (PROXY tier):
-  OpenAI→MSFT(49%stake/Azure), NVDA(GPU supplier) | Anthropic→AMZN(investor/AWS), GOOGL(stake)
-  xAI→TSLA(Musk/shared cluster), NVDA | Groq→SHORT NVDA or LONG AMD (inference competitor)
+Private company routing:
+  OpenAI → MSFT (49% stake, Azure host), NVDA (primary GPU supplier)
+  Anthropic → AMZN (lead investor + AWS host), GOOGL (minority stake)
+  xAI → TSLA (Musk/shared GPU cluster), NVDA (compute buyer)
+  Groq → threatens NVDA on inference → SHORT NVDA or LONG AMD
 
-RULES:
-- Every signal needs a specific mechanism, not just "AI exposure"
-- Sponsor mentions / name-drops do not qualify
-- Aim for 2–4 UPSTREAM signals when the source discusses infrastructure, supply chains, or capex
-- Output NONE if no specific signals exist
+Rules:
+- EXPLICIT only if source names the company; sponsor mentions and name-drops don't qualify.
+- DERIVED must have a specific, traceable mechanism — not just sector exposure.
+- Aim for 2–4 DERIVED signals that most analysts would not immediately think of.
+- Output NONE if there are genuinely no specific signals.
 
-OUTPUT — first line THESIS, then one signal per line (7 pipe-separated fields):
-TYPE | TICKER | Company Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE (1-2 sentences: what changes + why this ticker) | EVIDENCE or CHAIN
+OUTPUT — first line THESIS, then one signal per line, 7 pipe-separated fields:
+TYPE | TICKER | Company Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE (what changes + why this ticker specifically) | EVIDENCE or CHAIN
 """
 
     SYNTHESIS_PROMPT = """\
 You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
 
-Below are per-source trade signals, labelled EXPLICIT / IMPLICIT / PROXY / UPSTREAM.
-Each signal has 7 pipe-separated fields: TYPE | TICKER | Name | Direction | Conviction | Rationale | Evidence/Chain
+Below are per-source trade signals in two tiers:
+  EXPLICIT — company directly named in the source (ground truth)
+  DERIVED  — non-obvious plays: supply chain, value chain, private company proxies
+
+Each signal: TYPE | TICKER | Name | Direction | Conviction | Rationale | Evidence/Chain
 
 Your job:
-1. Aggregate signals for the same ticker across sources. Agreement across sources raises conviction.
-2. Produce a final ranked table of 5–10 ideas, ordered by conviction then expected impact.
-3. Final conviction: HIGH if 2+ sources agree or 1 very explicit call; MEDIUM if 1 solid source; LOW if weak/speculative.
-4. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ sector companies appear.
-5. Preserve the highest-quality type label per ticker (EXPLICIT > IMPLICIT > PROXY > UPSTREAM).
-6. Write a concise Rationale for each final idea that synthesises the best evidence across sources.
+1. Aggregate signals for the same ticker across sources. Multiple sources raise conviction.
+2. Rank by conviction then expected impact. 5–10 ideas total.
+3. Final conviction: HIGH = 2+ sources agree or 1 very explicit call; MEDIUM = 1 solid source; LOW = speculative.
+4. EXPLICIT signals always shown. DERIVED shown only if the rationale is genuinely specific and non-obvious.
+5. Prefer specific tickers. Sector ETFs only if 3+ companies in the sector appear.
 
 Output format:
 
 **Table:**
 | # | Asset | Ticker | Direction | Conviction | Type | Source(s) |
 |---|-------|--------|-----------|------------|------|-----------|
-| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Explicit/Implicit/Proxy/Upstream | Source A, Source B |
+| 1 | ... | ... | LONG/SHORT | HIGH/MED/LOW | Explicit/Derived | Source A, Source B |
 
 **Notes:**
-**1. [Asset]** — [Rationale: 2–3 sentences synthesising the thesis and evidence across sources. For Proxy/Upstream, name the private company or triggering theme and explain the connection.]
+**1. [Asset]** — [2–3 sentences: the specific thesis, the non-obvious mechanism, and the evidence. For Derived ideas, name the triggering company/theme and the value-chain connection.]
 ...
 """
 
@@ -1622,15 +1634,18 @@ def _render_trade_signals(signals_text: str) -> str:
 
     TYPE_COLORS = {
         "EXPLICIT": ("#166534", "#dcfce7", "#14532d", "#bbf7d0"),  # green
-        "IMPLICIT": ("#1e40af", "#dbeafe", "#1e3a8a", "#bfdbfe"),  # blue
-        "PROXY":    ("#92400e", "#fef3c7", "#78350f", "#fde68a"),  # amber
-        "UPSTREAM": ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),  # purple
+        "DERIVED":  ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),  # purple
+        # Legacy tier names kept for backward-compat with old cached signals
+        "IMPLICIT": ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),
+        "PROXY":    ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),
+        "UPSTREAM": ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),
     }
     TYPE_LABEL = {
         "EXPLICIT": "Explicit",
-        "IMPLICIT": "Implicit",
-        "PROXY":    "Proxy",
-        "UPSTREAM": "Upstream",
+        "DERIVED":  "Derived",
+        "IMPLICIT": "Derived",
+        "PROXY":    "Derived",
+        "UPSTREAM": "Derived",
     }
 
     rows = []
