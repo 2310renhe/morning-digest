@@ -1182,43 +1182,51 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
     EXTRACT_PROMPT = """\
-You are extracting raw trade signals from a single source summary for a quant macro hedge fund.
+You are extracting trade signals from a single source summary for a quant macro hedge fund analyst.
 
-RULES:
-- Only extract companies or tickers that are EXPLICITLY NAMED in this text.
-- Only include a signal if there is a clear directional implication (positive = LONG, negative = SHORT) for that specific company — stated or strongly implied by the source.
-- Do NOT infer adjacents. Do NOT use outside knowledge.
-- If the company is named only as a passing example or comparison with no directional view, skip it.
-- If there are no clear signals, output exactly: NONE
+Produce two tiers of signals:
+
+EXPLICIT — the source directly names this company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
+IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific company, even if that company is not named. Use your domain expertise here (e.g. source discusses surging inference compute demand → LONG NVDA).
+
+Rules:
+- EXPLICIT signals must be grounded in a direct quote or close paraphrase.
+- IMPLICIT signals must state clearly which part of the source text drives the inference and why.
+- Sponsor mentions, passing name-drops, and pure comparisons do not qualify for either tier.
+- If a company appears as EXPLICIT, do not also list it as IMPLICIT.
+- If there are truly no signals of either type, output exactly: NONE
 
 Output format — one line per signal, pipe-separated:
-TICKER | Full Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | exact or close paraphrase of the supporting sentence
+TYPE | TICKER | Full Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | evidence or reasoning
 
-Conviction guide:
-  HIGH   = source makes an explicit, strong bullish/bearish case for this specific company
-  MEDIUM = source presents meaningful evidence pointing in a direction
-  LOW    = one weak or indirect reference
+  TYPE: EXPLICIT or IMPLICIT
+  Conviction guide:
+    HIGH   = strong, direct case made for this company
+    MEDIUM = meaningful supporting evidence
+    LOW    = single or indirect reference / plausible but weak inference
 """
 
     SYNTHESIS_PROMPT = """\
 You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
 
-Below are trade signals extracted independently from each source. Your job:
-1. Aggregate signals for the same ticker across sources — if multiple sources flag the same ticker in the same direction, that increases conviction.
-2. Produce a final ranked table of 5–8 ideas, ordered by conviction then expected impact.
+Below are trade signals extracted per-source, labelled EXPLICIT (source directly named the company with a directional view) or IMPLICIT (analyst inference from the source theme).
+
+Your job:
+1. Aggregate signals for the same ticker across sources. Multiple sources flagging the same ticker in the same direction raises conviction.
+2. Produce a final ranked table of 5–10 ideas, ordered by conviction then expected impact.
 3. Assign final conviction: HIGH if 2+ sources agree, or 1 source with a very explicit bullish/bearish call; MEDIUM if 1 solid source; LOW if weak/single reference.
-4. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ companies in the sector appear.
-5. Do NOT add any tickers not present in the signals below. No outside knowledge.
+4. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ companies in the sector appear across signals.
+5. Preserve the EXPLICIT / IMPLICIT label in the output — do not strip it.
 
 Output format:
 
 **Table:**
-| # | Asset | Ticker | Direction | Conviction | Source(s) |
-|---|-------|--------|-----------|------------|-----------|
-| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Source A, Source B |
+| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |
+|---|-------|--------|-----------|------------|------|-----------|
+| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Explicit/Implicit | Source A, Source B |
 
 **Supporting notes:**
-**1. [Asset]** — [synthesise the evidence from the sources listed]
+**1. [Asset] (Explicit/Implicit)** — [synthesise the evidence; for Implicit ideas state the inferential chain from source text to trade]
 ...
 """
 
