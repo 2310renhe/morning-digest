@@ -1186,15 +1186,23 @@ You are extracting trade signals from a single source summary for a quant macro 
 
 Produce three tiers of signals:
 
-EXPLICIT — the source directly names a PUBLIC company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
-IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific PUBLIC company, even if that company is not named. Use your domain expertise (e.g. source discusses surging inference compute demand → LONG NVDA).
-PROXY — the source discusses a PRIVATE company (e.g. OpenAI, Anthropic, SpaceX, xAI, Groq, Mistral, Perplexity). Identify the most exposed PUBLIC company(ies) and the nature of their exposure (equity stake, revenue dependency, competitive threat, infrastructure supplier, etc.). The direction applies to the public proxy, not the private company.
+EXPLICIT — the source directly names a PUBLICLY TRADED company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
+IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific PUBLICLY TRADED company, even if that company is not named. Use your domain expertise (e.g. source discusses surging inference compute demand → LONG NVDA).
+PROXY — the source substantively discusses a PRIVATE company (e.g. OpenAI, Anthropic, xAI, Groq, Mistral, Perplexity, SpaceX, Scale AI, Cohere). Map it to the most exposed PUBLICLY TRADED company and explain the exposure chain (equity stake, revenue dependency, cloud provider, infrastructure supplier, competitive threat, etc.). The TICKER and direction refer to the PUBLIC proxy, not the private company.
+
+CRITICAL: OpenAI, Anthropic, xAI, Groq, Mistral, Perplexity, and similar AI labs are PRIVATE — they have no public ticker. Never use them as the TICKER in any signal. Always route them through a public proxy.
+Known proxy mappings (use your judgment, these are examples):
+  OpenAI    → MSFT (49% stake, Azure revenue), NVDA (primary GPU supplier)
+  Anthropic → AMZN (primary investor + AWS host), GOOGL (minority stake)
+  xAI       → TSLA (Musk overlap, shared resources), NVDA (compute)
+  Groq      → could threaten NVDA (inference chip competitor) → SHORT NVDA or LONG AMD
+  Perplexity → AMZN (investor), NVDA (compute dependency)
 
 Rules:
 - EXPLICIT signals must be grounded in a direct quote or close paraphrase.
 - IMPLICIT signals must state which part of the source text drives the inference and why.
-- PROXY signals must name the private company, identify the public proxy, and explain the exposure chain.
-- Sponsor mentions, passing name-drops, and pure comparisons do not qualify for EXPLICIT. They may qualify for PROXY if the private company is substantively discussed.
+- PROXY signals must name the private company in the evidence field, identify the public proxy as the TICKER, and explain the exposure chain.
+- Sponsor mentions, passing name-drops, and pure comparisons do not qualify for EXPLICIT or IMPLICIT. They may qualify for PROXY if the private company is substantively discussed.
 - If a company appears as EXPLICIT, do not also list it as IMPLICIT or PROXY.
 - If there are truly no signals of any type, output exactly: NONE
 
