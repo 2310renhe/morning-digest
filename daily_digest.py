@@ -1301,6 +1301,28 @@ Output format:
         if signals_text and signals_text.upper() != "NONE" and not signals_text.startswith("ERROR"):
             per_source_blocks.append(f"### {name}\n{signals_text}")
 
+    # ── Fetch market data for all extracted tickers ───────────────────────────
+    import re as _re
+    _VALID_TICKER = _re.compile(r'^[A-Z]{1,5}$')
+    _VALID_TYPES  = {"EXPLICIT", "DERIVED", "IMPLICIT", "PROXY", "UPSTREAM"}
+    all_tickers = set()
+    for v in signals_store.values():
+        for line in v.get("signals", "").splitlines():
+            parts = [p.strip() for p in line.split("|")]
+            if len(parts) >= 4 and parts[0].upper() in _VALID_TYPES:
+                t = parts[1].strip().upper()
+                if t and _VALID_TICKER.match(t):
+                    all_tickers.add(t)
+
+    mkt_cache = state["summaries"].setdefault("_ai_signal_market_data", {})
+    existing  = set(mkt_cache.get("data", {}).keys())
+    if all_tickers and (mkt_cache.get("ytd_date") != today or not all_tickers.issubset(existing)):
+        import requests as _req
+        _sess = _req.Session()
+        new_data = _fetch_market_data(list(all_tickers), _sess)
+        mkt_cache.setdefault("data", {}).update(new_data)
+        mkt_cache["ytd_date"] = today
+
     if not per_source_blocks:
         return "*(No trade signals extracted from today's sources)*"
 
@@ -1619,7 +1641,7 @@ def md_to_html_simple(text: str) -> str:
 
 
 
-def _render_trade_signals(signals_text: str) -> str:
+def _render_trade_signals(signals_text: str, market_data: dict = None) -> str:
     """
     Parse pipe-separated signal lines from per-source extraction and return
     an HTML trade-signals section to embed inside a source card.
@@ -1696,11 +1718,19 @@ def _render_trade_signals(signals_text: str) -> str:
     if thesis:
         html += f'<div class="ts-thesis"><strong>Thesis:</strong> {thesis}</div>\n'
 
+    mkt = market_data or {}
     for sig_type, ticker, company, direction, conviction, rationale, chain in rows:
         lt, lb, dt, db = TYPE_COLORS[sig_type]
         type_label = TYPE_LABEL[sig_type]
         d_color = dir_color.get(direction, "#666")
         opacity = conv_opacity.get(conviction, "1")
+
+        # Market data for this ticker
+        td = mkt.get(ticker, {})
+        ytd     = td.get("ytd", "—")
+        fwd_pe  = td.get("fwd_pe", "—")
+        ytd_pct = td.get("ytd_pct")
+        ytd_color = ("#16a34a" if ytd_pct and ytd_pct >= 0 else "#dc2626") if ytd_pct is not None else "var(--muted)"
 
         html += f'<div class="ts-row" style="opacity:{opacity}">\n'
         html += (
@@ -1712,6 +1742,8 @@ def _render_trade_signals(signals_text: str) -> str:
             f'  <span class="ts-company">{company}</span>\n'
             f'  <span class="ts-dir" style="color:{d_color}">{direction}</span>\n'
             f'  <span class="ts-conv">{conviction.capitalize()}</span>\n'
+            f'  <span class="ts-mkt"><span style="color:{ytd_color}">{ytd}</span>'
+            f' &nbsp;·&nbsp; P/E&nbsp;{fwd_pe}</span>\n'
         )
         if rationale:
             html += f'  <div class="ts-rationale">{rationale}</div>\n'
@@ -1774,8 +1806,9 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
         meta = CATEGORY_META.get(cat, {"icon": "•", "color": "#666"})
         cat_id = cat.lower().replace(" ", "-").replace("&", "and")
 
-        # Signals store for embedding per-source trade recs
+        # Signals store + market data for embedding per-source trade recs
         signals_store = (state or {}).get("summaries", {}).get("_ai_signals_per_source", {})
+        signal_mkt    = (state or {}).get("summaries", {}).get("_ai_signal_market_data", {}).get("data", {})
         _SIGNAL_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
         source_blocks = []
@@ -1826,7 +1859,7 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
                 sig_cache = signals_store.get(name, {})
                 sig_text = sig_cache.get("signals", "")
                 if sig_text and sig_text.strip().upper() != "NONE" and not sig_text.startswith("ERROR"):
-                    trade_html = _render_trade_signals(sig_text)
+                    trade_html = _render_trade_signals(sig_text, market_data=signal_mkt)
                     if trade_html:
                         block += trade_html
 
@@ -1900,6 +1933,7 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
     .ts-company { color: var(--muted); font-size: 0.8rem; flex: 1; min-width: 8rem; }
     .ts-dir { font-weight: 700; font-size: 0.8rem; }
     .ts-conv { font-size: 0.75rem; color: var(--muted); }
+    .ts-mkt { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
     .ts-rationale { width: 100%; font-size: 0.8rem; color: var(--text); margin-top: 0.1rem; line-height: 1.5; }
     .ts-chain { width: 100%; font-size: 0.75rem; color: var(--muted); font-style: italic; margin-top: 0.05rem; line-height: 1.4; }
     footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
