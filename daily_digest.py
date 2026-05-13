@@ -1184,49 +1184,55 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     EXTRACT_PROMPT = """\
 You are extracting trade signals from a single source summary for a quant macro hedge fund analyst.
 
-Produce two tiers of signals:
+Produce three tiers of signals:
 
-EXPLICIT — the source directly names this company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
-IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific company, even if that company is not named. Use your domain expertise here (e.g. source discusses surging inference compute demand → LONG NVDA).
+EXPLICIT — the source directly names a PUBLIC company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
+IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific PUBLIC company, even if that company is not named. Use your domain expertise (e.g. source discusses surging inference compute demand → LONG NVDA).
+PROXY — the source discusses a PRIVATE company (e.g. OpenAI, Anthropic, SpaceX, xAI, Groq, Mistral, Perplexity). Identify the most exposed PUBLIC company(ies) and the nature of their exposure (equity stake, revenue dependency, competitive threat, infrastructure supplier, etc.). The direction applies to the public proxy, not the private company.
 
 Rules:
 - EXPLICIT signals must be grounded in a direct quote or close paraphrase.
-- IMPLICIT signals must state clearly which part of the source text drives the inference and why.
-- Sponsor mentions, passing name-drops, and pure comparisons do not qualify for either tier.
-- If a company appears as EXPLICIT, do not also list it as IMPLICIT.
-- If there are truly no signals of either type, output exactly: NONE
+- IMPLICIT signals must state which part of the source text drives the inference and why.
+- PROXY signals must name the private company, identify the public proxy, and explain the exposure chain.
+- Sponsor mentions, passing name-drops, and pure comparisons do not qualify for EXPLICIT. They may qualify for PROXY if the private company is substantively discussed.
+- If a company appears as EXPLICIT, do not also list it as IMPLICIT or PROXY.
+- If there are truly no signals of any type, output exactly: NONE
 
 Output format — one line per signal, pipe-separated:
-TYPE | TICKER | Full Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | evidence or reasoning
+TYPE | TICKER | Full Public Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | evidence, reasoning, or exposure chain
 
-  TYPE: EXPLICIT or IMPLICIT
+  TYPE: EXPLICIT, IMPLICIT, or PROXY
   Conviction guide:
-    HIGH   = strong, direct case made for this company
-    MEDIUM = meaningful supporting evidence
-    LOW    = single or indirect reference / plausible but weak inference
+    HIGH   = strong, direct case or majority-stake / critical-dependency exposure
+    MEDIUM = meaningful supporting evidence or significant-minority-stake exposure
+    LOW    = single or indirect reference / plausible but weak inference / peripheral exposure
 """
 
     SYNTHESIS_PROMPT = """\
 You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
 
-Below are trade signals extracted per-source, labelled EXPLICIT (source directly named the company with a directional view) or IMPLICIT (analyst inference from the source theme).
+Below are trade signals extracted per-source, labelled:
+  EXPLICIT — source directly named the public company with a directional view
+  IMPLICIT — analyst inference from source theme to a public company
+  PROXY    — private company discussed; signal routed through an exposed public company
 
 Your job:
 1. Aggregate signals for the same ticker across sources. Multiple sources flagging the same ticker in the same direction raises conviction.
-2. Produce a final ranked table of 5–10 ideas, ordered by conviction then expected impact.
-3. Assign final conviction: HIGH if 2+ sources agree, or 1 source with a very explicit bullish/bearish call; MEDIUM if 1 solid source; LOW if weak/single reference.
-4. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ companies in the sector appear across signals.
-5. Preserve the EXPLICIT / IMPLICIT label in the output — do not strip it.
+2. When the same private company appears in PROXY signals from multiple sources, aggregate them under the best public proxy ticker.
+3. Produce a final ranked table of 5–10 ideas, ordered by conviction then expected impact.
+4. Assign final conviction: HIGH if 2+ sources agree, or 1 source with a very explicit bullish/bearish call; MEDIUM if 1 solid source; LOW if weak/single reference or peripheral proxy exposure.
+5. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ companies in the sector appear across signals.
+6. Preserve the signal type label in the output. If a ticker has both EXPLICIT and PROXY signals, use the higher-quality label.
 
 Output format:
 
 **Table:**
 | # | Asset | Ticker | Direction | Conviction | Type | Source(s) |
 |---|-------|--------|-----------|------------|------|-----------|
-| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Explicit/Implicit | Source A, Source B |
+| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Explicit/Implicit/Proxy | Source A, Source B |
 
 **Supporting notes:**
-**1. [Asset] (Explicit/Implicit)** — [synthesise the evidence; for Implicit ideas state the inferential chain from source text to trade]
+**1. [Asset] ([Type])** — [synthesise the evidence; for Proxy ideas name the private company and explain the exposure chain; for Implicit ideas state the inferential chain from source text to trade]
 ...
 """
 
