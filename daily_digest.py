@@ -1488,14 +1488,39 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
 
 # -- Summarization --------------------------------------------------------------------------------
 
-READER_PROFILE = """You are a research assistant producing a morning digest.
-The reader is a hedge fund PM (quant macro + AI/semiconductor stocks).
+READER_PROFILE = """You are a research analyst producing investment-focused summaries for a senior stock analyst specializing in AI industries.
 
-Rules:
-- EXTRACT only. State what the source actually says. Never infer, speculate, or editorialize beyond the source material.
-- If the source does not mention a company, ticker, or data point, do not mention it.
-- Be thorough — capture ALL key arguments, data points, and conclusions from the source. Do not stop at the first point.
-- For academic papers: focus on methodology, key results, and datasets used. Skip papers that have no relevance to quantitative investing, financial markets, or AI/ML applied to finance."""
+Your summaries feed directly into a trade signal extraction pipeline. The downstream step reads your summary and derives both explicit and non-obvious investment ideas from it. Your job is to make that extraction as rich as possible by preserving the specific details that matter most for investing.
+
+EXTRACTION RULES:
+- State only what the source actually says. Do not infer, speculate, or editorialize.
+- If the source does not name a company, metric, or relationship, do not add it.
+
+INVESTMENT-CRITICAL DETAILS TO ALWAYS CAPTURE (when present in the source):
+1. Every company, product, or technology explicitly named — and their specific role (supplier, customer, competitor, enabler)
+2. Supply chain and value chain relationships — who makes what, who buys from whom, what depends on what
+3. Quantitative figures: capex amounts, capacity numbers, power/energy metrics, market share %, growth rates, pricing, timelines
+4. Demand/supply dynamics: shortages, bottlenecks, oversupply, lead times, backlog
+5. Technology transitions: what is being replaced by what, at what timeline, with what implications
+6. Competitive positioning: who wins or loses as a result of the described trend
+7. Capital allocation signals: major investments, partnerships, acquisitions, contract wins
+8. Regulatory or policy signals that affect specific companies or sectors
+
+FORMAT — use this exactly:
+
+**New this period:**
+- [one-line bullet per item — the core claim in plain English]
+
+**Details:**
+**[Title](url)**
+- [bullet covering the core thesis of this piece]
+- [every named company and their specific role in the described dynamic]
+- [all quantitative figures: numbers, percentages, dollar amounts, timelines]
+- [supply chain or value chain relationships explicitly described]
+- [technology transitions or competitive shifts described]
+- [any other investment-relevant specifics]
+
+For academic paper feeds: skip papers unrelated to quant investing or AI/ML for finance. For relevant ones, state research question, method, key finding, and any specific datasets or models named."""
 
 
 def summarize(client: Groq, source_name: str, items: list) -> str:
@@ -1516,24 +1541,9 @@ def summarize(client: Groq, source_name: str, items: list) -> str:
         max_tokens=3000,
         messages=[
             {"role": "system", "content": READER_PROFILE},
-            {"role": "user", "content": f"""Summarize these new items from "{source_name}".
+            {"role": "user", "content": f"""Summarize these new items from "{source_name}" following the investment-focused format in your instructions.
 
-Rules:
-- Only state what the source actually contains. Do not add interpretation or connect to topics not in the source.
-- Be comprehensive — extract every key claim, data point, and named entity (companies, people, products, figures). Do not omit major arguments or sections.
-- For academic paper feeds: skip papers unrelated to quant investing or AI/ML for finance. For relevant ones, state the research question, method, and key finding.
-
-Use this exact format:
-
-**New this period:**
-- [one-line bullet per item — what it actually covers]
-
-**Details:**
-**[Title](url)**
-Extract ALL key points from the source. Cover every major argument, data point, and conclusion. Use bullet points for clarity:
-- [key point 1]
-- [key point 2]
-- ...
+Priority: preserve every named company and their specific role, every quantitative figure, every supply chain or value chain relationship, and every technology transition described. These details are critical for downstream trade signal extraction — a vague summary produces no useful signals.
 
 Items:
 {combined}"""}
