@@ -54,6 +54,7 @@
     .holdings-table tr:hover td { background: var(--bg); }
     .trade-signals { margin-top: 0.9rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; }
     .trade-signals-header { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem; }
+    .ts-thesis { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; line-height: 1.5; }
     .ts-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.5rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
     .ts-row:last-child { border-bottom: none; }
     .ts-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.45rem; border-radius: 5px; background: var(--lb); color: var(--lt); white-space: nowrap; }
@@ -72,7 +73,7 @@
 <div class="container">
   <header>
     <h1>Morning Digest</h1>
-    <p class="subtitle">2026-05-13 &middot; Generated 2026-05-13 16:58 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
+    <p class="subtitle">2026-05-13 &middot; Generated 2026-05-13 17:17 &middot; <a href="https://github.com/2310renhe/morning-digest/blob/main/sources.json">edit sources</a> &middot; <a href="archive/">archive</a></p>
   </header>
   <nav class="nav">
     <a href="#ai-opinion-leaders" class="nav-pill" style="border-color:#6c5ce7">🧠 AI Opinion Leaders <span class="nav-count">1</span></a>
@@ -124,37 +125,42 @@
 </details>
 <div class="trade-signals">
 <div class="trade-signals-header">📈 Trade Signals</div>
+<div class="ts-thesis"><strong>Thesis:</strong> The increasing complexity of chip design, driven by AI demand, is putting pressure on the semiconductor industry to compress timelines and speed up validation cycles, relying heavily on Electronic Design Automation (EDA) software to translate human intent into manufacturable silicon.</div>
 <div class="ts-row" style="opacity:1">
-  <span class="ts-badge" style="--lt:#166534;--lb:#dcfce7;--dt:#14532d;--db:#bbf7d0">Explicit</span>
+  <span class="ts-badge" style="--lt:#6b21a8;--lb:#f3e8ff;--dt:#581c87;--db:#e9d5ff">Upstream</span>
   <span class="ts-ticker">SNPS</span>
-  <span class="ts-company">Synopsys, Inc.</span>
+  <span class="ts-company">Synopsys</span>
   <span class="ts-dir" style="color:#16a34a">LONG</span>
   <span class="ts-conv">High</span>
-  <div class="ts-rationale">The source states that "The modern EDA landscape is dominated by three companies: Synopsys, Cadence, and Siemens," implying a strong market position and potential for growth.</div>
+  <div class="ts-rationale">The semiconductor industry's ability to build more powerful chips depends on EDA software, and Synopsys is one of the dominant companies in the EDA landscape, providing tools used throughout the design flow</div>
+  <div class="ts-chain">The source states that the EDA industry is crucial for chip design, and Synopsys is a key player.</div>
 </div>
 <div class="ts-row" style="opacity:1">
-  <span class="ts-badge" style="--lt:#166534;--lb:#dcfce7;--dt:#14532d;--db:#bbf7d0">Explicit</span>
+  <span class="ts-badge" style="--lt:#6b21a8;--lb:#f3e8ff;--dt:#581c87;--db:#e9d5ff">Upstream</span>
   <span class="ts-ticker">CDNS</span>
-  <span class="ts-company">Cadence Design Systems, Inc.</span>
+  <span class="ts-company">Cadence</span>
   <span class="ts-dir" style="color:#16a34a">LONG</span>
   <span class="ts-conv">High</span>
-  <div class="ts-rationale">The source states that "The modern EDA landscape is dominated by three companies: Synopsys, Cadence, and Siemens," implying a strong market position and potential for growth.</div>
+  <div class="ts-rationale">As a dominant company in the EDA landscape, Cadence provides tools used throughout the design flow, and its products are essential for the chip design process</div>
+  <div class="ts-chain">The source mentions Cadence as one of the three companies dominating the modern EDA landscape.</div>
 </div>
 <div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
+  <span class="ts-badge" style="--lt:#6b21a8;--lb:#f3e8ff;--dt:#581c87;--db:#e9d5ff">Upstream</span>
+  <span class="ts-ticker">SIE</span>
+  <span class="ts-company">Siemens</span>
   <span class="ts-dir" style="color:#16a34a">LONG</span>
   <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source discusses the increasing demand for compute and the complexity of chip design, which could benefit NVIDIA's graphics processing unit (GPU) business, as GPUs are often used for compute-intensive tasks.</div>
+  <div class="ts-rationale">Although not as prominent as Synopsys and Cadence, Siemens is still a major player in the EDA industry, and its products contribute to the chip design process</div>
+  <div class="ts-chain">The source lists Siemens as one of the three companies dominating the modern EDA landscape, implying its importance in the EDA industry.</div>
 </div>
 <div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
+  <span class="ts-badge" style="--lt:#6b21a8;--lb:#f3e8ff;--dt:#581c87;--db:#e9d5ff">Upstream</span>
   <span class="ts-ticker">AMD</span>
-  <span class="ts-company">Advanced Micro Devices, Inc.</span>
+  <span class="ts-company">Advanced Micro Devices</span>
   <span class="ts-dir" style="color:#16a34a">LONG</span>
   <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source mentions the latest AMD MI455X, which packs 320 billion transistors, indicating AMD's innovation and competitiveness in the semiconductor industry, which could lead to increased demand for their products.</div>
+  <div class="ts-rationale">The latest AMD MI455X packs 320 billion transistors, testing a company's tooling, methodology, and human capital organization, which could drive demand for EDA software and services</div>
+  <div class="ts-chain">The source mentions the complexity of the AMD MI455X, which may increase the need for EDA software and services.</div>
 </div>
 </div>
 </div>
@@ -187,25 +193,6 @@
 <p>* The script generates new, plausible-sounding names by sampling from the trained model.</p>
 <p>* The generated names are printed to the console, along with their corresponding token IDs and positions in the sequence.</p>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source discusses the development of a lightweight GPT model, which could increase the demand for AI and machine learning hardware and software, benefiting companies like NVIDIA.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source discusses the development of a lightweight GPT model, which could increase the demand for AI and machine learning hardware and software, benefiting companies like NVIDIA.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>Andrej Karpathy – YouTube <span class="badge stale">2026-04-16</span></h3>
@@ -269,33 +256,6 @@
 <p>  - randomfun: a collection of notebooks and random projects, with 1,165 stars and 141 forks.</p>
 <p>  - convnetjs: a library for deep learning in JavaScript, with 11,157 stars and 2,074 forks.</p>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Private company OpenAI is mentioned through the minGPT repository, a minimal PyTorch re-implementation of the OpenAI GPT, implying exposure through Microsoft's 49% stake in OpenAI and Azure revenue.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Private company OpenAI is mentioned through the minGPT repository, a minimal PyTorch re-implementation of the OpenAI GPT, implying exposure through NVIDIA's primary GPU supplier role for OpenAI.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com Inc</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Some repositories like nanoGPT and char-rnn could possibly be used on Amazon Web Services (AWS), implying a potential revenue stream for Amazon.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>Zvi Mowshowitz – Don't Worry About the Vase <span class="badge stale">2026-05-12</span></h3>
@@ -373,15 +333,15 @@
 <h3>Simon Willison <span class="badge fresh">2026-05-13</span></h3>
 <p><strong>New this period:</strong></p>
 <ul>
-  <li>Boris Mann's quote on the meaninglessness of the phrase "11 AI agents" as it is comparable to saying "I have 11 spreadsheets" or "I have 11 browser tabs".</li>
+  <li>Boris Mann's quote on the meaninglessness of the phrase "11 AI agents"</li>
 </ul>
 <details class="details-fold"><summary>Details ▸</summary>
 <p><strong>Quoting Boris Mann (https://simonwillison.net/2026/May/13/boris-mann/#atom-everything)</strong></p>
-<p>Extract of key points:</p>
+<p>Extract of key points from the source:</p>
 <ul>
-  <li>Boris Mann states that the phrase "11 AI agents" is meaningless.</li>
-  <li>He compares it to saying "I have 11 spreadsheets" or "I have 11 browser tabs" to do his work, implying that the number of AI agents alone does not convey any significant information.</li>
-  <li>The quote is tagged with "ai-agents", "ai", and "agent-definitions".</li>
+  <li>Boris Mann states that the phrase "11 AI agents" is meaningless</li>
+  <li>He compares it to saying "I have 11 spreadsheets" or "I have 11 browser tabs" to do his work, implying that the number of AI agents is not significant on its own</li>
+  <li>The quote is tagged with "ai-agents", "ai", and "agent-definitions"</li>
 </ul>
 </details>
 </div>
@@ -396,41 +356,6 @@
 <p><strong>Dario Amodei (https://darioamodei.com/)</strong></p>
 <p>Dario Amodei is the CEO of Anthropic, a public benefit corporation focused on building safe and interpretable AI systems. He has a background in AI research, having led the development of large language models like GPT-2 and GPT-3 at OpenAI, and worked as a Senior Research Scientist at Google Brain. His website lists his essays, research, and interviews, including topics such as the urgency of interpretability and the need for basic transparency rules in AI.</p>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Dario Amodei is the CEO of Anthropic, and Anthropic has a primary investor and host in Amazon through AWS, creating a revenue dependency exposure chain.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">GOOGL</span>
-  <span class="ts-company">Alphabet Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Dario Amodei is the CEO of Anthropic, and Google has a minority stake in Anthropic, establishing a weak equity stake exposure chain.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Dario Amodei's background includes leading the development of large language models at OpenAI, which has a 49% stake owned by Microsoft, and Azure revenue dependency, creating an exposure chain.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Dario Amodei's background includes leading the development of large language models at OpenAI, which uses NVIDIA as its primary GPU supplier, establishing a compute dependency exposure chain.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>Import AI – Jack Clark <span class="badge stale">2026-05-11</span></h3>
@@ -485,57 +410,6 @@
   <li>The authors suggest that the singularity could be closer than expected, with an "automation shock" involving full automation of software R&D and 5% automation across the rest of the economy potentially causing the singularity to arrive in roughly six years.</li>
 </ul>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Private company OpenAI is not directly mentioned, but the concept of "neural computers" and advancements in AI research could benefit Microsoft through its stake in OpenAI and Azure revenue.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The concept of "neural computers" and advancements in AI research could benefit NVIDIA as a primary GPU supplier to AI labs and its exposure to the AI compute market.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The discussion on "neural computers" and the potential for explosive economic growth through AI automation could imply a bullish view on NVIDIA, given its dominance in the AI compute market.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The mention of "information-gathering authorities" and "information-sharing" could imply a bullish view on Amazon, given its exposure to cloud computing and data storage.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">TSLA</span>
-  <span class="ts-company">Tesla, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The discussion on AI automation and its potential impact on economic growth could benefit Tesla, given its investments in AI research and potential applications in autonomous driving.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">AMD</span>
-  <span class="ts-company">Advanced Micro Devices, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The concept of "neural computers" and the potential for increased demand for AI compute could imply a bullish view on AMD, given its competition with NVIDIA in the GPU market.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>The Batch – Andrew Ng (DeepLearning.AI) <span class="badge stale">2026-05-08</span></h3>
@@ -560,41 +434,6 @@
 <p><strong>The Batch | DeepLearning.AI | AI News & Insights (2026-05-08)</strong> (https://www.deeplearning.ai/the-batch/)</p>
 <p>The Batch provides updates on the latest AI news and insights, including GPT-5.5's performance and hallucinations, Kimi K2.6 leading open LLMs, and the White House's orders for a muscular AI policy. The newsletter also covers various AI-related topics, such as reinforcement learning, Meta's pivot from open weights, and Big Pharma's bets on AI. Additionally, it mentions the introduction of DeepLearning.AI Pro and the development of recursive language models.</p>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#166534;--lb:#dcfce7;--dt:#14532d;--db:#bbf7d0">Explicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source mentions "Nvidia's Open Salvo", implying a significant development or move by Nvidia in the AI space, which could be bullish for the company.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The source mentions "OpenAI's Amazon Deal", which could imply a growing partnership between OpenAI and Amazon, potentially benefiting Amazon.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">OpenAI, private company, has a deal with Amazon, but is also heavily dependent on Nvidia for GPU supply, thus the signal is routed through Nvidia as a public proxy.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">GOOGL</span>
-  <span class="ts-company">Alphabet Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Anthropic, private company, is mentioned to have a "Claude Mythos Problem", and as Anthropic has a minority stake from Google, this could imply some relevance to Google's interests and investments in AI.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>Garry Tan – GitHub Repos <span class="badge stale">2026-05-13</span></h3>
@@ -629,33 +468,6 @@
   <li>It was updated on 2026-05-13</li>
 </ul>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Garry Tan's repositories, gbrain and gstack, are related to AI tools, and OpenAI is a key player in AI, with Microsoft having a 49% stake in OpenAI, implying a potential benefit to MSFT from advancements in AI technology.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The gbrain repository is for an opinionated OpenClaw/Hermes Agent Brain, and NVIDIA is a primary GPU supplier for AI compute, implying a potential benefit to NVDA from increased demand for AI computing power.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Garry Tan's repositories may utilize Amazon Web Services (AWS) for hosting or computing, given the mention of various tools and setups, implying a potential benefit to AMZN from increased cloud usage.</div>
-</div>
-</div>
 </div>
 </section>
 <section id="investor-positioning" class="category">
@@ -857,33 +669,6 @@
   <li>Subramanian's book explores the history and current state of undersea cables, including the impact of the volcanic eruption off the coast of Tonga, which severed the country's international undersea data cable.</li>
 </ul>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">GOOGL</span>
-  <span class="ts-company">Google Inc</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The source discusses undersea cables and their importance for internet connectivity, which is a critical component of Google's business, including its cloud services and data centers.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com Inc</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The source highlights the limitations of satellites, which could imply that companies like Amazon, which relies on robust internet connectivity for its cloud services, may benefit from the continued development and investment in undersea cables.</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">The discussion of undersea cables and big tech companies funding them could imply that Microsoft, which has a significant cloud business, may also benefit from the growth and reliability of undersea cables.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>Exchanges (Goldman Sachs) <span class="badge stale">2026-05-13</span></h3>
@@ -917,33 +702,6 @@
   <li>Copyright 2026, all rights reserved.</li>
 </ul>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source mentions a significant rally in technology stocks, which can be inferred to be driven in part by NVIDIA's strong position in the tech industry, particularly in the field of artificial intelligence and graphics processing.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source discusses innovation as a core portfolio driver, which can be inferred to benefit Microsoft, a leading technology company with a strong focus on innovation and research and development.</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">GOOGL</span>
-  <span class="ts-company">Alphabet Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The source mentions the impact of innovation on portfolio construction, which can be inferred to benefit Google, a leader in the tech industry with a strong focus on innovation and research and development.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>The Bid (BlackRock) <span class="badge stale">2026-05-08</span></h3>
@@ -1010,17 +768,6 @@
   <li>The intro music and video credits are attributed to specific artists.</li>
 </ul>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">APP</span>
-  <span class="ts-company">AppLovin Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">The podcast is supported by Axon.ai, AppLovin's AI advertising platform, indicating a significant revenue stream and exposure to AI advertising trends.</div>
-</div>
-</div>
 </div>
 <div class="source quiet">
 <h3>AI + a16z <span class="badge stale">2026-05-12</span></h3>
@@ -1087,57 +834,6 @@
   <li>Security concerns, including the Mini Shai-Hulud supply-chain attack and its potential impact on AI developer tooling</li>
 </ul>
 </details>
-<div class="trade-signals">
-<div class="trade-signals-header">📈 Trade Signals</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">MSFT</span>
-  <span class="ts-company">Microsoft Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">OpenAI deprecating finetuning APIs, MSFT has a 49% stake in OpenAI and benefits from Azure revenue, potential industry impact may drive demand for MSFT's AI-related services</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">OpenAI deprecating finetuning APIs, NVDA is the primary GPU supplier for OpenAI, advancements in inference systems and optimizer work may drive demand for NVDA's computing hardware</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">AMZN</span>
-  <span class="ts-company">Amazon.com, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Anthropic's potential to raise at a higher valuation, AMZN is a primary investor in Anthropic and hosts it on AWS, potential industry impact may drive demand for AMZN's cloud services</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#92400e;--lb:#fef3c7;--dt:#78350f;--db:#fde68a">Proxy</span>
-  <span class="ts-ticker">GOOGL</span>
-  <span class="ts-company">Alphabet Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Anthropic's potential to raise at a higher valuation, GOOGL has a minority stake in Anthropic, potential industry impact may drive demand for GOOGL's AI-related services</div>
-</div>
-<div class="ts-row" style="opacity:0.85">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">NVDA</span>
-  <span class="ts-company">NVIDIA Corporation</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Medium</span>
-  <div class="ts-rationale">Advances in research-level reasoning benchmarks, hard evaluations, and agentic science systems, these developments may drive demand for high-performance computing hardware, such as NVDA's GPUs</div>
-</div>
-<div class="ts-row" style="opacity:0.65">
-  <span class="ts-badge" style="--lt:#1e40af;--lb:#dbeafe;--dt:#1e3a8a;--db:#bfdbfe">Implicit</span>
-  <span class="ts-ticker">AMD</span>
-  <span class="ts-company">Advanced Micro Devices, Inc.</span>
-  <span class="ts-dir" style="color:#16a34a">LONG</span>
-  <span class="ts-conv">Low</span>
-  <div class="ts-rationale">Developments in optimizer work, including fast variants of SOAP/Muon-style updates, may drive demand for alternative computing hardware, such as AMD's GPUs</div>
-</div>
-</div>
 </div>
 </section>
 <section id="research" class="category">
