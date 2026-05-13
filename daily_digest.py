@@ -1182,39 +1182,69 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
     EXTRACT_PROMPT = """\
-You are extracting trade signals from a single source summary for a quant macro hedge fund analyst.
+You are a senior analyst at a quant macro hedge fund extracting non-obvious, high-value trade signals from a source summary.
 
-Produce four tiers of signals:
+━━ STEP 1: IDENTIFY THE CORE THESIS ━━
+Before extracting any signals, state the source's central argument in one sentence:
+THESIS: [one sentence — the specific claim, finding, or trend the source is reporting]
 
-EXPLICIT — the source directly names a PUBLICLY TRADED company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
-IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific PUBLICLY TRADED company, even if that company is not named. Use your domain expertise (e.g. source discusses surging inference compute demand → LONG NVDA).
-PROXY — the source substantively discusses a PRIVATE company (e.g. OpenAI, Anthropic, xAI, Groq, Mistral, Perplexity, SpaceX, Scale AI). Map it to the most exposed PUBLICLY TRADED company and explain the exposure chain (equity stake, revenue dependency, cloud provider, infrastructure supplier, competitive threat). The TICKER and direction refer to the PUBLIC proxy, not the private company.
-UPSTREAM — non-obvious second/third-order beneficiaries that sit in the value chain or supply a critical input. Think one or two steps removed: if this theme plays out, who else wins or loses? Examples: AI inference boom → networking (ANET), HBM memory (MU, SK Hynix via INTC), power generation (VST, CEG), cooling (VRT), data center REITs (EQIX, DLR). EDA software growth → fabless designers who benefit from faster iteration (AVGO, MRVL). These are the trades others overlook.
+━━ STEP 2: EXTRACT SIGNALS FROM THE THESIS ━━
+Every signal must flow from the THESIS, not from generic "this company uses AI" logic.
 
-CRITICAL: OpenAI, Anthropic, xAI, Groq, Mistral and similar AI labs are PRIVATE — never use them as TICKER. Always route through PROXY or UPSTREAM.
-Known proxy mappings (examples — use judgment):
-  OpenAI → MSFT (49% stake, Azure), NVDA (primary GPU supplier)
-  Anthropic → AMZN (primary investor + AWS host), GOOGL (minority stake)
-  xAI → TSLA (Musk/shared resources), NVDA (compute)
-  Groq → threatens NVDA on inference → SHORT NVDA or LONG AMD
-  Perplexity → AMZN (investor), NVDA (compute)
+FOUR TIERS:
 
-Rules:
-- EXPLICIT: direct quote or close paraphrase required as evidence.
-- IMPLICIT: state which part of the source drives the inference and why.
-- PROXY: name the private company in the chain field; TICKER = the public proxy.
-- UPSTREAM: name the triggering theme/company and explain the non-obvious connection.
-- Sponsor mentions and passing name-drops do not qualify for EXPLICIT/IMPLICIT.
-- If a ticker already appears as EXPLICIT, do not also list it as IMPLICIT/PROXY/UPSTREAM.
-- Aim for 1–3 UPSTREAM ideas per source when the theme supports it — these add the most value.
-- If no signals of any type exist, output exactly: NONE
+EXPLICIT — the source directly names a PUBLICLY TRADED company with a clear directional view. Requires a direct quote or paraphrase.
 
-Output format — one line per signal, pipe-separated (7 fields):
-TYPE | TICKER | Full Public Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | RATIONALE | EVIDENCE or CHAIN
+IMPLICIT — the source's specific thesis implies a directional view on a public company that is NOT named. Must be specific to the thesis — not generic tech/AI exposure.
 
-  RATIONALE: 1–2 sentence investment thesis — why this trade, what is the edge
-  EVIDENCE/CHAIN: specific source text for EXPLICIT/IMPLICIT; value-chain logic for PROXY/UPSTREAM
-  Conviction: HIGH = strong direct case or critical-dependency; MEDIUM = solid supporting evidence; LOW = speculative or peripheral
+PROXY — the source discusses a PRIVATE company substantively. Map to the most exposed PUBLIC company and explain the stake/dependency/threat.
+
+UPSTREAM — the most valuable tier. Non-obvious second/third-order plays: who else wins or loses if this specific thesis plays out? Work through the supply chain, value chain, and ecosystem. Ask: what input, component, infrastructure, or adjacent market does this create demand for?
+
+━━ CRITICAL BANS — these signals are WORTHLESS and must NOT be produced ━━
+✗ "[Source] discusses AI → LONG NVDA/MSFT/AMZN" — too generic
+✗ "[Company] is growing and uses cloud → LONG cloud providers" — too generic
+✗ "[Source] mentions AI models → LONG GPU makers" — too generic
+✗ Any inference that would apply to every single AI-related article
+
+A signal is only acceptable if you can complete this sentence specifically:
+"This source specifically says [X], which is non-obvious evidence that [TICKER] will benefit/suffer because [specific mechanism]."
+
+━━ GOOD EXAMPLES of acceptable signals ━━
+Source says data center power density is rising 10x per rack:
+  UPSTREAM | VRT | Vertiv Holdings | LONG | HIGH | Liquid cooling becomes mandatory at 10x power density; Vertiv dominates liquid cooling market | Source states rack density rising 10x, forcing shift from air to liquid cooling
+  UPSTREAM | VST | Vistra Corp | LONG | MEDIUM | Each new hyperscale cluster requires ~100MW+ dedicated power; merchant power providers like Vistra benefit from grid scarcity | Data center power density growth implies massive new utility-scale power demand
+
+Source says EDA software now runs complex multi-die simulations that previously took weeks:
+  UPSTREAM | MRVL | Marvell Technology | LONG | MEDIUM | Faster EDA iteration compresses design cycles for fabless chip designers, allowing more product variants per year — Marvell is a heavy EDA user with multiple chip families | EDA simulation acceleration reduces Marvell's time-to-market for custom silicon
+
+Source says inference is moving to edge devices instead of cloud:
+  IMPLICIT | QCOM | Qualcomm | LONG | HIGH | Edge inference requires mobile-optimized NPUs; Qualcomm's Snapdragon dominates on-device AI and benefits directly as inference shifts off cloud
+  UPSTREAM | ARM | Arm Holdings | LONG | MEDIUM | Every edge AI device runs an Arm-based chip; edge inference proliferation multiplies Arm's royalty base
+
+━━ PRIVATE COMPANY ROUTING ━━
+OpenAI → MSFT (49% stake, Azure host), NVDA (GPU supply)
+Anthropic → AMZN (primary investor + AWS host), GOOGL (minority stake)
+xAI → TSLA (Musk/shared GPU cluster), NVDA (compute buyer)
+Groq → threatens NVDA on inference latency → SHORT NVDA or LONG AMD
+Mistral/Cohere/Scale AI → AMZN/GOOGL (cloud hosts), NVDA (compute)
+
+━━ RULES ━━
+- No signal without a specific mechanism traceable to the source's actual thesis
+- EXPLICIT: only if source names the company and takes a view
+- Sponsor mentions and passing name-drops do not qualify
+- If a ticker appears as EXPLICIT, do not also list it under other tiers
+- Aim for 2–4 UPSTREAM signals per source — these are the most differentiated
+- Output NONE if there are genuinely no specific signals (acceptable for non-financial sources)
+
+━━ OUTPUT FORMAT ━━
+First line: THESIS: [one sentence]
+Then one signal per line, pipe-separated (7 fields):
+TYPE | TICKER | Full Public Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | RATIONALE | SPECIFIC EVIDENCE or CHAIN
+
+  RATIONALE: the specific investment thesis in 1–2 sentences — what changes, why this company specifically
+  EVIDENCE/CHAIN: exact quote or paraphrase for EXPLICIT/IMPLICIT; supply-chain/value-chain logic for UPSTREAM/PROXY
+  Conviction: HIGH = specific, strong case; MEDIUM = solid but requires one assumption; LOW = plausible but speculative
 """
 
     SYNTHESIS_PROMPT = """\
@@ -1598,11 +1628,23 @@ def _render_trade_signals(signals_text: str) -> str:
     Parse pipe-separated signal lines from per-source extraction and return
     an HTML trade-signals section to embed inside a source card.
 
-    Expected format per line (7 fields):
+    First line may be: THESIS: [one sentence core argument]
+    Then one signal per line (7 fields):
       TYPE | TICKER | Company | LONG/SHORT | conviction | Rationale | Evidence/Chain
-    Lines that don't match (prose, NONE, errors) are silently skipped.
+    Lines that don't match are silently skipped.
     """
     import re as _re
+
+    # Extract optional THESIS line
+    thesis = ""
+    lines_raw = signals_text.splitlines()
+    signal_lines = []
+    for line in lines_raw:
+        stripped = line.strip()
+        if stripped.upper().startswith("THESIS:"):
+            thesis = stripped[7:].strip()
+        else:
+            signal_lines.append(stripped)
 
     TYPE_COLORS = {
         "EXPLICIT": ("#166534", "#dcfce7", "#14532d", "#bbf7d0"),  # green
@@ -1618,7 +1660,7 @@ def _render_trade_signals(signals_text: str) -> str:
     }
 
     rows = []
-    for line in signals_text.splitlines():
+    for line in signal_lines:
         line = line.strip()
         if not line or line.upper() == "NONE":
             continue
@@ -1643,7 +1685,7 @@ def _render_trade_signals(signals_text: str) -> str:
 
         rows.append((sig_type, ticker, company, direction, conviction, rationale, chain))
 
-    if not rows:
+    if not rows and not thesis:
         return ""
 
     # Build HTML
@@ -1652,6 +1694,8 @@ def _render_trade_signals(signals_text: str) -> str:
 
     html = '<div class="trade-signals">\n'
     html += '<div class="trade-signals-header">📈 Trade Signals</div>\n'
+    if thesis:
+        html += f'<div class="ts-thesis"><strong>Thesis:</strong> {thesis}</div>\n'
 
     for sig_type, ticker, company, direction, conviction, rationale, chain in rows:
         lt, lb, dt, db = TYPE_COLORS[sig_type]
@@ -1848,6 +1892,7 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
     .holdings-table tr:hover td { background: var(--bg); }
     .trade-signals { margin-top: 0.9rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; }
     .trade-signals-header { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem; }
+    .ts-thesis { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; line-height: 1.5; }
     .ts-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.5rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
     .ts-row:last-child { border-bottom: none; }
     .ts-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.45rem; border-radius: 5px; background: var(--lb); color: var(--lt); white-space: nowrap; }
