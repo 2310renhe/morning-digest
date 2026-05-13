@@ -1184,63 +1184,62 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     EXTRACT_PROMPT = """\
 You are extracting trade signals from a single source summary for a quant macro hedge fund analyst.
 
-Produce three tiers of signals:
+Produce four tiers of signals:
 
 EXPLICIT — the source directly names a PUBLICLY TRADED company AND expresses or strongly implies a directional view (bullish = LONG, bearish = SHORT).
 IMPLICIT — the source discusses a theme, trend, or technology from which a knowledgeable analyst can reasonably infer a directional view on a specific PUBLICLY TRADED company, even if that company is not named. Use your domain expertise (e.g. source discusses surging inference compute demand → LONG NVDA).
-PROXY — the source substantively discusses a PRIVATE company (e.g. OpenAI, Anthropic, xAI, Groq, Mistral, Perplexity, SpaceX, Scale AI, Cohere). Map it to the most exposed PUBLICLY TRADED company and explain the exposure chain (equity stake, revenue dependency, cloud provider, infrastructure supplier, competitive threat, etc.). The TICKER and direction refer to the PUBLIC proxy, not the private company.
+PROXY — the source substantively discusses a PRIVATE company (e.g. OpenAI, Anthropic, xAI, Groq, Mistral, Perplexity, SpaceX, Scale AI). Map it to the most exposed PUBLICLY TRADED company and explain the exposure chain (equity stake, revenue dependency, cloud provider, infrastructure supplier, competitive threat). The TICKER and direction refer to the PUBLIC proxy, not the private company.
+UPSTREAM — non-obvious second/third-order beneficiaries that sit in the value chain or supply a critical input. Think one or two steps removed: if this theme plays out, who else wins or loses? Examples: AI inference boom → networking (ANET), HBM memory (MU, SK Hynix via INTC), power generation (VST, CEG), cooling (VRT), data center REITs (EQIX, DLR). EDA software growth → fabless designers who benefit from faster iteration (AVGO, MRVL). These are the trades others overlook.
 
-CRITICAL: OpenAI, Anthropic, xAI, Groq, Mistral, Perplexity, and similar AI labs are PRIVATE — they have no public ticker. Never use them as the TICKER in any signal. Always route them through a public proxy.
-Known proxy mappings (use your judgment, these are examples):
-  OpenAI    → MSFT (49% stake, Azure revenue), NVDA (primary GPU supplier)
+CRITICAL: OpenAI, Anthropic, xAI, Groq, Mistral and similar AI labs are PRIVATE — never use them as TICKER. Always route through PROXY or UPSTREAM.
+Known proxy mappings (examples — use judgment):
+  OpenAI → MSFT (49% stake, Azure), NVDA (primary GPU supplier)
   Anthropic → AMZN (primary investor + AWS host), GOOGL (minority stake)
-  xAI       → TSLA (Musk overlap, shared resources), NVDA (compute)
-  Groq      → could threaten NVDA (inference chip competitor) → SHORT NVDA or LONG AMD
-  Perplexity → AMZN (investor), NVDA (compute dependency)
+  xAI → TSLA (Musk/shared resources), NVDA (compute)
+  Groq → threatens NVDA on inference → SHORT NVDA or LONG AMD
+  Perplexity → AMZN (investor), NVDA (compute)
 
 Rules:
-- EXPLICIT signals must be grounded in a direct quote or close paraphrase.
-- IMPLICIT signals must state which part of the source text drives the inference and why.
-- PROXY signals must name the private company in the evidence field, identify the public proxy as the TICKER, and explain the exposure chain.
-- Sponsor mentions, passing name-drops, and pure comparisons do not qualify for EXPLICIT or IMPLICIT. They may qualify for PROXY if the private company is substantively discussed.
-- If a company appears as EXPLICIT, do not also list it as IMPLICIT or PROXY.
-- If there are truly no signals of any type, output exactly: NONE
+- EXPLICIT: direct quote or close paraphrase required as evidence.
+- IMPLICIT: state which part of the source drives the inference and why.
+- PROXY: name the private company in the chain field; TICKER = the public proxy.
+- UPSTREAM: name the triggering theme/company and explain the non-obvious connection.
+- Sponsor mentions and passing name-drops do not qualify for EXPLICIT/IMPLICIT.
+- If a ticker already appears as EXPLICIT, do not also list it as IMPLICIT/PROXY/UPSTREAM.
+- Aim for 1–3 UPSTREAM ideas per source when the theme supports it — these add the most value.
+- If no signals of any type exist, output exactly: NONE
 
-Output format — one line per signal, pipe-separated:
-TYPE | TICKER | Full Public Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | evidence, reasoning, or exposure chain
+Output format — one line per signal, pipe-separated (7 fields):
+TYPE | TICKER | Full Public Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | RATIONALE | EVIDENCE or CHAIN
 
-  TYPE: EXPLICIT, IMPLICIT, or PROXY
-  Conviction guide:
-    HIGH   = strong, direct case or majority-stake / critical-dependency exposure
-    MEDIUM = meaningful supporting evidence or significant-minority-stake exposure
-    LOW    = single or indirect reference / plausible but weak inference / peripheral exposure
+  RATIONALE: 1–2 sentence investment thesis — why this trade, what is the edge
+  EVIDENCE/CHAIN: specific source text for EXPLICIT/IMPLICIT; value-chain logic for PROXY/UPSTREAM
+  Conviction: HIGH = strong direct case or critical-dependency; MEDIUM = solid supporting evidence; LOW = speculative or peripheral
 """
 
     SYNTHESIS_PROMPT = """\
 You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
 
-Below are trade signals extracted per-source, labelled:
-  EXPLICIT — source directly named the public company with a directional view
-  IMPLICIT — analyst inference from source theme to a public company
-  PROXY    — private company discussed; signal routed through an exposed public company
+Below are per-source trade signals, labelled EXPLICIT / IMPLICIT / PROXY / UPSTREAM.
+Each signal has 7 pipe-separated fields: TYPE | TICKER | Name | Direction | Conviction | Rationale | Evidence/Chain
 
 Your job:
-1. Aggregate signals for the same ticker across sources. Multiple sources flagging the same ticker in the same direction raises conviction.
-2. When the same private company appears in PROXY signals from multiple sources, aggregate them under the best public proxy ticker.
-3. Produce a final ranked table of 5–10 ideas, ordered by conviction then expected impact.
-4. Assign final conviction: HIGH if 2+ sources agree, or 1 source with a very explicit bullish/bearish call; MEDIUM if 1 solid source; LOW if weak/single reference or peripheral proxy exposure.
-5. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ companies in the sector appear across signals.
-6. Preserve the signal type label in the output. If a ticker has both EXPLICIT and PROXY signals, use the higher-quality label.
+1. Aggregate signals for the same ticker across sources. Agreement across sources raises conviction.
+2. Produce a final ranked table of 5–10 ideas, ordered by conviction then expected impact.
+3. Final conviction: HIGH if 2+ sources agree or 1 very explicit call; MEDIUM if 1 solid source; LOW if weak/speculative.
+4. Prefer specific tickers. Use sector ETFs (SMH, SOXX, XLK) only if 3+ sector companies appear.
+5. Preserve the highest-quality type label per ticker (EXPLICIT > IMPLICIT > PROXY > UPSTREAM).
+6. Write a concise Rationale for each final idea that synthesises the best evidence across sources.
 
 Output format:
 
 **Table:**
 | # | Asset | Ticker | Direction | Conviction | Type | Source(s) |
 |---|-------|--------|-----------|------------|------|-----------|
-| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Explicit/Implicit/Proxy | Source A, Source B |
+| 1 | ... | ... | LONG/SHORT | HIGH/MEDIUM/LOW | Explicit/Implicit/Proxy/Upstream | Source A, Source B |
 
-**Supporting notes:**
-**1. [Asset] ([Type])** — [synthesise the evidence; for Proxy ideas name the private company and explain the exposure chain; for Implicit ideas state the inferential chain from source text to trade]
+**Notes:**
+**1. [Asset]** — [Rationale: 2–3 sentences synthesising the thesis and evidence across sources. For Proxy/Upstream, name the private company or triggering theme and explain the connection.]
 ...
 """
 
@@ -1271,7 +1270,7 @@ Output format:
             try:
                 resp = client.chat.completions.create(
                     model=GROQ_MODEL,
-                    max_tokens=600,
+                    max_tokens=1200,
                     messages=[
                         {"role": "system", "content": EXTRACT_PROMPT},
                         {"role": "user", "content": f"Source: {name}\n\n{summary_text[:4000]}"},
@@ -1594,7 +1593,94 @@ def md_to_html_simple(text: str) -> str:
 
 
 
-def build_html(date_str: str, results: list) -> str:
+def _render_trade_signals(signals_text: str) -> str:
+    """
+    Parse pipe-separated signal lines from per-source extraction and return
+    an HTML trade-signals section to embed inside a source card.
+
+    Expected format per line (7 fields):
+      TYPE | TICKER | Company | LONG/SHORT | conviction | Rationale | Evidence/Chain
+    Lines that don't match (prose, NONE, errors) are silently skipped.
+    """
+    import re as _re
+
+    TYPE_COLORS = {
+        "EXPLICIT": ("#166534", "#dcfce7", "#14532d", "#bbf7d0"),  # green
+        "IMPLICIT": ("#1e40af", "#dbeafe", "#1e3a8a", "#bfdbfe"),  # blue
+        "PROXY":    ("#92400e", "#fef3c7", "#78350f", "#fde68a"),  # amber
+        "UPSTREAM": ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),  # purple
+    }
+    TYPE_LABEL = {
+        "EXPLICIT": "Explicit",
+        "IMPLICIT": "Implicit",
+        "PROXY":    "Proxy",
+        "UPSTREAM": "Upstream",
+    }
+
+    rows = []
+    for line in signals_text.splitlines():
+        line = line.strip()
+        if not line or line.upper() == "NONE":
+            continue
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 5:
+            continue
+        sig_type = parts[0].upper()
+        if sig_type not in TYPE_COLORS:
+            continue
+        ticker    = parts[1] if len(parts) > 1 else ""
+        company   = parts[2] if len(parts) > 2 else ""
+        direction = parts[3].upper() if len(parts) > 3 else ""
+        conviction= parts[4].upper() if len(parts) > 4 else ""
+        rationale = parts[5] if len(parts) > 5 else ""
+        chain     = parts[6] if len(parts) > 6 else ""
+
+        # Skip malformed / placeholder rows
+        if not ticker or ticker.upper() in ("NONE", "N/A", "") or not direction:
+            continue
+        if direction not in ("LONG", "SHORT"):
+            continue
+
+        rows.append((sig_type, ticker, company, direction, conviction, rationale, chain))
+
+    if not rows:
+        return ""
+
+    # Build HTML
+    dir_color = {"LONG": "#16a34a", "SHORT": "#dc2626"}
+    conv_opacity = {"HIGH": "1", "MEDIUM": "0.85", "LOW": "0.65"}
+
+    html = '<div class="trade-signals">\n'
+    html += '<div class="trade-signals-header">📈 Trade Signals</div>\n'
+
+    for sig_type, ticker, company, direction, conviction, rationale, chain in rows:
+        lt, lb, dt, db = TYPE_COLORS[sig_type]
+        type_label = TYPE_LABEL[sig_type]
+        d_color = dir_color.get(direction, "#666")
+        opacity = conv_opacity.get(conviction, "1")
+
+        html += f'<div class="ts-row" style="opacity:{opacity}">\n'
+        html += (
+            f'  <span class="ts-badge" style="--lt:{lt};--lb:{lb};--dt:{dt};--db:{db}">'
+            f'{type_label}</span>\n'
+        )
+        html += (
+            f'  <span class="ts-ticker">{ticker}</span>\n'
+            f'  <span class="ts-company">{company}</span>\n'
+            f'  <span class="ts-dir" style="color:{d_color}">{direction}</span>\n'
+            f'  <span class="ts-conv">{conviction.capitalize()}</span>\n'
+        )
+        if rationale:
+            html += f'  <div class="ts-rationale">{rationale}</div>\n'
+        if chain:
+            html += f'  <div class="ts-chain">{chain}</div>\n'
+        html += '</div>\n'
+
+    html += '</div>\n'
+    return html
+
+
+def build_html(date_str: str, results: list, state: dict = None) -> str:
     """
     results is a list of dicts with category field.
     Groups results by category for display.
@@ -1645,6 +1731,10 @@ def build_html(date_str: str, results: list) -> str:
         meta = CATEGORY_META.get(cat, {"icon": "•", "color": "#666"})
         cat_id = cat.lower().replace(" ", "-").replace("&", "and")
 
+        # Signals store for embedding per-source trade recs
+        signals_store = (state or {}).get("summaries", {}).get("_ai_signals_per_source", {})
+        _SIGNAL_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
+
         source_blocks = []
         for r in items:
             name = r["name"]
@@ -1686,6 +1776,16 @@ def build_html(date_str: str, results: list) -> str:
                     block += f'<p class="quiet-note"><a href="{latest_link}">View source</a></p>\n'
                 else:
                     block += '<p class="quiet-note">No new items.</p>\n'
+
+            # Embed per-source trade signals for eligible categories
+            # Skip synthesis/summary cards (they have no entry in signals_store anyway)
+            if cat in _SIGNAL_CATEGORIES:
+                sig_cache = signals_store.get(name, {})
+                sig_text = sig_cache.get("signals", "")
+                if sig_text and sig_text.strip().upper() != "NONE" and not sig_text.startswith("ERROR"):
+                    trade_html = _render_trade_signals(sig_text)
+                    if trade_html:
+                        block += trade_html
 
             block += "</div>"
             source_blocks.append(block)
@@ -1746,6 +1846,18 @@ def build_html(date_str: str, results: list) -> str:
     .holdings-table th { background: var(--bg); color: var(--muted); font-weight: 600; text-align: left; padding: 0.3rem 0.6rem; border-bottom: 2px solid var(--border); }
     .holdings-table td { padding: 0.25rem 0.6rem; border-bottom: 1px solid var(--border); }
     .holdings-table tr:hover td { background: var(--bg); }
+    .trade-signals { margin-top: 0.9rem; border-top: 1px dashed var(--border); padding-top: 0.75rem; }
+    .trade-signals-header { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem; }
+    .ts-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.5rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .ts-row:last-child { border-bottom: none; }
+    .ts-badge { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.45rem; border-radius: 5px; background: var(--lb); color: var(--lt); white-space: nowrap; }
+    @media (prefers-color-scheme: dark) { .ts-badge { background: var(--db); color: var(--dt); } }
+    .ts-ticker { font-weight: 700; font-size: 0.85rem; color: var(--text); min-width: 3.5rem; }
+    .ts-company { color: var(--muted); font-size: 0.8rem; flex: 1; min-width: 8rem; }
+    .ts-dir { font-weight: 700; font-size: 0.8rem; }
+    .ts-conv { font-size: 0.75rem; color: var(--muted); }
+    .ts-rationale { width: 100%; font-size: 0.8rem; color: var(--text); margin-top: 0.1rem; line-height: 1.5; }
+    .ts-chain { width: 100%; font-size: 0.75rem; color: var(--muted); font-style: italic; margin-top: 0.05rem; line-height: 1.4; }
     footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
     footer a { color: var(--accent); text-decoration: none; }
     """
@@ -1984,17 +2096,14 @@ def main():
 
         elif stype == "ai_synthesis":
             print(f"[ai_synthesis] {source['name']} ...")
-            ideas_text = fetch_ai_trade_ideas(state, sources, client)
+            # Run extraction so per-source signals are populated in state,
+            # then embedded inline in each source card by build_html.
+            # The standalone synthesis card is no longer shown.
+            fetch_ai_trade_ideas(state, sources, client)
             save_state(state)
-            cat = source.get("category", "AI Opinion Leaders")
-            results.insert(
-                next((i for i, r in enumerate(results) if r.get("category") == cat), 0),
-                {"name": source["name"], "category": cat,
-                 "summary": ideas_text, "is_fresh": True, "latest_date": date_str},
-            )
 
     # Always write index.html
-    html = build_html(date_str, results)
+    html = build_html(date_str, results, state=state)
     INDEX_FILE.write_text(html)
     print(f"\nWrote index.html")
 
