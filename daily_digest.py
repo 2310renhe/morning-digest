@@ -1182,7 +1182,7 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
     EXTRACT_PROMPT = """\
-You are a senior quant macro analyst. Extract trade signals from this source summary.
+You are a senior stock analyst specialized in AI industries. Extract trade signals from this source summary.
 
 STEP 1 — One sentence:
 THESIS: [the source's specific core argument or finding]
@@ -1230,7 +1230,7 @@ TYPE | TICKER | Company Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE (what chang
 """
 
     SYNTHESIS_PROMPT = """\
-You are a senior analyst at a quant macro hedge fund specialising in AI and semiconductor stocks.
+You are a senior stock analyst specialized in AI industries.
 
 Below are per-source trade signals in two tiers:
   EXPLICIT — company directly named in the source (ground truth)
