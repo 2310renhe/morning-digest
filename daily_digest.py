@@ -1182,69 +1182,41 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
 
     EXTRACT_PROMPT = """\
-You are a senior analyst at a quant macro hedge fund extracting non-obvious, high-value trade signals from a source summary.
+You are a senior quant macro analyst. Extract specific, non-obvious trade signals from the source below.
 
-━━ STEP 1: IDENTIFY THE CORE THESIS ━━
-Before extracting any signals, state the source's central argument in one sentence:
-THESIS: [one sentence — the specific claim, finding, or trend the source is reporting]
+STEP 1 — Write one sentence:
+THESIS: [the source's core specific argument or finding]
 
-━━ STEP 2: EXTRACT SIGNALS FROM THE THESIS ━━
-Every signal must flow from the THESIS, not from generic "this company uses AI" logic.
+STEP 2 — Extract signals that flow directly from that thesis. Four tiers:
+EXPLICIT  = source names a PUBLIC company with a clear directional view (quote required)
+IMPLICIT  = source's specific thesis implies a view on a public company not named (must be thesis-specific, not generic)
+PROXY     = source discusses a PRIVATE company → map to most exposed PUBLIC company (stake/revenue/supply dependency)
+UPSTREAM  = non-obvious 2nd/3rd-order beneficiaries in the value chain (components, infrastructure, inputs)
 
-FOUR TIERS:
+BANNED — do not produce these (too generic to be useful):
+✗ [source mentions AI] → LONG NVDA/MSFT/AMZN
+✗ [company is growing] → needs cloud → LONG cloud providers
+✗ Any signal that would apply to every AI article
 
-EXPLICIT — the source directly names a PUBLICLY TRADED company with a clear directional view. Requires a direct quote or paraphrase.
+REQUIRED specificity test: "This source specifically says [X] → [TICKER] benefits via [non-obvious mechanism]."
 
-IMPLICIT — the source's specific thesis implies a directional view on a public company that is NOT named. Must be specific to the thesis — not generic tech/AI exposure.
+GOOD signal examples:
+  Data center power density rising 10x per rack → UPSTREAM | VRT | Vertiv | LONG | HIGH | Liquid cooling mandatory above 10kW/rack; Vertiv leads liquid cooling | Source: rack density 10x implies air cooling failure
+  EDA tools compressing chip design from months to weeks → UPSTREAM | MRVL | Marvell | LONG | MED | Faster iteration lets fabless designers like Marvell ship more variants per cycle | EDA acceleration cuts Marvell time-to-tape-out
+  Inference shifting to edge devices → IMPLICIT | QCOM | Qualcomm | LONG | HIGH | Snapdragon NPUs dominate mobile inference; edge shift directly grows Qualcomm TAM
 
-PROXY — the source discusses a PRIVATE company substantively. Map to the most exposed PUBLIC company and explain the stake/dependency/threat.
+PRIVATE company routing (PROXY tier):
+  OpenAI→MSFT(49%stake/Azure), NVDA(GPU supplier) | Anthropic→AMZN(investor/AWS), GOOGL(stake)
+  xAI→TSLA(Musk/shared cluster), NVDA | Groq→SHORT NVDA or LONG AMD (inference competitor)
 
-UPSTREAM — the most valuable tier. Non-obvious second/third-order plays: who else wins or loses if this specific thesis plays out? Work through the supply chain, value chain, and ecosystem. Ask: what input, component, infrastructure, or adjacent market does this create demand for?
+RULES:
+- Every signal needs a specific mechanism, not just "AI exposure"
+- Sponsor mentions / name-drops do not qualify
+- Aim for 2–4 UPSTREAM signals when the source discusses infrastructure, supply chains, or capex
+- Output NONE if no specific signals exist
 
-━━ CRITICAL BANS — these signals are WORTHLESS and must NOT be produced ━━
-✗ "[Source] discusses AI → LONG NVDA/MSFT/AMZN" — too generic
-✗ "[Company] is growing and uses cloud → LONG cloud providers" — too generic
-✗ "[Source] mentions AI models → LONG GPU makers" — too generic
-✗ Any inference that would apply to every single AI-related article
-
-A signal is only acceptable if you can complete this sentence specifically:
-"This source specifically says [X], which is non-obvious evidence that [TICKER] will benefit/suffer because [specific mechanism]."
-
-━━ GOOD EXAMPLES of acceptable signals ━━
-Source says data center power density is rising 10x per rack:
-  UPSTREAM | VRT | Vertiv Holdings | LONG | HIGH | Liquid cooling becomes mandatory at 10x power density; Vertiv dominates liquid cooling market | Source states rack density rising 10x, forcing shift from air to liquid cooling
-  UPSTREAM | VST | Vistra Corp | LONG | MEDIUM | Each new hyperscale cluster requires ~100MW+ dedicated power; merchant power providers like Vistra benefit from grid scarcity | Data center power density growth implies massive new utility-scale power demand
-
-Source says EDA software now runs complex multi-die simulations that previously took weeks:
-  UPSTREAM | MRVL | Marvell Technology | LONG | MEDIUM | Faster EDA iteration compresses design cycles for fabless chip designers, allowing more product variants per year — Marvell is a heavy EDA user with multiple chip families | EDA simulation acceleration reduces Marvell's time-to-market for custom silicon
-
-Source says inference is moving to edge devices instead of cloud:
-  IMPLICIT | QCOM | Qualcomm | LONG | HIGH | Edge inference requires mobile-optimized NPUs; Qualcomm's Snapdragon dominates on-device AI and benefits directly as inference shifts off cloud
-  UPSTREAM | ARM | Arm Holdings | LONG | MEDIUM | Every edge AI device runs an Arm-based chip; edge inference proliferation multiplies Arm's royalty base
-
-━━ PRIVATE COMPANY ROUTING ━━
-OpenAI → MSFT (49% stake, Azure host), NVDA (GPU supply)
-Anthropic → AMZN (primary investor + AWS host), GOOGL (minority stake)
-xAI → TSLA (Musk/shared GPU cluster), NVDA (compute buyer)
-Groq → threatens NVDA on inference latency → SHORT NVDA or LONG AMD
-Mistral/Cohere/Scale AI → AMZN/GOOGL (cloud hosts), NVDA (compute)
-
-━━ RULES ━━
-- No signal without a specific mechanism traceable to the source's actual thesis
-- EXPLICIT: only if source names the company and takes a view
-- Sponsor mentions and passing name-drops do not qualify
-- If a ticker appears as EXPLICIT, do not also list it under other tiers
-- Aim for 2–4 UPSTREAM signals per source — these are the most differentiated
-- Output NONE if there are genuinely no specific signals (acceptable for non-financial sources)
-
-━━ OUTPUT FORMAT ━━
-First line: THESIS: [one sentence]
-Then one signal per line, pipe-separated (7 fields):
-TYPE | TICKER | Full Public Company Name | LONG or SHORT | HIGH or MEDIUM or LOW | RATIONALE | SPECIFIC EVIDENCE or CHAIN
-
-  RATIONALE: the specific investment thesis in 1–2 sentences — what changes, why this company specifically
-  EVIDENCE/CHAIN: exact quote or paraphrase for EXPLICIT/IMPLICIT; supply-chain/value-chain logic for UPSTREAM/PROXY
-  Conviction: HIGH = specific, strong case; MEDIUM = solid but requires one assumption; LOW = plausible but speculative
+OUTPUT — first line THESIS, then one signal per line (7 pipe-separated fields):
+TYPE | TICKER | Company Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE (1-2 sentences: what changes + why this ticker) | EVIDENCE or CHAIN
 """
 
     SYNTHESIS_PROMPT = """\
@@ -1309,7 +1281,9 @@ Output format:
                 signals_text = resp.choices[0].message.content.strip()
             except Exception as e:
                 signals_text = f"ERROR: {e}"
-            signals_store[name] = {"summary_hash": summary_hash, "signals": signals_text, "date": today}
+            # Only write to cache if successful — don't overwrite a good prior result with an error
+            if not signals_text.startswith("ERROR"):
+                signals_store[name] = {"summary_hash": summary_hash, "signals": signals_text, "date": today}
             _time.sleep(0.3)  # avoid Groq rate limit
 
         if signals_text and signals_text.upper() != "NONE" and not signals_text.startswith("ERROR"):
