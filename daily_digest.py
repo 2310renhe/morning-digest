@@ -1204,20 +1204,39 @@ BANNED (too generic — reject these):
 ✗ [source discusses AI] → LONG NVDA or MSFT or AMZN
 ✗ [company is growing] → needs cloud → LONG cloud providers
 ✗ Any signal that would apply to every AI-related article this week
+✗ The company that owns, produces, or hosts this source as an EXPLICIT signal
+   (e.g. Goldman Sachs podcast → do NOT output GS; BlackRock podcast → do NOT output BLK)
+   These are promotional/brand signals, not investment signals.
 
 Specificity test — only output a DERIVED signal if you can complete:
 "Because this source specifically says [X], [TICKER] benefits via [concrete non-obvious mechanism]."
+
+For institutional podcast sources (Goldman Sachs, BlackRock, Odd Lots, Money Stuff, etc.):
+  The host firm is NOT a signal. Focus entirely on companies, sectors, or macro themes
+  discussed by the guest or in the content. Push for the second- and third-order plays:
+  who supplies the trend being discussed, who loses share, what infrastructure gets built?
 
 Good DERIVED examples:
   Source: EDA tools dominate chip design → DERIVED | MRVL | Marvell | LONG | MED | Faster EDA iteration shortens tape-out cycles for fabless designers; Marvell ships 5+ chip families per year and directly benefits | EDA compression → Marvell TAM expansion via more design starts per year
   Source: data center racks scaling to 100kW+ → DERIVED | VRT | Vertiv | LONG | HIGH | Air cooling fails above ~30kW/rack; Vertiv is the dominant liquid cooling vendor for hyperscalers | Rack density growth forces liquid cooling mandate
   Source: OpenAI expanding aggressively → DERIVED | MSFT | Microsoft | LONG | MED | Microsoft holds ~49% of OpenAI and hosts it on Azure; OpenAI revenue growth directly flows to Azure line | OpenAI → MSFT equity stake + Azure hosting revenue
+  Source: tariffs raise manufacturing costs across the board → DERIVED | GLD | Gold ETF | LONG | MED | Tariff uncertainty drives safe-haven flows into gold; source cites erosion of real yields and dollar confidence | Policy uncertainty → gold safe-haven demand
+  Source: AI data center buildout accelerating → DERIVED | FCX | Freeport-McMoRan | LONG | MED | Each MW of data center capacity requires ~50 tons of copper for wiring/cooling; FCX is the largest US copper producer | Data center electricity demand → copper intensive infrastructure
+  Source: Energy grid under strain from AI load → DERIVED | UNG | Natural Gas ETF | LONG | MED | Gas peaker plants are the marginal electricity supplier when grid demand spikes; data center load growth tightens gas markets | AI power demand → nat gas peaker utilization
 
 Private company routing:
   OpenAI → MSFT (49% stake, Azure host), NVDA (primary GPU supplier)
   Anthropic → AMZN (lead investor + AWS host), GOOGL (minority stake)
   xAI → TSLA (Musk/shared GPU cluster), NVDA (compute buyer)
   Groq → threatens NVDA on inference → SHORT NVDA or LONG AMD
+
+Commodity universe — valid DERIVED targets when the thesis implies commodity demand or supply:
+  Copper: FCX (Freeport-McMoRan), COPX (Global X Copper Miners ETF)
+  Gold: GLD (SPDR Gold Shares), GDX (Gold Miners ETF), NEM (Newmont)
+  Silver: SLV (iShares Silver Trust), PAAS (Pan American Silver)
+  Oil: USO (US Oil Fund), XOM (ExxonMobil), CVX (Chevron)
+  Natural Gas: UNG (US Natural Gas ETF), EQT (largest US gas producer)
+  Uranium: URA (Global X Uranium ETF), CCJ (Cameco)
 
 Rules:
 - EXPLICIT only if source names the company; sponsor mentions and name-drops don't qualify.
@@ -1268,6 +1287,10 @@ Output format:
         stype = source.get("type", "")
         if stype in ("investor_summary", "ai_synthesis"):
             continue
+        # GitHub repo feeds: new repos are by nature "bullish AI" — not actionable signals
+        src_url = source.get("url", "")
+        if "github.com" in src_url and "tab=repositories" in src_url:
+            continue
         name = source["name"]
         cached_sum = state.get("summaries", {}).get(name, {})
         summary_text = cached_sum.get("text", "")
@@ -1280,23 +1303,34 @@ Output format:
         if cached_sig.get("summary_hash") == summary_hash and cached_sig.get("signals"):
             signals_text = cached_sig["signals"]
         else:
-            # Call Groq for this source
-            try:
-                resp = client.chat.completions.create(
-                    model=GROQ_MODEL,
-                    max_tokens=1200,
-                    messages=[
-                        {"role": "system", "content": EXTRACT_PROMPT},
-                        {"role": "user", "content": f"Source: {name}\n\n{summary_text[:4000]}"},
-                    ],
-                )
-                signals_text = resp.choices[0].message.content.strip()
-            except Exception as e:
-                signals_text = f"ERROR: {e}"
+            # Call Groq for this source — retry once on 429 rate limit
+            signals_text = ""
+            for _attempt in range(2):
+                try:
+                    resp = client.chat.completions.create(
+                        model=GROQ_MODEL,
+                        max_tokens=1200,
+                        messages=[
+                            {"role": "system", "content": EXTRACT_PROMPT},
+                            {"role": "user", "content": f"Source: {name}\n\n{summary_text[:4000]}"},
+                        ],
+                    )
+                    signals_text = resp.choices[0].message.content.strip()
+                    break  # success
+                except Exception as e:
+                    err_str = str(e)
+                    if "429" in err_str and _attempt == 0:
+                        # Per-minute TPM limit hit — wait 30s then retry once
+                        print(f"  [rate limit] 429 on {name}, waiting 30s before retry...")
+                        _time.sleep(30)
+                        signals_text = f"ERROR: {e}"
+                    else:
+                        signals_text = f"ERROR: {e}"
+                        break
             # Only write to cache if successful — don't overwrite a good prior result with an error
-            if not signals_text.startswith("ERROR"):
+            if signals_text and not signals_text.startswith("ERROR"):
                 signals_store[name] = {"summary_hash": summary_hash, "signals": signals_text, "date": today}
-            _time.sleep(0.3)  # avoid Groq rate limit
+            _time.sleep(2)  # 2s between calls to respect Groq ~6k TPM per-minute limit
 
         if signals_text and signals_text.upper() != "NONE" and not signals_text.startswith("ERROR"):
             per_source_blocks.append(f"### {name}\n{signals_text}")
@@ -1729,9 +1763,6 @@ def _render_trade_signals(signals_text: str, market_data: dict = None) -> str:
         td = mkt.get(ticker, {})
         ytd     = td.get("ytd", "—")
         fwd_pe  = td.get("fwd_pe", "—")
-        ytd_pct = td.get("ytd_pct")
-        ytd_color = ("#16a34a" if ytd_pct and ytd_pct >= 0 else "#dc2626") if ytd_pct is not None else "var(--muted)"
-
         html += f'<div class="ts-row" style="opacity:{opacity}">\n'
         html += (
             f'  <span class="ts-badge" style="--lt:{lt};--lb:{lb};--dt:{dt};--db:{db}">'
@@ -1742,7 +1773,7 @@ def _render_trade_signals(signals_text: str, market_data: dict = None) -> str:
             f'  <span class="ts-company">{company}</span>\n'
             f'  <span class="ts-dir" style="color:{d_color}">{direction}</span>\n'
             f'  <span class="ts-conv">{conviction.capitalize()}</span>\n'
-            f'  <span class="ts-mkt"><span style="color:{ytd_color}">{ytd}</span>'
+            f'  <span class="ts-mkt"><span style="color:var(--muted)">{ytd}</span>'
             f' &nbsp;·&nbsp; P/E&nbsp;{fwd_pe}</span>\n'
         )
         if rationale:
