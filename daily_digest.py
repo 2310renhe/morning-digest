@@ -1885,8 +1885,9 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
                     block += '<p class="quiet-note">No new items.</p>\n'
 
             # Embed per-source trade signals for eligible categories
-            # Skip synthesis/summary cards (they have no entry in signals_store anyway)
-            if cat in _SIGNAL_CATEGORIES:
+            # Skip synthesis/summary cards and GitHub repo sources
+            is_github_repos = "GitHub Repos" in name
+            if cat in _SIGNAL_CATEGORIES and not is_github_repos:
                 sig_cache = signals_store.get(name, {})
                 sig_text = sig_cache.get("signals", "")
                 if sig_text and sig_text.strip().upper() != "NONE" and not sig_text.startswith("ERROR"):
