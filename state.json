@@ -1,106 +1,110 @@
 {
   "seen": [
-    "github:garrytan/gstack:2026-05-13",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "c68ed904-5c11-44f9-909c-b44a00200c14",
-    "oai:arXiv.org:2605.09712v1",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
-    "oai:arXiv.org:2605.13407v1",
-    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
-    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
-    "oai:arXiv.org:2605.12547v1",
-    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
-    "oai:arXiv.org:2502.06830v5",
-    "oai:arXiv.org:2307.09077v2",
-    "oai:arXiv.org:2605.05739v2",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
-    "oai:arXiv.org:2605.02040v3",
-    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
-    "oai:arXiv.org:2605.11640v1",
-    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
-    "oai:arXiv.org:2410.14927v2",
-    "3efa7cbf-112c-4bce-a845-443700608a00",
-    "github:garrytan/gstack:2026-05-11",
-    "oai:arXiv.org:2605.12151v1",
-    "github:garrytan/gbrain:2026-05-13",
-    "oai:arXiv.org:2605.03184v2",
-    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "github:garrytan/gstack:2026-05-10",
-    "oai:arXiv.org:2605.10486v1",
-    "oai:arXiv.org:2506.06654v3",
-    "oai:arXiv.org:2510.15995v3",
-    "github:garrytan/gbrain:2026-05-14",
-    "oai:arXiv.org:2605.09123v1",
-    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
-    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
-    "oai:arXiv.org:2507.15437v3",
-    "oai:arXiv.org:2605.09061v1",
-    "oai:arXiv.org:2602.10071v2",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
-    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
-    "oai:arXiv.org:2510.04092v3",
-    "oai:arXiv.org:2601.18991v2",
-    "oai:arXiv.org:2605.09310v1",
-    "oai:arXiv.org:2409.13528v2",
-    "oai:arXiv.org:2605.11180v1",
-    "oai:arXiv.org:2605.10447v1",
-    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
-    "oai:arXiv.org:2506.23619v2",
-    "oai:arXiv.org:2605.06677v1",
-    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
-    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
-    "oai:arXiv.org:2605.11423v1",
-    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
-    "oai:arXiv.org:2605.10428v1",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "oai:arXiv.org:2409.06551v5",
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "oai:arXiv.org:2511.07571v2",
-    "https://www.astralcodexten.com/p/open-thread-433",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
-    "oai:arXiv.org:2206.12511v3",
-    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
-    "https://www.latent.space/p/ainews-the-end-of-finetuning",
-    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
-    "oai:arXiv.org:2604.19604v4",
-    "oai:arXiv.org:2605.12532v1",
-    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
-    "github:garrytan/gbrain:2026-05-12",
-    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
-    "oai:arXiv.org:2605.06688v1",
-    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "oai:arXiv.org:2605.06670v1",
-    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
-    "d05e23d4-18e1-442f-8953-b4480146b311",
-    "github:garrytan/gstack:2026-05-12",
-    "oai:arXiv.org:2605.11645v1",
-    "oai:arXiv.org:2605.02326v2",
-    "github:garrytan/gbrain:2026-05-10",
-    "oai:arXiv.org:2505.02635v2",
-    "oai:arXiv.org:2605.06818v1",
-    "github:garrytan/gstack:2026-05-14",
-    "oai:arXiv.org:2605.12099v1",
     "oai:arXiv.org:2605.10400v1",
-    "oai:arXiv.org:2605.12189v1",
+    "github:garrytan/gstack:2026-05-11",
+    "oai:arXiv.org:2605.11645v1",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "https://www.latent.space/p/ainews-the-end-of-finetuning",
+    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
+    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
+    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
+    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "oai:arXiv.org:2605.06670v1",
+    "3efa7cbf-112c-4bce-a845-443700608a00",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "github:garrytan/gbrain:2026-05-14",
+    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
+    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
+    "oai:arXiv.org:2507.15437v3",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2605.10486v1",
+    "oai:arXiv.org:2605.12151v1",
+    "oai:arXiv.org:2605.02326v2",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
+    "oai:arXiv.org:2605.12532v1",
+    "https://www.latent.space/p/abridge",
+    "github:garrytan/gbrain:2026-05-13",
+    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
+    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
+    "oai:arXiv.org:2604.19604v4",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
+    "oai:arXiv.org:2510.04092v3",
+    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
+    "c68ed904-5c11-44f9-909c-b44a00200c14",
+    "github:garrytan/gstack:2026-05-14",
+    "d05e23d4-18e1-442f-8953-b4480146b311",
+    "oai:arXiv.org:2505.02635v2",
+    "github:garrytan/gstack:2026-05-12",
+    "oai:arXiv.org:2507.07107v2",
+    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
+    "oai:arXiv.org:2605.09310v1",
     "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "oai:arXiv.org:2605.06688v1",
+    "oai:arXiv.org:2206.12511v3",
+    "oai:arXiv.org:2307.09077v2",
+    "oai:arXiv.org:2605.12547v1",
+    "oai:arXiv.org:2409.06551v5",
+    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
+    "oai:arXiv.org:2506.23619v2",
+    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
+    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
+    "github:garrytan/gbrain:2026-05-10",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "oai:arXiv.org:2506.06654v3",
+    "oai:arXiv.org:2601.18991v2",
+    "oai:arXiv.org:2602.10071v2",
+    "oai:arXiv.org:2605.09712v1",
+    "oai:arXiv.org:2605.13407v1",
+    "oai:arXiv.org:2605.02040v3",
+    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
+    "oai:arXiv.org:2605.10428v1",
     "oai:arXiv.org:2605.12977v1",
+    "oai:arXiv.org:2410.14927v2",
+    "oai:arXiv.org:2605.06818v1",
+    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "github:garrytan/gbrain:2026-05-12",
+    "oai:arXiv.org:2409.13528v2",
+    "https://simonwillison.net/2026/May/14/not-so-locked-in/#atom-everything",
+    "oai:arXiv.org:2605.11180v1",
+    "oai:arXiv.org:2605.09123v1",
+    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything",
+    "oai:arXiv.org:2605.10447v1",
+    "oai:arXiv.org:2502.06830v5",
+    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
+    "oai:arXiv.org:2605.03184v2",
+    "oai:arXiv.org:2511.07571v2",
+    "oai:arXiv.org:2605.05739v2",
+    "oai:arXiv.org:2605.06677v1",
+    "oai:arXiv.org:2605.12099v1",
+    "oai:arXiv.org:2605.11640v1",
+    "oai:arXiv.org:2605.11423v1",
+    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
+    "oai:arXiv.org:2605.09061v1",
+    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "oai:arXiv.org:2510.15995v3",
+    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
     "github:garrytan/gbrain:2026-05-11",
-    "oai:arXiv.org:2507.07107v2"
+    "oai:arXiv.org:2605.12189v1",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
+    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
+    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
+    "github:garrytan/gstack:2026-05-13",
+    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "github:garrytan/gstack:2026-05-10",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -205,10 +209,10 @@
     },
     "https://github.com/garrytan?tab=repositories:repos": {
       "garrytan/gbrain": {
-        "updated": "2026-05-14T15:15:16Z"
+        "updated": "2026-05-14T21:38:07Z"
       },
       "garrytan/gstack": {
-        "updated": "2026-05-14T15:14:51Z"
+        "updated": "2026-05-14T21:05:27Z"
       },
       "garrytan/openclaw-render-template": {
         "updated": "2026-05-10T17:33:17Z"
@@ -1729,8 +1733,8 @@
       "date": "2026-04-23"
     },
     "Simon Willison": {
-      "text": "**New this period:**\n- Simon Willison introduces the Datasette blog, built using OpenAI Codex desktop.\n\n**Details:**\n**Welcome to the Datasette blog**(https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/)\n- The Datasette project now has an official blog to share announcements.\n- OpenAI is the company behind Codex desktop, which was used to build the blog.\n- Datasette is the project with an official blog.\n- OpenAI Codex desktop has a Markdown session transcript export feature.\n- No specific quantitative figures or supply chain relationships are mentioned.\n- The technology transition described involves the use of generative AI (specifically OpenAI Codex desktop) for AI-assisted programming.\n- Companies mentioned: OpenAI (provider of Codex desktop), Datasette (project with an official blog).",
-      "date": "2026-05-13"
+      "text": "**New this period:**\n- A medium-sized technology company migrated their legacy iPhone and Android apps to React Native using coding-agent driven rewrite.\n- Mitchell Hashimoto stated that programming languages are no longer a lock-in, citing Bun's migration from Zig to Rust as an example.\n- Simon Willison released datasette-ip-rate-limit 0.1a0, a rate limiting plugin built using Codex (GPT-5.5 xhigh) to block IPs hammering the datasette.io site.\n\n**Details:**\n**Not so locked in any more (https://simonwillison.net/2026/May/14/not-so-locked-in/)**\n- A medium-sized technology company rewrote their iPhone and Android apps using coding-agent driven rewrite to React Native.\n- The company chose React Native because it has improved over the past few years and covers everything their apps need to do.\n- The company can port back to native in the future if needed, due to the reduced lock-in of programming languages.\n- Companies mentioned: none explicitly, but the technology company is a user of React Native.\n- Technologies mentioned: React Native, iPhone, Android, coding-agents, AI-assisted programming, generative-AI, LLMs.\n\n**Quoting Mitchell Hashimoto (https://simonwillison.net/2026/May/14/mitchell-hashimoto/)**\n- Mitchell Hashimoto stated that programming languages are no longer a lock-in.\n- Bun migrated from Zig to Rust, showing that programming languages can be changed quickly.\n- Companies mentioned: Bun.\n- Technologies mentioned: Rust, Zig, LLMs, generative-AI, agentic-engineering.\n\n**datasette-ip-rate-limit 0.1a0 (https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/)**\n- Simon Willison released datasette-ip-rate-limit 0.1a0, a rate limiting plugin built using Codex (GPT-5.5 xhigh).\n- The plugin was built to block IPs hammering the datasette.io site.\n- Configuration details: max_keys: 10000, exempt_paths: \"/static/*\", \"/-/turnstile*\", rules: name: demo-databases, paths: \"/global-power-plants/*\", \"/legislators/*\", window_seconds: 60, max_requests: 60, block_seconds: 20.\n- Companies mentioned: none explicitly, but datasette.io is the site using the plugin.\n- Technologies mentioned: datasette, rate-limiting, Codex, GPT-5.5 xhigh.",
+      "date": "2026-05-14"
     },
     "Import AI \u2013 Jack Clark": {
       "text": "**New this period:**\n- Researchers propose \"radical optionality\" for AI regulation, emphasizing government investment in tools for potential future crises.\n- A paper from Meta and KAIST explores the concept of a \"neural computer\" that unifies computation, memory, and I/O in a learned runtime state.\n- Economists suggest that recursive self-improvement of AI systems could lead to explosive economic growth through technological and economic feedback loops.\n\n**Details:**\n**Import AI 456 (https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/)**\n- The Institute for Law & AI proposes \"radical optionality\" as an approach to AI regulation, focusing on preserving democratic governments' ability to make good decisions about governing transformative AI systems.\n- Companies mentioned: Meta, KAIST.\n- Researchers recommend specific interventions, including information-gathering authorities, whistleblower protections, and flexible rules and definitions.\n- Quantitative figures: 13% automation across all sectors is sufficient to push the economy into the explosive regime, and 17% suffices when only software and hardware research are automated.\n- Supply chain and value chain relationships: The authors emphasize the importance of strengthening and protecting supply chains deemed critical to AI development.\n- Technology transitions: The paper explores the concept of a neural computer, which could potentially replace traditional computers and operating systems.\n- Competitive positioning: The authors suggest that governments should invest in technical talent to effectively implement interventions and prepare for potential future crises.\n- Capital allocation signals: The researchers recommend investing in the kind of technical talent needed to effectively pull off interventions, including increasing funding for AISI (UK) and CAISI (US).\n- Regulatory or policy signals: The authors propose establishing information-gathering authorities, whistleblower protections, and flexible rules and definitions to prepare for potential future crises.",
@@ -1769,7 +1773,7 @@
       "date": "2026-05-06"
     },
     "Latent Space Podcast (swyx)": {
-      "text": "**New this period:**\n- Anthropic's Claude changes pricing to include a monthly credit of API tokens equal to the dollar amount of the Claude subscription plan.\n- OpenAI launches an enterprise switch promo, offering two months of free Codex usage for customers switching in the next 30 days.\n- Codex sees a rise in pro-Codex sentiment among AI engineers due to its generous limits and the launch of Codex for Everything Else.\n- Recursive, a startup, is founded to build AI that automates science and safely improves itself.\n- Figure demonstrates a long-horizon deployment of humanoid robots running an 8-hour autonomous shift on package sorting using Helix-02.\n\n**Details:**\n**AINews (https://www.latent.space/p/ainews-codex-rises-claude-meters)**\n- Anthropic's Claude pricing change gives every subscription a monthly credit of API tokens equal to the dollar amount of the Claude subscription plan, allowing for programmatic usage across the Agent SDK, claude-p, GitHub Actions, and third-party SDK apps.\n- OpenAI's Codex is being promoted as an alternative to Claude, with a 2-month free usage offer for enterprise customers switching in the next 30 days.\n- Companies mentioned: Anthropic (supplier of Claude), OpenAI (supplier of Codex), Cline (supplier of open-sourced SDK), LangChain (supplier of agent lifecycle infrastructure), Notion (supplier of External Agents API), Cursor (supplier of cloud agents), NVIDIA (supplier of Star Elastic), Datology (supplier of VLM work), Perplexity (supplier of hardware-isolated sandbox architecture).\n- Quantitative figures: 70-90% discount from API pricing, 2-3\u00d7 wall-clock speedup, 12-15\u00d7 faster access on key workloads, 11.7 points gain on 20 public VLM benchmarks, 17\u00d7 less training compute, 3.3\u00d7 lower response FLOPs, 34.4% of businesses using Anthropic, 32.3% of businesses using OpenAI, 50% increase in Claude Code weekly limits, 2\u00d7 5-hour limit increase.\n- Supply chain and value chain relationships: Anthropic supplies Claude, OpenAI supplies Codex, Cline supplies open-sourced SDK, LangChain supplies agent lifecycle infrastructure, Notion supplies External Agents API, Cursor supplies cloud agents.\n- Technology transitions: Codex is replacing traditional coding methods, Claude is being used for programmatic usage, Recursive is building AI that automates science and safely improves itself.\n- Competitive positioning: Anthropic and OpenAI are competing in the enterprise distribution and developer lock-in space, with Codex and Claude being the main products.\n- Capital allocation signals: Anthropic is investing in Claude, OpenAI is investing in Codex, Recursive is investing in AI that automates science and safely improves itself.\n- Regulatory or policy signals: None mentioned.",
+      "text": "**New this period:**\n- Abridge is expanding its clinical intelligence layer for healthcare, starting with ambient documentation and moving into clinical decision support, prior authorization, and other areas.\n- The company has scaled to support 80M+ patient-clinician conversations this year across 250 large and complex U.S. health systems, with support for 28+ languages and 50+ specialties.\n- Abridge raised $300M at a $5.3B valuation in June 2025, after a $250M round earlier that year.\n- The company is working to reduce the burden on clinicians, who spend 10-20 hours a week on documentation, and to improve patient outcomes.\n\n**Details:**\n**Abridge and the Future of Healthcare (https://www.latent.space/p/abridge)**\n- Abridge is a clinical intelligence layer for health systems, founded in 2018, initially focusing on clinical documentation and now expanding into clinical decision support, prior authorization, and other areas.\n- Abridge's original wedge was clinical documentation, generating notes and reducing the clerical burden on clinicians.\n- The company has partnered with Redpoint, a venture capital firm, with Jacob Effron on the board of Abridge.\n- Abridge has raised $300M at a $5.3B valuation in June 2025, after a $250M round earlier that year.\n- The company supports 80M+ patient-clinician conversations this year across 250 large and complex U.S. health systems, with support for 28+ languages and 50+ specialties.\n- Abridge is working to reduce the burden on clinicians, who spend 10-20 hours a week on documentation, and to improve patient outcomes.\n- Chai Asawa, from Glean, is working on clinical decision support at Abridge, focusing on providing context to clinicians.\n- Janie Lee, co-founder of Abridge, discussed the company's journey, from saving time for clinicians to saving and making money for health systems, and ultimately, saving lives.\n- Abridge uses EHR integration, with deep interoperability being table stakes for clinician adoption.\n- The company has a unique data set from medical conversations, which is used to train models and improve the clinical intelligence layer.\n- Abridge is working on real-time support, with the goal of providing always-in-the-background AI that only interrupts when necessary.",
       "date": "2026-05-14"
     },
     "Arxiv \u2013 Trading & Market Microstructure (q-fin.TR)": {
@@ -1811,8 +1815,8 @@
         "date": "2026-05-14"
       },
       "Simon Willison": {
-        "summary_hash": "55568626c4f6d6f4",
-        "signals": "THESIS: The use of OpenAI's Codex desktop for AI-assisted programming is expanding to various projects, such as the Datasette blog.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI is a key player in AI-assisted programming, and Microsoft holds a significant stake in OpenAI, which could benefit from the growing adoption of OpenAI's technology | Source mentions OpenAI, Microsoft's stake in OpenAI.\nEXPLICIT | NVDA | NVIDIA | LONG | MED | OpenAI relies on NVIDIA's GPUs to power its AI technology, including Codex desktop, which could lead to increased demand for NVIDIA's products | Source mentions OpenAI, implies use of NVIDIA GPUs.\n\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically mentions the use of OpenAI Codex desktop for AI-assisted programming, Microsoft benefits via its significant stake in OpenAI and potential increased revenue from Azure hosting | OpenAI \u2192 MSFT equity stake + Azure hosting revenue.\nDERIVED | NVDA | NVIDIA | LONG | MED | Because this source implies the use of AI-assisted programming with OpenAI Codex desktop, NVIDIA benefits via increased demand for its GPUs, which are used to power OpenAI's technology | OpenAI \u2192 NVDA primary GPU supplier.",
+        "summary_hash": "b043669fbb4fb61b",
+        "signals": "THESIS: The increasing use of coding-agents, AI-assisted programming, and generative-AI is reducing the lock-in of programming languages, allowing companies to migrate to new technologies more easily.\n\nEXPLICIT | NONE | NONE | NONE | NONE | NONE | NONE\n\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically mentions the use of React Native, a framework developed by Microsoft, and the reduced lock-in of programming languages, Microsoft may benefit from increased adoption of its technologies, such as Azure, which supports React Native development | React Native usage \u2192 Microsoft ecosystem expansion\nDERIVED | NVDA | NVIDIA | LONG | MED | Because this source highlights the use of AI-assisted programming and generative-AI, such as Codex (GPT-5.5 xhigh), which relies on GPU acceleration, NVIDIA may benefit from increased demand for its GPUs and AI computing infrastructure | AI-assisted programming \u2192 NVIDIA GPU demand\nDERIVED | META | Meta Platforms | LONG | LOW | Because this source mentions the use of React Native, which is used by many developers, including those building apps for Facebook and Instagram, Meta may benefit from improved developer productivity and increased app development on its platforms | React Native adoption \u2192 Meta app ecosystem growth\nDERIVED | GOOGL | Alphabet | LONG | LOW | Because this source discusses the use of coding-agents and AI-assisted programming, which are areas of research and development for Google, Alphabet may benefit from advancements in these fields and increased adoption of its AI-related technologies | AI-assisted programming \u2192 Google AI technology advancement",
         "date": "2026-05-14"
       },
       "Import AI \u2013 Jack Clark": {
@@ -1861,8 +1865,18 @@
         "date": "2026-05-14"
       },
       "Latent Space Podcast (swyx)": {
-        "summary_hash": "ea9890d8deaa99b4",
-        "signals": "THESIS: The AI industry is experiencing a shift in pricing and product offerings, with Anthropic's Claude and OpenAI's Codex competing for enterprise customers, and new startups like Recursive emerging to automate science and improve AI safety.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI's Codex is being promoted with a 2-month free usage offer, and Microsoft holds a significant stake in OpenAI, potentially benefiting from increased adoption | OpenAI's Codex promo \u2192 MSFT equity stake\nEXPLICIT | AMZN | Amazon | LONG | LOW | Anthropic, a competitor to OpenAI, has Amazon as a lead investor, which could provide a indirect benefit to Amazon through its investment | Anthropic's Claude pricing change \u2192 AMZN investment stake\n\nDERIVED | NVDA | NVIDIA | LONG | HIGH | As a primary GPU supplier to OpenAI and Anthropic, NVIDIA is likely to benefit from increased demand for AI computing resources driven by the competition between Codex and Claude | OpenAI and Anthropic's AI demands \u2192 NVDA GPU sales\nDERIVED | GOOGL | Alphabet | LONG | MED | Google's minority stake in Anthropic and its own investments in AI research make it a potential beneficiary of the growing demand for AI solutions | Anthropic's growth \u2192 GOOGL investment stake and AI research\nDERIVED | ANSS | ANSYS | LONG | LOW | As a supplier of simulation software, ANSYS might see increased demand from companies like Recursive, which aims to automate science and improve AI safety, requiring advanced simulation tools | Recursive's AI automation \u2192 ANSS simulation software sales",
+        "summary_hash": "aa98294485807f7f",
+        "signals": "THESIS: Abridge is expanding its clinical intelligence layer for healthcare, aiming to reduce the burden on clinicians and improve patient outcomes through ambient documentation, clinical decision support, and other areas.\n\nEXPLICIT | None | None | None | None | None | None \n\nDERIVED | MSFT | Microsoft | LONG | MED | Because Abridge uses EHR integration with deep interoperability, Microsoft's healthcare cloud and EHR solutions may benefit from increased adoption and partnerships with companies like Abridge, enhancing their offerings in the healthcare sector | EHR integration and cloud services for healthcare \nDERIVED | NVDA | NVIDIA | LONG | MED | As Abridge works on real-time support and trains models using its unique data set from medical conversations, NVIDIA's GPUs may be utilized for computing and processing the vast amounts of healthcare data, benefiting from the growth of AI in healthcare | AI computing for healthcare and medical research \nDERIVED | CERN | Cerner Corporation | LONG | MED | Cerner, a leading provider of EHR systems, may benefit from Abridge's EHR integration and the increasing demand for interoperable EHR solutions, potentially leading to increased adoption and partnerships | EHR integration and healthcare IT solutions \nDERIVED | HUM | Humana | LONG | MED | As Abridge aims to reduce the burden on clinicians and improve patient outcomes, health insurance providers like Humana may benefit from reduced costs associated with unnecessary treatments and improved healthcare quality, potentially leading to cost savings and increased efficiency | Healthcare cost savings and outcomes improvement \n\nNote: These derived signals are based on the specific information provided in the source and aim to identify potential beneficiaries of Abridge's growth and expansion in the healthcare sector.",
+        "date": "2026-05-14"
+      },
+      "SemiAnalysis": {
+        "summary_hash": "c5719fc6a0f193e9",
+        "signals": "THESIS: The demand for fast inference in AI systems is increasing, driven by the need for high interactivity and fast token generation, with companies like Cerebras and Anthropic benefiting from this trend.\n\nEXPLICIT | CRBR | Cerebras | LONG | MED | Cerebras is preparing for its IPO, fueled by a 750MW compute deal with OpenAI, and its Wafer Scale Engine (WSE) is gaining traction due to the growing demand for fast tokens. | Cerebras has a major compute deal with OpenAI.\n\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically says OpenAI is a customer of Cerebras, and Microsoft holds a 49% stake in OpenAI, Microsoft benefits via increased revenue from OpenAI's growth. | OpenAI \u2192 MSFT equity stake.\n\nDERIVED | NVDA | Nvidia | SHORT | MED | Because this source specifically says Nvidia has reduced FP64 native hardware on their GPUs and licensed Groq's technology, and Cerebras's WSE offers similar performance to Groq's SRAM machines, Nvidia may lose market share to Cerebras and Groq. | Nvidia's reduced FP64 native hardware and licensing of Groq's technology.\n\nDERIVED | TSM | Taiwan Semiconductor Manufacturing Company | LONG | MED | Because this source specifically says TSMC is the manufacturer of Cerebras's WSE-3, and the demand for fast inference is increasing, TSMC benefits via increased demand for its manufacturing services. | TSMC manufactures Cerebras's WSE-3.\n\nDERIVED | MU | Micron Technology | LONG | MED | Because this source specifically says the market trend is towards using more memory in AI systems, with DRAM in high demand, Micron Technology benefits via increased demand for its memory products. | Increasing demand for memory in AI systems.",
+        "date": "2026-05-14"
+      },
+      "Ethan Mollick \u2013 One Useful Thing": {
+        "summary_hash": "afcd6a51dc30ac48",
+        "signals": "THESIS: OpenAI's release of GPT-5.5, with significant improvements in coding and image generation capabilities, demonstrates the company's leadership in the AI industry and has potential implications for competitors.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI's growth and advancements in AI models, including GPT-5.5, directly benefit Microsoft due to its 49% stake in OpenAI and hosting on Azure | OpenAI \u2192 MSFT equity stake + Azure hosting revenue\n\nDERIVED | NVDA | NVIDIA | LONG | MED | OpenAI's development and deployment of GPT-5.5, which relies heavily on GPU computing, will likely increase demand for NVIDIA's high-performance GPUs | OpenAI \u2192 NVDA primary GPU supplier\n\nDERIVED | AMZN | Amazon | LONG | LOW | As a lead investor in Anthropic, a competitor to OpenAI, Amazon may benefit indirectly from advancements in AI, possibly leveraging its investments to improve its own AI capabilities | Anthropic \u2192 AMZN lead investor + AWS host\n\nDERIVED | COPX | Global X Copper Miners ETF | LONG | LOW | As data centers continue to grow to support AI workloads, including OpenAI's GPT-5.5, the demand for copper for wiring and cooling will increase, benefiting copper miners | Data center electricity demand \u2192 copper intensive infrastructure",
         "date": "2026-05-14"
       }
     },
@@ -1874,9 +1888,9 @@
           "fwd_pe": "\u2014"
         },
         "AMD": {
-          "ytd": "+111.1%",
-          "ytd_pct": 111.06649234217407,
-          "fwd_pe": "35.1x"
+          "ytd": "+110.0%",
+          "ytd_pct": 109.98319013821443,
+          "fwd_pe": "34.8x"
         },
         "ANSS": {
           "ytd": "\u2014",
@@ -1884,14 +1898,14 @@
           "fwd_pe": "\u2014"
         },
         "APP": {
-          "ytd": "-31.0%",
-          "ytd_pct": -31.033510433053348,
-          "fwd_pe": "21.2x"
+          "ytd": "-28.0%",
+          "ytd_pct": -27.99857528716868,
+          "fwd_pe": "22.1x"
         },
         "PANW": {
-          "ytd": "+28.8%",
-          "ytd_pct": 28.82193268186754,
-          "fwd_pe": "59.8x"
+          "ytd": "+29.3%",
+          "ytd_pct": 29.321389793702508,
+          "fwd_pe": "60.0x"
         },
         "ENV": {
           "ytd": "\u2014",
@@ -1899,29 +1913,29 @@
           "fwd_pe": "\u2014"
         },
         "FTNT": {
-          "ytd": "+51.2%",
-          "ytd_pct": 51.21521218990052,
-          "fwd_pe": "35.0x"
+          "ytd": "+53.5%",
+          "ytd_pct": 53.45674348318852,
+          "fwd_pe": "35.6x"
         },
         "SCHW": {
-          "ytd": "-9.1%",
-          "ytd_pct": -9.07817035331798,
-          "fwd_pe": "13.0x"
+          "ytd": "-10.5%",
+          "ytd_pct": -10.479431488339506,
+          "fwd_pe": "12.8x"
         },
         "GOOGL": {
-          "ytd": "+27.1%",
-          "ytd_pct": 27.13099041533547,
-          "fwd_pe": "27.5x"
+          "ytd": "+28.1%",
+          "ytd_pct": 28.13738019169329,
+          "fwd_pe": "27.7x"
         },
         "MSFT": {
-          "ytd": "-15.0%",
-          "ytd_pct": -15.03246350440428,
+          "ytd": "-15.3%",
+          "ytd_pct": -15.340556635374881,
           "fwd_pe": "21.2x"
         },
         "COP": {
-          "ytd": "+25.7%",
-          "ytd_pct": 25.73443008225617,
-          "fwd_pe": "13.4x"
+          "ytd": "+27.1%",
+          "ytd_pct": 27.09112274329666,
+          "fwd_pe": "13.5x"
         },
         "NONE": {
           "ytd": "\u2014",
@@ -1929,9 +1943,9 @@
           "fwd_pe": "\u2014"
         },
         "IVZ": {
-          "ytd": "+7.0%",
-          "ytd_pct": 7.042253521126766,
-          "fwd_pe": "9.5x"
+          "ytd": "+5.6%",
+          "ytd_pct": 5.557670346402744,
+          "fwd_pe": "9.3x"
         },
         "ADSW": {
           "ytd": "\u2014",
@@ -1939,43 +1953,43 @@
           "fwd_pe": "\u2014"
         },
         "NVDA": {
-          "ytd": "+26.1%",
-          "ytd_pct": 26.069705093833782,
+          "ytd": "+26.4%",
+          "ytd_pct": 26.402144772117968,
           "fwd_pe": "20.7x"
         },
         "BLK": {
-          "ytd": "+3.5%",
-          "ytd_pct": 3.523179550423234,
-          "fwd_pe": "18.3x"
+          "ytd": "+3.1%",
+          "ytd_pct": 3.147597959526885,
+          "fwd_pe": "18.2x"
         },
         "AMZN": {
-          "ytd": "+16.0%",
-          "ytd_pct": 15.986482973745792,
+          "ytd": "+15.8%",
+          "ytd_pct": 15.769863963261432,
           "fwd_pe": "27.1x"
         },
         "VFIAX": {
-          "ytd": "+8.8%",
-          "ytd_pct": 8.836097746264866,
+          "ytd": "+9.7%",
+          "ytd_pct": 9.671752342365156,
           "fwd_pe": "\u2014"
         },
         "GS": {
-          "ytd": "+10.5%",
-          "ytd_pct": 10.494880546075084,
-          "fwd_pe": "14.9x"
+          "ytd": "+10.2%",
+          "ytd_pct": 10.234357224118321,
+          "fwd_pe": "14.8x"
         },
         "META": {
-          "ytd": "-5.9%",
-          "ytd_pct": -5.874198972867332,
-          "fwd_pe": "17.2x"
+          "ytd": "-6.3%",
+          "ytd_pct": -6.311260585677722,
+          "fwd_pe": "17.1x"
         },
         "VGSIX": {
-          "ytd": "+8.3%",
-          "ytd_pct": 8.330499829989797,
+          "ytd": "+7.7%",
+          "ytd_pct": 7.684461067664065,
           "fwd_pe": "\u2014"
         },
         "HON": {
-          "ytd": "+11.8%",
-          "ytd_pct": 11.845814752165658,
+          "ytd": "+11.6%",
+          "ytd_pct": 11.599774463068325,
           "fwd_pe": "19.0x"
         },
         "CYBR": {
@@ -1984,16 +1998,46 @@
           "fwd_pe": "\u2014"
         },
         "FIS": {
-          "ytd": "-35.7%",
-          "ytd_pct": -35.70568763165814,
-          "fwd_pe": "6.3x"
+          "ytd": "-37.1%",
+          "ytd_pct": -37.089978934697555,
+          "fwd_pe": "6.1x"
+        },
+        "HUM": {
+          "ytd": "+17.7%",
+          "ytd_pct": 17.65509702104401,
+          "fwd_pe": "19.6x"
+        },
+        "MU": {
+          "ytd": "+171.9%",
+          "ytd_pct": 171.8930661154129,
+          "fwd_pe": "7.6x"
+        },
+        "CERN": {
+          "ytd": "\u2014",
+          "ytd_pct": null,
+          "fwd_pe": "\u2014"
+        },
+        "COPX": {
+          "ytd": "+24.5%",
+          "ytd_pct": 24.50201977991362,
+          "fwd_pe": "\u2014"
+        },
+        "TSM": {
+          "ytd": "+37.5%",
+          "ytd_pct": 37.45763269604135,
+          "fwd_pe": "21.7x"
+        },
+        "CRBR": {
+          "ytd": "\u2014",
+          "ytd_pct": null,
+          "fwd_pe": "\u2014"
         }
       },
       "ytd_date": "2026-05-14"
     },
     "ai_trade_ideas": {
-      "text": "**Table:**\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Microsoft | MSFT | LONG | HIGH | Explicit/Derived | Andrej Karpathy \u2013 Blog, Simon Willison, Import AI \u2013 Jack Clark, Garry Tan \u2013 GitHub Repos, Latent Space Podcast (swyx) |\n| 2 | NVIDIA | NVDA | LONG | HIGH | Explicit/Derived | Andrej Karpathy \u2013 Blog, Import AI \u2013 Jack Clark, Simon Willison, AI + a16z, Latent Space Podcast (swyx) |\n| 3 | Google | GOOGL | LONG | MED | Explicit/Derived | Andrej Karpathy \u2013 Blog, Lex Fridman Podcast, Latent Space Podcast (swyx) |\n| 4 | Palo Alto Networks | PANW | LONG | MED | Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase |\n| 5 | Cyberark | CYBR | LONG | MED | Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase |\n| 6 | Fortinet | FTNT | LONG | MED | Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase |\n| 7 | AppLovin | APP | LONG | MED | Explicit | All-In Podcast |\n| 8 | BlackRock | BLK | LONG | MED | Explicit/Derived | The Bid (BlackRock), Money Stuff: The Podcast (Matt Levine) |\n| 9 | Vanguard | VFIAX | LONG | MED | Derived | The Bid (BlackRock) |\n| 10 | Charles Schwab | SCHW | LONG | MED | Derived | The Bid (BlackRock), Money Stuff: The Podcast (Matt Levine) |\n\n**Notes:**\n\n1. **Microsoft (MSFT)** \u2014 The company is well-positioned to benefit from the growth of AI, with its significant stake in OpenAI and its Azure cloud platform providing AI-native infrastructure and services. Multiple sources, including Andrej Karpathy's blog, Simon Willison, Import AI, and the Latent Space Podcast, highlight Microsoft's potential for growth in the AI sector. **Conviction: HIGH**\n2. **NVIDIA (NVDA)** \u2014 As a primary GPU supplier for AI computing, NVIDIA is likely to benefit from the increased demand for AI resources driven by competition between OpenAI and Anthropic. Multiple sources, including Andrej Karpathy's blog, Import AI, Simon Willison, and the Latent Space Podcast, highlight NVIDIA's strong position in AI compute. **Conviction: HIGH**\n3. **Google (GOOGL)** \u2014 Google's minority stake in Anthropic and its own investments in AI research make it a potential beneficiary of the growing demand for AI solutions. Sources like Andrej Karpathy's blog, the Lex Fridman Podcast, and the Latent Space Podcast highlight Google's potential for growth in the AI sector. **Conviction: MED**\n4. **Palo Alto Networks (PANW)** \u2014 The company benefits from increased demand for cybersecurity solutions due to recent AI advancements. Zvi Mowshowitz's blog highlights the need for improved cybersecurity, which could drive growth for Palo Alto Networks. **Conviction: MED**\n5. **Cyberark (CYBR)** \u2014 Cyberark benefits from the emphasis on cybersecurity in the context of AI development, with its privileged access management and identity security solutions. Zvi Mowshowitz's blog highlights the importance of cybersecurity, which could drive growth for Cyberark. **Conviction: MED**\n6. **Fortinet (FTNT)** \u2014 The company benefits from increased cybersecurity spending due to AI advancements, with its broad range of cybersecurity products and services. Zvi Mowshowitz's blog highlights the need for improved cybersecurity, which could drive growth for Fortinet. **Conviction: MED**\n7. **AppLovin (APP)** \u2014 The company's AI advertising platform, Axon.ai, reaches over a billion daily active users, indicating a strong revenue stream for AppLovin. The All-In Podcast highlights Axon.ai's significant user base and revenue potential. **Conviction: MED**\n8. **BlackRock (BLK)** \u2014 The company is poised to benefit from the growing demand for retirement solutions, particularly through its target date funds and retirement portfolio design services. The Bid (BlackRock) and Money Stuff: The Podcast (Matt Levine) highlight BlackRock's position in the retirement solutions space. **Conviction: MED**\n9. **Vanguard (VFIAX)** \u2014 The company benefits from increased demand for target date funds, with its major provider of target date funds. The Bid (BlackRock) highlights Vanguard's position in the target date fund market. **Conviction: MED**\n10. **Charles Schwab (SCHW)** \u2014 The company benefits from increased adoption of defined contribution plans, with its leading provider of 401k and other retirement plan services. The Bid (BlackRock) and Money Stuff: The Podcast (Matt Levine) highlight Charles Schwab's position in the retirement plan services market. **Conviction: MED**",
-      "input_hash": "8eb187ab5d5127da",
+      "text": "**Table:**\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Cerebras | CRBR | LONG | HIGH | Explicit | SemiAnalysis |\n| 2 | Microsoft | MSFT | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Ethan Mollick \u2013 One Useful Thing, Simon Willison, Import AI \u2013 Jack Clark, AI + a16z, Latent Space Podcast (swyx) |\n| 3 | NVIDIA | NVDA | LONG | HIGH | Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Ethan Mollick \u2013 One Useful Thing, Simon Willison, Import AI \u2013 Jack Clark, AI + a16z, Latent Space Podcast (swyx) |\n| 4 | Taiwan Semiconductor Manufacturing Company | TSM | LONG | MED | Derived | SemiAnalysis |\n| 5 | Palo Alto Networks | PANW | LONG | MED | Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase |\n| 6 | Micron Technology | MU | LONG | MED | Derived | SemiAnalysis |\n| 7 | Google | GOOGL | LONG | MED | Explicit/Derived | Andrej Karpathy \u2013 Blog, Lex Fridman Podcast, AI + a16z |\n| 8 | Meta Platforms | META | LONG | LOW | Explicit/Derived | Scott Alexander \u2013 Astral Codex Ten, Simon Willison |\n| 9 | AppLovin | APP | LONG | MED | Explicit | All-In Podcast |\n| 10 | BlackRock | BLK | LONG | MED | Explicit/Derived | The Bid (BlackRock), Money Stuff: The Podcast (Matt Levine) |\n\n**Notes:**\n\n1. **Cerebras (CRBR)**: Cerebras is preparing for its IPO, fueled by a 750MW compute deal with OpenAI, and its Wafer Scale Engine (WSE) is gaining traction due to the growing demand for fast tokens. The company's unique architecture and strong partnerships position it for growth in the AI industry.\n2. **Microsoft (MSFT)**: Microsoft benefits from its 49% stake in OpenAI and its Azure cloud platform, which provides AI-native infrastructure and services. The company's strong position in the tech industry and its growing portfolio of AI-focused products and services contribute to its high conviction level.\n3. **NVIDIA (NVDA)**: NVIDIA benefits from its strong position in AI compute and its ability to adapt to new architectures. The company's GPU hardware is used for video encoding and decoding, and its products are essential for AI computing and processing in various industries, including healthcare and finance.\n4. **Taiwan Semiconductor Manufacturing Company (TSM)**: TSMC benefits from its role as the manufacturer of Cerebras's WSE-3 and the growing demand for fast inference in AI systems. The company's expertise in semiconductor manufacturing and its strong partnerships position it for growth in the AI industry.\n5. **Palo Alto Networks (PANW)**: Palo Alto Networks benefits from the growing need for improved cybersecurity due to recent AI advancements. The company's cybersecurity solutions and services are essential for protecting against AI-driven threats, contributing to its medium conviction level.\n6. **Micron Technology (MU)**: Micron Technology benefits from the increasing demand for memory in AI systems. The company's products, including DRAM and other memory solutions, are used in various AI applications, contributing to its medium conviction level.\n7. **Google (GOOGL)**: Google benefits from its role in the development of video technology and its AI-focused products and services. The company's strong position in the tech industry and its growing portfolio of AI-focused products and services contribute to its medium conviction level.\n8. **Meta Platforms (META)**: Meta Platforms benefits from the growing demand for AI-driven advertising and its own AI capabilities. However, the company's conviction level is low due to the lack of direct mentions in the sources and the competitive landscape of the advertising industry.\n9. **AppLovin (APP)**: AppLovin benefits from its AI advertising platform, Axon.ai, which reaches over a billion daily active users. The company's strong position in the mobile gaming industry and its growing portfolio of AI-focused products and services contribute to its medium conviction level.\n10. **BlackRock (BLK)**: BlackRock benefits from the growing demand for retirement solutions and its role as a leading provider of financial services. The company's strong position in the financial industry and its growing portfolio of products and services contribute to its medium conviction level.",
+      "input_hash": "132466749a7945c7",
       "date": "2026-05-14"
     }
   }
