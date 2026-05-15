@@ -1179,7 +1179,7 @@ def fetch_ai_trade_ideas(state: dict, all_sources: list, client) -> str:
     import hashlib as _hashlib
     import time as _time
 
-    _TARGET_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
+    _TARGET_CATEGORIES = {"AI Opinion Leaders", "Institutional Podcasts"}
 
     EXTRACT_PROMPT = """\
 You are a senior stock analyst specialized in AI industries. Extract trade signals from this source summary.
@@ -1287,9 +1287,8 @@ Output format:
         stype = source.get("type", "")
         if stype in ("investor_summary", "ai_synthesis"):
             continue
-        # GitHub repo feeds: new repos are by nature "bullish AI" — not actionable signals
-        src_url = source.get("url", "")
-        if "github.com" in src_url and "tab=repositories" in src_url:
+        # GitHub Activity category is not in _TARGET_CATEGORIES; belt-and-suspenders guard
+        if source.get("category") == "GitHub Activity":
             continue
         name = source["name"]
         cached_sum = state.get("summaries", {}).get(name, {})
@@ -1795,9 +1794,9 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
 
     CATEGORY_META = OrderedDict([
         ("AI Opinion Leaders",   {"icon": "\U0001f9e0", "color": "#6c5ce7"}),
+        ("GitHub Activity",      {"icon": "\U0001f4bb", "color": "#2d3436"}),
+        ("Institutional Podcasts", {"icon": "\U0001f3db️", "color": "#0984e3"}),
         ("Investor Positioning", {"icon": "\U0001f4b0", "color": "#e17055"}),
-        ("Institutional Views",  {"icon": "\U0001f3db️", "color": "#0984e3"}),
-        ("Tech & AI Podcasts",   {"icon": "\U0001f399️", "color": "#00b894"}),
         ("Research",             {"icon": "\U0001f4c4", "color": "#636e72"}),
     ])
 
@@ -1840,7 +1839,7 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
         # Signals store + market data for embedding per-source trade recs
         signals_store = (state or {}).get("summaries", {}).get("_ai_signals_per_source", {})
         signal_mkt    = (state or {}).get("summaries", {}).get("_ai_signal_market_data", {}).get("data", {})
-        _SIGNAL_CATEGORIES = {"AI Opinion Leaders", "Tech & AI Podcasts", "Institutional Views"}
+        _SIGNAL_CATEGORIES = {"AI Opinion Leaders", "Institutional Podcasts"}
 
         source_blocks = []
         for r in items:
@@ -1885,9 +1884,8 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
                     block += '<p class="quiet-note">No new items.</p>\n'
 
             # Embed per-source trade signals for eligible categories
-            # Skip synthesis/summary cards and GitHub repo sources
-            is_github_repos = "GitHub Repos" in name
-            if cat in _SIGNAL_CATEGORIES and not is_github_repos:
+            # GitHub Activity category is excluded via _SIGNAL_CATEGORIES
+            if cat in _SIGNAL_CATEGORIES:
                 sig_cache = signals_store.get(name, {})
                 sig_text = sig_cache.get("signals", "")
                 if sig_text and sig_text.strip().upper() != "NONE" and not sig_text.startswith("ERROR"):
