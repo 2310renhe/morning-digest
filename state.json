@@ -1,123 +1,125 @@
 {
   "seen": [
-    "oai:arXiv.org:2605.13998v1",
-    "https://simonwillison.net/2026/May/14/not-so-locked-in/#atom-everything",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "oai:arXiv.org:2605.00493v2",
-    "oai:arXiv.org:2605.12189v1",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "oai:arXiv.org:2605.11423v1",
-    "oai:arXiv.org:2605.12977v1",
-    "oai:arXiv.org:2605.06688v1",
-    "oai:arXiv.org:2605.14976v1",
-    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
-    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
-    "oai:arXiv.org:2605.02287v2",
-    "oai:arXiv.org:2602.10071v2",
-    "oai:arXiv.org:2510.15995v3",
-    "oai:arXiv.org:2510.04092v3",
-    "oai:arXiv.org:2409.06551v5",
-    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
-    "oai:arXiv.org:2605.12151v1",
-    "oai:arXiv.org:2605.10486v1",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "github:garrytan/gbrain:2026-05-11",
-    "oai:arXiv.org:2605.02286v2",
-    "github:garrytan/gstack:2026-05-15",
     "oai:arXiv.org:2601.18991v2",
-    "oai:arXiv.org:2604.24366v2",
-    "oai:arXiv.org:2604.19604v4",
-    "oai:arXiv.org:2605.10447v1",
-    "oai:arXiv.org:2605.09123v1",
-    "oai:arXiv.org:2605.06677v1",
-    "github:garrytan/gbrain:2026-05-10",
-    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
-    "17364f35-3bd0-469d-b500-b44a0132582f",
-    "oai:arXiv.org:2410.14927v2",
-    "oai:arXiv.org:2505.02635v2",
-    "oai:arXiv.org:2605.10428v1",
-    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
-    "oai:arXiv.org:2506.06654v3",
-    "oai:arXiv.org:2605.12547v1",
-    "github:garrytan/gstack:2026-05-13",
-    "oai:arXiv.org:2206.12511v3",
-    "oai:arXiv.org:2605.05739v2",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "oai:arXiv.org:2605.13407v1",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "github:garrytan/gbrain:2026-05-13",
-    "oai:arXiv.org:2409.13528v2",
-    "oai:arXiv.org:2507.15437v3",
-    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
-    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
-    "oai:arXiv.org:2506.23619v2",
-    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "oai:arXiv.org:2605.03184v2",
-    "oai:arXiv.org:2605.09310v1",
-    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
-    "oai:arXiv.org:2605.06818v1",
-    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
-    "https://www.latent.space/p/ainews-everything-is-conductor",
-    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
-    "oai:arXiv.org:2307.09077v2",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
-    "c68ed904-5c11-44f9-909c-b44a00200c14",
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "https://www.astralcodexten.com/p/open-thread-433",
-    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
-    "oai:arXiv.org:2605.12099v1",
-    "oai:arXiv.org:2603.06875v3",
-    "oai:arXiv.org:2605.06670v1",
-    "oai:arXiv.org:2507.07107v2",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "github:garrytan/gbrain:2026-05-15",
     "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
-    "github:garrytan/gbrain:2026-05-14",
-    "oai:arXiv.org:2605.11180v1",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2605.13998v1",
+    "github:garrytan/gbrain:2026-05-12",
     "oai:arXiv.org:2605.09712v1",
-    "github:garrytan/gstack:2026-05-12",
-    "oai:arXiv.org:2605.02040v3",
-    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
-    "oai:arXiv.org:2605.11645v1",
-    "oai:arXiv.org:2605.11640v1",
-    "github:garrytan/gstack:2026-05-14",
-    "https://www.latent.space/p/ainews-the-end-of-finetuning",
-    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
-    "oai:arXiv.org:2605.09061v1",
-    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
     "oai:arXiv.org:2605.10400v1",
+    "oai:arXiv.org:2510.15995v3",
+    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
+    "oai:arXiv.org:2605.10428v1",
+    "oai:arXiv.org:2605.03184v2",
+    "https://www.latent.space/p/ainews-the-end-of-finetuning",
+    "oai:arXiv.org:2511.07571v2",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "oai:arXiv.org:2605.06670v1",
+    "oai:arXiv.org:2605.09310v1",
+    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
+    "17364f35-3bd0-469d-b500-b44a0132582f",
+    "oai:arXiv.org:2502.06830v5",
+    "oai:arXiv.org:2605.12189v1",
+    "oai:arXiv.org:2605.02326v2",
+    "oai:arXiv.org:2506.23619v2",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "oai:arXiv.org:2505.02635v2",
+    "oai:arXiv.org:2605.12151v1",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
+    "oai:arXiv.org:2605.10447v1",
+    "oai:arXiv.org:2604.19604v4",
+    "oai:arXiv.org:2307.09077v2",
+    "github:garrytan/gbrain:2026-05-15",
+    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
+    "oai:arXiv.org:2605.09061v1",
+    "oai:arXiv.org:2604.24366v2",
     "github:garrytan/gstack:2026-05-10",
     "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
-    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
-    "github:garrytan/gbrain:2026-05-12",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything",
+    "github:garrytan/gbrain:2026-05-11",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "github:garrytan/gstack:2026-05-12",
     "d05e23d4-18e1-442f-8953-b4480146b311",
-    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
+    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
+    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
     "https://www.latent.space/p/abridge",
-    "oai:arXiv.org:2407.15536v3",
-    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
     "github:garrytan/gstack:2026-05-11",
-    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
-    "oai:arXiv.org:2502.06830v5",
+    "github:garrytan/gstack:2026-05-14",
+    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
     "https://www.astralcodexten.com/p/the-sigmoids-wont-save-you",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
+    "oai:arXiv.org:2605.00493v2",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "oai:arXiv.org:2605.02287v2",
+    "oai:arXiv.org:2206.12511v3",
+    "oai:arXiv.org:2605.11180v1",
+    "oai:arXiv.org:2605.12547v1",
+    "oai:arXiv.org:2605.02286v2",
+    "oai:arXiv.org:2605.06677v1",
+    "github:garrytan/gbrain:2026-05-10",
+    "oai:arXiv.org:2605.12977v1",
+    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
+    "oai:arXiv.org:2409.13528v2",
+    "github:garrytan/gstack:2026-05-13",
+    "oai:arXiv.org:2410.14927v2",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "oai:arXiv.org:2605.06688v1",
+    "c68ed904-5c11-44f9-909c-b44a00200c14",
     "3efa7cbf-112c-4bce-a845-443700608a00",
-    "oai:arXiv.org:2511.07571v2",
-    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "https://www.deeplearning.ai/the-batch/#0a5413735bc9b027",
+    "https://www.astralcodexten.com/p/open-thread-433",
     "oai:arXiv.org:2605.12532v1",
+    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
+    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
+    "oai:arXiv.org:2507.15437v3",
+    "oai:arXiv.org:2605.11645v1",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
+    "oai:arXiv.org:2605.14976v1",
+    "oai:arXiv.org:2603.06875v3",
+    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
     "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "oai:arXiv.org:2605.02326v2",
-    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything"
+    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
+    "oai:arXiv.org:2605.13407v1",
+    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
+    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
+    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
+    "oai:arXiv.org:2602.10071v2",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "oai:arXiv.org:2506.06654v3",
+    "oai:arXiv.org:2605.05739v2",
+    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
+    "github:garrytan/gbrain:2026-05-14",
+    "oai:arXiv.org:2605.11640v1",
+    "oai:arXiv.org:2605.11423v1",
+    "oai:arXiv.org:2605.09123v1",
+    "oai:arXiv.org:2605.06818v1",
+    "oai:arXiv.org:2407.15536v3",
+    "oai:arXiv.org:2510.04092v3",
+    "github:garrytan/gbrain:2026-05-13",
+    "github:garrytan/gstack:2026-05-15",
+    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "https://www.latent.space/p/ainews-everything-is-conductor",
+    "oai:arXiv.org:2605.12099v1",
+    "https://simonwillison.net/2026/May/14/not-so-locked-in/#atom-everything",
+    "oai:arXiv.org:2605.10486v1",
+    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
+    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "oai:arXiv.org:2409.06551v5",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "27a48384-84de-4007-bab3-b44b00ea363f",
+    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
+    "oai:arXiv.org:2605.02040v3",
+    "oai:arXiv.org:2507.07107v2"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -126,7 +128,7 @@
     },
     "https://www.deeplearning.ai/the-batch/": {
       "title": "The Batch | DeepLearning.AI | AI News & Insights",
-      "date": "2026-05-08"
+      "date": "2026-05-15"
     },
     "https://github.com/karpathy?tab=repositories:repos": {
       "karpathy/nanochat": {
@@ -221,11 +223,11 @@
       }
     },
     "https://github.com/garrytan?tab=repositories:repos": {
+      "garrytan/gbrain": {
+        "updated": "2026-05-15T13:48:36Z"
+      },
       "garrytan/gstack": {
         "updated": "2026-05-15T05:02:51Z"
-      },
-      "garrytan/gbrain": {
-        "updated": "2026-05-15T04:59:22Z"
       },
       "garrytan/openclaw-render-template": {
         "updated": "2026-05-10T17:33:17Z"
@@ -1770,8 +1772,8 @@
       "date": "2026-05-08"
     },
     "Money Stuff: The Podcast (Matt Levine)": {
-      "text": "**New this period:**\n- Matt Levine discusses his experience with a financial advisor and owning a private credit fund.\n- Levine recommends several finance books, including \"Diary of a Very Bad Year\", \"Expected Returns\", and \"The Bond King\".\n- Levine's financial advisor suggested investing in a Blue Origin-related credit fund, but Levine is hesitant due to potential conflicts of interest.\n- Levine and his co-host Katie Greifeld discuss their personal finance strategies, with both using index funds.\n\n**Details:**\n**Timeless Wisdom: A Mailbag Episode (https://omny.fm/shows/money-stuff-the-podcast/timeless-wisdom-a-mailbag-episode)**\n- Matt Levine and Katie Greifeld host the podcast, with Levine also writing the Money Stuff newsletter.\n- Levine owns a small amount of Blue Origin Credit Fund, a private BDC, through his financial advisor.\n- Levine's financial advisor suggested investing in the credit fund, but Levine is now hesitant to own it due to potential conflicts of interest.\n- The credit fund is mentioned as a potential investment opportunity, with Levine considering tendering his shares.\n- No specific quantitative figures are mentioned regarding the credit fund's performance or valuation.\n- Levine recommends several finance books, including:\n  - \"Diary of a Very Bad Year\" by Keith Gessen, which explores the 2008 financial crisis through interviews with an anonymous hedge fund manager.\n  - \"Expected Returns\" by Antti Ilmanen of AQR, which discusses investment strategies and expected returns.\n  - \"The Bond King\" by Mary Childs, which tells the story of Bill Gross and PIMCO.\n- No specific supply chain or value chain relationships are mentioned in the podcast.\n- No technology transitions are mentioned in the podcast.\n- The podcast discusses personal finance strategies, with both hosts using index funds and seeking advice from financial advisors.\n- No specific capital allocation signals or regulatory policies are mentioned in the podcast.\n- The Milken Conference and Bloomberg News are mentioned as relevant events and organizations in the finance industry.",
-      "date": "2026-05-08"
+      "text": "**New this period:**\n- GameStop has made a bid to buy eBay for $28 billion, half in cash and half in stock, despite not having the necessary cash or authorized shares.\n- eBay has rejected GameStop's bid, but GameStop's CEO Ryan Cohen is continuing to make his case for why he should be considered to run eBay.\n- Cohen has stated that he doesn't want to be the CEO of GameStop, and his goal is to run eBay, which he has long admired.\n\n**Details:**\n**Frisky Dentists (2026-05-15)**(https://omny.fm/shows/money-stuff-the-podcast/frisky-dentists)\n- GameStop, an e-commerce company, has made a bid to buy eBay, an online auction site, for $28 billion, with $20 billion to be borrowed from a bank and the rest to be paid in stock.\n- eBay has rejected the bid, but GameStop's CEO Ryan Cohen is continuing to make his case for why he should be considered to run eBay, citing his experience running Chewy, a big e-commerce company.\n- Cohen has stated that he doesn't want to be the CEO of GameStop and has expressed his desire to run eBay, which he has long admired.\n- GameStop owns 5% of eBay's stock, and if the bid fizzles, they will have to sell that stock, which could be awkward.\n- Cohen has listed some of his personal possessions, including his socks, on eBay as a stunt, and has given interviews and sent letters to eBay shareholders making his case for why he should run the company.\n- The bid has been described as \"stunty\" and \"poorly thought out\", but Cohen is serious about his desire to run eBay and is making a case for why he would be a good fit for the role.\n- Quantitative figures mentioned include: $28 billion (bid price), $20 billion (amount to be borrowed from a bank), $12 billion (GameStop's current stock value), 5% (GameStop's ownership stake in eBay).",
+      "date": "2026-05-15"
     },
     "All-In Podcast": {
       "text": "**New this period:**\n- Charles and Chase Koch discuss building Koch Inc. into a $150B empire on the All-In Podcast.\n- Axon.ai, an AI advertising platform from AppLovin, reaches over a billion daily active users across mobile games.\n\n**Details:**\n**Charles & Chase Koch on How They Quietly Built a $150B Empire (https://allinchamathjason.libsyn.com/charles-chase-koch-on-how-they-quietly-built-a-150b-empire)**\n- The Podcast features Charles and Chase Koch, discussing the history and scale of Koch Inc., including its business lines and the principles of its management.\n- Koch Inc. has a scale of $150B.\n- Axon.ai, AppLovin's AI advertising platform, is mentioned as a partner, reaching over a billion daily active users across mobile games with full-screen video ads having a 35-second median watch time.\n- Advertisers on Axon.ai are spending hundreds of thousands of dollars a day, with access still in closed beta, available at https://axon.ai/allin.\n- Georgia-Pacific is mentioned as an acquisition by Koch Inc., contributing to its culture transformation.\n- The podcast also mentions Stand Together, an initiative related to education reform and social change.\n- The future of capitalism and economic challenges are discussed in the context of AI. \n- Companies mentioned and their roles: \n  - Koch Inc.: the company being discussed, with a $150B scale.\n  - Axon.ai: AI advertising platform partner, part of AppLovin.\n  - AppLovin: the company behind Axon.ai.\n  - Georgia-Pacific: acquired by Koch Inc.\n- Quantitative figures:\n  - $150B: the scale of Koch Inc.\n  - 1 billion: daily active users reached by Axon.ai across mobile games.\n  - 35 seconds: the median watch time for full-screen video ads on Axon.ai.\n  - Hundreds of thousands of dollars: the amount spent by advertisers on Axon.ai daily.\n- Supply chain or value chain relationships:\n  - Axon.ai is a partner of the All-In Podcast.\n  - AppLovin is the company behind Axon.ai.\n  - Georgia-Pacific is an acquisition of Koch Inc.\n- Technology transitions:\n  - The discussion of AI in the context of economic challenges and the future of capitalism implies a significant technology transition, but specific details are not provided.",
@@ -1848,9 +1850,9 @@
         "date": "2026-05-14"
       },
       "Money Stuff: The Podcast (Matt Levine)": {
-        "summary_hash": "5d8197600334f85d",
-        "signals": "THESIS: Matt Levine discusses his personal finance strategies and experience with a financial advisor, highlighting the importance of index funds and being cautious of potential conflicts of interest.\n\nEXPLICIT | NONE |  |  |  | No publicly traded company is directly named with a clear bullish or bearish implication. | \n\nDERIVED | VGSIX | Vanguard Index Funds | LONG | MED | Because this source specifically discusses the use of index funds as a personal finance strategy, Vanguard, a leading provider of index funds, benefits via increased demand for their products. | Index funds discussed as a preferred investment strategy\nDERIVED | BLK | BlackRock | LONG | MED | Because this source discusses the use of financial advisors and index funds, BlackRock, a major provider of index funds and a leader in the financial advisory industry, benefits via increased demand for their products and services. | Index funds and financial advisors discussed as key components of personal finance strategies\nDERIVED | SCHW | Charles Schwab | LONG | MED | Because this source mentions the importance of financial advisors and index funds, Charles Schwab, a leading provider of brokerage and financial advisory services, benefits via increased demand for their services and products. | Financial advisors and index funds discussed as essential for personal finance\nDERIVED | IVZ | Invesco | LONG | LOW | Because this source discusses the use of index funds and financial advisors, Invesco, a provider of index funds and financial services, benefits via increased demand for their products, although to a lesser extent compared to larger providers. | Index funds and financial advisors discussed as part of personal finance strategies",
-        "date": "2026-05-14"
+        "summary_hash": "9aed97095baacdd8",
+        "signals": "THESIS: GameStop's bid to buy eBay for $28 billion, led by CEO Ryan Cohen, has been rejected, but Cohen continues to make his case for running eBay, citing his e-commerce experience and personal admiration for the company.\n\nEXPLICIT | GME | GameStop | SHORT | MED | The bid has been described as \"stunty\" and \"poorly thought out\", and GameStop's lack of necessary cash and authorized shares may lead to a decline in its stock price | Evidence: \"GameStop has made a bid to buy eBay for $28 billion, half in cash and half in stock, despite not having the necessary cash or authorized shares.\"\nEXPLICIT | EBAY | eBay | LONG | MED | eBay's rejection of the bid and Cohen's continued pursuit of running the company may indicate that eBay is a desirable target, potentially leading to increased interest and a higher stock price | Evidence: \"eBay has rejected GameStop's bid, but GameStop's CEO Ryan Cohen is continuing to make his case for why he should be considered to run eBay.\"\n\nDERIVED | JPM | JPMorgan Chase | LONG | LOW | As the bank that would provide the $20 billion loan to GameStop for the bid, JPMorgan Chase may benefit from the interest payments on the loan, although the bid's rejection may reduce this opportunity | Evidence: \"GameStop, an e-commerce company, has made a bid to buy eBay, an online auction site, for $28 billion, with $20 billion to be borrowed from a bank\"\nDERIVED | VISA | Visa | LONG | LOW | The potential increase in e-commerce activity resulting from a combined GameStop and eBay may lead to more transactions and higher revenue for Visa, although this is speculative and dependent on the bid's success | Evidence: \"GameStop, an e-commerce company, has made a bid to buy eBay, an online auction site, for $28 billion\"",
+        "date": "2026-05-15"
       },
       "All-In Podcast": {
         "summary_hash": "54abe38ee7df648e",
@@ -1881,6 +1883,11 @@
         "summary_hash": "afcd6a51dc30ac48",
         "signals": "THESIS: OpenAI's release of GPT-5.5, a new family of models with significant improvements in coding and image generation capabilities, demonstrates the company's commitment to innovation and growth, positioning it as a leader in the AI industry.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI, which has released GPT-5.5, is partially owned by Microsoft, and its growth directly benefits Microsoft through its equity stake and Azure hosting revenue | OpenAI's advancements in models and apps, such as Codex, demonstrate the company's potential for revenue growth, which would flow to Microsoft.\n\nDERIVED | NVDA | NVIDIA | LONG | MED | As the primary GPU supplier for OpenAI, NVIDIA is likely to benefit from the increased demand for AI computing power driven by the adoption of GPT-5.5 | OpenAI's release of GPT-5.5, with its enhanced coding and image generation capabilities, will likely drive increased demand for AI computing power, benefiting NVIDIA through increased GPU sales.\n\nDERIVED | AMZN | Amazon | LONG | LOW | As a competitor in the AI industry and a potential partner for OpenAI, Amazon may benefit from the advancements in AI technology, potentially leading to increased adoption of its cloud services | The release of GPT-5.5 and its potential applications in various industries may drive increased demand for cloud services, benefiting Amazon through its AWS offerings.\n\nDERIVED | COPX | Global X Copper Miners ETF | LONG | MED | The increased demand for AI computing power driven by the adoption of GPT-5.5 will likely lead to increased demand for copper, a key component in data center infrastructure, benefiting copper miners | The growth of AI computing power, driven by the release of GPT-5.5, will require increased investment in data center infrastructure, including copper-intensive components, benefiting copper miners through increased demand.",
         "date": "2026-05-15"
+      },
+      "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
+        "summary_hash": "95e2af95aae9cca6",
+        "signals": "THESIS: The latest AI news and insights, including advancements in AI diagnosis, AI-guided chip designs, and regulatory actions against AI companies.\n\nEXPLICIT | NVDA | Nvidia | LONG | MED | Nvidia's AI-guided chip designs are a notable development, indicating the company's investment in AI technology | Nvidia's AI-guided chip designs mention in the source.\n\nEXPLICIT | META | Meta | SHORT | MED | China's actions against Meta's Agentic ambition imply regulatory or policy implications for the company | Meta's Agentic ambition thwarted by China.\n\nDERIVED | MSFT | Microsoft | LONG | MED | Microsoft's partnership with OpenAI and investment in AI technology make it a beneficiary of the growing AI industry | OpenAI's rival model to DeepSeek-R1 and Microsoft's deal with OpenAI.\n\nDERIVED | AMD | Advanced Micro Devices | LONG | LOW | As a competitor to Nvidia, AMD may benefit from the growing demand for AI-guided chip designs and the potential for AI-driven innovation in the chip industry | Nvidia's AI-guided chip designs and the growing demand for AI technology.\n\nDERIVED | GOOGL | Google | LONG | MED | Google's mathematics solutions and research in AI make it a potential beneficiary of the growing AI industry | Google's mention as a company with mathematics solutions and the growing demand for AI technology.\n\nNote: The signals are based on the information provided in the source and may not be comprehensive or definitive. The rationales are specific and traceable, and the evidence is based on the source's content.",
+        "date": "2026-05-15"
       }
     },
     "_ai_signal_market_data": {
@@ -1891,9 +1898,9 @@
           "fwd_pe": "\u2014"
         },
         "AMD": {
-          "ytd": "+100.0%",
-          "ytd_pct": 99.97665296974225,
-          "fwd_pe": "33.1x"
+          "ytd": "+102.5%",
+          "ytd_pct": 102.49346283152785,
+          "fwd_pe": "33.4x"
         },
         "ANSS": {
           "ytd": "\u2014",
@@ -1901,14 +1908,14 @@
           "fwd_pe": "\u2014"
         },
         "APP": {
-          "ytd": "-28.1%",
-          "ytd_pct": -28.136594342702804,
-          "fwd_pe": "22.1x"
+          "ytd": "-26.6%",
+          "ytd_pct": -26.64658217328071,
+          "fwd_pe": "22.5x"
         },
         "PANW": {
-          "ytd": "+25.7%",
-          "ytd_pct": 25.67318132464714,
-          "fwd_pe": "58.4x"
+          "ytd": "+30.1%",
+          "ytd_pct": 30.108577633007606,
+          "fwd_pe": "60.4x"
         },
         "ENV": {
           "ytd": "\u2014",
@@ -1916,24 +1923,24 @@
           "fwd_pe": "\u2014"
         },
         "FTNT": {
-          "ytd": "+51.4%",
-          "ytd_pct": 51.36632665911095,
-          "fwd_pe": "35.0x"
+          "ytd": "+54.1%",
+          "ytd_pct": 54.07379423246442,
+          "fwd_pe": "35.7x"
         },
         "SCHW": {
-          "ytd": "-8.6%",
-          "ytd_pct": -8.622760484435988,
+          "ytd": "-8.3%",
+          "ytd_pct": -8.297467720948847,
           "fwd_pe": "12.9x"
         },
         "GOOGL": {
-          "ytd": "+26.1%",
-          "ytd_pct": 26.095846645367416,
-          "fwd_pe": "27.3x"
+          "ytd": "+27.4%",
+          "ytd_pct": 27.42492012779552,
+          "fwd_pe": "27.6x"
         },
         "MSFT": {
-          "ytd": "-14.3%",
-          "ytd_pct": -14.256027459575698,
-          "fwd_pe": "21.4x"
+          "ytd": "-12.2%",
+          "ytd_pct": -12.154170629833347,
+          "fwd_pe": "21.9x"
         },
         "COP": {
           "ytd": "+27.1%",
@@ -1956,19 +1963,19 @@
           "fwd_pe": "\u2014"
         },
         "NVDA": {
-          "ytd": "+21.3%",
-          "ytd_pct": 21.31367292225201,
-          "fwd_pe": "19.8x"
+          "ytd": "+21.6%",
+          "ytd_pct": 21.60321715817694,
+          "fwd_pe": "19.9x"
         },
         "BLK": {
-          "ytd": "+1.2%",
-          "ytd_pct": 1.187940280658496,
-          "fwd_pe": "17.9x"
+          "ytd": "+1.9%",
+          "ytd_pct": 1.8620251508866401,
+          "fwd_pe": "18.0x"
         },
         "AMZN": {
-          "ytd": "+13.3%",
-          "ytd_pct": 13.27874534269129,
-          "fwd_pe": "26.5x"
+          "ytd": "+14.1%",
+          "ytd_pct": 14.084568061693089,
+          "fwd_pe": "26.7x"
         },
         "VFIAX": {
           "ytd": "+9.7%",
@@ -1976,14 +1983,14 @@
           "fwd_pe": "\u2014"
         },
         "GS": {
-          "ytd": "+7.3%",
-          "ytd_pct": 7.26279863481229,
-          "fwd_pe": "14.4x"
+          "ytd": "+8.5%",
+          "ytd_pct": 8.52559726962458,
+          "fwd_pe": "14.6x"
         },
         "META": {
-          "ytd": "-7.5%",
-          "ytd_pct": -7.527003893408484,
-          "fwd_pe": "16.9x"
+          "ytd": "-6.8%",
+          "ytd_pct": -6.779378569588995,
+          "fwd_pe": "17.0x"
         },
         "VGSIX": {
           "ytd": "+7.7%",
@@ -2001,19 +2008,19 @@
           "fwd_pe": "\u2014"
         },
         "FIS": {
-          "ytd": "-35.9%",
-          "ytd_pct": -35.91634065603369,
+          "ytd": "-36.0%",
+          "ytd_pct": -36.006620523623226,
           "fwd_pe": "6.2x"
         },
         "MU": {
-          "ytd": "+156.9%",
-          "ytd_pct": 156.8725692862899,
+          "ytd": "+157.9%",
+          "ytd_pct": 157.8501103675414,
           "fwd_pe": "7.2x"
         },
         "TSM": {
-          "ytd": "+32.4%",
-          "ytd_pct": 32.36697489223075,
-          "fwd_pe": "20.9x"
+          "ytd": "+33.3%",
+          "ytd_pct": 33.29658758103261,
+          "fwd_pe": "21.0x"
         },
         "CRBR": {
           "ytd": "\u2014",
@@ -2021,46 +2028,70 @@
           "fwd_pe": "\u2014"
         },
         "COPX": {
-          "ytd": "+16.4%",
-          "ytd_pct": 16.35325254213678,
+          "ytd": "+16.9%",
+          "ytd_pct": 16.9452569995821,
           "fwd_pe": "\u2014"
         },
         "GLD": {
-          "ytd": "+4.6%",
-          "ytd_pct": 4.559561959072441,
+          "ytd": "+5.6%",
+          "ytd_pct": 5.621861673942109,
           "fwd_pe": "\u2014"
         },
         "TIP": {
           "ytd": "+0.6%",
-          "ytd_pct": 0.6095896642707685,
+          "ytd_pct": 0.5549995450823396,
           "fwd_pe": "\u2014"
         },
         "SCGLY": {
-          "ytd": "-4.7%",
-          "ytd_pct": -4.705882352941164,
+          "ytd": "-5.1%",
+          "ytd_pct": -5.077399380804945,
           "fwd_pe": "7.0x"
         },
         "ADBE": {
-          "ytd": "-31.1%",
-          "ytd_pct": -31.139461127460788,
-          "fwd_pe": "9.1x"
+          "ytd": "-30.2%",
+          "ytd_pct": -30.169433412383214,
+          "fwd_pe": "9.3x"
         },
         "FCX": {
-          "ytd": "+21.2%",
-          "ytd_pct": 21.204961606615484,
-          "fwd_pe": "16.6x"
+          "ytd": "+23.8%",
+          "ytd_pct": 23.843276235479426,
+          "fwd_pe": "16.9x"
         },
         "UNG": {
-          "ytd": "-8.3%",
-          "ytd_pct": -8.278955954323006,
+          "ytd": "-7.7%",
+          "ytd_pct": -7.748776508972262,
           "fwd_pe": "\u2014"
+        },
+        "EBAY": {
+          "ytd": "+31.5%",
+          "ytd_pct": 31.452353616532736,
+          "fwd_pe": "16.9x"
+        },
+        "VISA": {
+          "ytd": "\u2014",
+          "ytd_pct": null,
+          "fwd_pe": "\u2014"
+        },
+        "JPM": {
+          "ytd": "-7.4%",
+          "ytd_pct": -7.401775184656452,
+          "fwd_pe": "12.7x"
+        },
+        "GME": {
+          "ytd": "+8.7%",
+          "ytd_pct": 8.690239043824707,
+          "fwd_pe": "18.0x"
         }
       },
       "ytd_date": "2026-05-15"
     },
     "ai_trade_ideas": {
-      "text": "**Table:**\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Microsoft | MSFT | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Ethan Mollick \u2013 One Useful Thing, Simon Willison, Scott Alexander \u2013 Astral Codex Ten, Exchanges (Goldman Sachs), All-In Podcast, AI + a16z, Latent Space Podcast (swyx) |\n| 2 | NVIDIA | NVDA | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Ethan Mollick \u2013 One Useful Thing, Simon Willison, Scott Alexander \u2013 Astral Codex Ten, Import AI \u2013 Jack Clark, AI + a16z, Lex Fridman Podcast, Latent Space Podcast (swyx) |\n| 3 | Cerebras | CRBR | LONG | MED | Explicit | SemiAnalysis |\n| 4 | Taiwan Semiconductor Manufacturing Company | TSM | LONG | HIGH | Derived | SemiAnalysis |\n| 5 | Palo Alto Networks | PANW | LONG | MED | Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase |\n| 6 | NVIDIA (via competition) | NVDA | SHORT | LOW | Derived | SemiAnalysis |\n| 7 | Micron Technology | MU | LONG | MED | Derived | SemiAnalysis |\n| 8 | Meta | META | LONG | MED | Derived | Simon Willison |\n| 9 | Adobe | ADBE | LONG | MED | Derived | Simon Willison |\n| 10 | BlackRock | BLK | LONG | MED | Explicit/Derived | The Bid (BlackRock), Money Stuff: The Podcast (Matt Levine) |\n\n**Notes:**\n\n1. **Microsoft (MSFT)** \u2014 The company benefits from its stake in OpenAI, Azure hosting revenue, and its position in the technology sector, with multiple sources highlighting its potential for growth. Microsoft's exposure to AI development, its cloud services, and its investment in OpenAI make it a strong candidate for long-term growth.\n2. **NVIDIA (NVDA)** \u2014 As a primary GPU supplier for AI computing, NVIDIA benefits from the increasing demand for AI computing power, with multiple sources highlighting its strong position in the market. NVIDIA's GPUs are crucial for AI computations, and the company's ability to adapt to new architectures makes it a leader in the AI industry.\n3. **Cerebras (CRBR)** \u2014 The company's Wafer Scale Engine (WSE) is gaining traction due to the growing demand for fast tokens, and its major compute deal with OpenAI positions it for growth. Cerebras's WSE is a unique solution for AI computations, and its partnership with OpenAI makes it an attractive investment opportunity.\n4. **Taiwan Semiconductor Manufacturing Company (TSM)** \u2014 As the manufacturer of Cerebras's WSE-3, TSM benefits from the increasing demand for AI computing power and the growth of Cerebras. TSM's expertise in manufacturing high-performance chips makes it a critical component of the AI ecosystem.\n5. **Palo Alto Networks (PANW)** \u2014 The company benefits from the increasing demand for cybersecurity solutions due to AI advancements, with Zvi Mowshowitz highlighting the need for improved cybersecurity. Palo Alto Networks's products and services are crucial for protecting against AI-driven cybersecurity threats, making it a strong candidate for growth.\n6. **NVIDIA (via competition)** \u2014 Although NVIDIA is a leader in the AI industry, it may face competition from companies like Groq, which offers SRAM machines similar to Cerebras's WSE. This potential competition makes NVIDIA's position in the market less secure, and investors should be aware of the risks.\n7. **Micron Technology (MU)** \u2014 The company benefits from the increasing demand for memory in AI systems, with SemiAnalysis highlighting the trend towards using more memory in AI systems. Micron Technology's memory products are crucial for AI computations, and the company's expertise in manufacturing high-performance memory makes it a strong candidate for growth.\n8. **Meta (META)** \u2014 The company benefits from the growth of AI technology, with Simon Willison highlighting the use of Codex (GPT-5.5 xhigh) to build a rate-limiting plugin. Meta's exposure to AI development and its investment in AI research make it a strong candidate for long-term growth.\n9. **Adobe (ADBE)** \u2014 The company benefits from the growth of cross-platform development, with Simon Willison highlighting the use of React Native for cross-platform development. Adobe's creative cloud services are crucial for developers, and the company's expertise in design and development makes it a strong candidate for growth.\n10. **BlackRock (BLK)** \u2014 The company benefits from the growing demand for retirement solutions and its position as a leader in the financial services industry, with The Bid (BlackRock) and Money Stuff: The Podcast (Matt Levine) highlighting its potential for growth. BlackRock's expertise in investment management and its exposure to the retirement market make it a strong candidate for long-term growth.",
-      "input_hash": "490e7bcdafd1d7e1",
+      "text": "*(Trade idea synthesis failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 95258, Requested 7832. Please try again in 44m29.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}})*",
+      "input_hash": "72a66d77ba08bbc5",
+      "date": "2026-05-15"
+    },
+    "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
+      "text": "**New this period:**\n- China thwarts Meta's Agentic ambition\n- The U.S. evaluates upcoming AI models\n- AI diagnoses mammograms\n- DeepLearning.AI works on AI Andrew, an AI companion shaped by Andrew Ng's personality\n- Nvidia's AI-guided chip designs are mentioned as a notable development\n\n**Details:**\n**The Batch (https://www.deeplearning.ai/the-batch/)**\n- The core thesis of this piece is to update readers on the latest AI news and insights, including China's actions against Meta, U.S. evaluation of upcoming AI models, and advancements in AI diagnosis of mammograms.\n- Companies mentioned and their roles: \n  - Meta: had its Agentic ambition thwarted by China\n  - Nvidia: uses AI-guided chip designs\n  - DeepLearning.AI: is working on AI Andrew, an AI companion shaped by Andrew Ng's personality\n  - OpenAI: mentioned as a company with a rival model to DeepSeek-R1\n  - DeepSeek: developed DeepSeek-R1, an affordable rival to OpenAI's o1\n  - Anthropic: mentioned as a company with a notable AI model, Claude\n  - Google: mentioned as a company with mathematics solutions\n  - Apple: mentioned as a company with a multimodal tokenizer and diffusion research\n  - Huawei: mentioned as a company involved with DeepSeek\n  - Amazon: mentioned as a company that has a deal with OpenAI\n- Quantitative figures: None\n- Supply chain or value chain relationships: \n  - Nvidia's AI-guided chip designs imply a relationship between Nvidia and potentially other companies that use or manufacture chips\n  - DeepSeek's rival model to OpenAI implies a competitive relationship between DeepSeek and OpenAI\n- Technology transitions: \n  - AI-guided chip designs replacing traditional chip design methods\n  - DeepSeek-R1 rivaling OpenAI's o1 model\n- Competitive positioning: \n  - DeepSeek gains competitive advantage with DeepSeek-R1\n  - Meta loses competitive advantage due to China's actions\n- Capital allocation signals: \n  - Nvidia invests in AI-guided chip designs\n  - DeepLearning.AI invests in AI Andrew, an AI companion\n- Regulatory or policy signals: \n  - China's actions against Meta imply regulatory or policy implications for AI companies operating in China\n  - U.S. evaluation of upcoming AI models implies potential regulatory or policy changes for AI companies operating in the U.S.",
       "date": "2026-05-15"
     }
   }
