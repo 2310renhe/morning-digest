@@ -1,110 +1,123 @@
 {
   "seen": [
-    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
-    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
-    "d05e23d4-18e1-442f-8953-b4480146b311",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "oai:arXiv.org:2605.06670v1",
-    "oai:arXiv.org:2409.13528v2",
-    "oai:arXiv.org:2605.03184v2",
-    "oai:arXiv.org:2510.04092v3",
-    "oai:arXiv.org:2605.12099v1",
-    "oai:arXiv.org:2409.06551v5",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
-    "oai:arXiv.org:2605.09712v1",
-    "oai:arXiv.org:2605.09123v1",
-    "github:garrytan/gstack:2026-05-14",
-    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
-    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "github:garrytan/gstack:2026-05-12",
-    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
-    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
-    "oai:arXiv.org:2307.09077v2",
-    "oai:arXiv.org:2410.14927v2",
-    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
-    "oai:arXiv.org:2605.06677v1",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2605.13998v1",
     "https://simonwillison.net/2026/May/14/not-so-locked-in/#atom-everything",
-    "oai:arXiv.org:2605.09310v1",
-    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
-    "github:garrytan/gstack:2026-05-13",
-    "github:garrytan/gbrain:2026-05-13",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything",
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "oai:arXiv.org:2605.12151v1",
-    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
-    "oai:arXiv.org:2605.12189v1",
-    "github:garrytan/gbrain:2026-05-11",
-    "oai:arXiv.org:2605.10428v1",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "oai:arXiv.org:2605.11180v1",
-    "oai:arXiv.org:2605.12977v1",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "oai:arXiv.org:2507.15437v3",
-    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
-    "oai:arXiv.org:2602.10071v2",
-    "oai:arXiv.org:2605.09061v1",
-    "oai:arXiv.org:2506.06654v3",
-    "oai:arXiv.org:2605.11423v1",
-    "oai:arXiv.org:2601.18991v2",
-    "oai:arXiv.org:2206.12511v3",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "oai:arXiv.org:2605.11645v1",
-    "github:garrytan/gbrain:2026-05-14",
-    "oai:arXiv.org:2506.23619v2",
-    "oai:arXiv.org:2604.19604v4",
-    "oai:arXiv.org:2605.06688v1",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "3efa7cbf-112c-4bce-a845-443700608a00",
-    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
-    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
-    "oai:arXiv.org:2502.06830v5",
-    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
     "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "https://www.astralcodexten.com/p/open-thread-433",
-    "oai:arXiv.org:2507.07107v2",
-    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
-    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
-    "oai:arXiv.org:2605.10400v1",
-    "oai:arXiv.org:2605.10486v1",
-    "c68ed904-5c11-44f9-909c-b44a00200c14",
-    "oai:arXiv.org:2605.12532v1",
-    "github:garrytan/gbrain:2026-05-12",
-    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "oai:arXiv.org:2605.06818v1",
-    "oai:arXiv.org:2605.10447v1",
-    "oai:arXiv.org:2605.05739v2",
-    "github:garrytan/gstack:2026-05-11",
-    "github:garrytan/gstack:2026-05-10",
-    "oai:arXiv.org:2605.13407v1",
-    "oai:arXiv.org:2505.02635v2",
-    "oai:arXiv.org:2605.12547v1",
+    "oai:arXiv.org:2605.00493v2",
+    "oai:arXiv.org:2605.12189v1",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "oai:arXiv.org:2605.11423v1",
+    "oai:arXiv.org:2605.12977v1",
+    "oai:arXiv.org:2605.06688v1",
+    "oai:arXiv.org:2605.14976v1",
+    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
     "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
-    "https://www.latent.space/p/ainews-the-end-of-finetuning",
+    "oai:arXiv.org:2605.02287v2",
+    "oai:arXiv.org:2602.10071v2",
     "oai:arXiv.org:2510.15995v3",
-    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "oai:arXiv.org:2510.04092v3",
+    "oai:arXiv.org:2409.06551v5",
     "5989354b-c3fe-4aad-aa08-fb20e5f33656",
+    "oai:arXiv.org:2605.12151v1",
+    "oai:arXiv.org:2605.10486v1",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "github:garrytan/gbrain:2026-05-11",
+    "oai:arXiv.org:2605.02286v2",
+    "github:garrytan/gstack:2026-05-15",
+    "oai:arXiv.org:2601.18991v2",
+    "oai:arXiv.org:2604.24366v2",
+    "oai:arXiv.org:2604.19604v4",
+    "oai:arXiv.org:2605.10447v1",
+    "oai:arXiv.org:2605.09123v1",
+    "oai:arXiv.org:2605.06677v1",
     "github:garrytan/gbrain:2026-05-10",
-    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
-    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
-    "oai:arXiv.org:2511.07571v2",
-    "https://www.latent.space/p/abridge",
-    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
-    "oai:arXiv.org:2605.02326v2",
-    "oai:arXiv.org:2605.02040v3",
-    "oai:arXiv.org:2605.11640v1",
+    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
+    "17364f35-3bd0-469d-b500-b44a0132582f",
+    "oai:arXiv.org:2410.14927v2",
+    "oai:arXiv.org:2505.02635v2",
+    "oai:arXiv.org:2605.10428v1",
+    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
+    "oai:arXiv.org:2506.06654v3",
+    "oai:arXiv.org:2605.12547v1",
+    "github:garrytan/gstack:2026-05-13",
+    "oai:arXiv.org:2206.12511v3",
+    "oai:arXiv.org:2605.05739v2",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "oai:arXiv.org:2605.13407v1",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "github:garrytan/gbrain:2026-05-13",
+    "oai:arXiv.org:2409.13528v2",
+    "oai:arXiv.org:2507.15437v3",
+    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
     "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
-    "https://simonwillison.net/2026/May/12/datasette/#atom-everything"
+    "oai:arXiv.org:2506.23619v2",
+    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "oai:arXiv.org:2605.03184v2",
+    "oai:arXiv.org:2605.09310v1",
+    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
+    "oai:arXiv.org:2605.06818v1",
+    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "https://www.latent.space/p/ainews-everything-is-conductor",
+    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
+    "oai:arXiv.org:2307.09077v2",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
+    "c68ed904-5c11-44f9-909c-b44a00200c14",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
+    "oai:arXiv.org:2605.12099v1",
+    "oai:arXiv.org:2603.06875v3",
+    "oai:arXiv.org:2605.06670v1",
+    "oai:arXiv.org:2507.07107v2",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "github:garrytan/gbrain:2026-05-15",
+    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
+    "github:garrytan/gbrain:2026-05-14",
+    "oai:arXiv.org:2605.11180v1",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2605.09712v1",
+    "github:garrytan/gstack:2026-05-12",
+    "oai:arXiv.org:2605.02040v3",
+    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
+    "oai:arXiv.org:2605.11645v1",
+    "oai:arXiv.org:2605.11640v1",
+    "github:garrytan/gstack:2026-05-14",
+    "https://www.latent.space/p/ainews-the-end-of-finetuning",
+    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
+    "oai:arXiv.org:2605.09061v1",
+    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
+    "oai:arXiv.org:2605.10400v1",
+    "github:garrytan/gstack:2026-05-10",
+    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
+    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
+    "github:garrytan/gbrain:2026-05-12",
+    "d05e23d4-18e1-442f-8953-b4480146b311",
+    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
+    "https://www.latent.space/p/abridge",
+    "oai:arXiv.org:2407.15536v3",
+    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
+    "github:garrytan/gstack:2026-05-11",
+    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
+    "oai:arXiv.org:2502.06830v5",
+    "https://www.astralcodexten.com/p/the-sigmoids-wont-save-you",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "3efa7cbf-112c-4bce-a845-443700608a00",
+    "oai:arXiv.org:2511.07571v2",
+    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
+    "oai:arXiv.org:2605.12532v1",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "oai:arXiv.org:2605.02326v2",
+    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -208,11 +221,11 @@
       }
     },
     "https://github.com/garrytan?tab=repositories:repos": {
-      "garrytan/gbrain": {
-        "updated": "2026-05-14T23:37:52Z"
-      },
       "garrytan/gstack": {
-        "updated": "2026-05-14T21:05:27Z"
+        "updated": "2026-05-15T05:02:51Z"
+      },
+      "garrytan/gbrain": {
+        "updated": "2026-05-15T04:59:22Z"
       },
       "garrytan/openclaw-render-template": {
         "updated": "2026-05-10T17:33:17Z"
@@ -266,7 +279,7 @@
   },
   "summaries": {
     "congress_Nancy Pelosi \u2013 House PTR Trades": {
-      "text": "**24 positions \u00b7 $104.5M est. portfolio \u00b7 FD: Dec 31 2023 + PTR through 01/16/2026**\n\n| # | Ticker | Name | Type | Est. Value | % | YTD | Fwd P/E | Status | Last PTR |\n|---|--------|------|------|------------|---|-----|---------|--------|----------|\n| 1 | NVDA | NVIDIA Corporation - Common \u2026 | Stock | $16.7M | 16.0% | +25.8% | 20.7x | ~ Active trading | 01/16/2026 |\n| 2 | CRM | Salesforce.com Inc | Stock | $15.0M | 14.4% | -36.3% | 11.3x | \u2022 Unchanged | \u2014 |\n| 3 | GOOGL | Alphabet Inc. - Class A | Stock | $13.5M | 12.9% | +27.1% | 27.5x | ~ Active trading | 01/16/2026 |\n| 4 | AMZN | Amazon.com, Inc. | Stock | $13.3M | 12.7% | +16.0% | 27.1x | ~ Active trading | 01/16/2026 |\n| 5 | MSFT | Microsoft Corporation | Stock | $12.0M | 11.5% | -15.0% | 21.2x | \u2193 Reduced | 07/26/2024 |\n| 6 | AVGO | Broadcom Inc. - Common Stock | Options | $9.0M | 8.6% | +26.1% | 24.0x | \u2191 Added | 06/20/2025 |\n| 7 | PANW | Palo Alto Networks, Inc. - C\u2026 | Stock | $6.9M | 6.6% | +28.9% | 59.8x | \u2191 Added | 12/20/2024 |\n| 8 | AXP | American Express Company | Stock | $3.0M | 2.9% | -15.6% | 15.5x | \u2022 Unchanged | \u2014 |\n| 9 | CRWD | CrowdStrike Holdings, Inc. -\u2026 | Stock | $3.0M | 2.9% | +22.9% | 93.4x | \u2022 Unchanged | \u2014 |\n| 10 | NFLX | Netflix, Inc. | Stock | $3.0M | 2.9% | -6.7% | 22.8x | \u2022 Unchanged | \u2014 |\n| 11 | AB | AB | AB | $3.0M | 2.9% | +0.5% | 10.1x | \u2191 New (PTR) | 01/16/2026 |\n| 12 | V | Visa Inc. | Stock | $2.2M | 2.2% | -8.4% | 21.7x | \u2193 Reduced | 07/01/2024 |\n| 13 | VST | VST | Options | $925K | 0.9% | -12.8% | 12.5x | \u2191 New (PTR) | 01/16/2026 |\n| 14 | CMCSA | Comcast Corporation - Class \u2026 | Stock | $750K | 0.7% | -9.3% | 6.7x | \u2022 Unchanged | \u2014 |\n| 15 | SQ | Block, Inc. Class A Common S\u2026 | Stock | $375K | 0.4% | \u2014 | \u2014 | \u2022 Unchanged | \u2014 |\n| 16 | DBX | Dropbox, Inc. - Class A | Stock | $375K | 0.4% | -6.5% | 7.6x | \u2022 Unchanged | \u2014 |\n| 17 | IBKR | Interactive Brokers Group, I\u2026 | Stock | $375K | 0.4% | +35.4% | 30.5x | \u2022 Unchanged | \u2014 |\n| 18 | MORN | Morningstar, Inc. | Stock | $375K | 0.4% | -22.2% | 12.8x | \u2022 Unchanged | \u2014 |\n| 19 | RBLX | Roblox Corporation Class A | Stock | $375K | 0.4% | -47.5% | \u2014 | \u2022 Unchanged | \u2014 |\n| 20 | T | AT&T Inc. | Stock | $175K | 0.2% | -0.6% | 9.7x | \u2022 Unchanged | \u2014 |\n| 21 | TEM | TEM | Options | $75K | 0.1% | -22.1% | \u2014 | \u2191 New (PTR) | 01/14/2025 |\n| 22 | QCOM | QUALCOMM Incorporated | Stock | $33K | 0.0% | +19.0% | 19.2x | \u2022 Unchanged | \u2014 |\n| 23 | WBD | Warner Bros. Discovery, Inc.\u2026 | Stock | $33K | 0.0% | -5.7% | 1811.7x | \u2022 Unchanged | \u2014 |\n| 24 | CLNE | Clean Energy Fuels Corp. | Stock | $8K | 0.0% | -2.4% | 136.7x | \u2022 Unchanged | \u2014 |\n\n*Closed since FD baseline: PYPL, DIS, TSLA*",
+      "text": "**24 positions \u00b7 $104.5M est. portfolio \u00b7 FD: Dec 31 2023 + PTR through 01/16/2026**\n\n| # | Ticker | Name | Type | Est. Value | % | YTD | Fwd P/E | Status | Last PTR |\n|---|--------|------|------|------------|---|-----|---------|--------|----------|\n| 1 | NVDA | NVIDIA Corporation - Common \u2026 | Stock | $16.7M | 16.0% | +21.1% | 19.8x | ~ Active trading | 01/16/2026 |\n| 2 | CRM | Salesforce.com Inc | Stock | $15.0M | 14.4% | -35.7% | 11.4x | \u2022 Unchanged | \u2014 |\n| 3 | GOOGL | Alphabet Inc. - Class A | Stock | $13.5M | 12.9% | +26.6% | 27.4x | ~ Active trading | 01/16/2026 |\n| 4 | AMZN | Amazon.com, Inc. | Stock | $13.3M | 12.7% | +13.8% | 26.6x | ~ Active trading | 01/16/2026 |\n| 5 | MSFT | Microsoft Corporation | Stock | $12.0M | 11.5% | -14.1% | 21.5x | \u2193 Reduced | 07/26/2024 |\n| 6 | AVGO | Broadcom Inc. - Common Stock | Options | $9.0M | 8.6% | +23.3% | 23.3x | \u2191 Added | 06/20/2025 |\n| 7 | PANW | Palo Alto Networks, Inc. - C\u2026 | Stock | $6.9M | 6.6% | +25.4% | 58.2x | \u2191 Added | 12/20/2024 |\n| 8 | AXP | American Express Company | Stock | $3.0M | 2.9% | -15.6% | 15.5x | \u2022 Unchanged | \u2014 |\n| 9 | CRWD | CrowdStrike Holdings, Inc. -\u2026 | Stock | $3.0M | 2.9% | +21.7% | 92.3x | \u2022 Unchanged | \u2014 |\n| 10 | NFLX | Netflix, Inc. | Stock | $3.0M | 2.9% | -5.8% | 23.0x | \u2022 Unchanged | \u2014 |\n| 11 | AB | AB | AB | $3.0M | 2.9% | -0.3% | 10.0x | \u2191 New (PTR) | 01/16/2026 |\n| 12 | V | Visa Inc. | Stock | $2.2M | 2.2% | -6.8% | 22.0x | \u2193 Reduced | 07/01/2024 |\n| 13 | VST | VST | Options | $925K | 0.9% | -13.9% | 12.3x | \u2191 New (PTR) | 01/16/2026 |\n| 14 | CMCSA | Comcast Corporation - Class \u2026 | Stock | $750K | 0.7% | -9.9% | 6.6x | \u2022 Unchanged | \u2014 |\n| 15 | SQ | Block, Inc. Class A Common S\u2026 | Stock | $375K | 0.4% | \u2014 | \u2014 | \u2022 Unchanged | \u2014 |\n| 16 | DBX | Dropbox, Inc. - Class A | Stock | $375K | 0.4% | -6.0% | 7.7x | \u2022 Unchanged | \u2014 |\n| 17 | IBKR | Interactive Brokers Group, I\u2026 | Stock | $375K | 0.4% | +34.2% | 30.2x | \u2022 Unchanged | \u2014 |\n| 18 | MORN | Morningstar, Inc. | Stock | $375K | 0.4% | -21.9% | 12.8x | \u2022 Unchanged | \u2014 |\n| 19 | RBLX | Roblox Corporation Class A | Stock | $375K | 0.4% | -47.6% | \u2014 | \u2022 Unchanged | \u2014 |\n| 20 | T | AT&T Inc. | Stock | $175K | 0.2% | -0.4% | 9.7x | \u2022 Unchanged | \u2014 |\n| 21 | TEM | TEM | Options | $75K | 0.1% | -25.0% | \u2014 | \u2191 New (PTR) | 01/14/2025 |\n| 22 | QCOM | QUALCOMM Incorporated | Stock | $33K | 0.0% | +18.2% | 19.0x | \u2022 Unchanged | \u2014 |\n| 23 | WBD | Warner Bros. Discovery, Inc.\u2026 | Stock | $33K | 0.0% | -6.1% | 1804.7x | \u2022 Unchanged | \u2014 |\n| 24 | CLNE | Clean Energy Fuels Corp. | Stock | $8K | 0.0% | -2.2% | 136.9x | \u2022 Unchanged | \u2014 |\n\n*Closed since FD baseline: PYPL, DIS, TSLA*",
       "date": "01/16/2026",
       "fd_doc_id": "10066169",
       "ptr_ids": [
@@ -282,74 +295,74 @@
       ],
       "market_data": {
         "NVDA": {
-          "ytd": "+25.8%",
-          "ytd_pct": 25.83646112600536,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.1%",
+          "ytd_pct": 21.144772117962468,
+          "fwd_pe": "19.8x"
         },
         "CRM": {
-          "ytd": "-36.3%",
-          "ytd_pct": -36.32931939149146,
-          "fwd_pe": "11.3x"
+          "ytd": "-35.7%",
+          "ytd_pct": -35.71590351440113,
+          "fwd_pe": "11.4x"
         },
         "GOOGL": {
-          "ytd": "+27.1%",
-          "ytd_pct": 27.078274760383387,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.6%",
+          "ytd_pct": 26.575079872204476,
+          "fwd_pe": "27.4x"
         },
         "AMZN": {
-          "ytd": "+16.0%",
-          "ytd_pct": 16.025474395632965,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.8%",
+          "ytd_pct": 13.785633827224675,
+          "fwd_pe": "26.6x"
         },
         "MSFT": {
-          "ytd": "-15.0%",
-          "ytd_pct": -14.975600678218438,
-          "fwd_pe": "21.2x"
+          "ytd": "-14.1%",
+          "ytd_pct": -14.106116372358468,
+          "fwd_pe": "21.5x"
         },
         "AVGO": {
-          "ytd": "+26.1%",
-          "ytd_pct": 26.119618607338914,
-          "fwd_pe": "24.0x"
+          "ytd": "+23.3%",
+          "ytd_pct": 23.3140710777232,
+          "fwd_pe": "23.3x"
         },
         "PANW": {
-          "ytd": "+28.9%",
-          "ytd_pct": 28.909880564603696,
-          "fwd_pe": "59.8x"
+          "ytd": "+25.4%",
+          "ytd_pct": 25.399022801302944,
+          "fwd_pe": "58.2x"
         },
         "AXP": {
           "ytd": "-15.6%",
-          "ytd_pct": -15.57372617921341,
+          "ytd_pct": -15.593999189079605,
           "fwd_pe": "15.5x"
         },
         "CRWD": {
-          "ytd": "+22.9%",
-          "ytd_pct": 22.88271183548084,
-          "fwd_pe": "93.4x"
+          "ytd": "+21.7%",
+          "ytd_pct": 21.713670108371012,
+          "fwd_pe": "92.3x"
         },
         "NFLX": {
-          "ytd": "-6.7%",
-          "ytd_pct": -6.655290102389087,
-          "fwd_pe": "22.8x"
+          "ytd": "-5.8%",
+          "ytd_pct": -5.775383959044375,
+          "fwd_pe": "23.0x"
         },
         "AB": {
-          "ytd": "+0.5%",
-          "ytd_pct": 0.4807692307692367,
-          "fwd_pe": "10.1x"
+          "ytd": "-0.3%",
+          "ytd_pct": -0.3118503118503052,
+          "fwd_pe": "10.0x"
         },
         "V": {
-          "ytd": "-8.4%",
-          "ytd_pct": -8.374440420860543,
-          "fwd_pe": "21.7x"
+          "ytd": "-6.8%",
+          "ytd_pct": -6.829004020415725,
+          "fwd_pe": "22.0x"
         },
         "VST": {
-          "ytd": "-12.8%",
-          "ytd_pct": -12.753362672782506,
-          "fwd_pe": "12.5x"
+          "ytd": "-13.9%",
+          "ytd_pct": -13.927973718465255,
+          "fwd_pe": "12.3x"
         },
         "CMCSA": {
-          "ytd": "-9.3%",
-          "ytd_pct": -9.274265519580203,
-          "fwd_pe": "6.7x"
+          "ytd": "-9.9%",
+          "ytd_pct": -9.859707992717667,
+          "fwd_pe": "6.6x"
         },
         "SQ": {
           "ytd": "\u2014",
@@ -357,164 +370,164 @@
           "fwd_pe": "\u2014"
         },
         "DBX": {
-          "ytd": "-6.5%",
-          "ytd_pct": -6.546762589928059,
-          "fwd_pe": "7.6x"
+          "ytd": "-6.0%",
+          "ytd_pct": -6.02517985611511,
+          "fwd_pe": "7.7x"
         },
         "IBKR": {
-          "ytd": "+35.4%",
-          "ytd_pct": 35.40662416420462,
-          "fwd_pe": "30.5x"
+          "ytd": "+34.2%",
+          "ytd_pct": 34.209298709376455,
+          "fwd_pe": "30.2x"
         },
         "MORN": {
-          "ytd": "-22.2%",
-          "ytd_pct": -22.21710919884037,
+          "ytd": "-21.9%",
+          "ytd_pct": -21.853573236390414,
           "fwd_pe": "12.8x"
         },
         "RBLX": {
-          "ytd": "-47.5%",
-          "ytd_pct": -47.482413920770085,
+          "ytd": "-47.6%",
+          "ytd_pct": -47.59965444896952,
           "fwd_pe": "\u2014"
         },
         "T": {
-          "ytd": "-0.6%",
-          "ytd_pct": -0.6038647342995112,
+          "ytd": "-0.4%",
+          "ytd_pct": -0.38244766505635613,
           "fwd_pe": "9.7x"
         },
         "TEM": {
-          "ytd": "-22.1%",
-          "ytd_pct": -22.116850127011002,
+          "ytd": "-25.0%",
+          "ytd_pct": -25.03302286198137,
           "fwd_pe": "\u2014"
         },
         "QCOM": {
-          "ytd": "+19.0%",
-          "ytd_pct": 19.038292896813793,
-          "fwd_pe": "19.2x"
+          "ytd": "+18.2%",
+          "ytd_pct": 18.219818766442554,
+          "fwd_pe": "19.0x"
         },
         "WBD": {
-          "ytd": "-5.7%",
-          "ytd_pct": -5.707841776544065,
-          "fwd_pe": "1811.7x"
+          "ytd": "-6.1%",
+          "ytd_pct": -6.072172102706454,
+          "fwd_pe": "1804.7x"
         },
         "CLNE": {
-          "ytd": "-2.4%",
-          "ytd_pct": -2.380952380952394,
-          "fwd_pe": "136.7x"
+          "ytd": "-2.2%",
+          "ytd_pct": -2.1904761904762027,
+          "fwd_pe": "136.9x"
         }
       },
-      "ytd_date": "2026-05-14",
+      "ytd_date": "2026-05-15",
       "positions": [
         {
           "ticker": "NVDA",
           "name": "NVIDIA Corporation - Common Stock",
           "value_k": 16675,
-          "ytd": "+25.8%",
-          "ytd_pct": 25.83646112600536,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.1%",
+          "ytd_pct": 21.144772117962468,
+          "fwd_pe": "19.8x"
         },
         {
           "ticker": "CRM",
           "name": "Salesforce.com Inc",
           "value_k": 15000,
-          "ytd": "-36.3%",
-          "ytd_pct": -36.32931939149146,
-          "fwd_pe": "11.3x"
+          "ytd": "-35.7%",
+          "ytd_pct": -35.71590351440113,
+          "fwd_pe": "11.4x"
         },
         {
           "ticker": "GOOGL",
           "name": "Alphabet Inc. - Class A",
           "value_k": 13500,
-          "ytd": "+27.1%",
-          "ytd_pct": 27.078274760383387,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.6%",
+          "ytd_pct": 26.575079872204476,
+          "fwd_pe": "27.4x"
         },
         {
           "ticker": "AMZN",
           "name": "Amazon.com, Inc.",
           "value_k": 13300,
-          "ytd": "+16.0%",
-          "ytd_pct": 16.025474395632965,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.8%",
+          "ytd_pct": 13.785633827224675,
+          "fwd_pe": "26.6x"
         },
         {
           "ticker": "MSFT",
           "name": "Microsoft Corporation",
           "value_k": 12000,
-          "ytd": "-15.0%",
-          "ytd_pct": -14.975600678218438,
-          "fwd_pe": "21.2x"
+          "ytd": "-14.1%",
+          "ytd_pct": -14.106116372358468,
+          "fwd_pe": "21.5x"
         },
         {
           "ticker": "AVGO",
           "name": "Broadcom Inc. - Common Stock",
           "value_k": 9000,
-          "ytd": "+26.1%",
-          "ytd_pct": 26.119618607338914,
-          "fwd_pe": "24.0x"
+          "ytd": "+23.3%",
+          "ytd_pct": 23.3140710777232,
+          "fwd_pe": "23.3x"
         },
         {
           "ticker": "PANW",
           "name": "Palo Alto Networks, Inc. - Common Stock",
           "value_k": 6925,
-          "ytd": "+28.9%",
-          "ytd_pct": 28.909880564603696,
-          "fwd_pe": "59.8x"
+          "ytd": "+25.4%",
+          "ytd_pct": 25.399022801302944,
+          "fwd_pe": "58.2x"
         },
         {
           "ticker": "AXP",
           "name": "American Express Company",
           "value_k": 3000,
           "ytd": "-15.6%",
-          "ytd_pct": -15.57372617921341,
+          "ytd_pct": -15.593999189079605,
           "fwd_pe": "15.5x"
         },
         {
           "ticker": "CRWD",
           "name": "CrowdStrike Holdings, Inc. - Class A",
           "value_k": 3000,
-          "ytd": "+22.9%",
-          "ytd_pct": 22.88271183548084,
-          "fwd_pe": "93.4x"
+          "ytd": "+21.7%",
+          "ytd_pct": 21.713670108371012,
+          "fwd_pe": "92.3x"
         },
         {
           "ticker": "NFLX",
           "name": "Netflix, Inc.",
           "value_k": 3000,
-          "ytd": "-6.7%",
-          "ytd_pct": -6.655290102389087,
-          "fwd_pe": "22.8x"
+          "ytd": "-5.8%",
+          "ytd_pct": -5.775383959044375,
+          "fwd_pe": "23.0x"
         },
         {
           "ticker": "AB",
           "name": "AB",
           "value_k": 3000,
-          "ytd": "+0.5%",
-          "ytd_pct": 0.4807692307692367,
-          "fwd_pe": "10.1x"
+          "ytd": "-0.3%",
+          "ytd_pct": -0.3118503118503052,
+          "fwd_pe": "10.0x"
         },
         {
           "ticker": "V",
           "name": "Visa Inc.",
           "value_k": 2250,
-          "ytd": "-8.4%",
-          "ytd_pct": -8.374440420860543,
-          "fwd_pe": "21.7x"
+          "ytd": "-6.8%",
+          "ytd_pct": -6.829004020415725,
+          "fwd_pe": "22.0x"
         },
         {
           "ticker": "VST",
           "name": "VST",
           "value_k": 925,
-          "ytd": "-12.8%",
-          "ytd_pct": -12.753362672782506,
-          "fwd_pe": "12.5x"
+          "ytd": "-13.9%",
+          "ytd_pct": -13.927973718465255,
+          "fwd_pe": "12.3x"
         },
         {
           "ticker": "CMCSA",
           "name": "Comcast Corporation - Class A",
           "value_k": 750,
-          "ytd": "-9.3%",
-          "ytd_pct": -9.274265519580203,
-          "fwd_pe": "6.7x"
+          "ytd": "-9.9%",
+          "ytd_pct": -9.859707992717667,
+          "fwd_pe": "6.6x"
         },
         {
           "ticker": "SQ",
@@ -528,78 +541,78 @@
           "ticker": "DBX",
           "name": "Dropbox, Inc. - Class A",
           "value_k": 375,
-          "ytd": "-6.5%",
-          "ytd_pct": -6.546762589928059,
-          "fwd_pe": "7.6x"
+          "ytd": "-6.0%",
+          "ytd_pct": -6.02517985611511,
+          "fwd_pe": "7.7x"
         },
         {
           "ticker": "IBKR",
           "name": "Interactive Brokers Group, Inc.",
           "value_k": 375,
-          "ytd": "+35.4%",
-          "ytd_pct": 35.40662416420462,
-          "fwd_pe": "30.5x"
+          "ytd": "+34.2%",
+          "ytd_pct": 34.209298709376455,
+          "fwd_pe": "30.2x"
         },
         {
           "ticker": "MORN",
           "name": "Morningstar, Inc.",
           "value_k": 375,
-          "ytd": "-22.2%",
-          "ytd_pct": -22.21710919884037,
+          "ytd": "-21.9%",
+          "ytd_pct": -21.853573236390414,
           "fwd_pe": "12.8x"
         },
         {
           "ticker": "RBLX",
           "name": "Roblox Corporation Class A",
           "value_k": 375,
-          "ytd": "-47.5%",
-          "ytd_pct": -47.482413920770085,
+          "ytd": "-47.6%",
+          "ytd_pct": -47.59965444896952,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "T",
           "name": "AT&T Inc.",
           "value_k": 175,
-          "ytd": "-0.6%",
-          "ytd_pct": -0.6038647342995112,
+          "ytd": "-0.4%",
+          "ytd_pct": -0.38244766505635613,
           "fwd_pe": "9.7x"
         },
         {
           "ticker": "TEM",
           "name": "TEM",
           "value_k": 75,
-          "ytd": "-22.1%",
-          "ytd_pct": -22.116850127011002,
+          "ytd": "-25.0%",
+          "ytd_pct": -25.03302286198137,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "QCOM",
           "name": "QUALCOMM Incorporated",
           "value_k": 32,
-          "ytd": "+19.0%",
-          "ytd_pct": 19.038292896813793,
-          "fwd_pe": "19.2x"
+          "ytd": "+18.2%",
+          "ytd_pct": 18.219818766442554,
+          "fwd_pe": "19.0x"
         },
         {
           "ticker": "WBD",
           "name": "Warner Bros. Discovery, Inc. - Series A",
           "value_k": 32,
-          "ytd": "-5.7%",
-          "ytd_pct": -5.707841776544065,
-          "fwd_pe": "1811.7x"
+          "ytd": "-6.1%",
+          "ytd_pct": -6.072172102706454,
+          "fwd_pe": "1804.7x"
         },
         {
           "ticker": "CLNE",
           "name": "Clean Energy Fuels Corp.",
           "value_k": 8,
-          "ytd": "-2.4%",
-          "ytd_pct": -2.380952380952394,
-          "fwd_pe": "136.7x"
+          "ytd": "-2.2%",
+          "ytd_pct": -2.1904761904762027,
+          "fwd_pe": "136.9x"
         }
       ]
     },
     "13f_Situational Awareness LP \u2013 13F Filings (SEC)": {
-      "text": "**29 positions \u00b7 $5.5B AUM \u00b7 as of 2026-02-11**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Bloom Energy Corp \u2013 COM CL A | BE | $875.5M | 15.9% | +246.9% | 71.8x |\n| 2 | Coreweave Inc \u2013 COM CL A | CRWV | $774.4M | 14.0% | +63.7% | \u2014 |\n| 3 | Intel Corp | INTC | $746.8M | 13.5% | +217.0% | 76.2x |\n| 4 | Lumentum Hldgs Inc | LITE | $478.6M | 8.7% | +168.6% | 55.0x |\n| 5 | Coreweave Inc \u2013 COM CL A | CRWV | $436.7M | 7.9% | +63.7% | \u2014 |\n| 6 | Core Scientific Inc New | CORZ | $418.7M | 7.6% | +71.2% | 79.1x |\n| 7 | Iren Limited \u2013 ORDINARY SHARES | IREN | $328.6M | 6.0% | +55.0% | \u2014 |\n| 8 | Applied Digital Corp | APLD | $278.0M | 5.0% | +90.8% | \u2014 |\n| 9 | Sandisk Corp | SNDK | $250.2M | 4.5% | +490.3% | 8.2x |\n| 10 | Cipher Mining Inc | CIFR | $154.5M | 2.8% | +47.4% | 46.3x |\n| 11 | Eqt Corp | EQT | $133.0M | 2.4% | +5.2% | 12.0x |\n| 12 | Coherent Corp | COHR | $88.6M | 1.6% | +117.5% | 50.1x |\n| 13 | Solaris Energy Infras Inc \u2013 COM CL A | SEI | $85.8M | 1.6% | +67.4% | 28.3x |\n| 14 | Tower Semiconductor Ltd | TSEM | $84.9M | 1.5% | +133.4% | 49.9x |\n| 15 | Riot Platforms Inc | RIOT | $78.1M | 1.4% | +95.6% | \u2014 |\n| 16 | Kilroy Rlty Corp | KRC | $49.6M | 0.9% | -5.4% | 70.7x |\n| 17 | Hut 8 Corp | HUT | $39.5M | 0.7% | +135.3% | \u2014 |\n| 18 | Eqt Corp | EQT | $37.5M | 0.7% | +5.2% | 12.0x |\n| 19 | Bloom Energy Corp \u2013 COM CL A | BE | $35.5M | 0.6% | +246.9% | 71.8x |\n| 20 | Whitefiber Inc | WYFI | $27.8M | 0.5% | +84.2% | 86.9x |",
+      "text": "**29 positions \u00b7 $5.5B AUM \u00b7 as of 2026-02-11**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Bloom Energy Corp \u2013 COM CL A | BE | $875.5M | 15.9% | +222.4% | 66.8x |\n| 2 | Coreweave Inc \u2013 COM CL A | CRWV | $774.4M | 14.0% | +51.3% | \u2014 |\n| 3 | Intel Corp | INTC | $746.8M | 13.5% | +193.6% | 70.5x |\n| 4 | Lumentum Hldgs Inc | LITE | $478.6M | 8.7% | +154.2% | 52.0x |\n| 5 | Coreweave Inc \u2013 COM CL A | CRWV | $436.7M | 7.9% | +51.3% | \u2014 |\n| 6 | Core Scientific Inc New | CORZ | $418.7M | 7.6% | +62.9% | 75.3x |\n| 7 | Iren Limited \u2013 ORDINARY SHARES | IREN | $328.6M | 6.0% | +46.2% | \u2014 |\n| 8 | Applied Digital Corp | APLD | $278.0M | 5.0% | +76.5% | \u2014 |\n| 9 | Sandisk Corp | SNDK | $250.2M | 4.5% | +476.7% | 8.0x |\n| 10 | Cipher Mining Inc | CIFR | $154.5M | 2.8% | +38.3% | 43.2x |\n| 11 | Eqt Corp | EQT | $133.0M | 2.4% | +5.7% | 12.1x |\n| 12 | Coherent Corp | COHR | $88.6M | 1.6% | +105.1% | 47.2x |\n| 13 | Solaris Energy Infras Inc \u2013 COM CL A | SEI | $85.8M | 1.6% | +63.9% | 27.6x |\n| 14 | Tower Semiconductor Ltd | TSEM | $84.9M | 1.5% | +128.7% | 46.8x |\n| 15 | Riot Platforms Inc | RIOT | $78.1M | 1.4% | +85.2% | \u2014 |\n| 16 | Kilroy Rlty Corp | KRC | $49.6M | 0.9% | -9.6% | 67.7x |\n| 17 | Hut 8 Corp | HUT | $39.5M | 0.7% | +121.4% | \u2014 |\n| 18 | Eqt Corp | EQT | $37.5M | 0.7% | +5.7% | 12.1x |\n| 19 | Bloom Energy Corp \u2013 COM CL A | BE | $35.5M | 0.6% | +222.4% | 66.8x |\n| 20 | Whitefiber Inc | WYFI | $27.8M | 0.5% | +60.2% | 75.3x |",
       "date": "2026-02-11",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/2045724/000204572426000002/0002045724-26-000002-index.htm",
       "ticker_map": {
@@ -623,257 +636,257 @@
       },
       "market_data": {
         "BE": {
-          "ytd": "+246.9%",
-          "ytd_pct": 246.85234204166187,
-          "fwd_pe": "71.8x"
+          "ytd": "+222.4%",
+          "ytd_pct": 222.37886983542415,
+          "fwd_pe": "66.8x"
         },
         "CRWV": {
-          "ytd": "+63.7%",
-          "ytd_pct": 63.74807987711214,
+          "ytd": "+51.3%",
+          "ytd_pct": 51.33361262393521,
           "fwd_pe": "\u2014"
         },
         "INTC": {
-          "ytd": "+217.0%",
-          "ytd_pct": 216.95121951219517,
-          "fwd_pe": "76.2x"
+          "ytd": "+193.6%",
+          "ytd_pct": 193.57723577235774,
+          "fwd_pe": "70.5x"
         },
         "LITE": {
-          "ytd": "+168.6%",
-          "ytd_pct": 168.63995225046799,
-          "fwd_pe": "55.0x"
+          "ytd": "+154.2%",
+          "ytd_pct": 154.2011449035514,
+          "fwd_pe": "52.0x"
         },
         "CORZ": {
-          "ytd": "+71.2%",
-          "ytd_pct": 71.15384615384616,
-          "fwd_pe": "79.1x"
+          "ytd": "+62.9%",
+          "ytd_pct": 62.946428571428584,
+          "fwd_pe": "75.3x"
         },
         "IREN": {
-          "ytd": "+55.0%",
-          "ytd_pct": 54.9907333862854,
+          "ytd": "+46.2%",
+          "ytd_pct": 46.21392639661106,
           "fwd_pe": "\u2014"
         },
         "APLD": {
-          "ytd": "+90.8%",
-          "ytd_pct": 90.82381729200652,
+          "ytd": "+76.5%",
+          "ytd_pct": 76.48858075040783,
           "fwd_pe": "\u2014"
         },
         "SNDK": {
-          "ytd": "+490.3%",
-          "ytd_pct": 490.31931923498195,
-          "fwd_pe": "8.2x"
+          "ytd": "+476.7%",
+          "ytd_pct": 476.7208694919538,
+          "fwd_pe": "8.0x"
         },
         "CIFR": {
-          "ytd": "+47.4%",
-          "ytd_pct": 47.39159891598915,
-          "fwd_pe": "46.3x"
+          "ytd": "+38.3%",
+          "ytd_pct": 38.346883468834704,
+          "fwd_pe": "43.2x"
         },
         "EQT": {
-          "ytd": "+5.2%",
-          "ytd_pct": 5.186567164179107,
-          "fwd_pe": "12.0x"
+          "ytd": "+5.7%",
+          "ytd_pct": 5.690298507462681,
+          "fwd_pe": "12.1x"
         },
         "COHR": {
-          "ytd": "+117.5%",
-          "ytd_pct": 117.48117245489516,
-          "fwd_pe": "50.1x"
+          "ytd": "+105.1%",
+          "ytd_pct": 105.1091726716151,
+          "fwd_pe": "47.2x"
         },
         "SEI": {
-          "ytd": "+67.4%",
-          "ytd_pct": 67.4135305634109,
-          "fwd_pe": "28.3x"
+          "ytd": "+63.9%",
+          "ytd_pct": 63.88949314770503,
+          "fwd_pe": "27.6x"
         },
         "TSEM": {
-          "ytd": "+133.4%",
-          "ytd_pct": 133.3546244251405,
-          "fwd_pe": "49.9x"
+          "ytd": "+128.7%",
+          "ytd_pct": 128.72594106625786,
+          "fwd_pe": "46.8x"
         },
         "RIOT": {
-          "ytd": "+95.6%",
-          "ytd_pct": 95.58011049723758,
+          "ytd": "+85.2%",
+          "ytd_pct": 85.24072612470401,
           "fwd_pe": "\u2014"
         },
         "KRC": {
-          "ytd": "-5.4%",
-          "ytd_pct": -5.378645972705374,
-          "fwd_pe": "70.7x"
+          "ytd": "-9.6%",
+          "ytd_pct": -9.579876906609575,
+          "fwd_pe": "67.7x"
         },
         "HUT": {
-          "ytd": "+135.3%",
-          "ytd_pct": 135.2851545494123,
+          "ytd": "+121.4%",
+          "ytd_pct": 121.37570744449285,
           "fwd_pe": "\u2014"
         },
         "WYFI": {
-          "ytd": "+84.2%",
-          "ytd_pct": 84.17721518987342,
-          "fwd_pe": "86.9x"
+          "ytd": "+60.2%",
+          "ytd_pct": 60.18987341772151,
+          "fwd_pe": "75.3x"
         }
       },
-      "ytd_date": "2026-05-14",
+      "ytd_date": "2026-05-15",
       "positions": [
         {
           "ticker": "BE",
           "name": "Bloom Energy Corp \u2013 COM CL A",
           "value_k": 875505,
-          "ytd": "+246.9%",
-          "ytd_pct": 246.85234204166187,
-          "fwd_pe": "71.8x"
+          "ytd": "+222.4%",
+          "ytd_pct": 222.37886983542415,
+          "fwd_pe": "66.8x"
         },
         {
           "ticker": "CRWV",
           "name": "Coreweave Inc \u2013 COM CL A",
           "value_k": 774426,
-          "ytd": "+63.7%",
-          "ytd_pct": 63.74807987711214,
+          "ytd": "+51.3%",
+          "ytd_pct": 51.33361262393521,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "INTC",
           "name": "Intel Corp",
           "value_k": 746760,
-          "ytd": "+217.0%",
-          "ytd_pct": 216.95121951219517,
-          "fwd_pe": "76.2x"
+          "ytd": "+193.6%",
+          "ytd_pct": 193.57723577235774,
+          "fwd_pe": "70.5x"
         },
         {
           "ticker": "LITE",
           "name": "Lumentum Hldgs Inc",
           "value_k": 478577,
-          "ytd": "+168.6%",
-          "ytd_pct": 168.63995225046799,
-          "fwd_pe": "55.0x"
+          "ytd": "+154.2%",
+          "ytd_pct": 154.2011449035514,
+          "fwd_pe": "52.0x"
         },
         {
           "ticker": "CRWV",
           "name": "Coreweave Inc \u2013 COM CL A",
           "value_k": 436735,
-          "ytd": "+63.7%",
-          "ytd_pct": 63.74807987711214,
+          "ytd": "+51.3%",
+          "ytd_pct": 51.33361262393521,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "CORZ",
           "name": "Core Scientific Inc New",
           "value_k": 418694,
-          "ytd": "+71.2%",
-          "ytd_pct": 71.15384615384616,
-          "fwd_pe": "79.1x"
+          "ytd": "+62.9%",
+          "ytd_pct": 62.946428571428584,
+          "fwd_pe": "75.3x"
         },
         {
           "ticker": "IREN",
           "name": "Iren Limited \u2013 ORDINARY SHARES",
           "value_k": 328622,
-          "ytd": "+55.0%",
-          "ytd_pct": 54.9907333862854,
+          "ytd": "+46.2%",
+          "ytd_pct": 46.21392639661106,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "APLD",
           "name": "Applied Digital Corp",
           "value_k": 278033,
-          "ytd": "+90.8%",
-          "ytd_pct": 90.82381729200652,
+          "ytd": "+76.5%",
+          "ytd_pct": 76.48858075040783,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "SNDK",
           "name": "Sandisk Corp",
           "value_k": 250245,
-          "ytd": "+490.3%",
-          "ytd_pct": 490.31931923498195,
-          "fwd_pe": "8.2x"
+          "ytd": "+476.7%",
+          "ytd_pct": 476.7208694919538,
+          "fwd_pe": "8.0x"
         },
         {
           "ticker": "CIFR",
           "name": "Cipher Mining Inc",
           "value_k": 154523,
-          "ytd": "+47.4%",
-          "ytd_pct": 47.39159891598915,
-          "fwd_pe": "46.3x"
+          "ytd": "+38.3%",
+          "ytd_pct": 38.346883468834704,
+          "fwd_pe": "43.2x"
         },
         {
           "ticker": "EQT",
           "name": "Eqt Corp",
           "value_k": 133047,
-          "ytd": "+5.2%",
-          "ytd_pct": 5.186567164179107,
-          "fwd_pe": "12.0x"
+          "ytd": "+5.7%",
+          "ytd_pct": 5.690298507462681,
+          "fwd_pe": "12.1x"
         },
         {
           "ticker": "COHR",
           "name": "Coherent Corp",
           "value_k": 88648,
-          "ytd": "+117.5%",
-          "ytd_pct": 117.48117245489516,
-          "fwd_pe": "50.1x"
+          "ytd": "+105.1%",
+          "ytd_pct": 105.1091726716151,
+          "fwd_pe": "47.2x"
         },
         {
           "ticker": "SEI",
           "name": "Solaris Energy Infras Inc \u2013 COM CL A",
           "value_k": 85803,
-          "ytd": "+67.4%",
-          "ytd_pct": 67.4135305634109,
-          "fwd_pe": "28.3x"
+          "ytd": "+63.9%",
+          "ytd_pct": 63.88949314770503,
+          "fwd_pe": "27.6x"
         },
         {
           "ticker": "TSEM",
           "name": "Tower Semiconductor Ltd",
           "value_k": 84895,
-          "ytd": "+133.4%",
-          "ytd_pct": 133.3546244251405,
-          "fwd_pe": "49.9x"
+          "ytd": "+128.7%",
+          "ytd_pct": 128.72594106625786,
+          "fwd_pe": "46.8x"
         },
         {
           "ticker": "RIOT",
           "name": "Riot Platforms Inc",
           "value_k": 78144,
-          "ytd": "+95.6%",
-          "ytd_pct": 95.58011049723758,
+          "ytd": "+85.2%",
+          "ytd_pct": 85.24072612470401,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "KRC",
           "name": "Kilroy Rlty Corp",
           "value_k": 49616,
-          "ytd": "-5.4%",
-          "ytd_pct": -5.378645972705374,
-          "fwd_pe": "70.7x"
+          "ytd": "-9.6%",
+          "ytd_pct": -9.579876906609575,
+          "fwd_pe": "67.7x"
         },
         {
           "ticker": "HUT",
           "name": "Hut 8 Corp",
           "value_k": 39517,
-          "ytd": "+135.3%",
-          "ytd_pct": 135.2851545494123,
+          "ytd": "+121.4%",
+          "ytd_pct": 121.37570744449285,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "EQT",
           "name": "Eqt Corp",
           "value_k": 37520,
-          "ytd": "+5.2%",
-          "ytd_pct": 5.186567164179107,
-          "fwd_pe": "12.0x"
+          "ytd": "+5.7%",
+          "ytd_pct": 5.690298507462681,
+          "fwd_pe": "12.1x"
         },
         {
           "ticker": "BE",
           "name": "Bloom Energy Corp \u2013 COM CL A",
           "value_k": 35494,
-          "ytd": "+246.9%",
-          "ytd_pct": 246.85234204166187,
-          "fwd_pe": "71.8x"
+          "ytd": "+222.4%",
+          "ytd_pct": 222.37886983542415,
+          "fwd_pe": "66.8x"
         },
         {
           "ticker": "WYFI",
           "name": "Whitefiber Inc",
           "value_k": 27770,
-          "ytd": "+84.2%",
-          "ytd_pct": 84.17721518987342,
-          "fwd_pe": "86.9x"
+          "ytd": "+60.2%",
+          "ytd_pct": 60.18987341772151,
+          "fwd_pe": "75.3x"
         }
       ]
     },
     "13f_Stanley Druckenmiller \u2013 Duquesne Family Office 13F (SEC)": {
-      "text": "**62 positions \u00b7 $4.5B AUM \u00b7 as of 2026-02-17**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Natera Inc | NTRA | $575.3M | 12.8% | -13.2% | \u2014 |\n| 2 | Select Sector Spdr Tr \u2013 STATE STREET FIN | XLF | $301.0M | 6.7% | -6.2% | \u2014 |\n| 3 | Insmed Inc \u2013 COM PAR $.01 | INSM | $257.9M | 5.7% | -32.7% | 317.7x |\n| 4 | Invesco Exchange Traded Fd T \u2013 S&P500 EQL WGT | RSP | $224.9M | 5.0% | +6.5% | \u2014 |\n| 5 | Teva Pharmaceutical Inds Ltd \u2013 SPONSORED ADS | TEVA | $183.4M | 4.1% | +13.2% | 11.4x |\n| 6 | Woodward Inc | WWD | $178.7M | 4.0% | +21.2% | 34.1x |\n| 7 | Amazon Com Inc | AMZN | $170.3M | 3.8% | +16.0% | 27.1x |\n| 8 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $165.0M | 3.7% | +37.7% | 21.7x |\n| 9 | Coupang Inc \u2013 CL A | CPNG | $159.8M | 3.6% | -30.8% | 33.6x |\n| 10 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $134.3M | 3.0% | +17.3% | \u2014 |\n| 11 | Alphabet Inc | GOOGL | $120.5M | 2.7% | +27.1% | 27.5x |\n| 12 | Sea Ltd \u2013 SPONSORD ADS | SE | $120.4M | 2.7% | -31.0% | 16.9x |\n| 13 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $112.9M | 2.5% | +17.3% | \u2014 |\n| 14 | Newamsterdam Pharma Company \u2013 ORDINARY SHARES | NAMS | $107.7M | 2.4% | +6.9% | \u2014 |\n| 15 | Mercadolibre Inc | MELI | $95.0M | 2.1% | -21.2% | 26.1x |\n| 16 | Bbb Foods Inc | TBBB | $89.3M | 2.0% | +6.2% | 307.1x |\n| 17 | Restaurant Brands Intl Inc | QSR | $82.5M | 1.8% | +12.5% | 17.3x |\n| 18 | Cogent Biosciences Inc | COGT | $78.7M | 1.8% | -3.1% | \u2014 |\n| 19 | Alcoa Corp | AA | $73.1M | 1.6% | +25.7% | 10.0x |\n| 20 | Entegris Inc | ENTG | $71.1M | 1.6% | +68.0% | 30.7x |",
+      "text": "**62 positions \u00b7 $4.5B AUM \u00b7 as of 2026-02-17**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Natera Inc | NTRA | $575.3M | 12.8% | -16.1% | \u2014 |\n| 2 | Select Sector Spdr Tr \u2013 STATE STREET FIN | XLF | $301.0M | 6.7% | -6.4% | \u2014 |\n| 3 | Insmed Inc \u2013 COM PAR $.01 | INSM | $257.9M | 5.7% | -35.4% | 304.5x |\n| 4 | Invesco Exchange Traded Fd T \u2013 S&P500 EQL WGT | RSP | $224.9M | 5.0% | +5.4% | \u2014 |\n| 5 | Teva Pharmaceutical Inds Ltd \u2013 SPONSORED ADS | TEVA | $183.4M | 4.1% | +10.8% | 11.1x |\n| 6 | Woodward Inc | WWD | $178.7M | 4.0% | +19.5% | 33.7x |\n| 7 | Amazon Com Inc | AMZN | $170.3M | 3.8% | +13.6% | 26.5x |\n| 8 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $165.0M | 3.7% | +33.0% | 20.9x |\n| 9 | Coupang Inc \u2013 CL A | CPNG | $159.8M | 3.6% | -30.5% | 33.7x |\n| 10 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $134.3M | 3.0% | +13.3% | \u2014 |\n| 11 | Alphabet Inc | GOOGL | $120.5M | 2.7% | +26.5% | 27.4x |\n| 12 | Sea Ltd \u2013 SPONSORD ADS | SE | $120.4M | 2.7% | -30.8% | 16.9x |\n| 13 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $112.9M | 2.5% | +13.3% | \u2014 |\n| 14 | Newamsterdam Pharma Company \u2013 ORDINARY SHARES | NAMS | $107.7M | 2.4% | +3.1% | \u2014 |\n| 15 | Mercadolibre Inc | MELI | $95.0M | 2.1% | -21.7% | 25.9x |\n| 16 | Bbb Foods Inc | TBBB | $89.3M | 2.0% | +5.9% | 306.2x |\n| 17 | Restaurant Brands Intl Inc | QSR | $82.5M | 1.8% | +11.9% | 17.2x |\n| 18 | Cogent Biosciences Inc | COGT | $78.7M | 1.8% | -4.7% | \u2014 |\n| 19 | Alcoa Corp | AA | $73.1M | 1.6% | +17.9% | 9.3x |\n| 20 | Entegris Inc | ENTG | $71.1M | 1.6% | +57.9% | 28.9x |",
       "date": "2026-02-17",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1536411/000153641126000002/0001536411-26-000002-index.htm",
       "ticker_map": {
@@ -899,267 +912,267 @@
       },
       "market_data": {
         "NTRA": {
-          "ytd": "-13.2%",
-          "ytd_pct": -13.230608057968485,
+          "ytd": "-16.1%",
+          "ytd_pct": -16.10284167794317,
           "fwd_pe": "\u2014"
         },
         "XLF": {
-          "ytd": "-6.2%",
-          "ytd_pct": -6.171261639583718,
+          "ytd": "-6.4%",
+          "ytd_pct": -6.4177469417564375,
           "fwd_pe": "\u2014"
         },
         "INSM": {
-          "ytd": "-32.7%",
-          "ytd_pct": -32.6534130085038,
-          "fwd_pe": "317.7x"
+          "ytd": "-35.4%",
+          "ytd_pct": -35.44874741438749,
+          "fwd_pe": "304.5x"
         },
         "RSP": {
-          "ytd": "+6.5%",
-          "ytd_pct": 6.530590937565249,
+          "ytd": "+5.4%",
+          "ytd_pct": 5.392566297765704,
           "fwd_pe": "\u2014"
         },
         "TEVA": {
-          "ytd": "+13.2%",
-          "ytd_pct": 13.20089714834988,
-          "fwd_pe": "11.4x"
+          "ytd": "+10.8%",
+          "ytd_pct": 10.797821211150264,
+          "fwd_pe": "11.1x"
         },
         "WWD": {
-          "ytd": "+21.2%",
-          "ytd_pct": 21.185829584546187,
-          "fwd_pe": "34.1x"
+          "ytd": "+19.5%",
+          "ytd_pct": 19.505821645938088,
+          "fwd_pe": "33.7x"
         },
         "AMZN": {
-          "ytd": "+16.0%",
-          "ytd_pct": 16.025474395632965,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.6%",
+          "ytd_pct": 13.582011957369389,
+          "fwd_pe": "26.5x"
         },
         "TSM": {
-          "ytd": "+37.7%",
-          "ytd_pct": 37.684688538615966,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.00536378294778,
+          "fwd_pe": "20.9x"
         },
         "CPNG": {
-          "ytd": "-30.8%",
-          "ytd_pct": -30.775752437473514,
-          "fwd_pe": "33.6x"
+          "ytd": "-30.5%",
+          "ytd_pct": -30.52140737600678,
+          "fwd_pe": "33.7x"
         },
         "EWZ": {
-          "ytd": "+17.3%",
-          "ytd_pct": 17.29619137551149,
+          "ytd": "+13.3%",
+          "ytd_pct": 13.330185709789118,
           "fwd_pe": "\u2014"
         },
         "GOOGL": {
-          "ytd": "+27.1%",
-          "ytd_pct": 27.11054313099041,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.5%",
+          "ytd_pct": 26.50319488817891,
+          "fwd_pe": "27.4x"
         },
         "SE": {
-          "ytd": "-31.0%",
-          "ytd_pct": -31.03786156619895,
+          "ytd": "-30.8%",
+          "ytd_pct": -30.83013247628753,
           "fwd_pe": "16.9x"
         },
         "NAMS": {
-          "ytd": "+6.9%",
-          "ytd_pct": 6.91277080957812,
+          "ytd": "+3.1%",
+          "ytd_pct": 3.107183580387695,
           "fwd_pe": "\u2014"
         },
         "MELI": {
-          "ytd": "-21.2%",
-          "ytd_pct": -21.237327852412307,
-          "fwd_pe": "26.1x"
+          "ytd": "-21.7%",
+          "ytd_pct": -21.741483224608544,
+          "fwd_pe": "25.9x"
         },
         "TBBB": {
-          "ytd": "+6.2%",
-          "ytd_pct": 6.214435459718487,
-          "fwd_pe": "307.1x"
+          "ytd": "+5.9%",
+          "ytd_pct": 5.899970050913444,
+          "fwd_pe": "306.2x"
         },
         "QSR": {
-          "ytd": "+12.5%",
-          "ytd_pct": 12.487175729151394,
-          "fwd_pe": "17.3x"
+          "ytd": "+11.9%",
+          "ytd_pct": 11.930235966583615,
+          "fwd_pe": "17.2x"
         },
         "COGT": {
-          "ytd": "-3.1%",
-          "ytd_pct": -3.0968468468468506,
+          "ytd": "-4.7%",
+          "ytd_pct": -4.729729729729729,
           "fwd_pe": "\u2014"
         },
         "AA": {
-          "ytd": "+25.7%",
-          "ytd_pct": 25.668046669175766,
-          "fwd_pe": "10.0x"
+          "ytd": "+17.9%",
+          "ytd_pct": 17.943168987579973,
+          "fwd_pe": "9.3x"
         },
         "ENTG": {
-          "ytd": "+68.0%",
-          "ytd_pct": 68.01780415430268,
-          "fwd_pe": "30.7x"
+          "ytd": "+57.9%",
+          "ytd_pct": 57.8753709198813,
+          "fwd_pe": "28.9x"
         }
       },
-      "ytd_date": "2026-05-14",
+      "ytd_date": "2026-05-15",
       "positions": [
         {
           "ticker": "NTRA",
           "name": "Natera Inc",
           "value_k": 575327,
-          "ytd": "-13.2%",
-          "ytd_pct": -13.230608057968485,
+          "ytd": "-16.1%",
+          "ytd_pct": -16.10284167794317,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "XLF",
           "name": "Select Sector Spdr Tr \u2013 STATE STREET FIN",
           "value_k": 300994,
-          "ytd": "-6.2%",
-          "ytd_pct": -6.171261639583718,
+          "ytd": "-6.4%",
+          "ytd_pct": -6.4177469417564375,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "INSM",
           "name": "Insmed Inc \u2013 COM PAR $.01",
           "value_k": 257884,
-          "ytd": "-32.7%",
-          "ytd_pct": -32.6534130085038,
-          "fwd_pe": "317.7x"
+          "ytd": "-35.4%",
+          "ytd_pct": -35.44874741438749,
+          "fwd_pe": "304.5x"
         },
         {
           "ticker": "RSP",
           "name": "Invesco Exchange Traded Fd T \u2013 S&P500 EQL WGT",
           "value_k": 224877,
-          "ytd": "+6.5%",
-          "ytd_pct": 6.530590937565249,
+          "ytd": "+5.4%",
+          "ytd_pct": 5.392566297765704,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "TEVA",
           "name": "Teva Pharmaceutical Inds Ltd \u2013 SPONSORED ADS",
           "value_k": 183355,
-          "ytd": "+13.2%",
-          "ytd_pct": 13.20089714834988,
-          "fwd_pe": "11.4x"
+          "ytd": "+10.8%",
+          "ytd_pct": 10.797821211150264,
+          "fwd_pe": "11.1x"
         },
         {
           "ticker": "WWD",
           "name": "Woodward Inc",
           "value_k": 178650,
-          "ytd": "+21.2%",
-          "ytd_pct": 21.185829584546187,
-          "fwd_pe": "34.1x"
+          "ytd": "+19.5%",
+          "ytd_pct": 19.505821645938088,
+          "fwd_pe": "33.7x"
         },
         {
           "ticker": "AMZN",
           "name": "Amazon Com Inc",
           "value_k": 170331,
-          "ytd": "+16.0%",
-          "ytd_pct": 16.025474395632965,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.6%",
+          "ytd_pct": 13.582011957369389,
+          "fwd_pe": "26.5x"
         },
         {
           "ticker": "TSM",
           "name": "Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS",
           "value_k": 165038,
-          "ytd": "+37.7%",
-          "ytd_pct": 37.684688538615966,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.00536378294778,
+          "fwd_pe": "20.9x"
         },
         {
           "ticker": "CPNG",
           "name": "Coupang Inc \u2013 CL A",
           "value_k": 159773,
-          "ytd": "-30.8%",
-          "ytd_pct": -30.775752437473514,
-          "fwd_pe": "33.6x"
+          "ytd": "-30.5%",
+          "ytd_pct": -30.52140737600678,
+          "fwd_pe": "33.7x"
         },
         {
           "ticker": "EWZ",
           "name": "Ishares Inc \u2013 MSCI BRAZIL ETF",
           "value_k": 134324,
-          "ytd": "+17.3%",
-          "ytd_pct": 17.29619137551149,
+          "ytd": "+13.3%",
+          "ytd_pct": 13.330185709789118,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "GOOGL",
           "name": "Alphabet Inc",
           "value_k": 120505,
-          "ytd": "+27.1%",
-          "ytd_pct": 27.11054313099041,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.5%",
+          "ytd_pct": 26.50319488817891,
+          "fwd_pe": "27.4x"
         },
         {
           "ticker": "SE",
           "name": "Sea Ltd \u2013 SPONSORD ADS",
           "value_k": 120441,
-          "ytd": "-31.0%",
-          "ytd_pct": -31.03786156619895,
+          "ytd": "-30.8%",
+          "ytd_pct": -30.83013247628753,
           "fwd_pe": "16.9x"
         },
         {
           "ticker": "EWZ",
           "name": "Ishares Inc \u2013 MSCI BRAZIL ETF",
           "value_k": 112865,
-          "ytd": "+17.3%",
-          "ytd_pct": 17.29619137551149,
+          "ytd": "+13.3%",
+          "ytd_pct": 13.330185709789118,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "NAMS",
           "name": "Newamsterdam Pharma Company \u2013 ORDINARY SHARES",
           "value_k": 107701,
-          "ytd": "+6.9%",
-          "ytd_pct": 6.91277080957812,
+          "ytd": "+3.1%",
+          "ytd_pct": 3.107183580387695,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "MELI",
           "name": "Mercadolibre Inc",
           "value_k": 94970,
-          "ytd": "-21.2%",
-          "ytd_pct": -21.237327852412307,
-          "fwd_pe": "26.1x"
+          "ytd": "-21.7%",
+          "ytd_pct": -21.741483224608544,
+          "fwd_pe": "25.9x"
         },
         {
           "ticker": "TBBB",
           "name": "Bbb Foods Inc",
           "value_k": 89323,
-          "ytd": "+6.2%",
-          "ytd_pct": 6.214435459718487,
-          "fwd_pe": "307.1x"
+          "ytd": "+5.9%",
+          "ytd_pct": 5.899970050913444,
+          "fwd_pe": "306.2x"
         },
         {
           "ticker": "QSR",
           "name": "Restaurant Brands Intl Inc",
           "value_k": 82490,
-          "ytd": "+12.5%",
-          "ytd_pct": 12.487175729151394,
-          "fwd_pe": "17.3x"
+          "ytd": "+11.9%",
+          "ytd_pct": 11.930235966583615,
+          "fwd_pe": "17.2x"
         },
         {
           "ticker": "COGT",
           "name": "Cogent Biosciences Inc",
           "value_k": 78658,
-          "ytd": "-3.1%",
-          "ytd_pct": -3.0968468468468506,
+          "ytd": "-4.7%",
+          "ytd_pct": -4.729729729729729,
           "fwd_pe": "\u2014"
         },
         {
           "ticker": "AA",
           "name": "Alcoa Corp",
           "value_k": 73123,
-          "ytd": "+25.7%",
-          "ytd_pct": 25.668046669175766,
-          "fwd_pe": "10.0x"
+          "ytd": "+17.9%",
+          "ytd_pct": 17.943168987579973,
+          "fwd_pe": "9.3x"
         },
         {
           "ticker": "ENTG",
           "name": "Entegris Inc",
           "value_k": 71120,
-          "ytd": "+68.0%",
-          "ytd_pct": 68.01780415430268,
-          "fwd_pe": "30.7x"
+          "ytd": "+57.9%",
+          "ytd_pct": 57.8753709198813,
+          "fwd_pe": "28.9x"
         }
       ]
     },
     "13f_Philippe Laffont \u2013 Coatue Management 13F (SEC)": {
-      "text": "**257 positions \u00b7 $40.0B AUM \u00b7 as of 2026-02-17**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Meta Platforms Inc \u2013 CL A | META | $1.70B | 4.2% | -5.7% | 17.2x |\n| 2 | Amazon Com Inc | AMZN | $1.52B | 3.8% | +16.0% | 27.1x |\n| 3 | Microsoft Corp | MSFT | $1.21B | 3.0% | -14.9% | 21.3x |\n| 4 | Nvidia Corporation | NVDA | $1.20B | 3.0% | +25.9% | 20.7x |\n| 5 | Ge Vernova Inc | GEV | $1.10B | 2.8% | +62.8% | 43.0x |\n| 6 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $1.05B | 2.6% | +37.5% | 21.7x |\n| 7 | Alphabet Inc | GOOGL | $1.02B | 2.6% | +27.1% | 27.5x |\n| 8 | Broadcom Inc | AVGO | $1.01B | 2.5% | +26.1% | 24.0x |\n| 9 | Constellation Energy Corp | CEG | $926.6M | 2.3% | -21.8% | 20.3x |\n| 10 | Spotify Technology S A |  | $831.4M | 2.1% | \u2014 | \u2014 |\n| 11 | Reddit Inc \u2013 CL A | RDDT | $825.7M | 2.1% | -33.1% | 17.4x |\n| 12 | Lam Research Corp | LRCX | $821.8M | 2.1% | +74.7% | 37.8x |\n| 13 | Applovin Corp \u2013 COM CL A | APP | $777.2M | 1.9% | -31.2% | 21.2x |\n| 14 | Eaton Corp Plc | ETN | $766.4M | 1.9% | +27.6% | 25.9x |\n| 15 | Microsoft Corp | MSFT | $746.7M | 1.9% | -14.9% | 21.3x |\n| 16 | Nu Hldgs Ltd \u2013 ORD SHS CL A |  | $736.6M | 1.8% | \u2014 | \u2014 |\n| 17 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $732.8M | 1.8% | +37.5% | 21.7x |\n| 18 | Alphabet Inc | GOOGL | $684.4M | 1.7% | +27.1% | 27.5x |\n| 19 | Tesla Inc | TSLA | $650.7M | 1.6% | -0.6% | 177.9x |\n| 20 | Applied Matls Inc | AMAT | $590.0M | 1.5% | +73.4% | 30.8x |",
+      "text": "**257 positions \u00b7 $40.0B AUM \u00b7 as of 2026-02-17**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Meta Platforms Inc \u2013 CL A | META | $1.70B | 4.2% | -7.4% | 16.9x |\n| 2 | Amazon Com Inc | AMZN | $1.52B | 3.8% | +13.6% | 26.6x |\n| 3 | Microsoft Corp | MSFT | $1.21B | 3.0% | -14.0% | 21.5x |\n| 4 | Nvidia Corporation | NVDA | $1.20B | 3.0% | +21.3% | 19.8x |\n| 5 | Ge Vernova Inc | GEV | $1.10B | 2.8% | +61.5% | 42.6x |\n| 6 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $1.05B | 2.6% | +33.0% | 21.0x |\n| 7 | Alphabet Inc | GOOGL | $1.02B | 2.6% | +26.3% | 27.3x |\n| 8 | Broadcom Inc | AVGO | $1.01B | 2.5% | +23.4% | 23.4x |\n| 9 | Constellation Energy Corp | CEG | $926.6M | 2.3% | -23.4% | 19.9x |\n| 10 | Spotify Technology S A |  | $831.4M | 2.1% | \u2014 | \u2014 |\n| 11 | Reddit Inc \u2013 CL A | RDDT | $825.7M | 2.1% | -33.2% | 17.4x |\n| 12 | Lam Research Corp | LRCX | $821.8M | 2.1% | +65.7% | 35.8x |\n| 13 | Applovin Corp \u2013 COM CL A | APP | $777.2M | 1.9% | -28.0% | 22.1x |\n| 14 | Eaton Corp Plc | ETN | $766.4M | 1.9% | +24.8% | 25.3x |\n| 15 | Microsoft Corp | MSFT | $746.7M | 1.9% | -14.0% | 21.5x |\n| 16 | Nu Hldgs Ltd \u2013 ORD SHS CL A |  | $736.6M | 1.8% | \u2014 | \u2014 |\n| 17 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $732.8M | 1.8% | +33.0% | 21.0x |\n| 18 | Alphabet Inc | GOOGL | $684.4M | 1.7% | +26.3% | 27.3x |\n| 19 | Tesla Inc | TSLA | $650.7M | 1.6% | -5.0% | 169.9x |\n| 20 | Applied Matls Inc | AMAT | $590.0M | 1.5% | +68.3% | 28.5x |",
       "date": "2026-02-17",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1135730/000091957426001239/0000919574-26-001239-index.htm",
       "ticker_map": {
@@ -1183,154 +1196,154 @@
       },
       "market_data": {
         "META": {
-          "ytd": "-5.7%",
-          "ytd_pct": -5.717402172431033,
-          "fwd_pe": "17.2x"
+          "ytd": "-7.4%",
+          "ytd_pct": -7.4202002757199805,
+          "fwd_pe": "16.9x"
         },
         "AMZN": {
-          "ytd": "+16.0%",
-          "ytd_pct": 16.003812494584523,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.6%",
+          "ytd_pct": 13.569014816740316,
+          "fwd_pe": "26.6x"
         },
         "MSFT": {
-          "ytd": "-14.9%",
-          "ytd_pct": -14.92700880856871,
-          "fwd_pe": "21.3x"
+          "ytd": "-14.0%",
+          "ytd_pct": -14.027542285265298,
+          "fwd_pe": "21.5x"
         },
         "NVDA": {
-          "ytd": "+25.9%",
-          "ytd_pct": 25.865951742627352,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.3%",
+          "ytd_pct": 21.316353887399462,
+          "fwd_pe": "19.8x"
         },
         "GEV": {
-          "ytd": "+62.8%",
-          "ytd_pct": 62.836421500374854,
-          "fwd_pe": "43.0x"
+          "ytd": "+61.5%",
+          "ytd_pct": 61.4830852089294,
+          "fwd_pe": "42.6x"
         },
         "TSM": {
-          "ytd": "+37.5%",
-          "ytd_pct": 37.53660864128467,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.008654447332916,
+          "fwd_pe": "21.0x"
         },
         "GOOGL": {
-          "ytd": "+27.1%",
-          "ytd_pct": 27.060702875399357,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.3%",
+          "ytd_pct": 26.32587859424919,
+          "fwd_pe": "27.3x"
         },
         "AVGO": {
-          "ytd": "+26.1%",
-          "ytd_pct": 26.119618607338914,
-          "fwd_pe": "24.0x"
+          "ytd": "+23.4%",
+          "ytd_pct": 23.37474718289511,
+          "fwd_pe": "23.4x"
         },
         "CEG": {
-          "ytd": "-21.8%",
-          "ytd_pct": -21.816174597333486,
-          "fwd_pe": "20.3x"
+          "ytd": "-23.4%",
+          "ytd_pct": -23.395703003368524,
+          "fwd_pe": "19.9x"
         },
         "RDDT": {
-          "ytd": "-33.1%",
-          "ytd_pct": -33.138295558359076,
+          "ytd": "-33.2%",
+          "ytd_pct": -33.1535215556619,
           "fwd_pe": "17.4x"
         },
         "LRCX": {
-          "ytd": "+74.7%",
-          "ytd_pct": 74.65825446898002,
-          "fwd_pe": "37.8x"
+          "ytd": "+65.7%",
+          "ytd_pct": 65.66771819137747,
+          "fwd_pe": "35.8x"
         },
         "APP": {
-          "ytd": "-31.2%",
-          "ytd_pct": -31.18266005758215,
-          "fwd_pe": "21.2x"
+          "ytd": "-28.0%",
+          "ytd_pct": -27.982250452643147,
+          "fwd_pe": "22.1x"
         },
         "ETN": {
-          "ytd": "+27.6%",
-          "ytd_pct": 27.630215691815014,
-          "fwd_pe": "25.9x"
+          "ytd": "+24.8%",
+          "ytd_pct": 24.843803962198987,
+          "fwd_pe": "25.3x"
         },
         "TSLA": {
-          "ytd": "-0.6%",
-          "ytd_pct": -0.5870319309792856,
-          "fwd_pe": "177.9x"
+          "ytd": "-5.0%",
+          "ytd_pct": -5.027572711909635,
+          "fwd_pe": "169.9x"
         },
         "AMAT": {
-          "ytd": "+73.4%",
-          "ytd_pct": 73.44565936417759,
-          "fwd_pe": "30.8x"
+          "ytd": "+68.3%",
+          "ytd_pct": 68.27308455581928,
+          "fwd_pe": "28.5x"
         }
       },
-      "ytd_date": "2026-05-14",
+      "ytd_date": "2026-05-15",
       "positions": [
         {
           "ticker": "META",
           "name": "Meta Platforms Inc \u2013 CL A",
           "value_k": 1697332,
-          "ytd": "-5.7%",
-          "ytd_pct": -5.717402172431033,
-          "fwd_pe": "17.2x"
+          "ytd": "-7.4%",
+          "ytd_pct": -7.4202002757199805,
+          "fwd_pe": "16.9x"
         },
         {
           "ticker": "AMZN",
           "name": "Amazon Com Inc",
           "value_k": 1524010,
-          "ytd": "+16.0%",
-          "ytd_pct": 16.003812494584523,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.6%",
+          "ytd_pct": 13.569014816740316,
+          "fwd_pe": "26.6x"
         },
         {
           "ticker": "MSFT",
           "name": "Microsoft Corp",
           "value_k": 1206455,
-          "ytd": "-14.9%",
-          "ytd_pct": -14.92700880856871,
-          "fwd_pe": "21.3x"
+          "ytd": "-14.0%",
+          "ytd_pct": -14.027542285265298,
+          "fwd_pe": "21.5x"
         },
         {
           "ticker": "NVDA",
           "name": "Nvidia Corporation",
           "value_k": 1203470,
-          "ytd": "+25.9%",
-          "ytd_pct": 25.865951742627352,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.3%",
+          "ytd_pct": 21.316353887399462,
+          "fwd_pe": "19.8x"
         },
         {
           "ticker": "GEV",
           "name": "Ge Vernova Inc",
           "value_k": 1100879,
-          "ytd": "+62.8%",
-          "ytd_pct": 62.836421500374854,
-          "fwd_pe": "43.0x"
+          "ytd": "+61.5%",
+          "ytd_pct": 61.4830852089294,
+          "fwd_pe": "42.6x"
         },
         {
           "ticker": "TSM",
           "name": "Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS",
           "value_k": 1049350,
-          "ytd": "+37.5%",
-          "ytd_pct": 37.53660864128467,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.008654447332916,
+          "fwd_pe": "21.0x"
         },
         {
           "ticker": "GOOGL",
           "name": "Alphabet Inc",
           "value_k": 1024042,
-          "ytd": "+27.1%",
-          "ytd_pct": 27.060702875399357,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.3%",
+          "ytd_pct": 26.32587859424919,
+          "fwd_pe": "27.3x"
         },
         {
           "ticker": "AVGO",
           "name": "Broadcom Inc",
           "value_k": 1014900,
-          "ytd": "+26.1%",
-          "ytd_pct": 26.119618607338914,
-          "fwd_pe": "24.0x"
+          "ytd": "+23.4%",
+          "ytd_pct": 23.37474718289511,
+          "fwd_pe": "23.4x"
         },
         {
           "ticker": "CEG",
           "name": "Constellation Energy Corp",
           "value_k": 926607,
-          "ytd": "-21.8%",
-          "ytd_pct": -21.816174597333486,
-          "fwd_pe": "20.3x"
+          "ytd": "-23.4%",
+          "ytd_pct": -23.395703003368524,
+          "fwd_pe": "19.9x"
         },
         {
           "ticker": "",
@@ -1344,41 +1357,41 @@
           "ticker": "RDDT",
           "name": "Reddit Inc \u2013 CL A",
           "value_k": 825679,
-          "ytd": "-33.1%",
-          "ytd_pct": -33.138295558359076,
+          "ytd": "-33.2%",
+          "ytd_pct": -33.1535215556619,
           "fwd_pe": "17.4x"
         },
         {
           "ticker": "LRCX",
           "name": "Lam Research Corp",
           "value_k": 821788,
-          "ytd": "+74.7%",
-          "ytd_pct": 74.65825446898002,
-          "fwd_pe": "37.8x"
+          "ytd": "+65.7%",
+          "ytd_pct": 65.66771819137747,
+          "fwd_pe": "35.8x"
         },
         {
           "ticker": "APP",
           "name": "Applovin Corp \u2013 COM CL A",
           "value_k": 777197,
-          "ytd": "-31.2%",
-          "ytd_pct": -31.18266005758215,
-          "fwd_pe": "21.2x"
+          "ytd": "-28.0%",
+          "ytd_pct": -27.982250452643147,
+          "fwd_pe": "22.1x"
         },
         {
           "ticker": "ETN",
           "name": "Eaton Corp Plc",
           "value_k": 766423,
-          "ytd": "+27.6%",
-          "ytd_pct": 27.630215691815014,
-          "fwd_pe": "25.9x"
+          "ytd": "+24.8%",
+          "ytd_pct": 24.843803962198987,
+          "fwd_pe": "25.3x"
         },
         {
           "ticker": "MSFT",
           "name": "Microsoft Corp",
           "value_k": 746677,
-          "ytd": "-14.9%",
-          "ytd_pct": -14.92700880856871,
-          "fwd_pe": "21.3x"
+          "ytd": "-14.0%",
+          "ytd_pct": -14.027542285265298,
+          "fwd_pe": "21.5x"
         },
         {
           "ticker": "",
@@ -1392,38 +1405,38 @@
           "ticker": "TSM",
           "name": "Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS",
           "value_k": 732790,
-          "ytd": "+37.5%",
-          "ytd_pct": 37.53660864128467,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.008654447332916,
+          "fwd_pe": "21.0x"
         },
         {
           "ticker": "GOOGL",
           "name": "Alphabet Inc",
           "value_k": 684370,
-          "ytd": "+27.1%",
-          "ytd_pct": 27.060702875399357,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.3%",
+          "ytd_pct": 26.32587859424919,
+          "fwd_pe": "27.3x"
         },
         {
           "ticker": "TSLA",
           "name": "Tesla Inc",
           "value_k": 650662,
-          "ytd": "-0.6%",
-          "ytd_pct": -0.5870319309792856,
-          "fwd_pe": "177.9x"
+          "ytd": "-5.0%",
+          "ytd_pct": -5.027572711909635,
+          "fwd_pe": "169.9x"
         },
         {
           "ticker": "AMAT",
           "name": "Applied Matls Inc",
           "value_k": 590017,
-          "ytd": "+73.4%",
-          "ytd_pct": 73.44565936417759,
-          "fwd_pe": "30.8x"
+          "ytd": "+68.3%",
+          "ytd_pct": 68.27308455581928,
+          "fwd_pe": "28.5x"
         }
       ]
     },
     "13f_Chase Coleman \u2013 Tiger Global Management 13F (SEC)": {
-      "text": "**54 positions \u00b7 $29.7B AUM \u00b7 as of 2026-02-17**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Alphabet Inc | GOOGL | $3.33B | 11.2% | +27.1% | 27.5x |\n| 2 | Microsoft Corp | MSFT | $2.65B | 8.9% | -14.9% | 21.3x |\n| 3 | Amazon Com Inc | AMZN | $2.31B | 7.8% | +16.0% | 27.1x |\n| 4 | Nvidia Corporation | NVDA | $2.05B | 6.9% | +25.9% | 20.7x |\n| 5 | Sea Ltd \u2013 SPONSORD ADS | SE | $1.97B | 6.6% | -31.0% | 16.9x |\n| 6 | Meta Platforms Inc \u2013 CL A | META | $1.82B | 6.1% | -5.7% | 17.2x |\n| 7 | Take-Two Interactive Softwar | TTWO | $1.50B | 5.0% | -4.3% | 30.8x |\n| 8 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $1.13B | 3.8% | +37.6% | 21.7x |\n| 9 | Broadcom Inc | AVGO | $995.2M | 3.3% | +26.2% | 24.0x |\n| 10 | Apollo Global Mgmt Inc | APO | $898.9M | 3.0% | -5.8% | 12.8x |\n| 11 | Reddit Inc \u2013 CL A | RDDT | $883.6M | 3.0% | -33.1% | 17.4x |\n| 12 | Applovin Corp \u2013 COM CL A | APP | $871.2M | 2.9% | -31.2% | 21.2x |\n| 13 | Flutter Entmt Plc |  | $860.9M | 2.9% | \u2014 | \u2014 |\n| 14 | Spotify Technology S A |  | $732.5M | 2.5% | \u2014 | \u2014 |\n| 15 | Lam Research Corp | LRCX | $667.7M | 2.2% | +74.8% | 37.8x |\n| 16 | Ge Vernova Inc | GEV | $635.9M | 2.1% | +62.8% | 43.0x |\n| 17 | Coupang Inc \u2013 CL A | CPNG | $619.6M | 2.1% | -30.8% | 33.6x |\n| 18 | Veeva Sys Inc | VEEV | $540.3M | 1.8% | -29.6% | 15.9x |\n| 19 | Corpay Inc \u2013 COM SHS | CPAY | $527.3M | 1.8% | +10.2% | 10.9x |\n| 20 | Grab Holdings Limited \u2013 CLASS A ORD | GRAB | $463.7M | 1.6% | -28.6% | 26.0x |",
+      "text": "**54 positions \u00b7 $29.7B AUM \u00b7 as of 2026-02-17**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Alphabet Inc | GOOGL | $3.33B | 11.2% | +26.4% | 27.3x |\n| 2 | Microsoft Corp | MSFT | $2.65B | 8.9% | -14.0% | 21.5x |\n| 3 | Amazon Com Inc | AMZN | $2.31B | 7.8% | +13.5% | 26.6x |\n| 4 | Nvidia Corporation | NVDA | $2.05B | 6.9% | +21.3% | 19.8x |\n| 5 | Sea Ltd \u2013 SPONSORD ADS | SE | $1.97B | 6.6% | -30.8% | 16.9x |\n| 6 | Meta Platforms Inc \u2013 CL A | META | $1.82B | 6.1% | -7.4% | 16.9x |\n| 7 | Take-Two Interactive Softwar | TTWO | $1.50B | 5.0% | -5.7% | 30.4x |\n| 8 | Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS | TSM | $1.13B | 3.8% | +33.0% | 21.0x |\n| 9 | Broadcom Inc | AVGO | $995.2M | 3.3% | +23.3% | 23.3x |\n| 10 | Apollo Global Mgmt Inc | APO | $898.9M | 3.0% | -8.5% | 12.4x |\n| 11 | Reddit Inc \u2013 CL A | RDDT | $883.6M | 3.0% | -33.0% | 17.4x |\n| 12 | Applovin Corp \u2013 COM CL A | APP | $871.2M | 2.9% | -27.9% | 22.1x |\n| 13 | Flutter Entmt Plc |  | $860.9M | 2.9% | \u2014 | \u2014 |\n| 14 | Spotify Technology S A |  | $732.5M | 2.5% | \u2014 | \u2014 |\n| 15 | Lam Research Corp | LRCX | $667.7M | 2.2% | +65.5% | 35.8x |\n| 16 | Ge Vernova Inc | GEV | $635.9M | 2.1% | +61.5% | 42.6x |\n| 17 | Coupang Inc \u2013 CL A | CPNG | $619.6M | 2.1% | -30.5% | 33.7x |\n| 18 | Veeva Sys Inc | VEEV | $540.3M | 1.8% | -29.2% | 16.0x |\n| 19 | Corpay Inc \u2013 COM SHS | CPAY | $527.3M | 1.8% | +9.3% | 10.8x |\n| 20 | Grab Holdings Limited \u2013 CLASS A ORD | GRAB | $463.7M | 1.6% | -30.0% | 25.4x |",
       "date": "2026-02-17",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1167483/000091957426001143/0000919574-26-001143-index.htm",
       "ticker_map": {
@@ -1450,193 +1463,193 @@
       },
       "market_data": {
         "GOOGL": {
-          "ytd": "+27.1%",
-          "ytd_pct": 27.05271565495208,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.4%",
+          "ytd_pct": 26.391054313099037,
+          "fwd_pe": "27.3x"
         },
         "MSFT": {
-          "ytd": "-14.9%",
-          "ytd_pct": -14.928042678135725,
-          "fwd_pe": "21.3x"
+          "ytd": "-14.0%",
+          "ytd_pct": -14.03705388528184,
+          "fwd_pe": "21.5x"
         },
         "AMZN": {
-          "ytd": "+16.0%",
-          "ytd_pct": 15.977818213326401,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.5%",
+          "ytd_pct": 13.533056060999924,
+          "fwd_pe": "26.6x"
         },
         "NVDA": {
-          "ytd": "+25.9%",
-          "ytd_pct": 25.873994638069703,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.3%",
+          "ytd_pct": 21.324396782841827,
+          "fwd_pe": "19.8x"
         },
         "SE": {
-          "ytd": "-31.0%",
-          "ytd_pct": -30.994747981500346,
+          "ytd": "-30.8%",
+          "ytd_pct": -30.810535392333616,
           "fwd_pe": "16.9x"
         },
         "META": {
-          "ytd": "-5.7%",
-          "ytd_pct": -5.696344437879683,
-          "fwd_pe": "17.2x"
+          "ytd": "-7.4%",
+          "ytd_pct": -7.391416322016705,
+          "fwd_pe": "16.9x"
         },
         "TTWO": {
-          "ytd": "-4.3%",
-          "ytd_pct": -4.300277311252573,
-          "fwd_pe": "30.8x"
+          "ytd": "-5.7%",
+          "ytd_pct": -5.696598054915433,
+          "fwd_pe": "30.4x"
         },
         "TSM": {
-          "ytd": "+37.6%",
-          "ytd_pct": 37.58267794267664,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.03662509460661,
+          "fwd_pe": "21.0x"
         },
         "AVGO": {
-          "ytd": "+26.2%",
-          "ytd_pct": 26.175960704998545,
-          "fwd_pe": "24.0x"
+          "ytd": "+23.3%",
+          "ytd_pct": 23.28806703264951,
+          "fwd_pe": "23.3x"
         },
         "APO": {
-          "ytd": "-5.8%",
-          "ytd_pct": -5.84968223266095,
-          "fwd_pe": "12.8x"
+          "ytd": "-8.5%",
+          "ytd_pct": -8.503730312240952,
+          "fwd_pe": "12.4x"
         },
         "RDDT": {
-          "ytd": "-33.1%",
-          "ytd_pct": -33.1404707008309,
+          "ytd": "-33.0%",
+          "ytd_pct": -32.988210727802674,
           "fwd_pe": "17.4x"
         },
         "APP": {
-          "ytd": "-31.2%",
-          "ytd_pct": -31.181918019649174,
-          "fwd_pe": "21.2x"
+          "ytd": "-27.9%",
+          "ytd_pct": -27.885043483422876,
+          "fwd_pe": "22.1x"
         },
         "LRCX": {
-          "ytd": "+74.8%",
-          "ytd_pct": 74.75172333216496,
-          "fwd_pe": "37.8x"
+          "ytd": "+65.5%",
+          "ytd_pct": 65.54796121042176,
+          "fwd_pe": "35.8x"
         },
         "GEV": {
-          "ytd": "+62.8%",
-          "ytd_pct": 62.76756889086095,
-          "fwd_pe": "43.0x"
+          "ytd": "+61.5%",
+          "ytd_pct": 61.4830852089294,
+          "fwd_pe": "42.6x"
         },
         "CPNG": {
-          "ytd": "-30.8%",
-          "ytd_pct": -30.796947859262403,
-          "fwd_pe": "33.6x"
+          "ytd": "-30.5%",
+          "ytd_pct": -30.457821110640097,
+          "fwd_pe": "33.7x"
         },
         "VEEV": {
-          "ytd": "-29.6%",
-          "ytd_pct": -29.574877928593818,
-          "fwd_pe": "15.9x"
+          "ytd": "-29.2%",
+          "ytd_pct": -29.171706311875635,
+          "fwd_pe": "16.0x"
         },
         "CPAY": {
-          "ytd": "+10.2%",
-          "ytd_pct": 10.178446814873888,
-          "fwd_pe": "10.9x"
+          "ytd": "+9.3%",
+          "ytd_pct": 9.341042767421,
+          "fwd_pe": "10.8x"
         },
         "GRAB": {
-          "ytd": "-28.6%",
-          "ytd_pct": -28.55711422845692,
-          "fwd_pe": "26.0x"
+          "ytd": "-30.0%",
+          "ytd_pct": -29.959919839679362,
+          "fwd_pe": "25.4x"
         }
       },
-      "ytd_date": "2026-05-14",
+      "ytd_date": "2026-05-15",
       "positions": [
         {
           "ticker": "GOOGL",
           "name": "Alphabet Inc",
           "value_k": 3327628,
-          "ytd": "+27.1%",
-          "ytd_pct": 27.05271565495208,
-          "fwd_pe": "27.5x"
+          "ytd": "+26.4%",
+          "ytd_pct": 26.391054313099037,
+          "fwd_pe": "27.3x"
         },
         {
           "ticker": "MSFT",
           "name": "Microsoft Corp",
           "value_k": 2649148,
-          "ytd": "-14.9%",
-          "ytd_pct": -14.928042678135725,
-          "fwd_pe": "21.3x"
+          "ytd": "-14.0%",
+          "ytd_pct": -14.03705388528184,
+          "fwd_pe": "21.5x"
         },
         {
           "ticker": "AMZN",
           "name": "Amazon Com Inc",
           "value_k": 2310826,
-          "ytd": "+16.0%",
-          "ytd_pct": 15.977818213326401,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.5%",
+          "ytd_pct": 13.533056060999924,
+          "fwd_pe": "26.6x"
         },
         {
           "ticker": "NVDA",
           "name": "Nvidia Corporation",
           "value_k": 2053691,
-          "ytd": "+25.9%",
-          "ytd_pct": 25.873994638069703,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.3%",
+          "ytd_pct": 21.324396782841827,
+          "fwd_pe": "19.8x"
         },
         {
           "ticker": "SE",
           "name": "Sea Ltd \u2013 SPONSORD ADS",
           "value_k": 1966598,
-          "ytd": "-31.0%",
-          "ytd_pct": -30.994747981500346,
+          "ytd": "-30.8%",
+          "ytd_pct": -30.810535392333616,
           "fwd_pe": "16.9x"
         },
         {
           "ticker": "META",
           "name": "Meta Platforms Inc \u2013 CL A",
           "value_k": 1815653,
-          "ytd": "-5.7%",
-          "ytd_pct": -5.696344437879683,
-          "fwd_pe": "17.2x"
+          "ytd": "-7.4%",
+          "ytd_pct": -7.391416322016705,
+          "fwd_pe": "16.9x"
         },
         {
           "ticker": "TTWO",
           "name": "Take-Two Interactive Softwar",
           "value_k": 1495024,
-          "ytd": "-4.3%",
-          "ytd_pct": -4.300277311252573,
-          "fwd_pe": "30.8x"
+          "ytd": "-5.7%",
+          "ytd_pct": -5.696598054915433,
+          "fwd_pe": "30.4x"
         },
         {
           "ticker": "TSM",
           "name": "Taiwan Semiconductor Mfg Ltd \u2013 SPONSORED ADS",
           "value_k": 1132134,
-          "ytd": "+37.6%",
-          "ytd_pct": 37.58267794267664,
-          "fwd_pe": "21.7x"
+          "ytd": "+33.0%",
+          "ytd_pct": 33.03662509460661,
+          "fwd_pe": "21.0x"
         },
         {
           "ticker": "AVGO",
           "name": "Broadcom Inc",
           "value_k": 995250,
-          "ytd": "+26.2%",
-          "ytd_pct": 26.175960704998545,
-          "fwd_pe": "24.0x"
+          "ytd": "+23.3%",
+          "ytd_pct": 23.28806703264951,
+          "fwd_pe": "23.3x"
         },
         {
           "ticker": "APO",
           "name": "Apollo Global Mgmt Inc",
           "value_k": 898886,
-          "ytd": "-5.8%",
-          "ytd_pct": -5.84968223266095,
-          "fwd_pe": "12.8x"
+          "ytd": "-8.5%",
+          "ytd_pct": -8.503730312240952,
+          "fwd_pe": "12.4x"
         },
         {
           "ticker": "RDDT",
           "name": "Reddit Inc \u2013 CL A",
           "value_k": 883600,
-          "ytd": "-33.1%",
-          "ytd_pct": -33.1404707008309,
+          "ytd": "-33.0%",
+          "ytd_pct": -32.988210727802674,
           "fwd_pe": "17.4x"
         },
         {
           "ticker": "APP",
           "name": "Applovin Corp \u2013 COM CL A",
           "value_k": 871238,
-          "ytd": "-31.2%",
-          "ytd_pct": -31.181918019649174,
-          "fwd_pe": "21.2x"
+          "ytd": "-27.9%",
+          "ytd_pct": -27.885043483422876,
+          "fwd_pe": "22.1x"
         },
         {
           "ticker": "",
@@ -1658,49 +1671,49 @@
           "ticker": "LRCX",
           "name": "Lam Research Corp",
           "value_k": 667677,
-          "ytd": "+74.8%",
-          "ytd_pct": 74.75172333216496,
-          "fwd_pe": "37.8x"
+          "ytd": "+65.5%",
+          "ytd_pct": 65.54796121042176,
+          "fwd_pe": "35.8x"
         },
         {
           "ticker": "GEV",
           "name": "Ge Vernova Inc",
           "value_k": 635919,
-          "ytd": "+62.8%",
-          "ytd_pct": 62.76756889086095,
-          "fwd_pe": "43.0x"
+          "ytd": "+61.5%",
+          "ytd_pct": 61.4830852089294,
+          "fwd_pe": "42.6x"
         },
         {
           "ticker": "CPNG",
           "name": "Coupang Inc \u2013 CL A",
           "value_k": 619644,
-          "ytd": "-30.8%",
-          "ytd_pct": -30.796947859262403,
-          "fwd_pe": "33.6x"
+          "ytd": "-30.5%",
+          "ytd_pct": -30.457821110640097,
+          "fwd_pe": "33.7x"
         },
         {
           "ticker": "VEEV",
           "name": "Veeva Sys Inc",
           "value_k": 540328,
-          "ytd": "-29.6%",
-          "ytd_pct": -29.574877928593818,
-          "fwd_pe": "15.9x"
+          "ytd": "-29.2%",
+          "ytd_pct": -29.171706311875635,
+          "fwd_pe": "16.0x"
         },
         {
           "ticker": "CPAY",
           "name": "Corpay Inc \u2013 COM SHS",
           "value_k": 527273,
-          "ytd": "+10.2%",
-          "ytd_pct": 10.178446814873888,
-          "fwd_pe": "10.9x"
+          "ytd": "+9.3%",
+          "ytd_pct": 9.341042767421,
+          "fwd_pe": "10.8x"
         },
         {
           "ticker": "GRAB",
           "name": "Grab Holdings Limited \u2013 CLASS A ORD",
           "value_k": 463689,
-          "ytd": "-28.6%",
-          "ytd_pct": -28.55711422845692,
-          "fwd_pe": "26.0x"
+          "ytd": "-30.0%",
+          "ytd_pct": -29.959919839679362,
+          "fwd_pe": "25.4x"
         }
       ]
     },
@@ -1725,8 +1738,8 @@
       "date": "2026-05-14"
     },
     "Scott Alexander \u2013 Astral Codex Ten": {
-      "text": "**New this period:**\n- The SF AI scene is being covered by various magazine pieces, highlighting its growth and trends.\n\n**Details:**\n**Every Magazine Piece On The SF AI Scene**(https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai)\n- The article discusses the common themes and trends found in magazine pieces covering the SF AI scene, including the role of companies such as Google, Meta, andAnthropic, and researchers like Dario Amodei, but no specific details on their roles or relationships are provided in the given text.\n- No quantitative figures or specific supply chain and value chain relationships are mentioned in the provided text.\n- The text does not describe any specific technology transitions, competitive shifts, or capital allocation signals.\n- The article appears to be a commentary on the media coverage of the SF AI scene, but the given text does not provide sufficient information to extract investment-relevant specifics.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- The concept that \"all exponentials eventually become sigmoids\" may not apply to AI capabilities in the short term, as it is uncertain when the exponential growth of AI will slow down.\n- Historically, trends such as airspeed records and birth rates have followed a sigmoid curve, but the timing of the transition from exponential to sigmoid growth is difficult to predict.\n- The World Energy Organization's predictions for solar power deployment have consistently underestimated the rate of growth, illustrating the challenge of predicting when exponential growth will slow down.\n- A team from Wharton attempted to model the future trajectory of AI capabilities, but their prediction was quickly proven incorrect by the release of a new AI model.\n\n**Details:**\n**The Sigmoids Won't Save You (https://www.astralcodexten.com/p/the-sigmoids-wont-save-you)**\n- The author argues that while it is technically true that all exponentials eventually become sigmoids, it is difficult to predict when this will happen for AI capabilities.\n- The airspeed record is cited as an example of a sigmoid curve, with different technologies (propellers, turbojets, ramjets) driving exponential growth before reaching their fundamental limits.\n- The World Energy Organization (WEO) is mentioned as consistently underestimating the rate of growth of solar power deployment.\n- A team from Wharton is mentioned as attempting to model the future trajectory of AI capabilities, but their prediction was proven incorrect by the release of a new AI model.\n- The author suggests that in the absence of a deep understanding of the dynamics of AI progress, the default assumption should be based on Lindy's Law, which states that a process will continue for about as long as it has already continued.\n- Quantitative figures mentioned include:\n  - 3500 km/h: the maximum airspeed reached by ramjets\n  - 2017: the year GPT-1 was released, marking the beginning of dramatic improvements in AI capabilities\n  - 2019: the year the \"scaling era\" of AI is arbitrarily dated to have begun\n  - 7 years: the expected duration of continued exponential growth of AI capabilities, based on Lindy's Law\n  - 22%: the chance that the trend of increasing AI capabilities will continue for less than another 2 years, assuming a Pareto distribution\n- Companies and organizations mentioned:\n  - Wharton: a team from Wharton attempted to model the future trajectory of AI capabilities\n  - World Energy Organization (WEO): consistently underestimating the rate of growth of solar power deployment\n- Technologies mentioned:\n  - Propellers\n  - Turbojets\n  - Ramjets\n  - Solar power\n  - GPT-1: a AI model released in 2017\n- Supply chain and value chain relationships mentioned:\n  - Data centers: play a crucial role in the development of AI capabilities\n- Technology transitions mentioned:\n  - The transition from one technology to another (e.g. from propellers to turbojets) can drive exponential growth before reaching fundamental limits.",
+      "date": "2026-05-15"
     },
     "Ethan Mollick \u2013 One Useful Thing": {
       "text": "**New this period:**\n- OpenAI has released GPT-5.5, a new family of models with significant improvements in coding and image generation capabilities.\n- GPT-5.5 Pro is the most competent model in the family, accessible only on the website, and has demonstrated notable advancements in procedurally generating complex simulations.\n- OpenAI's Codex, powered by GPT-5.5, can now generate near-PhD-quality academic papers and playable tabletop roleplaying games with illustrations.\n\n**Details:**\n**Sign of the future: GPT-5.5** (https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55)\n- Ethan Mollick was given early access to GPT-5.5 and evaluated its capabilities, including coding and image generation.\n- Companies mentioned: OpenAI, with their models GPT-5.5, GPT-5.4, GPT-imagegen-2, and apps like Codex, chatgpt.com, claude.ai, gemini.google.com, Claude Code, and Claude Cowork.\n- GPT-5.5 Pro completed a coding challenge in 20 minutes, whereas GPT-5.4 Pro took 33 minutes to complete the same task.\n- The new image model, GPT-imagegen-2, can render high-quality text and create almost any picture described, including detailed art galleries.\n- Supply chain and value chain relationships: OpenAI develops models, apps, and harnesses, while companies like Claude provide competing apps and models.\n- Technology transitions: GPT-5.5 represents a significant improvement over previous models, with enhanced coding and image generation capabilities.\n- Competitive positioning: OpenAI's advancements in models, apps, and harnesses position the company as a leader in the AI industry, with potential implications for competitors like Claude.\n- Capital allocation signals: OpenAI's investments in model development, app creation, and harness improvements demonstrate the company's commitment to innovation and growth.\n- Quantitative figures: GPT-5.5 Pro is 13 minutes faster than GPT-5.4 Pro in completing a coding challenge, and the new image model can generate detailed art galleries with readable labels.",
@@ -1741,12 +1754,12 @@
       "date": "2026-05-11"
     },
     "Garry Tan \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Garry Tan updates gbrain and gstack repositories on GitHub.\n- Garry Tan's gbrain repository features an Opinionated OpenClaw/Hermes Agent Brain.\n- Garry Tan's gstack repository provides a setup with 23 opinionated tools for various roles.\n\n**Details:**\n**Garry Tan's GitHub Repos (https://github.com/garrytan/gbrain, https://github.com/garrytan/gstack)**\n- Garry Tan updated two repositories, gbrain and gstack, on GitHub.\n- The gbrain repository is described as Garry's Opinionated OpenClaw/Hermes Agent Brain, implying a focus on AI agent technology, specifically using OpenClaw and Hermes.\n- The gstack repository offers a setup with 23 opinionated tools that cater to roles such as CEO, Designer, Engineering Manager, Release Manager, Doc Engineer, and QA, suggesting a comprehensive toolkit for development and management processes.\n- No specific companies are mentioned beyond the reference to Garry Tan's work and the technologies OpenClaw and Hermes.\n- Quantitative figures mentioned include the update date (2026-05-14) and the number of tools in the gstack setup (23).\n- The supply chain or value chain relationships are not explicitly described, but the use of OpenClaw and Hermes in gbrain implies a dependency on these technologies.\n- The technology transitions described involve the use of Opinionated OpenClaw/Hermes Agent Brain in gbrain, indicating an integration or application of these AI technologies.\n- Competitive positioning or capital allocation signals are not directly stated, but the availability of these repositories could influence the developer and AI communities, potentially benefiting companies involved in AI and developer tooling.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- Garry Tan updates gstack and gbrain GitHub repositories with opinionated tools and agent brain setups.\n- Gstack repository provides a setup with 23 tools for various roles, while gbrain repository features an OpenClaw/Hermes Agent Brain.\n\n**Details:**\n**Garry Tan's GitHub Repos (https://github.com/garrytan/gstack, https://github.com/garrytan/gbrain)**\n- Garry Tan's gstack repository offers a setup with 23 opinionated tools serving as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA.\n- The gbrain repository features Garry's Opinionated OpenClaw/Hermes Agent Brain.\n- Named companies/products: GitHub, OpenClaw, Hermes.\n- Specific roles of named companies/products: GitHub (platform hosting Garry Tan's repositories), OpenClaw and Hermes (components of Garry Tan's gbrain Agent Brain).\n- Quantitative figures: 23 (number of opinionated tools in gstack setup).\n- No explicit supply chain or value chain relationships, demand/supply dynamics, or technology transitions described beyond the update of Garry Tan's repositories.\n- Technology components: OpenClaw, Hermes (part of gbrain Agent Brain).\n- No capital allocation signals, regulatory or policy signals, or competitive positioning described.",
+      "date": "2026-05-15"
     },
     "Odd Lots (Bloomberg)": {
-      "text": "**New this period:**\n- Martin Wolf describes the Iran situation as a \"nightmare scenario\" but believes markets may be underestimating its impact due to the ability of the world economy to adjust to disruptions.\n- The US is seen as less likely to be damaged by the Iran situation compared to Europe and China.\n- The world economy has been resilient, with only two years of contraction since 1950, and is expected to continue growing despite geopolitical instability.\n\n**Details:**\n**Martin Wolf on the 'Terrifying' Superpower That the US Wields (https://omny.fm/shows/odd-lots/martin-wolf-on-the-terrifying-superpower-that-the-us-wields)**\n- Martin Wolf, Chief Economics Commentator at the Financial Times, discusses the Iran situation and its potential impact on the global economy.\n- Companies mentioned: None\n- Quantitative figures: \n  - 2 years since 1950 when the world economy shrank (2009 and 2020)\n  - 2-4% annual growth rate of the world economy\n  - 40% or 35% average tariff that would significantly impact trade\n- Supply chain and value chain relationships: \n  - The US is less dependent on oil from the Gulf region compared to Europe and China\n  - Pipelines can be built to redirect oil exports, reducing reliance on the Gulf region\n- Technology transitions: \n  - The world is undergoing a \"huge technological upheaval\" that is expected to be transformative\n- Competitive positioning: \n  - The US is seen as less likely to be damaged by the Iran situation compared to Europe and China\n  - Russia is expected to benefit from the situation\n- Capital allocation signals: None\n- Regulatory or policy signals: \n  - The US has imposed tariffs on certain countries, including China, but the impact is uneven and allows for trade diversion.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- Albert Edwards, global strategist at SocGen, expects double-digit inflation to return.\n- Edwards discusses his \"Ice Age\" thesis, which involves a secular stagnation paradigm with low inflation and bond yields.\n- He notes the current mismatch between gloomy sentiment and high equity markets, with bond yields spiking.\n\n**Details:**\n**Why SocGen's Albert Edwards Sees Double-Digit Inflation Coming Back (https://omny.fm/shows/odd-lots/why-socgens-albert-edwards-sees-double-digit-inflation-coming-back)**\n- Albert Edwards, global strategist at SocGen, shares his views on inflation and the economy.\n- Edwards mentions his experience working at the Bank of England and later at Dresdner Kleinwort, where he developed his \"Ice Age\" thesis.\n- He notes that his role as a strategist is to provide an alternative viewpoint, similar to a \"slave\" who reminds leaders of their mortality.\n- SocGen is Edwards' current employer, where he has worked as a global strategist.\n- Dresdner Kleinwort is mentioned as one of Edwards' previous employers.\n- UBS is mentioned as the company that acquired Phillips and Drew, where Tony Dye worked.\n- No specific quantitative figures or supply chain relationships are mentioned in the provided text.\n- The technology transition described is the shift in the global economy towards a secular stagnation paradigm, with low inflation and bond yields.\n- Edwards' views are seen as a counterbalance to the general optimism in the financial industry, with his role being to provide a bearish perspective.",
+      "date": "2026-05-15"
     },
     "Exchanges (Goldman Sachs)": {
       "text": "**New this period:**\n- Technology stocks have staged a rally, driving innovation as a core portfolio driver amidst an inflationary environment.\n\n**Details:**\n**Innovation and Inflation: Twin Forces Reshaping Portfolios (https://feeds.megaphone.fm/GLD9218176758)**\n- The core thesis is that technology stocks' rally is pushing asset allocators to rethink portfolio construction due to the combination of innovation and inflation.\n- Named companies and their roles: Goldman Sachs (provider of the discussion and analysis through its representatives, Christian Mueller-Glissmann and Alexandra Wilson-Elizondo).\n- Quantitative figures: None explicitly mentioned.\n- Supply chain or value chain relationships: None explicitly described.\n- Technology transitions or competitive shifts: The transition from traditional fixed-income hedges to potentially new strategies due to their shortcomings in an inflationary environment.\n- Other investment-relevant specifics: The discussion emphasizes the need for a fundamental rethink of portfolio construction, implying potential changes in investment strategies or allocations, but does not specify particular companies, sectors, or technologies beyond the general context of technology stocks and inflation.",
@@ -1773,20 +1786,20 @@
       "date": "2026-05-06"
     },
     "Latent Space Podcast (swyx)": {
-      "text": "**New this period:**\n- Anthropic's Claude changes pricing to include a monthly credit of API tokens equal to the dollar amount of the Claude subscription plan.\n- OpenAI launches an enterprise switch promo, offering two months of free Codex usage for customers switching in the next 30 days.\n- Codex sees a rise in pro-Codex sentiment among AI engineers due to its generous limits and the launch of Codex for Everything Else.\n- Recursive, a startup, is founded to build AI that automates science and safely improves itself.\n- Figure demonstrates a long-horizon deployment of humanoid robots running an 8-hour autonomous shift on package sorting using Helix-02.\n\n**Details:**\n**AINews (https://www.latent.space/p/ainews-codex-rises-claude-meters)**\n- Anthropic's Claude pricing change gives every subscription a monthly credit of API tokens equal to the dollar amount of the Claude subscription plan, allowing for programmatic usage across the Agent SDK, claude-p, GitHub Actions, and third-party SDK apps.\n- OpenAI's Codex is being promoted as an alternative to Claude, with a 2-month free usage offer for enterprise customers switching in the next 30 days.\n- Companies mentioned: Anthropic (supplier of Claude), OpenAI (supplier of Codex), Cline (supplier of open-sourced SDK), LangChain (supplier of agent lifecycle infrastructure), Notion (supplier of External Agents API), Cursor (supplier of cloud agents), NVIDIA (supplier of Star Elastic), Datology (supplier of VLM work), Perplexity (supplier of hardware-isolated sandbox architecture).\n- Quantitative figures: 70-90% discount from API pricing, 2-3\u00d7 wall-clock speedup, 12-15\u00d7 faster access on key workloads, 11.7 points gain on 20 public VLM benchmarks, 17\u00d7 less training compute, 3.3\u00d7 lower response FLOPs, 34.4% of businesses using Anthropic, 32.3% of businesses using OpenAI, 50% increase in Claude Code weekly limits, 2\u00d7 5-hour limit increase.\n- Supply chain and value chain relationships: Anthropic supplies Claude, OpenAI supplies Codex, Cline supplies open-sourced SDK, LangChain supplies agent lifecycle infrastructure, Notion supplies External Agents API, Cursor supplies cloud agents.\n- Technology transitions: Codex is replacing traditional coding methods, Claude is being used for programmatic usage, Recursive is building AI that automates science and safely improves itself.\n- Competitive positioning: Anthropic and OpenAI are competing in the enterprise distribution and developer lock-in space, with Codex and Claude being the main products.\n- Capital allocation signals: Anthropic is investing in Claude, OpenAI is investing in Codex, Recursive is investing in AI that automates science and safely improves itself.\n- Regulatory or policy signals: None mentioned.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- OpenAI launches Codex mobile app, allowing users to start tasks, review outputs, and approve commands remotely.\n- GitHub announces a technical preview of the GitHub Copilot App, a desktop environment for parallel workstreams and repo/PR lifecycle management.\n- LangChain launches SmithDB, a database for agent trace data, and LangSmith Engine, which consumes traces and proposes fixes.\n- Anthropic restricts Claude Code usage, leading to a developer backlash.\n- Figure demonstrates 24/7 autonomous sorting operation using its Helix-02 system.\n- Zyphra releases ZAYA1-8B-Diffusion-Preview, a diffusion-based language model with a 4.6-7.7x decoding speedup.\n\n**Details:**\n**Latent Space Podcast (swyx)**(https://www.latent.space/p/ainews-everything-is-conductor)\n- OpenAI launches Codex mobile app, allowing users to start tasks, review outputs, and approve commands remotely, with Remote SSH now generally available for managed remote environments.\n- GitHub, as a provider of the new GitHub App, is compared to Conductor, which pioneered the form factor, with Garry Tan, CEO of Y Combinator, as a vocal fan of Conductor.\n- OpenAI also notes hooks and programmatic access tokens for Business/Enterprise automation around the Codex loop.\n- LangChain launches SmithDB, a database purpose-built for agent trace data, and LangSmith Engine, which consumes traces, clusters failures, identifies likely code issues, and proposes fixes.\n- Anthropic restricts Claude Code usage, especially for third-party wrappers and high-volume programmatic workflows, leading to a developer backlash, with prominent builders echoing the complaint that Anthropic cut off open-source devs/apps.\n- Figure demonstrates 24/7 autonomous sorting operation using its Helix-02 system, with human-parity throughput on small package sorting and no teleoperation.\n- GitHub announces a technical preview of the GitHub Copilot App, a desktop environment for parallel workstreams, repo/PR lifecycle management, and model flexibility.\n- VS Code ships a new Agents window for multi-agent, multi-project workflows, with browser/mobile support via vscode.dev/agents and token-efficiency features like compressed terminal output.\n- Nous/Hermes Agent adds Codex runtime integration, routing OpenAI-backed turns through Codex CLI/app-server and reusing ChatGPT subscription-backed execution in Hermes sessions.\n- Kimi ships Kimi Web Bridge, a browser extension exposing human-like web interaction to Kimi Code CLI, Claude Code, Cursor, Codex, Hermes, and others.\n- Zyphra releases ZAYA1-8B-Diffusion-Preview, a diffusion-based language model with a 4.6-7.7x decoding speedup versus autoregressive generation.\n- Datadog releases Toto 2.0, with 5 open-weights time-series forecasting models from 4M to 2.5B params under Apache 2.0.\n- Goodfire publishes an interpretability post on Llama, arguing that it uses a geometric \"shape-rotating calculator\" / Fourier-feature-like mechanism for arithmetic.\n- Prime Intellect's autonomous optimizer search reaches 2930 steps and GPT-5.5 2950 on the nanoGPT speedrun benchmark, beating the 2990 human baseline after ~10k runs / ~14k H200 hours.\n- Kimi K2.6 is reported as #1 open-weight model on Finance Agent Benchmark V2, and Ring-2.6-1T gets day-0 vLLM support as an open release.\n- Quantitative figures: 4.6-7.7x decoding speedup, 21 tok/s \u2192 34 tok/s, 62% speedup, 90% MTP acceptance rate, 24+ hours of continuous autonomous operation, 4M to 2.5B params, 2930 steps, 2950 steps, 2990 human baseline, ~10k runs, ~14k H200 hours.",
+      "date": "2026-05-15"
     },
     "Arxiv \u2013 Trading & Market Microstructure (q-fin.TR)": {
-      "text": "**New this period:**\n- Researchers introduce AGENTICAITA, an agentic AI framework for autonomous trading systems that uses multiple Large Language Model agents to reason and act in concert without human intervention.\n- The framework consists of four architectural contributions, including an Adaptive Z-Score Trigger Engine and a Sequential Deliberative Pipeline with multiple agents.\n- The framework demonstrates operational correctness in a five-day autonomous dry-run session under live market conditions.\n\n**Details:**\n**AgenticAITA: A Proof-Of-Concept About Deliberative Multi-Agent Reasoning for Autonomous Trading Systems** (https://arxiv.org/abs/2605.12532)\n- The paper introduces AGENTICAITA, an agentic AI framework that replaces traditional algorithmic trading systems with a fully autonomous deliberative loop.\n- No specific companies are named in the paper as users or providers of the framework.\n- Key components of the framework include:\n  - Adaptive Z-Score Trigger Engine: acts as a cognitive resource allocator, gating LLM inference exclusively on statistically anomalous market conditions.\n  - Sequential Deliberative Pipeline: consists of an Analyst agent, a Risk Manager agent, and an Executor agent that form a structured reasoning chain.\n  - Inference Gating Protocol: a mutex-based cognitive resource scheduler that serializes concurrent agent activations.\n  - Correlation-Break Diversification composite score: operationalizes portfolio-level idiosyncratic signal prioritization within individual agent reasoning.\n- Quantitative figures:\n  - 157 zero-intervention invocations across 76 assets during a five-day autonomous dry-run session.\n  - 11.5% agentic friction rate.\n- Technology transition: the framework proposes a shift from traditional deterministic heuristics or offline-trained statistical models to a fully autonomous deliberative loop using multiple Large Language Model agents.\n- Supply chain or value chain relationships: not explicitly described in the paper.\n- The framework demonstrates operational correctness and non-trivial inter-agent negotiation, but statistically robust performance evaluation and execution cost modeling are deferred to extended live deployment.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- Researchers study the microstructure of Polymarket, a decentralized prediction market, using a large dataset of order book events and on-chain trade records.\n- A new framework called ForesightFlow is introduced to detect informed trading on decentralized prediction markets by quantifying information leakage.\n- An empirical evaluation of the deadline-Information Leakage Score (ILS-dl) extension is reported, focusing on deadline-resolved prediction-market contracts on Polymarket.\n- A methodological comparison of approaches to detect informed trading on decentralized prediction markets is provided, highlighting the complementary nature of different layers of detection.\n\n**Details:**\n**The Anatomy of a Decentralized Prediction Market: Microstructure Evidence from the Polymarket Order Book** (https://arxiv.org/abs/2604.24366)\n- The paper studies the microstructure of Polymarket, the largest on-chain prediction market, using a dataset of 30 billion events over 52 days.\n- Polymarket is the specific decentralized prediction market analyzed in the study.\n- The dataset includes a continuous tick-level archive of the public order-book feed joined to the authoritative on-chain trade record.\n- Quantitative figures include: 30 billion events, 52 days, 600 markets, 50 ms median archive-ingestion delay, 22% upper tail of self-counterparty wash share.\n- The study finds a longshot spread premium, a depth profile closer to uniform than to top-of-book, and broad maker-wallet diversity with a concentrated tail.\n- The paper contributes a measurement result: trade direction inferred from Polymarket's public order-book feed agrees with on-chain ground truth on only ~59% of buckets.\n\n**ForesightFlow: An Information Leakage Score Framework for Prediction Markets** (https://arxiv.org/abs/2605.00493)\n- ForesightFlow is a framework for detecting informed trading on decentralized prediction markets by quantifying information leakage.\n- The framework is designed for event-resolved binary markets and quantifies the fraction of the terminal information move priced in before the public news event.\n- Polymarket is mentioned as a decentralized prediction market where the framework can be applied.\n- The pilot empirical evaluation surfaces three findings, including the lack of separation between event-resolved markets and a matched control population using a resolution-anchored proxy for the public-event timestamp.\n- Quantitative figures include: 0.444 shift in magnitude of the Information Leakage Score, 1e-6 p-value for the Mann-Whitney test.\n- The framework admits a Murphy-decomposition reading that connects label generation to the proper-scoring-rule literature.\n\n**Empirical Evaluation of Deadline-Resolved Information Leakage on Documented Polymarket Insider Cases** (https://arxiv.org/abs/2605.02286)\n- The paper reports an empirical evaluation of the deadline-Information Leakage Score (ILS-dl) extension on Polymarket.\n- The evaluation focuses on the 2026 U.S.-Iran conflict cluster of the ForesightFlow Insider Cases (FFIC) inventory.\n- Polymarket is the specific decentralized prediction market where the evaluation is conducted.\n- Quantitative figures include: $269M volume, +0.113 ILS-dl value, -0.331 resolution-anchored proxy value, 0.426 p-value for the KS test, 2.9 days half-life, 18 markets in the military-geopolitics category.\n- The evaluation finds an adequate exponential fit for military-geopolitics markets and a preliminary fit for corporate-disclosure markets.\n- The regulatory-decision category is rejected as bimodal.\n\n**Per-Market Information Leakage and Order-Flow Skill: Two Methodological Lenses on Informed Trading in Decentralized Prediction Markets** (https://arxiv.org/abs/2605.02287)\n- The paper provides a methodological comparison of approaches to detect informed trading on decentralized prediction markets.\n- The comparison includes the work of Mitts and Ofir (2026), Gomez-Cram et al. (2026), and Nechepurenko (2026).\n- Polymarket is mentioned as a decentralized prediction market where these approaches can be applied.\n- Quantitative figures include: 210,000 wallet-market pairs, 3.14% of accounts classified as \"skilled winners\", 1,950 accounts flagged as \"insiders\" via a lifecycle heuristic.\n- The paper argues that the different approaches are complementary and can be combined to gain precision in detecting informed trading.",
+      "date": "2026-05-15"
     },
     "Arxiv \u2013 Statistical Finance (q-fin.ST)": {
-      "text": "**New this period:**\n- Researchers introduce the Payment Heterogeneity Index (PHI) for enhanced oversight of high-volume procurement payments.\n- A method to enhance risk models by adding transient statistical factors is proposed, demonstrated on the Barra short-term US risk model.\n- A dynamic factor framework, PRISM-VQ, is developed for cross-sectional stock ranking prediction, combining vector-quantized discrete latent factors with financial priors.\n\n**Details:**\n**The Payment Heterogeneity Index (https://arxiv.org/abs/2605.12547)**\n- The Payment Heterogeneity Index (PHI) is a composite statistic for overseeing post-award payments in public procurement.\n- PHI combines a tail-behaviour component and a structural-dispersion component, computed via Gaussian Mixture Model (GMM) estimation.\n- Applied to UK municipal procurement data, PHI identifies 10.1% of high-volume suppliers with structurally significant payment patterns.\n- The Coefficient of Variation (\u03c1=0.310) is compared, with PHI offering unique insights into regime separation.\n\n**Enhancing a Risk Model by Adding Transient Statistical Factors (https://arxiv.org/abs/2605.12977)**\n- The proposed method enhances existing factor models by refining them and adding new statistical factors based on maximum likelihood estimation.\n- The approach is demonstrated on the Barra short-term US risk model for a universe of US high-capitalization equities.\n- The method applies to situations with missing asset returns, making it suitable for typical equity datasets.\n- Two hyperparameters are used: the number of additional factors and the half-life parameter for weighting returns in the log-likelihood objective.\n\n**Vector-Quantized Discrete Latent Factors Meet Financial Priors (https://arxiv.org/abs/2605.13407)**\n- PRISM-VQ is a dynamic factor framework that integrates expert prior factors, vector-quantized discrete latent factors, and a structure-conditioned Mixture-of-Experts.\n- Vector quantization captures robust market structure, while discrete codes serve as latent factors and routing signals for temporal expert specialization.\n- Experiments on CSI 300 and S&P 500 show improvements in cross-sectional return prediction and portfolio performance over strong baselines.\n- The code for PRISM-VQ is available at https://github.com/finxlab/PRISM-VQ.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- Researchers propose a multi-regime Markov-switching model with time-varying transition probabilities for analyzing U.S. Treasury yields.\n- The study finds that one-step point forecasts are robust to time-varying transition probability misspecification, but filtered regime probabilities are not.\n- An empirical application to U.S. Treasury zero-coupon yield changes shows an exogenous specification driven by the lagged yield level outperforms other models.\n\n**Details:**\n**Multi-regime Markov-switching models with time-varying transition probabilities: An application to U.S. Treasury yields**(https://arxiv.org/abs/2605.14976)\n- The paper proposes an extension of the Generalized Autoregressive Score (GAS) model to the general K-regime case with regime-specific means and variances.\n- No specific companies are mentioned in the study.\n- Quantitative figures include: \n  - 1961-2024 as the time period for the empirical application to U.S. Treasury zero-coupon yield changes.\n  - Four maturities for the U.S. Treasury zero-coupon yield changes.\n- Supply chain or value chain relationships: none mentioned.\n- Technology transitions: the study uses an open-source R package, \\texttt{multiregimeTVTP}, for data simulation and parameter estimation, extending the GAS model.\n- Competitive positioning: the exogenous specification driven by the lagged yield level is found to dominate the constant and lagged-change models in fit.\n- Capital allocation signals: none mentioned.\n- Regulatory or policy signals: none mentioned, but the study focuses on U.S. Treasury yields, which are influenced by monetary policy.",
+      "date": "2026-05-15"
     },
     "Arxiv \u2013 Computational Finance (q-fin.CP)": {
-      "text": "**New this period:**\n- Researchers propose a behavioral forecast-evaluation methodology for agentic stock prediction systems using large language model judges and closed-loop reinforcement learning feedback.\n- The methodology assesses the intermediate decision process of forecasting systems along six domain-specific dimensions.\n- The approach achieves a significant reduction in one-day MAPE and improves predictive accuracy in high-volatility regimes.\n\n**Details:**\n**Multi-Dimensional Behavioral Evaluation of Agentic Stock Prediction Systems Using Large Language Model Judges with Closed-Loop Reinforcement Learning Feedback** (https://arxiv.org/abs/2605.05739)\n- The research question revolves around evaluating the process of forecast generation in agentic stock prediction systems.\n- The methodology uses an ensemble of three large language model (LLM) judges to score behavioral traces along six dimensions: regime detection, routing, adaptation, risk calibration, strategy coherence, and error recovery.\n- The dimensions are scored using a perturbation procedure, with cross-model agreement reaching Krippendorff's \u03b1 = 0.85.\n- The composite behavioral score correlates with the realized 20-day Sharpe ratio at Spearman \u03c1 = 0.72.\n- The framework uses a Soft Actor-Critic reward with a credit-assigned penalty based on deficient per-dimension scores.\n- Three fine-tuning cycles produce a one-day MAPE reduction from 0.61% to 0.54% (11.5% relative, p < 0.001, Cohen's d = 0.31) in the held-out 2017-2025 test period.\n- The results are significant under a Diebold-Mariano test of equal predictive accuracy (DM = -7.83) and localized by a Giacomini-White conditional predictive ability test to the high-volatility regime.\n- No specific companies are mentioned in the study.\n- The methodology is application-agnostic, and results are from offline backtesting, not addressing effects specific to live deployment.",
-      "date": "2026-05-14"
+      "text": "**New this period:**\n- Researchers propose a pipeline for generating synthetic American option prices using a Jump Hidden Markov Model and a modified Heston variance process.\n- A deep learning framework is introduced to calibrate the Heston option pricing model using deep differential networks.\n- A stochastic attention mechanism is developed via Langevin dynamics on the modern Hopfield energy, allowing for training-free sampling and generation.\n\n**Details:**\n**Synthetic American Option Pricing via Jump-HMM-Driven Heston Implied Volatility** (https://arxiv.org/abs/2605.13998)\n- The proposed pipeline generates realistic synthetic option prices by using a Jump Hidden Markov Model to produce multi-asset price paths and a modified Heston variance process to convert these paths into implied-volatility paths.\n- A recombining binomial lattice is used to price American options from the resulting surface.\n- The framework is calibrated through a hierarchy of models, including a parametric baseline, a globally shared neural surrogate, and a sector-specific neural surrogate.\n- Quantitative figures: none explicitly stated.\n- Supply chain or value chain relationships: none explicitly described.\n- Technology transitions: the use of a Jump Hidden Markov Model and a modified Heston variance process to generate synthetic option prices.\n- Companies or products: Julia (as the programming language used for the open-source package).\n\n**Calibrating the Heston model with deep differential networks** (https://arxiv.org/abs/2407.15536)\n- The proposed framework uses a deep differential network (DDN) to learn the Heston pricing formula and partial derivatives with respect to model parameters.\n- The DDN is shown to outperform non-differential feedforward neural networks in terms of calibration accuracy and computational time.\n- Quantitative figures: none explicitly stated.\n- Supply chain or value chain relationships: none explicitly described.\n- Technology transitions: the use of deep differential networks for calibrating the Heston option pricing model.\n- Companies or products: none explicitly mentioned.\n\n**Stochastic Attention via Langevin Dynamics on the Modern Hopfield Energy** (https://arxiv.org/abs/2603.06875)\n- The proposed mechanism uses Langevin dynamics on the modern Hopfield energy to develop a stochastic attention mechanism.\n- The approach is shown to be effective in generating samples that are novel and diverse, and can be used in a variety of domains.\n- Quantitative figures: two orders of magnitude in dimension.\n- Supply chain or value chain relationships: none explicitly described.\n- Technology transitions: the use of Langevin dynamics on the modern Hopfield energy for stochastic attention.\n- Companies or products: none explicitly mentioned, but datasets such as Olivetti faces, MNIST digit images, and protein sequences from a small Pfam family are used.",
+      "date": "2026-05-15"
     },
     "_ai_signals_per_source": {
       "Andrej Karpathy \u2013 Blog": {
@@ -1805,14 +1818,14 @@
         "date": "2026-05-14"
       },
       "Scott Alexander \u2013 Astral Codex Ten": {
-        "summary_hash": "aee62dae61915981",
-        "signals": "THESIS: The SF AI scene is being covered by various magazine pieces, highlighting its growth and trends, with companies such as Google, Meta, and Anthropic being mentioned.\n\nNONE \n\nReasoning: \nGiven the text does not provide specific details on the roles or relationships of the companies mentioned, nor does it describe any technology transitions, competitive shifts, or capital allocation signals, there are no explicit or derived trade signals that can be extracted. The information provided is too general and does not meet the specificity test required for derived signals.",
-        "date": "2026-05-14"
+        "summary_hash": "d73ddd37d1f6f5e0",
+        "signals": "THESIS: The concept that \"all exponentials eventually become sigmoids\" may not apply to AI capabilities in the short term, as it is uncertain when the exponential growth of AI will slow down.\n\nEXPLICIT | NONE |  |  |  | No publicly traded company is directly named with a clear bullish or bearish implication. | \n\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically discusses the continued exponential growth of AI capabilities, Microsoft benefits via its investment in and hosting of AI models on Azure, and its stake in OpenAI. | AI growth \u2192 MSFT equity stake + Azure hosting revenue\nDERIVED | NVDA | NVIDIA | LONG | MED | Because this source specifically mentions the importance of AI capabilities, NVIDIA benefits via its dominant position in supplying GPUs for AI computing and its exposure to the growing demand for AI-related hardware. | AI growth \u2192 NVDA GPU sales\nDERIVED | FCX | Freeport-McMoRan | LONG | MED | Because this source specifically discusses the growth of data centers and AI capabilities, Freeport-McMoRan benefits via its role as a major copper producer, as data centers require large amounts of copper for wiring and cooling. | Data center growth \u2192 copper demand \u2192 FCX sales\nDERIVED | UNG | Natural Gas ETF | LONG | MED | Because this source specifically mentions the growth of data centers and AI capabilities, the Natural Gas ETF benefits via its exposure to the demand for natural gas to power data centers, particularly during periods of high demand. | Data center growth \u2192 natural gas demand \u2192 UNG price",
+        "date": "2026-05-15"
       },
       "Simon Willison": {
-        "summary_hash": "55568626c4f6d6f4",
-        "signals": "THESIS: The use of OpenAI's Codex desktop for AI-assisted programming is expanding to various projects, such as the Datasette blog.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI is a key player in AI-assisted programming, and Microsoft holds a significant stake in OpenAI, which could benefit from the growing adoption of OpenAI's technology | Source mentions OpenAI, Microsoft's stake in OpenAI.\nEXPLICIT | NVDA | NVIDIA | LONG | MED | OpenAI relies on NVIDIA's GPUs to power its AI technology, including Codex desktop, which could lead to increased demand for NVIDIA's products | Source mentions OpenAI, implies use of NVIDIA GPUs.\n\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically mentions the use of OpenAI Codex desktop for AI-assisted programming, Microsoft benefits via its significant stake in OpenAI and potential increased revenue from Azure hosting | OpenAI \u2192 MSFT equity stake + Azure hosting revenue.\nDERIVED | NVDA | NVIDIA | LONG | MED | Because this source implies the use of AI-assisted programming with OpenAI Codex desktop, NVIDIA benefits via increased demand for its GPUs, which are used to power OpenAI's technology | OpenAI \u2192 NVDA primary GPU supplier.",
-        "date": "2026-05-14"
+        "summary_hash": "1ecb0beaa441045e",
+        "signals": "THESIS: The increasing capabilities of technologies like React Native and AI models like Codex are reducing programming language lock-in and enabling more flexible development options.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | The source mentions React Native, which is a product of Microsoft, and its improved capabilities, indicating a potential increase in adoption and revenue for the company. | React Native's improved capabilities drive adoption.\n\nDERIVED | META | Meta | LONG | MED | Because the source specifically mentions the use of Codex (GPT-5.5 xhigh) to build a rate limiting plugin, Meta, the parent company of the developers of GPT, benefits via increased demand for its AI technology and potential revenue growth. | Codex usage drives Meta AI demand.\n\nDERIVED | NVDA | NVIDIA | LONG | MED | The source discusses the use of AI models like Codex, which require significant computational power, implying increased demand for NVIDIA's GPUs, which are commonly used for AI processing. | AI model usage drives NVIDIA GPU demand.\n\nDERIVED | ADBE | Adobe | LONG | MED | As companies adopt React Native for cross-platform development, they may also utilize Adobe's creative cloud services for design and development, potentially increasing revenue for Adobe. | React Native adoption drives demand for creative cloud services.",
+        "date": "2026-05-15"
       },
       "Import AI \u2013 Jack Clark": {
         "summary_hash": "c663bb01cdb40d01",
@@ -1820,9 +1833,9 @@
         "date": "2026-05-14"
       },
       "Odd Lots (Bloomberg)": {
-        "summary_hash": "ff6507df42eb57c0",
-        "signals": "THESIS: The world economy is resilient and can adjust to disruptions, such as the Iran situation, but the US is less likely to be damaged compared to Europe and China.\n\nEXPLICIT: NONE\n\nDERIVED: \nTYPE | TICKER | Company Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE | EVIDENCE or CHAIN\nDERIVED | HON | Honeywell International | LONG | MED | Because this source specifically says the world is undergoing a \"huge technological upheaval\", Honeywell's expertise in industrial automation and energy efficiency technologies could benefit from this transition, particularly in the context of reduced reliance on oil from the Gulf region.\nDERIVED | COP | ConocoPhillips | LONG | MED | Because this source specifically mentions that the US is less dependent on oil from the Gulf region, ConocoPhillips, a US-based oil and gas company, may benefit from reduced competition and increased demand for domestic oil production.\nDERIVED | RTN | Raytheon Technologies | LONG | MED | Because this source specifically discusses the Iran situation and its potential impact on the global economy, Raytheon Technologies, a US-based defense contractor, may benefit from increased military spending and geopolitical tensions.\nDERIVED | RDS.A | Royal Dutch Shell | SHORT | MED | Because this source specifically mentions that pipelines can be built to redirect oil exports, reducing reliance on the Gulf region, Royal Dutch Shell, a European oil and gas company, may be negatively impacted by reduced demand for oil from the Gulf region.",
-        "date": "2026-05-14"
+        "summary_hash": "09d81d5519c82d20",
+        "signals": "THESIS: Albert Edwards, global strategist at SocGen, expects double-digit inflation to return, contrasting with his \"Ice Age\" thesis of secular stagnation with low inflation and bond yields.\n\nEXPLICIT | SCGLY | Societe Generale | LONG | MED | As Edwards' current employer, SocGen may benefit from his high-profile predictions and thought leadership, potentially attracting clients and boosting its reputation | Edwards is a global strategist at SocGen.\n\nDERIVED | GLD | SPDR Gold Shares | LONG | MED | Because this source specifically says that Edwards expects double-digit inflation to return, gold may benefit as a safe-haven asset and hedge against inflation | Inflation concerns \u2192 gold demand.\n \nDERIVED | TIP | iShares TIPS Bond ETF | LONG | MED | Because this source specifically says that Edwards expects double-digit inflation to return, TIPS (Treasury Inflation-Protected Securities) may benefit as investors seek to protect their bond portfolios from inflation | Inflation concerns \u2192 TIPS demand.\n\nDERIVED | UNG | US Natural Gas ETF | LONG | LOW | Because this source specifically says that Edwards expects double-digit inflation to return, and given the historical correlation between inflation and commodity prices, natural gas may benefit as a hedge against inflation | Inflation concerns \u2192 commodity demand.",
+        "date": "2026-05-15"
       },
       "Exchanges (Goldman Sachs)": {
         "summary_hash": "267d2e6197c694c8",
@@ -1855,14 +1868,19 @@
         "date": "2026-05-14"
       },
       "Latent Space Podcast (swyx)": {
-        "summary_hash": "ea9890d8deaa99b4",
-        "signals": "THESIS: The AI industry is experiencing a shift in pricing and product offerings, with Anthropic's Claude and OpenAI's Codex competing for enterprise customers, and new startups like Recursive emerging to automate science and improve AI safety.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI's Codex is being promoted with a 2-month free usage offer, and Microsoft holds a significant stake in OpenAI, potentially benefiting from increased adoption | OpenAI's Codex promo \u2192 MSFT equity stake\nEXPLICIT | AMZN | Amazon | LONG | LOW | Anthropic, a competitor to OpenAI, has Amazon as a lead investor, which could provide a indirect benefit to Amazon through its investment | Anthropic's Claude pricing change \u2192 AMZN investment stake\n\nDERIVED | NVDA | NVIDIA | LONG | HIGH | As a primary GPU supplier to OpenAI and Anthropic, NVIDIA is likely to benefit from increased demand for AI computing resources driven by the competition between Codex and Claude | OpenAI and Anthropic's AI demands \u2192 NVDA GPU sales\nDERIVED | GOOGL | Alphabet | LONG | MED | Google's minority stake in Anthropic and its own investments in AI research make it a potential beneficiary of the growing demand for AI solutions | Anthropic's growth \u2192 GOOGL investment stake and AI research\nDERIVED | ANSS | ANSYS | LONG | LOW | As a supplier of simulation software, ANSYS might see increased demand from companies like Recursive, which aims to automate science and improve AI safety, requiring advanced simulation tools | Recursive's AI automation \u2192 ANSS simulation software sales",
-        "date": "2026-05-14"
+        "summary_hash": "3bb6b6492c5a5b2e",
+        "signals": "THESIS: The AI industry is rapidly advancing with new product launches, technical previews, and significant improvements in language models, autonomous systems, and developer tools.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI, in which Microsoft has a 49% stake, launches Codex mobile app and expands its capabilities, directly benefiting Microsoft's investment and Azure hosting revenue | OpenAI launches Codex mobile app, allowing users to start tasks, review outputs, and approve commands remotely.\n\nDERIVED | NVDA | NVIDIA | LONG | MED | OpenAI's launch of Codex mobile app and expansion of its capabilities may lead to increased demand for NVIDIA's GPUs, which are used for AI computations | OpenAI notes hooks and programmatic access tokens for Business/Enterprise automation around the Codex loop, potentially increasing NVIDIA's GPU sales.\n\nDERIVED | AMZN | Amazon | LONG | LOW | Anthropic, in which Amazon has a lead investment, restricts Claude Code usage, but Amazon's AWS hosting revenue may still benefit from the growth of AI applications | Anthropic restricts Claude Code usage, especially for third-party wrappers and high-volume programmatic workflows.\n\nDERIVED | FCX | Freeport-McMoRan | LONG | MED | The growth of AI data centers and autonomous systems, such as Figure's Helix-02 system, may lead to increased demand for copper, which is used for wiring and cooling, benefiting Freeport-McMoRan, the largest US copper producer | Figure demonstrates 24/7 autonomous sorting operation using its Helix-02 system, with human-parity throughput on small package sorting and no teleoperation.",
+        "date": "2026-05-15"
       },
       "SemiAnalysis": {
         "summary_hash": "c5719fc6a0f193e9",
         "signals": "THESIS: The demand for fast inference in AI systems is increasing, driven by the need for high interactivity and fast token generation, with companies like Cerebras and Anthropic benefiting from this trend.\n\nEXPLICIT | CRBR | Cerebras | LONG | MED | Cerebras is preparing for its IPO, fueled by a 750MW compute deal with OpenAI, and its Wafer Scale Engine (WSE) is gaining traction due to the growing demand for fast tokens. | Cerebras has a major compute deal with OpenAI.\n\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically says OpenAI is a customer of Cerebras, and Microsoft holds a 49% stake in OpenAI, Microsoft benefits via increased revenue from OpenAI's growth. | OpenAI \u2192 MSFT equity stake.\n\nDERIVED | TSM | Taiwan Semiconductor Manufacturing Company | LONG | HIGH | Because this source specifically says TSMC is the manufacturer of Cerebras's WSE-3, and the demand for fast inference is increasing, TSMC benefits via increased demand for its manufacturing services. | TSMC manufactures Cerebras's WSE-3.\n\nDERIVED | MU | Micron Technology | LONG | MED | Because this source specifically says the market trend is towards using more memory in AI systems, with DRAM in high demand, Micron benefits via increased demand for its memory products. | Increasing demand for memory in AI systems \u2192 Micron memory sales.\n\nDERIVED | NVDA | Nvidia | SHORT | LOW | Because this source specifically says Groq is a company that offers SRAM machines, similar to Cerebras's WSE, and Nvidia has licensed Groq's technology, Nvidia may face competition from Groq and Cerebras, potentially losing market share. | Groq's technology competes with Nvidia's GPUs.",
         "date": "2026-05-14"
+      },
+      "Ethan Mollick \u2013 One Useful Thing": {
+        "summary_hash": "afcd6a51dc30ac48",
+        "signals": "THESIS: OpenAI's release of GPT-5.5, a new family of models with significant improvements in coding and image generation capabilities, demonstrates the company's commitment to innovation and growth, positioning it as a leader in the AI industry.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | OpenAI, which has released GPT-5.5, is partially owned by Microsoft, and its growth directly benefits Microsoft through its equity stake and Azure hosting revenue | OpenAI's advancements in models and apps, such as Codex, demonstrate the company's potential for revenue growth, which would flow to Microsoft.\n\nDERIVED | NVDA | NVIDIA | LONG | MED | As the primary GPU supplier for OpenAI, NVIDIA is likely to benefit from the increased demand for AI computing power driven by the adoption of GPT-5.5 | OpenAI's release of GPT-5.5, with its enhanced coding and image generation capabilities, will likely drive increased demand for AI computing power, benefiting NVIDIA through increased GPU sales.\n\nDERIVED | AMZN | Amazon | LONG | LOW | As a competitor in the AI industry and a potential partner for OpenAI, Amazon may benefit from the advancements in AI technology, potentially leading to increased adoption of its cloud services | The release of GPT-5.5 and its potential applications in various industries may drive increased demand for cloud services, benefiting Amazon through its AWS offerings.\n\nDERIVED | COPX | Global X Copper Miners ETF | LONG | MED | The increased demand for AI computing power driven by the adoption of GPT-5.5 will likely lead to increased demand for copper, a key component in data center infrastructure, benefiting copper miners | The growth of AI computing power, driven by the release of GPT-5.5, will require increased investment in data center infrastructure, including copper-intensive components, benefiting copper miners through increased demand.",
+        "date": "2026-05-15"
       }
     },
     "_ai_signal_market_data": {
@@ -1873,9 +1891,9 @@
           "fwd_pe": "\u2014"
         },
         "AMD": {
-          "ytd": "+110.0%",
-          "ytd_pct": 109.98319013821443,
-          "fwd_pe": "34.8x"
+          "ytd": "+100.0%",
+          "ytd_pct": 99.97665296974225,
+          "fwd_pe": "33.1x"
         },
         "ANSS": {
           "ytd": "\u2014",
@@ -1883,14 +1901,14 @@
           "fwd_pe": "\u2014"
         },
         "APP": {
-          "ytd": "-28.0%",
-          "ytd_pct": -27.99857528716868,
+          "ytd": "-28.1%",
+          "ytd_pct": -28.136594342702804,
           "fwd_pe": "22.1x"
         },
         "PANW": {
-          "ytd": "+29.3%",
-          "ytd_pct": 29.321389793702508,
-          "fwd_pe": "60.0x"
+          "ytd": "+25.7%",
+          "ytd_pct": 25.67318132464714,
+          "fwd_pe": "58.4x"
         },
         "ENV": {
           "ytd": "\u2014",
@@ -1898,24 +1916,24 @@
           "fwd_pe": "\u2014"
         },
         "FTNT": {
-          "ytd": "+53.5%",
-          "ytd_pct": 53.45674348318852,
-          "fwd_pe": "35.6x"
+          "ytd": "+51.4%",
+          "ytd_pct": 51.36632665911095,
+          "fwd_pe": "35.0x"
         },
         "SCHW": {
-          "ytd": "-10.5%",
-          "ytd_pct": -10.479431488339506,
-          "fwd_pe": "12.7x"
+          "ytd": "-8.6%",
+          "ytd_pct": -8.622760484435988,
+          "fwd_pe": "12.9x"
         },
         "GOOGL": {
-          "ytd": "+28.1%",
-          "ytd_pct": 28.13738019169329,
-          "fwd_pe": "27.7x"
+          "ytd": "+26.1%",
+          "ytd_pct": 26.095846645367416,
+          "fwd_pe": "27.3x"
         },
         "MSFT": {
-          "ytd": "-15.3%",
-          "ytd_pct": -15.340556635374881,
-          "fwd_pe": "21.2x"
+          "ytd": "-14.3%",
+          "ytd_pct": -14.256027459575698,
+          "fwd_pe": "21.4x"
         },
         "COP": {
           "ytd": "+27.1%",
@@ -1928,9 +1946,9 @@
           "fwd_pe": "\u2014"
         },
         "IVZ": {
-          "ytd": "+5.6%",
-          "ytd_pct": 5.557670346402744,
-          "fwd_pe": "9.3x"
+          "ytd": "+1.8%",
+          "ytd_pct": 1.7700799390940232,
+          "fwd_pe": "9.0x"
         },
         "ADSW": {
           "ytd": "\u2014",
@@ -1938,19 +1956,19 @@
           "fwd_pe": "\u2014"
         },
         "NVDA": {
-          "ytd": "+26.4%",
-          "ytd_pct": 26.402144772117968,
-          "fwd_pe": "20.7x"
+          "ytd": "+21.3%",
+          "ytd_pct": 21.31367292225201,
+          "fwd_pe": "19.8x"
         },
         "BLK": {
-          "ytd": "+3.1%",
-          "ytd_pct": 3.147597959526885,
-          "fwd_pe": "18.2x"
+          "ytd": "+1.2%",
+          "ytd_pct": 1.187940280658496,
+          "fwd_pe": "17.9x"
         },
         "AMZN": {
-          "ytd": "+15.8%",
-          "ytd_pct": 15.769863963261432,
-          "fwd_pe": "27.1x"
+          "ytd": "+13.3%",
+          "ytd_pct": 13.27874534269129,
+          "fwd_pe": "26.5x"
         },
         "VFIAX": {
           "ytd": "+9.7%",
@@ -1958,14 +1976,14 @@
           "fwd_pe": "\u2014"
         },
         "GS": {
-          "ytd": "+10.2%",
-          "ytd_pct": 10.234357224118321,
-          "fwd_pe": "14.8x"
+          "ytd": "+7.3%",
+          "ytd_pct": 7.26279863481229,
+          "fwd_pe": "14.4x"
         },
         "META": {
-          "ytd": "-6.3%",
-          "ytd_pct": -6.311260585677722,
-          "fwd_pe": "17.1x"
+          "ytd": "-7.5%",
+          "ytd_pct": -7.527003893408484,
+          "fwd_pe": "16.9x"
         },
         "VGSIX": {
           "ytd": "+7.7%",
@@ -1983,32 +2001,67 @@
           "fwd_pe": "\u2014"
         },
         "FIS": {
-          "ytd": "-37.1%",
-          "ytd_pct": -37.089978934697555,
-          "fwd_pe": "6.1x"
+          "ytd": "-35.9%",
+          "ytd_pct": -35.91634065603369,
+          "fwd_pe": "6.2x"
         },
         "MU": {
-          "ytd": "+171.9%",
-          "ytd_pct": 171.8930661154129,
-          "fwd_pe": "7.6x"
+          "ytd": "+156.9%",
+          "ytd_pct": 156.8725692862899,
+          "fwd_pe": "7.2x"
         },
         "TSM": {
-          "ytd": "+37.5%",
-          "ytd_pct": 37.45763269604135,
-          "fwd_pe": "21.7x"
+          "ytd": "+32.4%",
+          "ytd_pct": 32.36697489223075,
+          "fwd_pe": "20.9x"
         },
         "CRBR": {
           "ytd": "\u2014",
           "ytd_pct": null,
           "fwd_pe": "\u2014"
+        },
+        "COPX": {
+          "ytd": "+16.4%",
+          "ytd_pct": 16.35325254213678,
+          "fwd_pe": "\u2014"
+        },
+        "GLD": {
+          "ytd": "+4.6%",
+          "ytd_pct": 4.559561959072441,
+          "fwd_pe": "\u2014"
+        },
+        "TIP": {
+          "ytd": "+0.6%",
+          "ytd_pct": 0.6095896642707685,
+          "fwd_pe": "\u2014"
+        },
+        "SCGLY": {
+          "ytd": "-4.7%",
+          "ytd_pct": -4.705882352941164,
+          "fwd_pe": "7.0x"
+        },
+        "ADBE": {
+          "ytd": "-31.1%",
+          "ytd_pct": -31.139461127460788,
+          "fwd_pe": "9.1x"
+        },
+        "FCX": {
+          "ytd": "+21.2%",
+          "ytd_pct": 21.204961606615484,
+          "fwd_pe": "16.6x"
+        },
+        "UNG": {
+          "ytd": "-8.3%",
+          "ytd_pct": -8.278955954323006,
+          "fwd_pe": "\u2014"
         }
       },
-      "ytd_date": "2026-05-14"
+      "ytd_date": "2026-05-15"
     },
     "ai_trade_ideas": {
-      "text": "*(Trade idea synthesis failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqzafxqtfte8ap47ewx9etnt` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98226, Requested 5173. Please try again in 48m56.736s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}})*",
-      "input_hash": "744b2489c7cee822",
-      "date": "2026-05-14"
+      "text": "**Table:**\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Microsoft | MSFT | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Ethan Mollick \u2013 One Useful Thing, Simon Willison, Scott Alexander \u2013 Astral Codex Ten, Exchanges (Goldman Sachs), All-In Podcast, AI + a16z, Latent Space Podcast (swyx) |\n| 2 | NVIDIA | NVDA | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Ethan Mollick \u2013 One Useful Thing, Simon Willison, Scott Alexander \u2013 Astral Codex Ten, Import AI \u2013 Jack Clark, AI + a16z, Lex Fridman Podcast, Latent Space Podcast (swyx) |\n| 3 | Cerebras | CRBR | LONG | MED | Explicit | SemiAnalysis |\n| 4 | Taiwan Semiconductor Manufacturing Company | TSM | LONG | HIGH | Derived | SemiAnalysis |\n| 5 | Palo Alto Networks | PANW | LONG | MED | Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase |\n| 6 | NVIDIA (via competition) | NVDA | SHORT | LOW | Derived | SemiAnalysis |\n| 7 | Micron Technology | MU | LONG | MED | Derived | SemiAnalysis |\n| 8 | Meta | META | LONG | MED | Derived | Simon Willison |\n| 9 | Adobe | ADBE | LONG | MED | Derived | Simon Willison |\n| 10 | BlackRock | BLK | LONG | MED | Explicit/Derived | The Bid (BlackRock), Money Stuff: The Podcast (Matt Levine) |\n\n**Notes:**\n\n1. **Microsoft (MSFT)** \u2014 The company benefits from its stake in OpenAI, Azure hosting revenue, and its position in the technology sector, with multiple sources highlighting its potential for growth. Microsoft's exposure to AI development, its cloud services, and its investment in OpenAI make it a strong candidate for long-term growth.\n2. **NVIDIA (NVDA)** \u2014 As a primary GPU supplier for AI computing, NVIDIA benefits from the increasing demand for AI computing power, with multiple sources highlighting its strong position in the market. NVIDIA's GPUs are crucial for AI computations, and the company's ability to adapt to new architectures makes it a leader in the AI industry.\n3. **Cerebras (CRBR)** \u2014 The company's Wafer Scale Engine (WSE) is gaining traction due to the growing demand for fast tokens, and its major compute deal with OpenAI positions it for growth. Cerebras's WSE is a unique solution for AI computations, and its partnership with OpenAI makes it an attractive investment opportunity.\n4. **Taiwan Semiconductor Manufacturing Company (TSM)** \u2014 As the manufacturer of Cerebras's WSE-3, TSM benefits from the increasing demand for AI computing power and the growth of Cerebras. TSM's expertise in manufacturing high-performance chips makes it a critical component of the AI ecosystem.\n5. **Palo Alto Networks (PANW)** \u2014 The company benefits from the increasing demand for cybersecurity solutions due to AI advancements, with Zvi Mowshowitz highlighting the need for improved cybersecurity. Palo Alto Networks's products and services are crucial for protecting against AI-driven cybersecurity threats, making it a strong candidate for growth.\n6. **NVIDIA (via competition)** \u2014 Although NVIDIA is a leader in the AI industry, it may face competition from companies like Groq, which offers SRAM machines similar to Cerebras's WSE. This potential competition makes NVIDIA's position in the market less secure, and investors should be aware of the risks.\n7. **Micron Technology (MU)** \u2014 The company benefits from the increasing demand for memory in AI systems, with SemiAnalysis highlighting the trend towards using more memory in AI systems. Micron Technology's memory products are crucial for AI computations, and the company's expertise in manufacturing high-performance memory makes it a strong candidate for growth.\n8. **Meta (META)** \u2014 The company benefits from the growth of AI technology, with Simon Willison highlighting the use of Codex (GPT-5.5 xhigh) to build a rate-limiting plugin. Meta's exposure to AI development and its investment in AI research make it a strong candidate for long-term growth.\n9. **Adobe (ADBE)** \u2014 The company benefits from the growth of cross-platform development, with Simon Willison highlighting the use of React Native for cross-platform development. Adobe's creative cloud services are crucial for developers, and the company's expertise in design and development makes it a strong candidate for growth.\n10. **BlackRock (BLK)** \u2014 The company benefits from the growing demand for retirement solutions and its position as a leader in the financial services industry, with The Bid (BlackRock) and Money Stuff: The Podcast (Matt Levine) highlighting its potential for growth. BlackRock's expertise in investment management and its exposure to the retirement market make it a strong candidate for long-term growth.",
+      "input_hash": "490e7bcdafd1d7e1",
+      "date": "2026-05-15"
     }
   }
 }
