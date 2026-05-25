@@ -1,249 +1,260 @@
 {
   "seen": [
-    "oai:arXiv.org:2605.18019v1",
-    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
-    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
-    "oai:arXiv.org:2605.19742v1",
-    "oai:arXiv.org:2506.06654v3",
+    "github:garrytan/gstack:2026-05-12",
+    "https://simonwillison.net/2026/May/22/ftc-active-listening/#atom-everything",
+    "oai:arXiv.org:2605.15746v2",
+    "oai:arXiv.org:2501.09638v2",
     "https://simonwillison.net/2026/May/19/llm-gemini/#atom-everything",
-    "oai:arXiv.org:2605.21504v1",
-    "oai:arXiv.org:2605.09712v1",
-    "https://simonwillison.net/2026/May/19/datasette-llm-accountant/#atom-everything",
-    "oai:arXiv.org:2605.12547v1",
-    "oai:arXiv.org:2605.12099v1",
-    "github:garrytan/gstack:2026-05-21",
-    "oai:arXiv.org:2605.17623v1",
-    "https://thezvi.substack.com/p/gemini-35-flash-looks-good-for-how",
-    "oai:arXiv.org:2605.00493v2",
-    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
-    "github:garrytan/gbrain:2026-05-14",
-    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
-    "oai:arXiv.org:2605.14976v1",
-    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
-    "https://www.latent.space/p/the-fourth-law",
-    "oai:arXiv.org:2605.02287v2",
-    "oai:arXiv.org:2602.07085v3",
-    "https://www.latent.space/p/ainews-google-io-2026-gemini-35-flash",
-    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
-    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
-    "https://simonwillison.net/2026/May/19/datasette-llm/#atom-everything",
-    "oai:arXiv.org:2605.11423v1",
-    "oai:arXiv.org:2411.18397v3",
-    "oai:arXiv.org:2605.05739v2",
-    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
-    "https://www.astralcodexten.com/p/the-sigmoids-wont-save-you",
-    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
-    "oai:arXiv.org:2604.24480v4",
-    "oai:arXiv.org:2605.06688v1",
-    "oai:arXiv.org:2605.17117v1",
-    "oai:arXiv.org:2307.09077v2",
-    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
-    "5c3b7292-53d5-4e1b-9c1a-d47e7815f789",
-    "oai:arXiv.org:2605.22667v1",
-    "https://simonwillison.net/2026/May/20/tokens-per-second/#atom-everything",
-    "https://darioamodei.com/#28916f0e70fbc697",
-    "https://simonwillison.net/2026/May/20/spacex-s1/#atom-everything",
-    "https://www.deeplearning.ai/the-batch/#45a80ed0a567a3fc",
-    "oai:arXiv.org:2508.04003v2",
-    "https://simonwillison.net/2026/May/19/gemini-35-flash/#atom-everything",
-    "oai:arXiv.org:2605.10428v1",
-    "c68ed904-5c11-44f9-909c-b44a00200c14",
-    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
-    "https://www.astralcodexten.com/p/hidden-open-thread-4345",
-    "oai:arXiv.org:2503.22693v2",
-    "oai:arXiv.org:2605.21192v1",
-    "github:garrytan/gbrain-evals:2026-05-24",
-    "4945a340-783e-4fba-9782-b4510023ea71",
-    "github:garrytan/gstack:2026-05-20",
-    "https://simonwillison.net/2026/May/18/sighting-362781627/#atom-everything",
-    "oai:arXiv.org:2409.13528v2",
-    "https://www.astralcodexten.com/p/new-paradigms-wont-save-you",
-    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
-    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
-    "https://www.astralcodexten.com/p/the-types-of-candidate-you-find-in",
-    "https://www.latent.space/p/daytona",
-    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
-    "github:garrytan/gbrain:2026-05-17",
-    "oai:arXiv.org:2603.06875v3",
-    "b86c9c43-2732-45ca-a5d5-b45100dd6e8e",
-    "github:garrytan/openclaw-render-template:2026-05-10",
-    "oai:arXiv.org:2412.14353v4",
-    "https://www.latent.space/p/railway",
-    "oai:arXiv.org:2605.11180v1",
     "oai:arXiv.org:2604.03499v2",
-    "2c3278e4-33a1-46bb-84f9-b4520149bcf9",
-    "https://simonwillison.net/2026/May/21/datasette-agent/#atom-everything",
-    "oai:arXiv.org:2605.22792v1",
-    "oai:arXiv.org:2605.21696v1",
-    "oai:arXiv.org:2601.05085v3",
-    "oai:arXiv.org:2605.17628v1",
-    "github:garrytan/gbrain:2026-05-19",
-    "c3affab8-5413-46ec-8d1f-00e504c0309c",
-    "oai:arXiv.org:2502.17518v2",
-    "github:garrytan/gstack:2026-05-18",
-    "https://simonwillison.net/2026/May/21/datasette-agent-2/#atom-everything",
-    "github:garrytan/gbrain:2026-05-13",
-    "oai:arXiv.org:2206.12511v3",
+    "https://simonwillison.net/2026/May/20/spacex-s1/#atom-everything",
+    "oai:arXiv.org:2605.11423v1",
+    "c68ed904-5c11-44f9-909c-b44a00200c14",
     "17364f35-3bd0-469d-b500-b44a0132582f",
-    "oai:arXiv.org:2407.15536v3",
-    "oai:arXiv.org:2605.21409v1",
-    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
-    "https://simonwillison.net/2026/May/15/sighting-361818285/#atom-everything",
-    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
-    "github:garrytan/gbrain:2026-05-21",
-    "oai:arXiv.org:2507.07107v2",
-    "oai:arXiv.org:2605.20636v1",
-    "oai:arXiv.org:2604.19604v5",
-    "https://www.latent.space/p/ainews-how-to-land-a-job-at-a-frontier",
-    "oai:arXiv.org:2605.12189v1",
-    "oai:arXiv.org:2605.16448v1",
+    "github:garrytan/openclaw-render-template:2026-05-21",
+    "https://thezvi.substack.com/p/monthly-roundup-42-may-2026",
+    "github:garrytan/gbrain:2026-05-17",
+    "oai:arXiv.org:2506.06654v3",
+    "oai:arXiv.org:2605.01176v2",
+    "oai:arXiv.org:2605.12977v1",
+    "oai:arXiv.org:2510.15949v5",
+    "oai:arXiv.org:2412.14353v4",
+    "github:garrytan/gbrain:2026-05-11",
+    "oai:arXiv.org:2603.05917v3",
+    "oai:arXiv.org:2601.06499v2",
+    "https://www.latent.space/p/ainews-openai-gpt-next-disproves",
+    "oai:arXiv.org:2605.16324v1",
+    "oai:arXiv.org:2605.15210v1",
+    "github:garrytan/gstack:2026-05-11",
+    "oai:arXiv.org:2605.11180v1",
+    "github:garrytan/gbrain:2026-05-14",
+    "oai:arXiv.org:2605.18019v1",
     "github:garrytan/gbrain:2026-05-18",
-    "https://simonwillison.net/2026/May/19/5-minute-llms/#atom-everything",
-    "github:garrytan/gbrain-evals:2026-05-16",
-    "github:garrytan/gstack:2026-05-22",
-    "oai:arXiv.org:2605.12547v2",
-    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
-    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
-    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
+    "oai:arXiv.org:2605.12151v1",
+    "oai:arXiv.org:2605.00493v2",
+    "https://www.latent.space/p/ainews-google-io-2026-gemini-35-flash",
     "https://jack-clark.net/2026/05/18/import-ai-457-ai-stuxnet-cursed-muon-optimizer-and-positive-alignment/",
     "https://thezvi.substack.com/p/ai-169-new-knowledge",
-    "oai:arXiv.org:2605.12532v1",
-    "3a024eac-53a5-11f1-bbdc-87f46bcd8b29",
-    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
-    "oai:arXiv.org:2605.19278v2",
-    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
-    "oai:arXiv.org:2605.06670v1",
-    "oai:arXiv.org:2605.19278v1",
-    "oai:arXiv.org:2605.12977v1",
-    "https://www.latent.space/p/abridge",
-    "oai:arXiv.org:2503.08833v2",
-    "oai:arXiv.org:2507.15437v3",
-    "https://www.latent.space/p/ainews-cerebras-60b-ipo-slowly-then",
-    "oai:arXiv.org:2409.06551v5",
-    "oai:arXiv.org:2605.22215v1",
-    "oai:arXiv.org:2605.17425v1",
-    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
-    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
-    "https://www.astralcodexten.com/p/open-thread-434",
-    "a7009176-dd7f-474d-916a-b44700369509",
-    "d05e23d4-18e1-442f-8953-b4480146b311",
-    "https://simonwillison.net/2026/May/14/not-so-locked-in/#atom-everything",
-    "oai:arXiv.org:2605.15746v1",
-    "github:garrytan/gstack:2026-05-16",
-    "github:garrytan/gbrain:2026-05-20",
-    "oai:arXiv.org:2605.13998v1",
-    "https://simonwillison.net/2026/May/15/inaturalist-clumper/#atom-everything",
-    "gid://art19-episode-locator/V0/EtF7zf9Fq51qlhazg4J05BwSxBF1feqdCpFfxR3M-8g",
-    "oai:arXiv.org:2605.17724v1",
-    "oai:arXiv.org:2605.10447v1",
-    "oai:arXiv.org:2510.04092v3",
-    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
-    "https://simonwillison.net/2026/May/16/openclaw-names/#atom-everything",
-    "oai:arXiv.org:2605.15746v2",
-    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
-    "258befee-0a77-412f-bc07-b44300b368b2",
-    "https://thezvi.substack.com/p/dating-roundup-12-sex-and-violence",
-    "oai:arXiv.org:2605.03184v2",
-    "github:garrytan/gbrain:2026-05-16",
-    "https://simonwillison.net/2026/May/16/julia-evans/#atom-everything",
-    "oai:arXiv.org:2510.15995v3",
-    "github:garrytan/gstack:2026-05-10",
-    "github:garrytan/openclaw-render-template:2026-05-21",
-    "oai:arXiv.org:2511.07571v2",
-    "github:garrytan/gstack:2026-05-15",
-    "https://www.latent.space/p/ainews-everything-is-conductor",
-    "github:garrytan/gbrain-evals:2026-05-19",
-    "oai:arXiv.org:2502.06830v5",
-    "oai:arXiv.org:2605.09123v1",
-    "27a48384-84de-4007-bab3-b44b00ea363f",
-    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
-    "oai:arXiv.org:2605.22427v1",
-    "oai:arXiv.org:2605.20348v1",
-    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
-    "github:garrytan/gstack:2026-05-13",
-    "oai:arXiv.org:2509.25055v3",
-    "github:garrytan/gbrain:2026-05-23",
-    "oai:arXiv.org:2605.15210v1",
-    "oai:arXiv.org:2510.18903v3",
-    "oai:arXiv.org:2601.18991v2",
-    "oai:arXiv.org:2605.02040v3",
-    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
-    "https://thezvi.substack.com/p/monthly-roundup-42-may-2026",
-    "github:garrytan/gstack:2026-05-11",
-    "https://simonwillison.net/2026/May/21/datasette-agent-charts/#atom-everything",
-    "https://www.latent.space/p/ainews-all-model-labs-are-now-agent",
-    "https://simonwillison.net/2026/May/21/datasette-agent-sprites/#atom-everything",
-    "oai:arXiv.org:2605.09310v1",
-    "github:garrytan/gbrain:2026-05-10",
-    "https://simonwillison.net/2026/May/17/gds-weighs-in/#atom-everything",
-    "github:garrytan/gbrain:2026-05-15",
-    "oai:arXiv.org:2605.21009v1",
-    "https://www.astralcodexten.com/p/open-thread-433",
-    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
-    "oai:arXiv.org:2506.23619v2",
-    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
-    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
-    "oai:arXiv.org:2605.11640v1",
-    "oai:arXiv.org:2605.13407v1",
     "2cddec97-5995-4812-abea-b44b016dc69f",
-    "github:garrytan/gstack:2026-05-24",
-    "oai:arXiv.org:2605.06818v1",
-    "oai:arXiv.org:2605.11645v1",
-    "https://simonwillison.net/2026/May/23/on-the-dl/#atom-everything",
-    "github:garrytan/gstack:2026-05-19",
-    "oai:arXiv.org:2601.06499v2",
-    "oai:arXiv.org:2605.06677v1",
-    "github:garrytan/gbrain:2026-05-22",
-    "oai:arXiv.org:2510.15949v5",
-    "github:garrytan/gbrain:2026-05-24",
-    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
-    "9e723c14-33a2-4bd1-9e58-e475244f9446",
-    "oai:arXiv.org:2605.12151v1",
-    "oai:arXiv.org:2605.18343v1",
-    "oai:arXiv.org:2501.09638v2",
-    "oai:arXiv.org:2603.24215v2",
-    "oai:arXiv.org:2602.10071v2",
-    "github:garrytan/gstack:2026-05-12",
-    "github:garrytan/gbrain:2026-05-11",
-    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
-    "oai:arXiv.org:2603.05917v3",
-    "oai:arXiv.org:2605.17307v1",
-    "oai:arXiv.org:2605.05739v3",
-    "https://simonwillison.net/2026/May/22/memory-shortage/#atom-everything",
-    "oai:arXiv.org:2604.24366v2",
-    "https://simonwillison.net/2026/May/20/google-io/#atom-everything",
-    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
-    "747e9d28-f7df-4926-bc64-b44e0124705e",
-    "oai:arXiv.org:2605.09061v1",
-    "oai:arXiv.org:2605.02286v2",
-    "https://www.deeplearning.ai/the-batch/#0a5413735bc9b027",
-    "oai:arXiv.org:2605.15767v1",
-    "oai:arXiv.org:2605.10486v1",
-    "https://simonwillison.net/2026/May/22/ftc-active-listening/#atom-everything",
-    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
-    "oai:arXiv.org:2410.14927v2",
-    "https://www.latent.space/p/ainews-openai-gpt-next-disproves",
-    "https://www.latent.space/p/ainews-new-ai-infra-unicorns-exa",
-    "https://newsletter.semianalysis.com/p/eda-market-primer",
-    "github:garrytan/gstack:2026-05-14",
-    "ba6e5213-7720-46c6-87a5-b44c0032e6bc",
-    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
-    "oai:arXiv.org:2605.02326v2",
-    "https://simonwillison.net/2026/May/19/llm-gemini-2/#atom-everything",
-    "yt:video:ZHXt0-_gSj4",
-    "oai:arXiv.org:2605.16324v1",
-    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
-    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything",
-    "oai:arXiv.org:2605.20142v1",
-    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
-    "https://www.latent.space/p/ainews-the-end-of-finetuning",
-    "oai:arXiv.org:2505.02635v2",
-    "github:garrytan/gbrain:2026-05-12",
-    "3efa7cbf-112c-4bce-a845-443700608a00",
+    "https://simonwillison.net/2026/May/7/llm-gemini/#atom-everything",
+    "oai:arXiv.org:2605.14976v1",
+    "https://www.astralcodexten.com/p/hidden-open-thread-4345",
+    "https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon",
     "https://thezvi.substack.com/p/childhood-and-education-19-letting",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "oai:arXiv.org:2605.06670v1",
+    "oai:arXiv.org:2605.19278v2",
+    "https://simonwillison.net/2026/May/14/not-so-locked-in/#atom-everything",
+    "https://www.latent.space/p/abridge",
+    "github:garrytan/gbrain-evals:2026-05-19",
+    "github:garrytan/gbrain:2026-05-10",
+    "oai:arXiv.org:2604.24366v2",
+    "oai:arXiv.org:2603.06875v3",
+    "github:garrytan/gstack:2026-05-22",
+    "https://simonwillison.net/2026/May/24/datasette/#atom-everything",
+    "github:garrytan/gstack:2026-05-13",
+    "https://www.astralcodexten.com/p/new-paradigms-wont-save-you",
+    "yt:video:ZHXt0-_gSj4",
+    "https://thezvi.substack.com/p/cyber-lack-of-security-and-ai-governance",
+    "github:garrytan/gstack:2026-05-19",
+    "github:garrytan/gbrain-evals:2026-05-16",
+    "github:garrytan/gbrain:2026-05-16",
+    "oai:arXiv.org:2605.17307v1",
+    "52d36a4f-fb2e-4e58-b28f-b44400e35917",
+    "oai:arXiv.org:2605.09123v1",
+    "oai:arXiv.org:2409.06551v5",
+    "github:garrytan/gbrain:2026-05-22",
+    "oai:arXiv.org:2605.13407v1",
+    "oai:arXiv.org:2605.18343v1",
+    "oai:arXiv.org:2603.24215v2",
+    "oai:arXiv.org:2508.04003v2",
+    "5c3b7292-53d5-4e1b-9c1a-d47e7815f789",
+    "oai:arXiv.org:2605.02040v3",
+    "https://www.latent.space/p/ainews-cerebras-60b-ipo-slowly-then",
+    "https://thezvi.substack.com/p/gemini-35-flash-looks-good-for-how",
+    "https://simonwillison.net/2026/May/20/tokens-per-second/#atom-everything",
+    "github:garrytan/gbrain:2026-05-13",
+    "https://simonwillison.net/2026/May/16/openclaw-names/#atom-everything",
+    "258befee-0a77-412f-bc07-b44300b368b2",
+    "https://www.latent.space/p/ainews-everything-is-conductor",
+    "27a48384-84de-4007-bab3-b44b00ea363f",
+    "oai:arXiv.org:2510.18903v3",
+    "oai:arXiv.org:2605.09712v1",
+    "be572a24-4d5b-11f1-bba2-6f4f37d71d17",
+    "oai:arXiv.org:2605.20348v1",
+    "https://darioamodei.com/#28916f0e70fbc697",
+    "https://simonwillison.net/2026/May/11/zombie-internet/#atom-everything",
+    "https://simonwillison.net/2026/May/20/google-io/#atom-everything",
+    "oai:arXiv.org:2307.09077v2",
+    "https://simonwillison.net/2026/May/10/andrew-quinn/#atom-everything",
+    "https://www.latent.space/p/ainews-codex-rises-claude-meters",
+    "github:garrytan/gbrain:2026-05-15",
+    "oai:arXiv.org:2605.12547v2",
+    "oai:arXiv.org:2506.23619v2",
+    "oai:arXiv.org:2605.11645v1",
+    "oai:arXiv.org:2605.12099v1",
+    "b86c9c43-2732-45ca-a5d5-b45100dd6e8e",
+    "github:garrytan/gstack:2026-05-14",
+    "github:garrytan/gbrain:2026-05-21",
+    "https://simonwillison.net/2026/May/21/datasette-agent-sprites/#atom-everything",
+    "oai:arXiv.org:2507.15437v3",
+    "oai:arXiv.org:2605.12532v1",
+    "https://www.latent.space/p/ainews-new-ai-infra-unicorns-exa",
+    "oai:arXiv.org:2509.25055v3",
+    "oai:arXiv.org:2605.05739v2",
+    "a7009176-dd7f-474d-916a-b44700369509",
+    "oai:arXiv.org:2605.13998v1",
+    "https://simonwillison.net/2026/May/16/julia-evans/#atom-everything",
+    "https://simonwillison.net/2026/May/21/datasette-agent-2/#atom-everything",
+    "oai:arXiv.org:2605.11640v1",
     "oai:arXiv.org:2604.19604v4",
-    "oai:arXiv.org:2605.10400v1"
+    "https://www.astralcodexten.com/p/open-thread-433",
+    "4945a340-783e-4fba-9782-b4510023ea71",
+    "https://www.astralcodexten.com/p/the-sigmoids-wont-save-you",
+    "https://www.deeplearning.ai/the-batch/#45a80ed0a567a3fc",
+    "oai:arXiv.org:2605.21009v1",
+    "oai:arXiv.org:2605.06677v1",
+    "oai:arXiv.org:2601.05085v3",
+    "https://simonwillison.net/2026/May/14/datasette-ip-rate-limit/#atom-everything",
+    "oai:arXiv.org:2605.20142v1",
+    "oai:arXiv.org:2410.14927v2",
+    "oai:arXiv.org:2605.12189v1",
+    "https://simonwillison.net/2026/May/23/on-the-dl/#atom-everything",
+    "oai:arXiv.org:2601.11209v4",
+    "oai:arXiv.org:2503.22693v2",
+    "gid://art19-episode-locator/V0/EtF7zf9Fq51qlhazg4J05BwSxBF1feqdCpFfxR3M-8g",
+    "https://simonwillison.net/2026/May/13/csp-allow/#atom-everything",
+    "2c3278e4-33a1-46bb-84f9-b4520149bcf9",
+    "github:garrytan/gstack:2026-05-15",
+    "https://www.deeplearning.ai/the-batch/#0a5413735bc9b027",
+    "3a024eac-53a5-11f1-bbdc-87f46bcd8b29",
+    "https://www.latent.space/p/the-fourth-law",
+    "https://simonwillison.net/2026/May/12/mo-bitar/#atom-everything",
+    "oai:arXiv.org:2511.07571v2",
+    "https://www.latent.space/p/ainews-how-to-land-a-job-at-a-frontier",
+    "https://thezvi.substack.com/p/childhood-and-education-18-do-the",
+    "oai:arXiv.org:2605.17628v1",
+    "github:garrytan/gbrain:2026-05-20",
+    "oai:arXiv.org:2605.21504v1",
+    "https://simonwillison.net/2026/May/18/sighting-362781627/#atom-everything",
+    "oai:arXiv.org:2601.18991v2",
+    "https://simonwillison.net/2026/May/24/datasette-fixtures/#atom-everything",
+    "fd5e56e6-4d76-11f1-a16a-bf9d86f901ae",
+    "oai:arXiv.org:2605.19742v1",
+    "2f991816-fba7-4f75-9ea1-67ddf15953f9",
+    "https://thezvi.substack.com/p/dating-roundup-12-sex-and-violence",
+    "oai:arXiv.org:2605.21409v1",
+    "https://www.astralcodexten.com/p/every-magazine-piece-on-the-sf-ai",
+    "https://www.astralcodexten.com/p/three-model-organisms-for-taste",
+    "oai:arXiv.org:2505.02635v2",
+    "https://simonwillison.net/2026/May/15/sighting-361818285/#atom-everything",
+    "https://simonwillison.net/2026/May/24/armin-ronacher/#atom-everything",
+    "https://simonwillison.net/2026/May/19/datasette-llm-accountant/#atom-everything",
+    "oai:arXiv.org:2605.15746v1",
+    "oai:arXiv.org:2206.12511v3",
+    "oai:arXiv.org:2407.15536v3",
+    "oai:arXiv.org:2605.09061v1",
+    "9e723c14-33a2-4bd1-9e58-e475244f9446",
+    "oai:arXiv.org:2605.02287v2",
+    "github:garrytan/openclaw-render-template:2026-05-10",
+    "oai:arXiv.org:2502.17518v2",
+    "oai:arXiv.org:2605.12547v1",
+    "oai:arXiv.org:2507.07107v2",
+    "https://simonwillison.net/2026/May/19/5-minute-llms/#atom-everything",
+    "oai:arXiv.org:2605.10486v1",
+    "https://simonwillison.net/2026/May/21/datasette-agent/#atom-everything",
+    "oai:arXiv.org:2605.19278v1",
+    "github:garrytan/gbrain:2026-05-12",
+    "github:garrytan/gbrain:2026-05-24",
+    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
+    "https://thezvi.substack.com/p/claude-code-codex-and-agentic-coding-f54",
+    "https://simonwillison.net/2026/May/19/llm-gemini-2/#atom-everything",
+    "c3affab8-5413-46ec-8d1f-00e504c0309c",
+    "https://www.latent.space/p/daytona",
+    "oai:arXiv.org:2605.06818v1",
+    "oai:arXiv.org:2605.10400v1",
+    "github:garrytan/gstack:2026-05-16",
+    "oai:arXiv.org:2411.18397v3",
+    "github:garrytan/gstack:2026-05-10",
+    "https://simonwillison.net/2026/May/12/llm/#atom-everything",
+    "f5d08f4f-4184-461a-933c-ad65230eb5e0",
+    "oai:arXiv.org:2510.15995v3",
+    "oai:arXiv.org:2605.03184v2",
+    "github:garrytan/gbrain:2026-05-19",
+    "d05e23d4-18e1-442f-8953-b4480146b311",
+    "https://jack-clark.net/2026/05/11/import-ai-456-rsi-and-economic-growth-radical-optionality-for-ai-regulation-and-a-neural-computer/",
+    "5eda2c06-d4fa-4a29-be6d-b451013967df",
+    "oai:arXiv.org:2605.05739v3",
+    "oai:arXiv.org:2605.21696v1",
+    "github:garrytan/gbrain:2026-05-25",
+    "oai:arXiv.org:2602.10071v2",
+    "747e9d28-f7df-4926-bc64-b44e0124705e",
+    "https://simonwillison.net/2026/May/15/inaturalist-clumper/#atom-everything",
+    "https://newsletter.semianalysis.com/p/eda-market-primer",
+    "oai:arXiv.org:2409.13528v2",
+    "https://simonwillison.net/2026/May/21/datasette-agent-charts/#atom-everything",
+    "oai:arXiv.org:2605.17425v1",
+    "oai:arXiv.org:2605.17117v1",
+    "oai:arXiv.org:2604.19604v5",
+    "oai:arXiv.org:2605.20192v1",
+    "https://simonwillison.net/2026/May/10/new-york-times-editors-note/#atom-everything",
+    "oai:arXiv.org:2605.17623v1",
+    "oai:arXiv.org:2605.06688v1",
+    "5989354b-c3fe-4aad-aa08-fb20e5f33656",
+    "https://www.astralcodexten.com/p/the-types-of-candidate-you-find-in",
+    "oai:arXiv.org:2605.16448v1",
+    "https://www.latent.space/p/ainews-the-end-of-finetuning",
+    "https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please",
+    "oai:arXiv.org:2605.02286v2",
+    "oai:arXiv.org:2605.17724v1",
+    "https://www.latent.space/p/ainews-thinking-machines-native-interaction",
+    "https://simonwillison.net/2026/May/13/boris-mann/#atom-everything",
+    "oai:arXiv.org:2605.09310v1",
+    "3efa7cbf-112c-4bce-a845-443700608a00",
+    "https://simonwillison.net/2026/May/14/mitchell-hashimoto/#atom-everything",
+    "github:garrytan/gbrain-evals:2026-05-24",
+    "https://simonwillison.net/2026/May/24/datasette-agent/#atom-everything",
+    "https://simonwillison.net/2026/May/8/unreasonable-effectiveness-of-html/#atom-everything",
+    "github:garrytan/gstack:2026-05-18",
+    "oai:arXiv.org:2605.20636v1",
+    "https://simonwillison.net/2026/May/19/gemini-35-flash/#atom-everything",
+    "https://www.astralcodexten.com/p/nostalgebraists-hydrogen-jukeboxes",
+    "oai:arXiv.org:2502.06830v5",
+    "oai:arXiv.org:2605.10447v1",
+    "oai:arXiv.org:2605.22667v1",
+    "https://www.latent.space/p/ainews-all-model-labs-are-now-agent",
+    "oai:arXiv.org:2605.10428v1",
+    "oai:arXiv.org:2503.08833v2",
+    "github:garrytan/gstack:2026-05-24",
+    "github:garrytan/gbrain:2026-05-23",
+    "oai:arXiv.org:2605.23007v1",
+    "oai:arXiv.org:2605.22427v1",
+    "oai:arXiv.org:2605.22792v1",
+    "https://www.astralcodexten.com/p/open-thread-434",
+    "https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/#atom-everything",
+    "https://thezvi.substack.com/p/childhood-and-education-17-is-our",
+    "oai:arXiv.org:2602.07085v3",
+    "https://simonwillison.net/2026/May/11/james-shore/#atom-everything",
+    "oai:arXiv.org:2605.21192v1",
+    "https://thezvi.substack.com/p/ai-168-not-leading-the-future",
+    "https://simonwillison.net/2026/May/19/datasette-llm/#atom-everything",
+    "https://simonwillison.net/2026/May/12/datasette/#atom-everything",
+    "https://simonwillison.net/2026/May/13/welcome-to-the-datasette-blog/#atom-everything",
+    "github:garrytan/gstack:2026-05-21",
+    "https://simonwillison.net/2026/May/12/mitchell-hashimoto/#atom-everything",
+    "oai:arXiv.org:2510.04092v3",
+    "oai:arXiv.org:2604.24480v4",
+    "github:garrytan/gstack:2026-05-20",
+    "https://www.latent.space/p/railway",
+    "https://simonwillison.net/2026/May/11/gitlab-act-2/#atom-everything",
+    "https://simonwillison.net/2026/May/24/usborne-mad-house/#atom-everything",
+    "oai:arXiv.org:2605.22215v1",
+    "https://simonwillison.net/2026/May/11/llm-shebang/#atom-everything",
+    "https://simonwillison.net/2026/May/17/gds-weighs-in/#atom-everything",
+    "oai:arXiv.org:2605.02326v2",
+    "https://simonwillison.net/2026/May/22/memory-shortage/#atom-everything",
+    "https://simonwillison.net/2026/May/9/luke-curley/#atom-everything",
+    "ba6e5213-7720-46c6-87a5-b44c0032e6bc",
+    "https://www.latent.space/p/ainews-anthropic-growing-10xyear",
+    "oai:arXiv.org:2605.15767v1"
   ],
   "last_items": {
     "https://darioamodei.com/": {
@@ -348,13 +359,13 @@
     },
     "https://github.com/garrytan?tab=repositories:repos": {
       "garrytan/gbrain": {
-        "updated": "2026-05-24T09:17:28Z"
+        "updated": "2026-05-25T06:08:54Z"
+      },
+      "garrytan/gstack": {
+        "updated": "2026-05-24T17:11:49Z"
       },
       "garrytan/gbrain-evals": {
         "updated": "2026-05-24T08:49:28Z"
-      },
-      "garrytan/gstack": {
-        "updated": "2026-05-24T08:43:52Z"
       },
       "garrytan/openclaw-render-template": {
         "updated": "2026-05-21T22:23:36Z"
@@ -405,7 +416,7 @@
   },
   "summaries": {
     "congress_Nancy Pelosi \u2013 House PTR Trades": {
-      "text": "**24 positions \u00b7 $104.5M est. portfolio \u00b7 FD: Dec 31 2023 + PTR through 01/16/2026**\n\n| # | Ticker | Name | Type | Est. Value | % | YTD | Fwd P/E | Status | Last PTR |\n|---|--------|------|------|------------|---|-----|---------|--------|----------|\n| 1 | NVDA | NVIDIA Corporation - Common \u2026 | Stock | $16.7M | 16.0% | +15.5% | 17.0x | ~ Active trading | 01/16/2026 |\n| 2 | CRM | Salesforce.com Inc | Stock | $15.0M | 14.4% | -32.0% | 12.0x | \u2022 Unchanged | \u2014 |\n| 3 | GOOGL | Alphabet Inc. - Class A | Stock | $13.5M | 12.9% | +22.4% | 26.5x | ~ Active trading | 01/16/2026 |\n| 4 | AMZN | Amazon.com, Inc. | Stock | $13.3M | 12.7% | +15.4% | 27.0x | ~ Active trading | 01/16/2026 |\n| 5 | MSFT | Microsoft Corporation | Stock | $12.0M | 11.5% | -13.5% | 21.6x | \u2193 Reduced | 07/26/2024 |\n| 6 | AVGO | Broadcom Inc. - Common Stock | Options | $9.0M | 8.6% | +19.7% | 22.7x | \u2191 Added | 06/20/2025 |\n| 7 | PANW | Palo Alto Networks, Inc. - C\u2026 | Stock | $6.9M | 6.6% | +41.5% | 65.5x | \u2191 Added | 12/20/2024 |\n| 8 | AXP | American Express Company | Stock | $3.0M | 2.9% | -15.7% | 15.5x | \u2022 Unchanged | \u2014 |\n| 9 | CRWD | CrowdStrike Holdings, Inc. -\u2026 | Stock | $3.0M | 2.9% | +41.5% | 107.7x | \u2022 Unchanged | \u2014 |\n| 10 | NFLX | Netflix, Inc. | Stock | $3.0M | 2.9% | -5.5% | 23.1x | \u2022 Unchanged | \u2014 |\n| 11 | AB | AB | AB | $3.0M | 2.9% | -1.4% | 9.9x | \u2191 New (PTR) | 01/16/2026 |\n| 12 | V | Visa Inc. | Stock | $2.2M | 2.2% | -6.2% | 22.1x | \u2193 Reduced | 07/01/2024 |\n| 13 | VST | VST | Options | $925K | 0.9% | -3.1% | 14.3x | \u2191 New (PTR) | 01/16/2026 |\n| 14 | CMCSA | Comcast Corporation - Class \u2026 | Stock | $750K | 0.7% | -10.0% | 6.6x | \u2022 Unchanged | \u2014 |\n| 15 | SQ | Block, Inc. Class A Common S\u2026 | Stock | $375K | 0.4% | \u2014 | \u2014 | \u2022 Unchanged | \u2014 |\n| 16 | DBX | Dropbox, Inc. - Class A | Stock | $375K | 0.4% | -1.3% | 8.1x | \u2022 Unchanged | \u2014 |\n| 17 | IBKR | Interactive Brokers Group, I\u2026 | Stock | $375K | 0.4% | +26.5% | 28.5x | \u2022 Unchanged | \u2014 |\n| 18 | MORN | Morningstar, Inc. | Stock | $375K | 0.4% | -17.3% | 13.6x | \u2022 Unchanged | \u2014 |\n| 19 | RBLX | Roblox Corporation Class A | Stock | $375K | 0.4% | -40.6% | \u2014 | \u2022 Unchanged | \u2014 |\n| 20 | T | AT&T Inc. | Stock | $175K | 0.2% | +1.7% | 9.9x | \u2022 Unchanged | \u2014 |\n| 21 | TEM | TEM | Options | $75K | 0.1% | -21.8% | \u2014 | \u2191 New (PTR) | 01/14/2025 |\n| 22 | QCOM | QUALCOMM Incorporated | Stock | $33K | 0.0% | +39.2% | 22.4x | \u2022 Unchanged | \u2014 |\n| 23 | WBD | Warner Bros. Discovery, Inc.\u2026 | Stock | $33K | 0.0% | -6.2% | 1802.0x | \u2022 Unchanged | \u2014 |\n| 24 | CLNE | Clean Energy Fuels Corp. | Stock | $8K | 0.0% | -2.4% | 65.7x | \u2022 Unchanged | \u2014 |\n\n*Closed since FD baseline: PYPL, DIS, TSLA*",
+      "text": "**24 positions \u00b7 $104.5M est. portfolio \u00b7 FD: Dec 31 2023 + PTR through 01/16/2026**\n\n| # | Ticker | Name | Type | Est. Value | % | YTD | Fwd P/E | Status | Last PTR |\n|---|--------|------|------|------------|---|-----|---------|--------|----------|\n| 1 | NVDA | NVIDIA Corporation - Common \u2026 | Stock | $16.7M | 16.0% | +15.5% | 17.0x | ~ Active trading | 01/16/2026 |\n| 2 | CRM | Salesforce.com Inc | Stock | $15.0M | 14.4% | -32.0% | 12.0x | \u2022 Unchanged | \u2014 |\n| 3 | GOOGL | Alphabet Inc. - Class A | Stock | $13.5M | 12.9% | +22.4% | 26.4x | ~ Active trading | 01/16/2026 |\n| 4 | AMZN | Amazon.com, Inc. | Stock | $13.3M | 12.7% | +15.4% | 27.0x | ~ Active trading | 01/16/2026 |\n| 5 | MSFT | Microsoft Corporation | Stock | $12.0M | 11.5% | -13.5% | 21.6x | \u2193 Reduced | 07/26/2024 |\n| 6 | AVGO | Broadcom Inc. - Common Stock | Options | $9.0M | 8.6% | +19.7% | 22.7x | \u2191 Added | 06/20/2025 |\n| 7 | PANW | Palo Alto Networks, Inc. - C\u2026 | Stock | $6.9M | 6.6% | +41.5% | 65.5x | \u2191 Added | 12/20/2024 |\n| 8 | AXP | American Express Company | Stock | $3.0M | 2.9% | -15.7% | 15.5x | \u2022 Unchanged | \u2014 |\n| 9 | CRWD | CrowdStrike Holdings, Inc. -\u2026 | Stock | $3.0M | 2.9% | +41.5% | 107.7x | \u2022 Unchanged | \u2014 |\n| 10 | NFLX | Netflix, Inc. | Stock | $3.0M | 2.9% | -5.5% | 23.1x | \u2022 Unchanged | \u2014 |\n| 11 | AB | AB | AB | $3.0M | 2.9% | -1.4% | 9.9x | \u2191 New (PTR) | 01/16/2026 |\n| 12 | V | Visa Inc. | Stock | $2.2M | 2.2% | -6.2% | 22.1x | \u2193 Reduced | 07/01/2024 |\n| 13 | VST | VST | Options | $925K | 0.9% | -3.1% | 14.3x | \u2191 New (PTR) | 01/16/2026 |\n| 14 | CMCSA | Comcast Corporation - Class \u2026 | Stock | $750K | 0.7% | -10.0% | 6.6x | \u2022 Unchanged | \u2014 |\n| 15 | SQ | Block, Inc. Class A Common S\u2026 | Stock | $375K | 0.4% | \u2014 | \u2014 | \u2022 Unchanged | \u2014 |\n| 16 | DBX | Dropbox, Inc. - Class A | Stock | $375K | 0.4% | -1.3% | 8.1x | \u2022 Unchanged | \u2014 |\n| 17 | IBKR | Interactive Brokers Group, I\u2026 | Stock | $375K | 0.4% | +26.5% | 28.5x | \u2022 Unchanged | \u2014 |\n| 18 | MORN | Morningstar, Inc. | Stock | $375K | 0.4% | -17.3% | 13.6x | \u2022 Unchanged | \u2014 |\n| 19 | RBLX | Roblox Corporation Class A | Stock | $375K | 0.4% | -40.6% | \u2014 | \u2022 Unchanged | \u2014 |\n| 20 | T | AT&T Inc. | Stock | $175K | 0.2% | +1.7% | 9.9x | \u2022 Unchanged | \u2014 |\n| 21 | TEM | TEM | Options | $75K | 0.1% | -21.8% | \u2014 | \u2191 New (PTR) | 01/14/2025 |\n| 22 | QCOM | QUALCOMM Incorporated | Stock | $33K | 0.0% | +39.2% | 22.4x | \u2022 Unchanged | \u2014 |\n| 23 | WBD | Warner Bros. Discovery, Inc.\u2026 | Stock | $33K | 0.0% | -6.2% | 1802.0x | \u2022 Unchanged | \u2014 |\n| 24 | CLNE | Clean Energy Fuels Corp. | Stock | $8K | 0.0% | -2.4% | 65.7x | \u2022 Unchanged | \u2014 |\n\n*Closed since FD baseline: PYPL, DIS, TSLA*",
       "date": "01/16/2026",
       "fd_doc_id": "10066169",
       "ptr_ids": [
@@ -433,7 +444,7 @@
         "GOOGL": {
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         "AMZN": {
           "ytd": "+15.4%",
@@ -541,7 +552,7 @@
           "fwd_pe": "65.7x"
         }
       },
-      "ytd_date": "2026-05-24",
+      "ytd_date": "2026-05-25",
       "positions": [
         {
           "ticker": "NVDA",
@@ -565,7 +576,7 @@
           "value_k": 13500,
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         {
           "ticker": "AMZN",
@@ -792,7 +803,7 @@
         },
         "SNDK": {
           "ytd": "+522.9%",
-          "ytd_pct": 522.9210548487657,
+          "ytd_pct": 522.9168421939507,
           "fwd_pe": "8.4x"
         },
         "MU": {
@@ -836,7 +847,7 @@
           "fwd_pe": "\u2014"
         }
       },
-      "ytd_date": "2026-05-24",
+      "ytd_date": "2026-05-25",
       "positions": [
         {
           "ticker": "SMH",
@@ -891,7 +902,7 @@
           "name": "Sandisk Corp",
           "value_k": 724363,
           "ytd": "+522.9%",
-          "ytd_pct": 522.9210548487657,
+          "ytd_pct": 522.9168421939507,
           "fwd_pe": "8.4x"
         },
         {
@@ -955,7 +966,7 @@
           "name": "Sandisk Corp",
           "value_k": 388764,
           "ytd": "+522.9%",
-          "ytd_pct": 522.9210548487657,
+          "ytd_pct": 522.9168421939507,
           "fwd_pe": "8.4x"
         },
         {
@@ -1001,7 +1012,7 @@
       ]
     },
     "13f_Stanley Druckenmiller \u2013 Duquesne Family Office 13F (SEC)": {
-      "text": "**70 positions \u00b7 $3.4B AUM \u00b7 as of 2026-05-15**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Natera Inc | NTRA | $612.7M | 18.1% | -11.3% | \u2014 |\n| 2 | Insmed Inc \u2013 COM PAR $.01 | INSM | $188.7M | 5.6% | -39.0% | 262.8x |\n| 3 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $167.4M | 5.0% | +33.1% | 20.7x |\n| 4 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $162.3M | 4.8% | +14.5% | \u2014 |\n| 5 | Invesco Exchange Traded Fd T \u2013 S&P500 EQL WGT | RSP | $157.6M | 4.7% | +7.8% | \u2014 |\n| 6 | Ypf Sociedad Anonima \u2013 SPON ADR CL D | YPF | $149.6M | 4.4% | +32.7% | 8.4x |\n| 7 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $131.9M | 3.9% | +14.5% | \u2014 |\n| 8 | Bbb Foods Inc | TBBB | $110.0M | 3.3% | +10.0% | \u2014 |\n| 9 | Alcoa Corp | AA | $99.1M | 2.9% | +34.3% | 10.7x |\n| 10 | Newamsterdam Pharma Company \u2013 ORDINARY SHARES | NAMS | $98.3M | 2.9% | +1.0% | \u2014 |\n| 11 | Sea Ltd \u2013 SPONSORD ADS | SE | $91.1M | 2.7% | -31.6% | 16.8x |\n| 12 | Stmicroelectronics N V \u2013 NY REGISTRY | STM | $90.3M | 2.7% | +157.7% | 30.0x |\n| 13 | Woodward Inc | WWD | $75.6M | 2.2% | +16.2% | 32.7x |\n| 14 | Teva Pharmaceutical Inds Ltd \u2013 SPONSORED ADS | TEVA | $71.6M | 2.1% | +9.2% | 11.0x |\n| 15 | Roku Inc \u2013 COM CL A | ROKU | $71.0M | 2.1% | +15.7% | 35.5x |\n| 16 | Broadcom Inc | AVGO | $60.6M | 1.8% | +19.7% | 22.7x |\n| 17 | State Str Spdr S&P 500 Etf T | SPY | $58.5M | 1.7% | +9.3% | \u2014 |\n| 18 | Coupang Inc \u2013 CL A | CPNG | $50.4M | 1.5% | -31.7% | 37.0x |\n| 19 | Option Care Health Inc | OPCH | $50.3M | 1.5% | -34.3% | 10.2x |\n| 20 | Amazon Com Inc | AMZN | $41.7M | 1.2% | +15.4% | 27.0x |",
+      "text": "**70 positions \u00b7 $3.4B AUM \u00b7 as of 2026-05-15**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Natera Inc | NTRA | $612.7M | 18.1% | -11.3% | \u2014 |\n| 2 | Insmed Inc \u2013 COM PAR $.01 | INSM | $188.7M | 5.6% | -39.0% | 262.9x |\n| 3 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $167.4M | 5.0% | +33.1% | 20.7x |\n| 4 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $162.3M | 4.8% | +14.5% | \u2014 |\n| 5 | Invesco Exchange Traded Fd T \u2013 S&P500 EQL WGT | RSP | $157.6M | 4.7% | +7.8% | \u2014 |\n| 6 | Ypf Sociedad Anonima \u2013 SPON ADR CL D | YPF | $149.6M | 4.4% | +32.7% | 8.4x |\n| 7 | Ishares Inc \u2013 MSCI BRAZIL ETF | EWZ | $131.9M | 3.9% | +14.5% | \u2014 |\n| 8 | Bbb Foods Inc | TBBB | $110.0M | 3.3% | +10.0% | \u2014 |\n| 9 | Alcoa Corp | AA | $99.1M | 2.9% | +34.3% | 10.6x |\n| 10 | Newamsterdam Pharma Company \u2013 ORDINARY SHARES | NAMS | $98.3M | 2.9% | +1.0% | \u2014 |\n| 11 | Sea Ltd \u2013 SPONSORD ADS | SE | $91.1M | 2.7% | -31.6% | 16.8x |\n| 12 | Stmicroelectronics N V \u2013 NY REGISTRY | STM | $90.3M | 2.7% | +157.7% | 30.0x |\n| 13 | Woodward Inc | WWD | $75.6M | 2.2% | +16.2% | 32.7x |\n| 14 | Teva Pharmaceutical Inds Ltd \u2013 SPONSORED ADS | TEVA | $71.6M | 2.1% | +9.2% | 11.0x |\n| 15 | Roku Inc \u2013 COM CL A | ROKU | $71.0M | 2.1% | +15.7% | 35.5x |\n| 16 | Broadcom Inc | AVGO | $60.6M | 1.8% | +19.7% | 22.7x |\n| 17 | State Str Spdr S&P 500 Etf T | SPY | $58.5M | 1.7% | +9.3% | \u2014 |\n| 18 | Coupang Inc \u2013 CL A | CPNG | $50.4M | 1.5% | -31.7% | 37.0x |\n| 19 | Option Care Health Inc | OPCH | $50.3M | 1.5% | -34.3% | 10.2x |\n| 20 | Amazon Com Inc | AMZN | $41.7M | 1.2% | +15.4% | 27.0x |",
       "date": "2026-05-15",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1536411/000153641126000004/0001536411-26-000004-index.htm",
       "ticker_map": {
@@ -1034,7 +1045,7 @@
         "INSM": {
           "ytd": "-39.0%",
           "ytd_pct": -38.956561709951735,
-          "fwd_pe": "262.8x"
+          "fwd_pe": "262.9x"
         },
         "TSM": {
           "ytd": "+33.1%",
@@ -1064,7 +1075,7 @@
         "AA": {
           "ytd": "+34.3%",
           "ytd_pct": 34.32442604441098,
-          "fwd_pe": "10.7x"
+          "fwd_pe": "10.6x"
         },
         "NAMS": {
           "ytd": "+1.0%",
@@ -1122,7 +1133,7 @@
           "fwd_pe": "27.0x"
         }
       },
-      "ytd_date": "2026-05-24",
+      "ytd_date": "2026-05-25",
       "positions": [
         {
           "ticker": "NTRA",
@@ -1138,7 +1149,7 @@
           "value_k": 188717,
           "ytd": "-39.0%",
           "ytd_pct": -38.956561709951735,
-          "fwd_pe": "262.8x"
+          "fwd_pe": "262.9x"
         },
         {
           "ticker": "TSM",
@@ -1194,7 +1205,7 @@
           "value_k": 99057,
           "ytd": "+34.3%",
           "ytd_pct": 34.32442604441098,
-          "fwd_pe": "10.7x"
+          "fwd_pe": "10.6x"
         },
         {
           "ticker": "NAMS",
@@ -1287,7 +1298,7 @@
       ]
     },
     "13f_Philippe Laffont \u2013 Coatue Management 13F (SEC)": {
-      "text": "**198 positions \u00b7 $29.1B AUM \u00b7 as of 2026-05-15**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Amazon Com Inc | AMZN | $1.38B | 4.7% | +15.4% | 27.0x |\n| 2 | Meta Platforms Inc \u2013 CL A | META | $1.23B | 4.2% | -7.5% | 16.9x |\n| 3 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $1.17B | 4.0% | +33.1% | 20.7x |\n| 4 | Ge Vernova Inc | GEV | $1.10B | 3.8% | +58.9% | 42.4x |\n| 5 | Lam Research Corp | LRCX | $1.03B | 3.5% | +78.4% | 38.5x |\n| 6 | Broadcom Inc | AVGO | $953.3M | 3.3% | +19.7% | 22.7x |\n| 7 | Microsoft Corp | MSFT | $918.0M | 3.2% | -13.5% | 21.6x |\n| 8 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $868.6M | 3.0% | +33.1% | 20.7x |\n| 9 | Nvidia Corporation | NVDA | $754.0M | 2.6% | +15.5% | 17.0x |\n| 10 | Constellation Energy Corp | CEG | $733.2M | 2.5% | -16.8% | 21.6x |\n| 11 | Applied Matls Inc | AMAT | $716.2M | 2.5% | +68.2% | 26.8x |\n| 12 | Eaton Corp Plc | ETN | $699.9M | 2.4% | +22.9% | 24.9x |\n| 13 | Netflix Inc. | NFLX | $594.9M | 2.0% | -5.5% | 23.1x |\n| 14 | Alphabet Inc | GOOGL | $586.7M | 2.0% | +22.4% | 26.5x |\n| 15 | Spotify Technology S A |  | $564.4M | 1.9% | \u2014 | \u2014 |\n| 16 | Lam Research Corp | LRCX | $540.8M | 1.9% | +78.4% | 38.5x |\n| 17 | Applied Matls Inc | AMAT | $535.6M | 1.8% | +68.2% | 26.8x |\n| 18 | Alphabet Inc | GOOGL | $490.1M | 1.7% | +22.4% | 26.5x |\n| 19 | Ge Vernova Inc | GEV | $478.7M | 1.6% | +58.9% | 42.4x |\n| 20 | Equinix Inc | EQIX | $429.8M | 1.5% | +40.9% | 56.2x |",
+      "text": "**198 positions \u00b7 $29.1B AUM \u00b7 as of 2026-05-15**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Amazon Com Inc | AMZN | $1.38B | 4.7% | +15.4% | 27.0x |\n| 2 | Meta Platforms Inc \u2013 CL A | META | $1.23B | 4.2% | -7.5% | 16.9x |\n| 3 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $1.17B | 4.0% | +33.1% | 20.7x |\n| 4 | Ge Vernova Inc | GEV | $1.10B | 3.8% | +58.9% | 42.4x |\n| 5 | Lam Research Corp | LRCX | $1.03B | 3.5% | +78.4% | 38.5x |\n| 6 | Broadcom Inc | AVGO | $953.3M | 3.3% | +19.7% | 22.7x |\n| 7 | Microsoft Corp | MSFT | $918.0M | 3.2% | -13.5% | 21.6x |\n| 8 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $868.6M | 3.0% | +33.1% | 20.7x |\n| 9 | Nvidia Corporation | NVDA | $754.0M | 2.6% | +15.5% | 17.0x |\n| 10 | Constellation Energy Corp | CEG | $733.2M | 2.5% | -16.8% | 21.6x |\n| 11 | Applied Matls Inc | AMAT | $716.2M | 2.5% | +68.2% | 26.8x |\n| 12 | Eaton Corp Plc | ETN | $699.9M | 2.4% | +22.9% | 24.9x |\n| 13 | Netflix Inc. | NFLX | $594.9M | 2.0% | -5.5% | 23.1x |\n| 14 | Alphabet Inc | GOOGL | $586.7M | 2.0% | +22.4% | 26.4x |\n| 15 | Spotify Technology S A |  | $564.4M | 1.9% | \u2014 | \u2014 |\n| 16 | Lam Research Corp | LRCX | $540.8M | 1.9% | +78.4% | 38.5x |\n| 17 | Applied Matls Inc | AMAT | $535.6M | 1.8% | +68.2% | 26.8x |\n| 18 | Alphabet Inc | GOOGL | $490.1M | 1.7% | +22.4% | 26.4x |\n| 19 | Ge Vernova Inc | GEV | $478.7M | 1.6% | +58.9% | 42.4x |\n| 20 | Equinix Inc | EQIX | $429.8M | 1.5% | +40.9% | 56.2x |",
       "date": "2026-05-15",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1135730/000091957426003501/0000919574-26-003501-index.htm",
       "ticker_map": {
@@ -1371,7 +1382,7 @@
         "GOOGL": {
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         "EQIX": {
           "ytd": "+40.9%",
@@ -1379,7 +1390,7 @@
           "fwd_pe": "56.2x"
         }
       },
-      "ytd_date": "2026-05-24",
+      "ytd_date": "2026-05-25",
       "positions": [
         {
           "ticker": "AMZN",
@@ -1491,7 +1502,7 @@
           "value_k": 586727,
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         {
           "ticker": "",
@@ -1523,7 +1534,7 @@
           "value_k": 490091,
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         {
           "ticker": "GEV",
@@ -1544,7 +1555,7 @@
       ]
     },
     "13f_Chase Coleman \u2013 Tiger Global Management 13F (SEC)": {
-      "text": "**54 positions \u00b7 $22.8B AUM \u00b7 as of 2026-05-15**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Alphabet Inc | GOOGL | $3.06B | 13.4% | +22.4% | 26.5x |\n| 2 | Nvidia Corporation | NVDA | $2.09B | 9.2% | +15.5% | 17.0x |\n| 3 | Amazon Com Inc | AMZN | $2.08B | 9.1% | +15.4% | 27.0x |\n| 4 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $1.88B | 8.2% | +33.1% | 20.7x |\n| 5 | Meta Platforms Inc \u2013 CL A | META | $1.77B | 7.7% | -7.5% | 16.9x |\n| 6 | Sea Ltd \u2013 SPONSORD ADS | SE | $1.28B | 5.6% | -31.6% | 16.8x |\n| 7 | Broadcom Inc | AVGO | $1.11B | 4.9% | +19.7% | 22.7x |\n| 8 | Microsoft Corp | MSFT | $925.4M | 4.1% | -13.5% | 21.6x |\n| 9 | Ge Vernova Inc | GEV | $849.3M | 3.7% | +58.9% | 42.4x |\n| 10 | Lam Research Corp | LRCX | $833.4M | 3.6% | +78.4% | 38.5x |\n| 11 | Spotify Technology S A |  | $766.5M | 3.4% | \u2014 | \u2014 |\n| 12 | Coupang Inc \u2013 CL A | CPNG | $653.2M | 2.9% | -31.7% | 37.0x |\n| 13 | Applied Matls Inc | AMAT | $566.3M | 2.5% | +68.2% | 26.8x |\n| 14 | Corpay Inc \u2013 COM SHS | CPAY | $509.9M | 2.2% | +15.6% | 11.4x |\n| 15 | Applovin Corp \u2013 COM CL A | APP | $398.0M | 1.7% | -28.5% | 22.0x |\n| 16 | Take-Two Interactive Softwar | TTWO | $395.0M | 1.7% | -11.1% | 22.4x |\n| 17 | Apollo Global Mgmt Inc | APO | $366.9M | 1.6% | -11.2% | 12.1x |\n| 18 | Reddit Inc \u2013 CL A | RDDT | $336.6M | 1.5% | -38.4% | 16.0x |\n| 19 | Zillow Group Inc \u2013 CL C CAP STK | Z | $304.9M | 1.3% | -46.7% | 12.0x |\n| 20 | Block Inc \u2013 CL A | XYZ | $240.7M | 1.1% | +4.6% | 13.7x |",
+      "text": "**54 positions \u00b7 $22.8B AUM \u00b7 as of 2026-05-15**\n\n| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |\n|---|------|--------|-------|----------------|-----|---------|\n| 1 | Alphabet Inc | GOOGL | $3.06B | 13.4% | +22.4% | 26.4x |\n| 2 | Nvidia Corporation | NVDA | $2.09B | 9.2% | +15.5% | 17.0x |\n| 3 | Amazon Com Inc | AMZN | $2.08B | 9.1% | +15.4% | 27.0x |\n| 4 | Taiwan Semiconductor Manufac \u2013 SPONSORED ADS | TSM | $1.88B | 8.2% | +33.1% | 20.7x |\n| 5 | Meta Platforms Inc \u2013 CL A | META | $1.77B | 7.7% | -7.5% | 16.9x |\n| 6 | Sea Ltd \u2013 SPONSORD ADS | SE | $1.28B | 5.6% | -31.6% | 16.8x |\n| 7 | Broadcom Inc | AVGO | $1.11B | 4.9% | +19.7% | 22.7x |\n| 8 | Microsoft Corp | MSFT | $925.4M | 4.1% | -13.5% | 21.6x |\n| 9 | Ge Vernova Inc | GEV | $849.3M | 3.7% | +58.9% | 42.4x |\n| 10 | Lam Research Corp | LRCX | $833.4M | 3.6% | +78.4% | 38.5x |\n| 11 | Spotify Technology S A |  | $766.5M | 3.4% | \u2014 | \u2014 |\n| 12 | Coupang Inc \u2013 CL A | CPNG | $653.2M | 2.9% | -31.7% | 37.0x |\n| 13 | Applied Matls Inc | AMAT | $566.3M | 2.5% | +68.2% | 26.8x |\n| 14 | Corpay Inc \u2013 COM SHS | CPAY | $509.9M | 2.2% | +15.6% | 11.4x |\n| 15 | Applovin Corp \u2013 COM CL A | APP | $398.0M | 1.7% | -28.5% | 22.0x |\n| 16 | Take-Two Interactive Softwar | TTWO | $395.0M | 1.7% | -11.1% | 22.4x |\n| 17 | Apollo Global Mgmt Inc | APO | $366.9M | 1.6% | -11.2% | 12.1x |\n| 18 | Reddit Inc \u2013 CL A | RDDT | $336.6M | 1.5% | -38.4% | 16.0x |\n| 19 | Zillow Group Inc \u2013 CL C CAP STK | Z | $304.9M | 1.3% | -46.7% | 12.0x |\n| 20 | Block Inc \u2013 CL A | XYZ | $240.7M | 1.1% | +4.6% | 13.7x |",
       "date": "2026-05-15",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1167483/000091957426003362/0000919574-26-003362-index.htm",
       "ticker_map": {
@@ -1573,7 +1584,7 @@
         "GOOGL": {
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         "NVDA": {
           "ytd": "+15.5%",
@@ -1666,7 +1677,7 @@
           "fwd_pe": "13.7x"
         }
       },
-      "ytd_date": "2026-05-24",
+      "ytd_date": "2026-05-25",
       "positions": [
         {
           "ticker": "GOOGL",
@@ -1674,7 +1685,7 @@
           "value_k": 3057165,
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         {
           "ticker": "NVDA",
@@ -1859,20 +1870,20 @@
       "date": "2026-04-23"
     },
     "Simon Willison": {
-      "text": "**New this period:**\n- Simon Willison discusses new insights about the <dl> element in HTML, including its usage and compatibility with screen readers.\n\n**Details:**\n**On the <dl> (https://simonwillison.net/2026/May/23/on-the-dl/#atom-everything)**\n- The article shares newly learned information about the <dl> element, citing an article by Ben Meyer.\n- Named companies or individuals and their roles: Ben Meyer (author of the cited article), Jeffrey Zeldman (author), Ethan Marcotte (author), Adrian Roselli (source of information on screen reader support).\n- Quantitative figures: None.\n- Supply chain or value chain relationships: None.\n- Technology transitions: The <dl> element has been referred to as a \"description list\" instead of a \"definition list\" since an HTML5 draft in 2008, indicating a shift in terminology.\n- Other investment-relevant specifics: The discussion involves web standards, HTML, CSS, and screen reader support, which may be relevant to companies involved in web development, accessibility, or technology related to screen readers.",
-      "date": "2026-05-23"
+      "text": "**New this period:**\n- Datasette releases version 1.0a30 with a new customizable \"Jump to...\" menu.\n- Datasette-agent releases version 0.1a4, integrating with Datasette 1.0a30.\n- Datasette-fixtures releases version 0.1a0, utilizing Datasette's new API for creating fixture database tables.\n- Armin Ronacher discusses issues with AI-generated bug reports on GitHub.\n- Mad House, a retro computer game, is recreated using Claude and JavaScript.\n\n**Details:**\n**Datasette and related tools** (https://simonwillison.net/2026/May/24/datasette/, https://simonwillison.net/2026/May/24/datasette-agent/, https://simonwillison.net/2026/May/24/datasette-fixtures/)\n- Datasette releases version 1.0a30 with a customizable \"Jump to...\" menu, utilizing a new plugin hook called jump_items_sql().\n- Datasette-agent version 0.1a4 presents a \"Start a new agent chat\" interface as part of the Jump to menu.\n- Datasette-fixtures version 0.1a0 is a new plugin that takes advantage of Datasette's API for creating fixture database tables, used for testing plugin test suites.\n- Companies and tools mentioned: Datasette, GitHub, uvx, Claude.\n- Quantitative figures: version numbers (1.0a30, 0.1a4, 0.1a0).\n- Supply chain or value chain relationships: Datasette-agent integrates with Datasette 1.0a30, Datasette-fixtures utilizes Datasette's API.\n- Technology transitions: Datasette's new customizable \"Jump to...\" menu, Datasette-agent's integration with Datasette 1.0a30.\n\n**Armin Ronacher on AI-generated bug reports** (https://simonwillison.net/2026/May/24/armin-ronacher/)\n- Armin Ronacher discusses issues with AI-generated bug reports on GitHub, citing inaccurate conclusions and fake-minimal repros.\n- Companies and tools mentioned: GitHub, Pi.\n- Quantitative figures: None.\n- Supply chain or value chain relationships: None.\n- Technology transitions: The use of AI in generating bug reports, with Armin Ronacher advocating for more human-centric issue reports.\n\n**Mad House game recreation** (https://simonwillison.net/2026/May/24/usborne-mad-house/)\n- The retro computer game Mad House is recreated using Claude and JavaScript.\n- Companies and tools mentioned: Usborne, Claude.\n- Quantitative figures: None.\n- Supply chain or value chain relationships: None.\n- Technology transitions: The recreation of a retro game using modern tools like Claude and JavaScript.",
+      "date": "2026-05-24"
     },
     "Import AI \u2013 Jack Clark": {
       "text": "**New this period:**\n- Researchers discover a 20-year-old computer virus called fast16.sys that targets high-precision calculation software, potentially undermining scientific research programs.\n- A study finds that the Muon optimizer can damage the quality of models trained with it, causing neuron death in MLP layers, and proposes a new optimizer called Aurora as a potential solution.\n- A position paper introduces the concept of \"positive alignment\" for building AI systems that help people live good lives, emphasizing the need for a more constructive approach to AI development.\n- Research demonstrates that large language models (LLMs) are capable of optimizing the training of other LLMs, but struggle to generate original ideas.\n\n**Details:**\n**Import AI 457: AI stuxnet; cursed Muon optimizer; and positive alignment** (https://jack-clark.net/2026/05/18/import-ai-457-ai-stuxnet-cursed-muon-optimizer-and-positive-alignment/)\n- The core thesis of this piece is the presentation of various research findings and concepts in the field of AI, including the discovery of the fast16.sys virus, the limitations of the Muon optimizer, the introduction of the Aurora optimizer, and the concept of positive alignment.\n- Companies and organizations mentioned: SentinelOne, Tilde Research, Google DeepMind, OpenAI, Anthropic, UCLA, Aily Labs, Stanford University, Tufts University, Positive AI Labs, University of Sussex, Imperial College London, and Prime Intellect.\n- Specific roles: SentinelOne (researcher of the fast16.sys virus), Tilde Research (developer of the Aurora optimizer), Google DeepMind, OpenAI, Anthropic, and others (contributors to the concept of positive alignment).\n- Quantitative figures: 20-year-old virus, 10k runs, 14k H200 hours, 124M-parameter GPT-style model, 2.26 smoothed loss, 2.31 smoothed loss, 2.33 smoothed loss, 10 points improvement on MMLU scores.\n- Supply chain or value chain relationships: The fast16.sys virus targets high-precision calculation software used in various industries, including civil engineering, physics, and physical process simulations, such as LS-DYNA 970, PKPM, and MOHID hydrodynamic modeling platform.\n- Technology transitions: The Muon optimizer is potentially replaced by the Aurora optimizer, which is designed to address the limitations of the Muon optimizer and improve the quality of models trained with it.\n- Competitive shifts: The study highlights the limitations of the Muon optimizer and the potential benefits of using the Aurora optimizer, which could lead to a shift in the use of optimizers in the field of AI research.\n- Capital allocation signals: The research and development of new optimizers, such as Aurora, and the introduction of concepts like positive alignment, indicate a focus on improving the quality and safety of AI systems.",
       "date": "2026-05-18"
     },
     "Garry Tan \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Garry Tan updates GitHub repositories for gbrain, gbrain-evals, and gstack, with a focus on opinionated tools and agent brain development.\n- Garry Tan's gstack repository provides a Claude Code setup with 23 opinionated tools for various roles.\n\n**Details:**\n**Garry Tan's GitHub Repositories (https://github.com/garrytan/gbrain, https://github.com/garrytan/gbrain-evals, https://github.com/garrytan/gstack)**\n- Garry Tan updated his gbrain repository, described as an Opinionated OpenClaw/Hermes Agent Brain.\n- The gbrain-evals repository was also updated, but details on its specific focus are not provided.\n- The gstack repository provides Garry Tan's exact Claude Code setup, consisting of 23 opinionated tools serving as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA.\n- No specific companies are mentioned beyond the reference to Garry Tan's work and the use of OpenClaw and Hermes, which are not explicitly linked to any company in the provided text.\n- Quantitative figures mentioned include the number of opinionated tools in the gstack setup, which is 23.\n- No supply chain or value chain relationships are explicitly described.\n- Technology transitions or competitive shifts are not detailed, but the development and update of these repositories imply ongoing work in AI and ML, potentially related to agent brain development and opinionated toolsets.\n- The specific roles and tools mentioned in the gstack setup imply a focus on streamlining and automating various aspects of development and management, potentially indicating areas where companies might invest in similar technologies or partnerships.",
-      "date": "2026-05-24"
+      "text": "**New this period:**\n- Garry Tan updates gbrain, an open-source agent brain on GitHub.\n\n**Details:**\n**Garry Tan's gbrain Update (https://github.com/garrytan/gbrain)**\n- The update involves Garry Tan's opinionated OpenClaw/Hermes agent brain.\n- Companies mentioned: none explicitly besides the reference to OpenClaw and Hermes, which are likely related to autonomous agent technologies.\n- No specific quantitative figures are provided in the brief description.\n- Supply chain or value chain relationships: None explicitly stated, though OpenClaw and Hermes are implied to be integrated or related technologies.\n- Technology transition: The use of OpenClaw and Hermes suggests a focus on autonomous agent technologies, potentially implying a transition towards more integrated or advanced AI solutions.\n- No specific investment-relevant details such as demand/supply dynamics, competitive positioning, or capital allocation signals are mentioned in the brief update.",
+      "date": "2026-05-25"
     },
     "Odd Lots (Bloomberg)": {
-      "text": "**New this period:**\n- Architect Norman Foster discusses the challenges of building large-scale projects in the West.\n- Foster highlights the importance of integrating multiple disciplines in the design process.\n- The role of architects in creating public goods is explored.\n- The impact of technology on building design and construction is mentioned.\n- The need for re-education in the field of architecture and urban planning is emphasized.\n\n**Details:**\n**Architect Norman Foster on Why the West Struggles to Build Big (https://omny.fm/shows/odd-lots/architect-norman-foster-on-why-the-west-struggles-to-build-big)**\n- Norman Foster, founder of Foster and Partners, discusses the constraints and challenges of building large-scale projects in the West.\n- Companies mentioned: JP Morgan, Bloomberg, Chrysler.\n- Quantitative figures: None.\n- Supply chain or value chain relationships: Architects, engineers, contractors, and builders work together in the design and construction process.\n- Technology transitions: The integration of systems and technologies in building design, such as the example of the Chrysler Airflow car, which merged the shell and chassis into one element.\n- Competitive positioning: None.\n- Capital allocation signals: None.\n- Regulatory or policy signals: Zoning regulations, listing requirements, and building codes are mentioned as constraints that architects must work with.",
-      "date": "2026-05-23"
+      "text": "**New this period:**\n- The British pub industry is experiencing closures, with approximately two pubs closing per day in England during the first quarter of 2026.\n- The business of pubs can provide insight into larger trends in the British economy, including consumer confidence, commodity costs, and the labor market.\n\n**Details:**\n**What It Takes to Run One of London's Most Popular Pubs (https://omny.fm/shows/odd-lots/what-it-takes-to-run-one-of-londons-most-popular-pubs)**\n- The episode discusses the business of pubs, including the difference between a good and bad pub, and how pubs are dealing with high costs, such as the \"era of the \u00a310 pint\".\n- Companies mentioned: Apple, with its former employee Jony Ive, who was served a Victorian-era meat fruit at the Devonshire.\n- The Devonshire is a famed London pub, co-founded by Oisin Rogers and Ashley Palmer-Watts.\n- Quantitative figures: approximately two pubs a day have closed in England during the first quarter of 2026; the \"\u00a310 pint\" is mentioned as a sign of high costs.\n- Supply chain or value chain relationships: the episode mentions higher ingredient costs, such as beef or scallops, affecting the pub business, but notes that these costs do not always correlate to higher menu prices.\n- Technology transitions or competitive shifts: none explicitly described, but the episode touches on the changing nature of pubs, including the impact of the indoor smoking ban.\n- Other investment-relevant specifics: the British Beer and Pub Association is mentioned as a source of information on pub closures, and the episode discusses the challenges faced by publicans (pub managers) in the current economic environment.",
+      "date": "2026-05-25"
     },
     "Exchanges (Goldman Sachs)": {
       "text": "**New this period:**\n- Asia's equity story has split into two paths, with North Asian markets outperforming due to the artificial intelligence trade.\n- The semiconductor memory cycle is expected to last three to five years.\n- North Asia's outperformance may continue, driven by factors to be determined.\n\n**Details:**\n**Can the Asia Equity Rally Continue? (https://feeds.megaphone.fm/GLD9218176758)**\n- The Asia equity story has diverged into two paths this year, with North Asian markets pulling ahead due to the strength of the artificial intelligence trade.\n- North Asian markets are more insulated from the energy supply shock tied to the Middle East.\n- Goldman Sachs Research's Tim Moe expects the semiconductor memory cycle to last three to five years.\n- The episode discusses factors that could determine whether North Asia's outperformance continues, but specific details are not provided in the summary.\n- No specific companies are mentioned, except for Goldman Sachs as the source of the research.\n- No quantitative figures are provided, except for the expected duration of the semiconductor memory cycle (three to five years).\n- No supply chain or value chain relationships are explicitly described.\n- The technology transition related to the artificial intelligence trade is mentioned as a driving factor for North Asia's outperformance.",
@@ -1903,16 +1914,16 @@
       "date": "2026-05-23"
     },
     "Arxiv \u2013 Trading & Market Microstructure (q-fin.TR)": {
-      "text": "**New this period:**\n- Researchers study the commitment problem in Maximal Extractable Value (MEV) auctions on the Ethereum blockchain, where block builders may defect from auction outcomes.\n- The study finds that the cost of imperfect commitment depends on replicability and competition, and that MEV types such as sandwich opportunities are highly competitive, while others like naked arbitrage and liquidations leave more surplus exposed to builder defection.\n\n**Details:**\n**Imperfect Commitment in Maximal Extractable Value Auctions**(https://arxiv.org/abs/2605.22667)\n- The research question is to study the commitment problem in MEV auctions, where Ethereum block builders may defect from auction outcomes with a probability of $\\varepsilon$.\n- The method involves modeling a builder who defects with probability $\\varepsilon$ and replicates a type-specific fraction $\\gamma(\\tau)$ of the winning MEV opportunity, and using the \\texttt{libmev} dataset to estimate $\\gamma(\\tau)$.\n- Key findings include:\n  - The cost of imperfect commitment depends jointly on replicability and competition.\n  - The resulting equilibrium is piecewise.\n  - There is sharp heterogeneity across MEV types, with sandwich opportunities being highly competitive, while naked arbitrage and liquidations leave substantially more surplus exposed to builder defection.\n- Named companies or technologies: Ethereum\n- Quantitative figures: \n  - $\\varepsilon$ (probability of a builder defecting)\n  - $\\gamma(\\tau)$ (type-specific fraction of the winning MEV opportunity replicated by a defecting builder)\n- Supply chain or value chain relationships: \n  - Block builders run sealed auctions among searchers.\n  - Searchers submit bundles to block builders.\n- Technology transitions: \n  - The use of MEV auctions on the Ethereum blockchain.\n- Competitive positioning: \n  - Builders who defect from auction outcomes may capture surplus, while searchers may choose between risky first-price bids and safe deterrence bids.",
-      "date": "2026-05-22"
+      "text": "**New this period:**\n- Researchers demonstrate the application of a Large Language Model (LLM)-driven algorithm optimization framework, MadEvolve, to optimize algorithmic trading strategies and alpha generation in quantitative finance.\n\n**Details:**\n**MadEvolve: Evolutionary Optimization of Trading Systems with Large Language Models** (https://arxiv.org/abs/2605.23007)\n- The paper explores the use of MadEvolve, a general-purpose algorithm optimization framework, to optimize trading systems, with a focus on Bitcoin trading.\n- MadEvolve is inspired by DeepMind's Alpha-Evolve and is compared to other agentic search approaches, specifically Claude Code.\n- The framework is used to optimize algorithmic trading strategies, including evolving feature sets for signal generation, optimizing separate components of the trading strategy, and jointly evolving the feature pipeline together with the execution strategy.\n- Quantitative results show significant improvements on all tasks considered, although specific metrics and figures are not provided in the abstract.\n- No specific companies are mentioned as suppliers, customers, or competitors, except for the reference to DeepMind's Alpha-Evolve.\n- The technology transition described involves the application of LLM-driven algorithm optimization to quantitative finance, specifically algorithmic trading.\n- The paper evaluates p-hacking probabilities on the simulation setup, but does not provide specific details on the results.",
+      "date": "2026-05-25"
     },
     "Arxiv \u2013 Statistical Finance (q-fin.ST)": {
       "text": "**New this period:**\n- Researchers evaluate the effectiveness of multivariate financial forecasting using the Chronos time series foundation model, finding improved accuracy over univariate models.\n- A study explores the use of short-term trading factors in the U.S. market, identifying 17 distinct price-volume and microstructural signals that capture significant risk premiums.\n\n**Details:**\n**Multivariate Financial Forecasting using the Chronos Time Series Foundation Models** (https://arxiv.org/abs/2605.21504)\n- The study uses Chronos-2, an open-source time-series foundation model, to evaluate pretrained time-series models for economic and financial forecasting.\n- Companies/Entities: None mentioned\n- Quantitative figures: \n  - Input window lengths and forecast horizons vary\n  - Rolling monthly evaluations from 2000-2025\n  - RMSE and MAPE are reported\n- Supply chain or value chain relationships: None explicitly described\n- Technology transitions: The study leverages foundation models to improve forecast accuracy in finance\n- Other investment-relevant specifics: \n  - The Magnificent-7 equities and U.S. Treasury interest rates are used as panels\n  - Multivariate forecasts consistently outperform univariate forecasts\n\n**Cross-Market Alpha: Testing Short-Term Trading Factors in the U.S. Market via Double-Selection LASSO** (https://arxiv.org/abs/2601.06499)\n- The study explores the use of short-term trading factors in the U.S. market to enhance alpha generation.\n- Companies/Entities: \n  - S&P 500 universe\n  - Chinese A-share market (as the origin of the short-term trading signals)\n- Quantitative figures: \n  - 191 short-term, trading-based signals\n  - 151 established fundamental factors\n  - 17 distinct price-volume and microstructural signals\n  - 2002-2022 time period\n  - Monthly rebalancing horizon\n- Supply chain or value chain relationships: None explicitly described\n- Technology transitions: The study utilizes a double-selection LASSO framework to control for established fundamental factors\n- Other investment-relevant specifics: \n  - The study aims to mitigate model misspecification risk and enhance large-cap portfolio diversification\n  - The short-term behavioral footprints are integrated with slow fundamental data to offer a dual-horizon framework",
       "date": "2026-05-22"
     },
     "Arxiv \u2013 Computational Finance (q-fin.CP)": {
-      "text": "**New this period:**\n- Researchers introduce ThiopheneIV, a faster Black-Scholes implied-volatility solver with a monotone core.\n- A model-free framework is developed for risk-neutral density extraction from short-dated option chains, using a pipeline consisting of arbitrage removal and smooth entropic density extraction.\n- A study examines what deep hedging actually learns, finding that it often learns a systematic delta haircut relative to Black-Scholes, which can improve accumulated reward and terminal downside variance but is regime-fragile.\n- A Generative Adversarial Graph Neural Network (Sig-Graph GAN) is introduced for generating synthetic time series data, outperforming baseline methods in replicating the distribution of logarithmic returns across different stock exchanges.\n\n**Details:**\n**Faster Monotone Implied Volatility Solver (https://arxiv.org/abs/2605.22427)**\n- The paper presents ThiopheneIV, a Black-Scholes implied-volatility solver with a monotone core and explicit production guards.\n- ThiopheneIV is compared to a Java port of J\\\"ackel's Let's Be Rational, and is found to be faster while keeping regular-grid errors close.\n- The solver starts from the non-iterative Choi-Huh-Su L3 lower-bound seed and applies three Euler-Chebyshev corrections.\n- The implementation includes parity normalisation, microscopic Bachelier-limit handling, saturated-price treatment, finite-update checks, fallback seeds, and an optional J\\\"ackel-Newton polish.\n\n**From Arbitrage Removal to Density Extraction: A Model-Free Framework for Short-Dated Options (https://arxiv.org/abs/2605.22792)**\n- The paper develops a model-free pipeline for risk-neutral density extraction from short-dated option chains, consisting of two steps: arbitrage removal and smooth entropic density extraction.\n- The pipeline is tested on synthetic Heston panels and short-dated SPX option data, sampled from a few hours to one week before expiry.\n- The pipeline returns robust densities across various market conditions, including scheduled macroeconomic announcements.\n- The recovered densities are used to construct short-dated implied-volatility smiles.\n\n**What Does Deep Hedging Actually Learn? Delta Corrections, Regime Fragility, and Symbolic Distillation (https://arxiv.org/abs/2605.21696)**\n- The paper studies empirical deep hedging for S&P 500 index options under a local downside-shortfall reward.\n- TD3 agents are compared with a daily-updated Black-Scholes delta hedge on the same option episodes.\n- The agents learn a systematic delta haircut relative to Black-Scholes, which is explained by spot-implied-volatility co-movement.\n- The correction improves accumulated reward and terminal downside variance, but is regime-fragile, with losses in adverse daily states in 2022 and underhedging raising ordinary variance in 2023.\n- Symbolic regression distills the neural policies into compact formulas that preserve much of the reward, downside-variance, and CVaR advantage over Black-Scholes.\n\n**A Generative Adversarial Graph Neural Network for Synthetic Time Series Data (https://arxiv.org/abs/2605.22215)**\n- The paper introduces the Sig-Graph GAN model, which integrates the time-series signature, Long Short-Term Memory network, and Graph Neural Networks (GNNs) to generate synthetic time series data.\n- The model uses the visibility graph algorithm to derive a graph-based representation of the underlying time series.\n- Numerical evaluations demonstrate that the Sig-Graph GAN model outperforms baseline methods in replicating the distribution of logarithmic returns across different stock exchanges.\n- The integration of the graph structure with the autoregressive component effectively captures both geometric and temporal patterns embedded in time-series data.",
-      "date": "2026-05-22"
+      "text": "**New this period:**\n- Researchers investigate using large language models for sentiment analysis to predict cryptocurrency price movements in virtual world economies.\n- A new non-parametric method is introduced to construct smooth and arbitrage-free option price surfaces.\n\n**Details:**\n**Leveraging Large Language Models for Sentiment Analysis: Multi-Modal Analysis of Decentraland's MANA Token** (https://arxiv.org/abs/2605.20192)\n- The study explores the use of Discord community sentiment and multi-modal financial data to enhance cryptocurrency price prediction for Decentraland's MANA token.\n- Decentraland is a decentralized virtual reality platform that utilizes its native MANA token for transactions and governance within the Metaverse ecosystem.\n- The research uses a BERT-based large language model for sentiment analysis and develops two LSTM architectures: a baseline incorporating historical prices and a multi-modal variant integrating sentiment scores, trading volume, and market capitalization.\n- Results show predominantly neutral community sentiment with a positive skew, and the multi-modal model outperforms the price-only baseline in prediction accuracy.\n- Quantitative figures include: no specific numbers mentioned.\n- Supply chain or value chain relationships: Decentraland's Discord community provides sentiment data used in the study.\n- Technology transitions: the use of large language models for sentiment analysis in cryptocurrency price prediction.\n\n**SANOS Smooth strictly Arbitrage-free Non-parametric Option Surfaces** (https://arxiv.org/abs/2601.11209)\n- The research presents a non-parametric method to construct smooth and strictly arbitrage-free option price surfaces.\n- The method is applied to S&P 500 index options.\n- Quantitative figures: no specific numbers mentioned.\n- Supply chain or value chain relationships: the method can be used to incorporate bid-ask spreads directly via linear penalties or inequalities.\n- Technology transitions: the introduction of a new non-parametric method for constructing option price surfaces, which can be viewed as a smooth generalization of the widely-known linear interpolation scheme.\n- Companies mentioned: none.\n- Competitive positioning: the method has lower computational cost than most currently available implied-volatility surface fitting routines.",
+      "date": "2026-05-25"
     },
     "_ai_signals_per_source": {
       "Andrej Karpathy \u2013 Blog": {
@@ -1936,9 +1947,9 @@
         "date": "2026-05-22"
       },
       "Simon Willison": {
-        "summary_hash": "eed5a0b038d8b7e9",
-        "signals": "THESIS: The <dl> element in HTML has undergone a shift in terminology from \"definition list\" to \"description list\" since an HTML5 draft in 2008, and its usage and compatibility with screen readers are being discussed.\n\nEXPLICIT | None |  |  |  | No company is directly named in the source with a clear bullish or bearish implication. | \n\nDERIVED | ADBE | Adobe | LONG | MED | Because this source specifically discusses web standards, HTML, CSS, and screen reader support, Adobe benefits via its role in providing tools and software for web development, including Dreamweaver, which supports HTML and CSS, and Acrobat, which provides accessibility features for screen readers. | Web development and accessibility software demand \u2192 Adobe product suite relevance\nDERIVED | MSFT | Microsoft | LONG | MED | Because this source specifically highlights the importance of screen reader support, Microsoft benefits via its Windows operating system and Microsoft Edge browser, which both have built-in screen reader capabilities, and its role in web development through Visual Studio Code. | Screen reader support and web development \u2192 Microsoft product relevance\nDERIVED | GOOGL | Google | LONG | MED | Because this source discusses web standards and HTML, Google benefits via its Chrome browser and Google Web Developer Tools, which support HTML and CSS, and its role in web development through Google Cloud and Google Workspace. | Web development and web standards \u2192 Google product suite relevance",
-        "date": "2026-05-24"
+        "summary_hash": "24d726ff137f1be0",
+        "signals": "THESIS: The integration of AI and customizable tools in software development is becoming more prevalent, with companies like Datasette and Claude leading the charge, while also raising concerns about the accuracy and reliability of AI-generated content.\n\nEXPLICIT | MSFT | Microsoft | LONG | MED | Although not directly mentioned, Microsoft's GitHub is referenced multiple times in the context of AI-generated bug reports and as a platform for hosting and discussing projects, highlighting its importance in the software development ecosystem. | GitHub's role in AI-generated bug reports and project hosting.\n\nDERIVED | NVDA | NVIDIA | LONG | MED | As AI-generated content and customizable tools become more widespread, the demand for high-performance computing and AI processing is likely to increase, benefiting companies like NVIDIA that specialize in providing the necessary hardware. | The growth of AI-generated content and customizable tools \u2192 increased demand for high-performance computing.\n\nDERIVED | GOOGL | Alphabet (Google) | LONG | MED | Google's investments in AI research and development, as well as its ownership of companies like DeepMind, make it a key player in the AI ecosystem, and its products and services are likely to benefit from the trends discussed in the source. | The integration of AI in software development \u2192 increased demand for Google's AI-related products and services.\n\nDERIVED | ANSS | ANSYS | LONG | MED | As companies like Datasette and Claude develop more complex software and AI-powered tools, the need for simulation and testing software is likely to increase, benefiting companies like ANSYS that provide such solutions. | The growth of complex software and AI-powered tools \u2192 increased demand for simulation and testing software. \n\nNote: These signals are based on the information provided in the source and are subject to the rules and guidelines outlined. However, the output is limited by the lack of direct mentions of publicly traded companies and specific financial data in the source.",
+        "date": "2026-05-25"
       },
       "Import AI \u2013 Jack Clark": {
         "summary_hash": "6be3d7e14037006b",
@@ -1946,9 +1957,9 @@
         "date": "2026-05-18"
       },
       "Odd Lots (Bloomberg)": {
-        "summary_hash": "83e36a3ec431ca1f",
-        "signals": "THESIS: The West struggles to build large-scale projects due to various constraints and challenges, including the need for interdisciplinary integration and adaptation to technological changes in the field of architecture and construction.\n\nEXPLICIT | None \n\nDERIVED | JPM | JPMorgan Chase | LONG | MED | Because this source specifically mentions JP Morgan as a company that has been involved in large-scale projects, JPM benefits via its real estate investments and financing activities in the construction and development sector, which could see increased demand for large-scale project funding | Architect Norman Foster discusses challenges in building large-scale projects, implying potential demand for JPM's services\n\nDERIVED | FCX | Freeport-McMoRan | LONG | MED | Because this source highlights the importance of integrating multiple disciplines and adapting to technological changes in building design and construction, FCX benefits via increased demand for copper, a crucial material in construction and infrastructure development, as large-scale projects often require significant amounts of copper for wiring, plumbing, and other uses | Technology transitions and large-scale construction imply copper-intensive infrastructure demand\n\nDERIVED | VMW | VMware | LONG | MED | Because this source mentions the integration of systems and technologies in building design, VMW benefits via its role in providing virtualization and cloud computing solutions that enable the integration of multiple disciplines and technologies in the design and construction process, such as building information modeling (BIM) and computer-aided design (CAD) software | Technology transitions and integration in building design imply increased demand for VMW's software solutions",
-        "date": "2026-05-23"
+        "summary_hash": "491324552987eb26",
+        "signals": "THESIS: The British pub industry is experiencing significant closures, with approximately two pubs closing per day in England during the first quarter of 2026, providing insight into larger trends in the British economy.\n\nEXPLICIT | None \n\nDERIVED | DIAGEO | Diageo | SHORT | MED | Because this source specifically says the \"\u00a310 pint\" is a sign of high costs, and Diageo is a major beer supplier, Diageo may see decreased sales or revenue due to high costs and pub closures | High ingredient costs \u2192 decreased beer sales\nDERIVED | CRH | CRH | LONG | MED | Because this source specifically discusses the impact of pub closures on the economy, and CRH is a leading supplier of building materials, CRH may benefit from increased demand for renovation or redevelopment of closed pub properties | Pub closures \u2192 increased redevelopment demand\nDERIVED | TATE | Tate & Lyle | LONG | MED | Because this source mentions higher ingredient costs affecting the pub business, and Tate & Lyle is a major food and beverage ingredient supplier, Tate & Lyle may see increased demand for its products as pubs adapt to changing consumer preferences | High ingredient costs \u2192 increased demand for specialty ingredients\nDERIVED | COMPT | Compass Group | SHORT | MED | Because this source discusses the challenges faced by publicans in the current economic environment, and Compass Group is a leading food and support services company, Compass Group may see decreased sales or revenue due to reduced consumer spending in the pub sector | Pub closures \u2192 decreased consumer spending",
+        "date": "2026-05-25"
       },
       "Exchanges (Goldman Sachs)": {
         "summary_hash": "67dc64c0826e2d0b",
@@ -2046,7 +2057,7 @@
         "GOOGL": {
           "ytd": "+22.4%",
           "ytd_pct": 22.35463258785943,
-          "fwd_pe": "26.5x"
+          "fwd_pe": "26.4x"
         },
         "MSFT": {
           "ytd": "-13.5%",
@@ -2337,22 +2348,37 @@
           "ytd": "\u2014",
           "ytd_pct": null,
           "fwd_pe": "\u2014"
+        },
+        "CRH": {
+          "ytd": "-19.6%",
+          "ytd_pct": -19.575320512820507,
+          "fwd_pe": "15.0x"
+        },
+        "TATE": {
+          "ytd": "\u2014",
+          "ytd_pct": null,
+          "fwd_pe": "\u2014"
+        },
+        "COMPT": {
+          "ytd": "\u2014",
+          "ytd_pct": null,
+          "fwd_pe": "\u2014"
         }
       },
-      "ytd_date": "2026-05-24"
+      "ytd_date": "2026-05-25"
     },
     "ai_trade_ideas": {
-      "text": "### Table:\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Synopsys | SNPS | LONG | HIGH | Explicit | SemiAnalysis |\n| 2 | Cadence | CDNS | LONG | HIGH | Explicit | SemiAnalysis |\n| 3 | NVIDIA | NVDA | LONG | HIGH | Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Scott Alexander \u2013 Astral Codex Ten, Ethan Mollick \u2013 One Useful Thing, Import AI \u2013 Jack Clark, Exchanges (Goldman Sachs), Latent Space Podcast (swyx) |\n| 4 | Microsoft | MSFT | LONG | HIGH | Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Ethan Mollick \u2013 One Useful Thing, Import AI \u2013 Jack Clark, All-In Podcast, Latent Space Podcast (swyx) |\n| 5 | Google | GOOGL | LONG | MED | Explicit | Zvi Mowshowitz \u2013 Don't Worry About the Vase, Lex Fridman Podcast |\n| 6 | Siemens EDA | SIEGY | LONG | MED | Explicit | SemiAnalysis |\n| 7 | Amazon | AMZN | LONG | MED | Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Ethan Mollick \u2013 One Useful Thing, Lex Fridman Podcast |\n| 8 | TSM | Taiwan Semiconductor Manufacturing | LONG | MED | Derived | SemiAnalysis |\n| 9 | ARM | ARM Holdings | LONG | MED | Derived | SemiAnalysis |\n| 10 | VanEck Vectors Semiconductor ETF | SMH | LONG | MED | Derived | Exchanges (Goldman Sachs) |\n\n### Notes:\n**1. Synopsys (SNPS)** \u2014 As the market leader in the Electronic Design Automation (EDA) industry, Synopsys is well-positioned to benefit from the growing demand for EDA tools. With an 84-85% share in synthesis tools and a combined revenue of $8B in CY2025, Synopsys has a strong market presence. The non-obvious mechanism driving Synopsys' growth is the increasing demand for advanced node verification and AI accelerator development, which requires sophisticated EDA tools.\n\n**2. Cadence (CDNS)** \u2014 Cadence has a significant market share in the EDA industry, with a 10-15pp gain in Place & Route market share between 2015-2020. The company is expected to continue growing driven by increasing demand for advanced node verification and AI accelerator development.\n\n**3. NVIDIA (NVDA)** \u2014 NVIDIA is a key player in the AI computing hardware market, with its GPUs being used to train and deploy large language models. The growth of AI technologies, including the development of Agents, is driving increased demand for NVIDIA's hardware. The company's open-sourcing of AI-Q agent skills is also expected to increase its exposure to the growing demand for Agents and AI systems.\n\n**4. Microsoft (MSFT)** \u2014 Microsoft has a significant stake in OpenAI and provides Azure cloud services for AI computing. The growth of AI technologies, including the development of Agents, is driving increased demand for Microsoft's cloud services. The company's equity stake in OpenAI and its role in the development of Agents position it for potential growth.\n\n**5. Google (GOOGL)** \u2014 Google has released a new AI model, Gemini 3.5 Flash, which is notable for its speed. The company's involvement in video technology development and its minority stake in Anthropic also position it for potential growth in the AI industry.\n\n**6. Siemens EDA (SIEGY)** \u2014 Siemens EDA has a significant market share in physical verification, with an 85%+ share. The company is expected to benefit from the growing demand for EDA tools driven by increasing R&D intensity and verification costs.\n\n**7. Amazon (AMZN)** \u2014 Amazon is a leading cloud provider and has a stake in Anthropic. The growth of AI technologies, including the development of Agents, is driving increased demand for Amazon's cloud services. The company's role in the development of Agents and its cloud hosting revenue position it for potential growth.\n\n**8. TSM (TSM)** \u2014 TSMC is a key player in the semiconductor manufacturing industry, and its growth in advanced node manufacturing is driving demand for EDA tools. The company's position in the value chain, as a foundry for major chip designers, makes it a non-obvious play on the growth of the EDA industry.\n\n**9. ARM (ARM)** \u2014 ARM is a key player in the IP industry, and its growth in IP development is driving demand for EDA tools. The company's position in the value chain, as a provider of IP to chip designers, makes it a non-obvious play on the growth of the EDA industry.\n\n**10. VanEck Vectors Semiconductor ETF (SMH)** \u2014 The ETF tracks the performance of semiconductor stocks, which are expected to benefit from the growing demand for AI computing hardware and EDA tools. With multiple companies in the sector appearing in the signals, the ETF is a suitable play on the growth of the semiconductor industry.\n\nNote: The conviction levels are based on the number of sources that agree on a particular signal, with HIGH conviction signals having 2 or more sources in agreement, MEDIUM conviction signals having 1 solid source, and LOW conviction signals being speculative.",
-      "input_hash": "8e44c799027032d4",
-      "date": "2026-05-24"
+      "text": "**Table:**\n\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Synopsys | SNPS | LONG | HIGH | Explicit | SemiAnalysis |\n| 2 | Cadence | CDNS | LONG | HIGH | Explicit | SemiAnalysis |\n| 3 | NVIDIA | NVDA | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Scott Alexander \u2013 Astral Codex Ten, Ethan Mollick \u2013 One Useful Thing, Import AI \u2013 Jack Clark, The Batch \u2013 Andrew Ng (DeepLearning.AI), Exchanges (Goldman Sachs), Latent Space Podcast (swyx) |\n| 4 | Microsoft | MSFT | LONG | HIGH | Explicit/Derived | SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Scott Alexander \u2013 Astral Codex Ten, Ethan Mollick \u2013 One Useful Thing, Import AI \u2013 Jack Clark, The Batch \u2013 Andrew Ng (DeepLearning.AI), Simon Willison |\n| 5 | Siemens EDA | SIEGY | LONG | MED | Explicit | SemiAnalysis |\n| 6 | Google | GOOGL | LONG | MED | Explicit/Derived | Zvi Mowshowitz \u2013 Don't Worry About the Vase, Andrej Karpathy \u2013 Blog, Lex Fridman Podcast |\n| 7 | TSMC | TSM | LONG | MED | Derived | SemiAnalysis |\n| 8 | ARM Holdings | ARM | LONG | MED | Derived | SemiAnalysis |\n| 9 | Micron Technology | MU | LONG | MED | Derived | Exchanges (Goldman Sachs) |\n| 10 | VanEck Vectors Semiconductor ETF | SMH | LONG | MED | Derived | Exchanges (Goldman Sachs) |\n\n**Notes:**\n\n1. **Synopsys (SNPS)**: The Electronic Design Automation (EDA) market is dominated by three companies, Synopsys, Cadence, and Siemens EDA. Synopsys is the market leader in the EDA industry, with an 84-85% share in synthesis tools, and is well-positioned to benefit from the growing demand for EDA tools. (SemiAnalysis)\n2. **Cadence (CDNS)**: Cadence has a significant market share in the EDA industry, with a 10-15pp gain in Place & Route market share between 2015-2020, and is expected to continue growing driven by increasing demand for advanced node verification and AI accelerator development. (SemiAnalysis)\n3. **NVIDIA (NVDA)**: NVIDIA is a key player in the AI computing hardware market, and its products are expected to benefit from the growing demand for AI computing power. Multiple sources, including SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Scott Alexander \u2013 Astral Codex Ten, Ethan Mollick \u2013 One Useful Thing, Import AI \u2013 Jack Clark, The Batch \u2013 Andrew Ng (DeepLearning.AI), and Latent Space Podcast (swyx), agree on NVIDIA's bullish outlook.\n4. **Microsoft (MSFT)**: Microsoft has a significant stake in OpenAI and provides Azure cloud services for AI computing. Multiple sources, including SemiAnalysis, Andrej Karpathy \u2013 Blog, Zvi Mowshowitz \u2013 Don't Worry About the Vase, Scott Alexander \u2013 Astral Codex Ten, Ethan Mollick \u2013 One Useful Thing, Import AI \u2013 Jack Clark, The Batch \u2013 Andrew Ng (DeepLearning.AI), and Simon Willison, agree on Microsoft's bullish outlook.\n5. **Siemens EDA (SIEGY)**: Siemens EDA has a significant market share in physical verification, with an 85%+ share, and is expected to benefit from the growing demand for EDA tools driven by increasing R&D intensity and verification costs. (SemiAnalysis)\n6. **Google (GOOGL)**: Google has released a new model, Gemini 3.5 Flash, which is notable for its speed, implying potential growth in its AI technology. Multiple sources, including Zvi Mowshowitz \u2013 Don't Worry About the Vase, Andrej Karpathy \u2013 Blog, and Lex Fridman Podcast, agree on Google's bullish outlook.\n7. **TSMC (TSM)**: TSMC is a key player in the semiconductor manufacturing industry, and its growth in advanced node manufacturing will drive demand for EDA tools, benefiting the EDA industry, particularly Synopsys, Cadence, and Siemens EDA. (SemiAnalysis)\n8. **ARM Holdings (ARM)**: ARM is a key player in the IP industry, and its growth in IP development will drive demand for EDA tools, benefiting the EDA industry, particularly Synopsys, Cadence, and Siemens EDA. (SemiAnalysis)\n9. **Micron Technology (MU)**: Micron Technology is a leading provider of semiconductor memory products, and the expected three- to five-year duration of the semiconductor memory cycle will drive demand for its products. (Exchanges (Goldman Sachs))\n10. **VanEck Vectors Semiconductor ETF (SMH)**: The VanEck Vectors Semiconductor ETF tracks the performance of semiconductor stocks, and the artificial intelligence trade and semiconductor memory cycle will drive demand for semiconductor products, benefiting the ETF. (Exchanges (Goldman Sachs))",
+      "input_hash": "83b34a7a3ebb8492",
+      "date": "2026-05-25"
     },
     "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
       "text": "**New this period:**\n- Harvard University limits A grades in undergraduate classes to about 20% of the class.\n- DeepSeek introduces DeepSeek-R1, an affordable rival to OpenAI's o1.\n- AI Andrew, an AI companion shaped by Andrew Ng's personality, is in development.\n- Nvidia uses AI-guided chip designs.\n- Meta's Agentic ambition is thwarted by China.\n- GPT-5.5 outperforms and hallucinates, while Kimi K2.6 leads open LLMs.\n- GLM 5.1 thinks strategically, and coding agents accelerate software work.\n\n**Details:**\n**The Batch \u2013 Andrew Ng (DeepLearning.AI)**(https://www.deeplearning.ai/the-batch/)\n- The core thesis revolves around recent developments and trends in the AI industry.\n- Named companies and their roles: \n  - Harvard University: limits A grades in undergraduate classes\n  - DeepSeek: introduces DeepSeek-R1, a rival to OpenAI's o1\n  - OpenAI: creator of o1, a model rivaled by DeepSeek-R1\n  - Nvidia: uses AI-guided chip designs\n  - Meta: had Agentic ambition thwarted by China\n  - Andrew Ng: developer of AI Andrew, an AI companion\n- Quantitative figures: \n  - 20%: the limit of A grades in Harvard University's undergraduate classes\n  - 2022: the year ChatGPT came out\n  - 2026: the current year, with notable differences in AI prompting\n- Supply chain or value chain relationships: \n  - Nvidia uses AI-guided chip designs, potentially impacting their supply chain\n  - Meta's Agentic ambition is thwarted by China, affecting their value chain\n- Technology transitions: \n  - AI-guided chip designs replace traditional methods\n  - Coding agents accelerate software work, changing the software development process\n- Competitive shifts: \n  - DeepSeek introduces a rival to OpenAI's o1, changing the competitive landscape\n  - Nvidia's AI-guided chip designs may give them a competitive edge\n- Capital allocation signals: \n  - Meta invests in Agentic ambition, although it is thwarted by China\n  - Nvidia invests in AI-guided chip designs\n- Regulatory or policy signals: \n  - China thwarts Meta's Agentic ambition, indicating regulatory hurdles\n  - The U.S. evaluates upcoming AI models, potentially leading to new regulations",
       "date": "2026-05-22"
     },
     "Arxiv \u2013 Portfolio Management (q-fin.PM)": {
-      "text": "**New this period:**\n- Researchers examine conditional allocation between growth/technology and defensive income/value-oriented ETF baskets using macro-market timing signals.\n- A study models portfolio crossing as limited-communication preference elicitation over signed portfolio trades in institutional crossing markets.\n- A paper tests whether graph neural networks improve realized volatility forecasts and portfolio performance using data from 465 S&P 500 equities.\n\n**Details:**\n**Continuous Timing Signals for Growth-Defensive Style Allocation (https://arxiv.org/abs/2605.20636)**\n- The paper studies conditional allocation between a growth/technology ETF basket ($G$) and a defensive income/value-oriented ETF basket ($D$) using macro-market timing signals.\n- The allocation framework combines rate relief, SPY drawdown depth, high-VIX stress relief, and a growth-crowding penalty to generate a continuous smooth score.\n- The smooth-score policy uses a 50% maximum active tilt and obtains a 19.24% CAGR, a Sharpe ratio of 1.01, and a maximum drawdown of -31.63% from June 28, 2017 to May 15, 2026.\n- The selected policy improves over 50/50 G/D, matched TNX-only, matched core-only, SPY, and volatility-matched 100% G benchmarks.\n- Companies mentioned: None\n- Quantitative figures: 0.273 market beta, -0.552 HML beta, 0.117 momentum beta, 1.95% annualized alpha, 0.81 Newey-West t-statistic, 19.24% CAGR, 1.01 Sharpe ratio, -31.63% maximum drawdown, 50% maximum active tilt, 10bp transaction costs\n\n**Portfolio Preference Elicitation in Institutional Crossing Markets (https://arxiv.org/abs/2605.21409)**\n- The paper models portfolio crossing as limited-communication preference elicitation over signed portfolio trades in institutional crossing markets.\n- The analysis uses price-directed demand queries and verification queries to search the portfolio space and guide queries.\n- Market-calibrated experiments using equity panels from the United States, Korea, Japan, and Germany show that the hybrid procedure recovers 88% of full-information welfare under a limited query budget.\n- Companies mentioned: None\n- Quantitative figures: 88% recovered welfare, 95% recovered welfare with expanded communication\n- Supply chain/value chain relationships: Institutional crossing platforms use price-directed demand queries and verification queries to guide portfolio allocation\n\n**Do Better Volatility Forecasts Lead to Better Portfolios? Evidence from Graph Neural Networks (https://arxiv.org/abs/2605.19278)**\n- The paper tests whether graph neural networks improve realized volatility forecasts and portfolio performance using data from 465 S&P 500 equities.\n- The empirical finding is that the model with the lowest forecast MSE, the model with the highest cross-sectional ranking accuracy, and the model with the highest portfolio Sharpe ratio are three different models.\n- Companies mentioned: S&P 500\n- Quantitative figures: 465 S&P 500 equities, 2015-2025 data period\n- Technology transitions: Graph neural networks are used to improve realized volatility forecasts and portfolio performance.",
-      "date": "2026-05-21"
+      "text": "**New this period:**\n- Researchers identify issues with SPO-based portfolio optimization, including prediction inflation and excessive turnover, and propose stabilization mechanisms.\n\n**Details:**\n**Decision-Induced Ranking Explains Prediction Inflation and Excessive Turnover in SPO-Based Portfolio Optimization**(https://arxiv.org/abs/2605.01176)\n- The study examines the use of decision-focused learning (DFL) for portfolio optimization, specifically the Smart, Predict then Optimize (SPO) surrogate approach.\n- No specific companies are named in the study.\n- Quantitative figures are not provided in the abstract.\n- The study evaluates the following stabilization mechanisms: clipping, min-max rescaling, and partial portfolio adjustment.\n- The researchers use a KKT-based interpretation to view portfolio decisions as ranking over risk- and transaction-cost-adjusted marginal scores.\n- The study aims to improve the implementability of SPO-based portfolio strategies by addressing prediction inflation and excessive turnover.\n- No specific supply chain or value chain relationships are described.\n- The technology transition described is the use of decision-focused learning (DFL) and the SPO surrogate approach for portfolio optimization.\n- No regulatory or policy signals are mentioned.\n- The study's research question is to explain prediction inflation and excessive turnover in SPO-based portfolio optimization, the method used is a KKT-based interpretation, and the key finding is that realistic output constraints and portfolio-level turnover control can improve the implementability of SPO-based portfolio strategies.",
+      "date": "2026-05-25"
     }
   }
 }
