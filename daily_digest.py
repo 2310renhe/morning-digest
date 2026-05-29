@@ -1542,14 +1542,20 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
             headers=headers, params=params, timeout=15,
         )
         if r.status_code == 401:
-            return [], None, "X cookies rejected (401) — cookies may have expired"
+            return [], None, f"X cookies rejected (401) — body: {r.text[:300]}"
         if r.status_code == 429:
             return [], None, "X rate limit hit (429)"
         if r.status_code != 200:
-            return [], None, f"X timeline fetch failed: {r.status_code} {r.text[:200]}"
-        tweets = r.json()
+            return [], None, f"X timeline fetch failed: {r.status_code} body: {r.text[:300]}"
+        raw = r.text.strip()
+        if not raw:
+            return [], None, f"X returned empty body (status {r.status_code}) — bearer token may be stale"
+        try:
+            tweets = r.json()
+        except Exception as je:
+            return [], None, f"X JSON decode error: {je} — body snippet: {raw[:200]}"
         if not isinstance(tweets, list):
-            return [], None, f"X unexpected response format: {str(tweets)[:200]}"
+            return [], None, f"X unexpected response format: {str(tweets)[:300]}"
     except Exception as e:
         return [], None, f"X timeline error: {e}"
 
