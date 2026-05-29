@@ -1513,11 +1513,38 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
     if not username:
         return [], None, "x_username not specified in source config"
 
-    # X web-app bearer token (public, embedded in twitter.com JS bundle)
-    WEB_BEARER = (
-        "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs"
-        "%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
-    )
+    # Fetch X's web-app bearer token dynamically from the JS bundle so it
+    # stays current even when X rotates it. Falls back to a known token.
+    import re as _re
+    WEB_BEARER = None
+    try:
+        _ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+        _home = requests.get("https://x.com/", headers={"User-Agent": _ua,
+                             "Cookie": f"auth_token={auth_token}; ct0={ct0}"}, timeout=10)
+        # Find main JS bundle URL(s)
+        _js_urls = _re.findall(
+            r'https://abs\.twimg\.com/responsive-web/client-web/main\.[a-z0-9]+\.js',
+            _home.text
+        )
+        if not _js_urls:
+            # fallback: look for any twimg JS bundle with bearer candidate
+            _js_urls = _re.findall(r'https://abs\.twimg\.com/[^"\']+\.js', _home.text)[:3]
+        for _js_url in _js_urls[:2]:
+            _jsr = requests.get(_js_url, headers={"User-Agent": _ua}, timeout=15)
+            _m = _re.search(r'Bearer ([A-Za-z0-9%]{80,})', _jsr.text)
+            if _m:
+                WEB_BEARER = _m.group(1)
+                break
+    except Exception:
+        pass
+    if not WEB_BEARER:
+        # Last-resort known token
+        WEB_BEARER = (
+            "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs"
+            "%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
+        )
+    print(f"  [X] bearer={'dynamic' if 'dynamic' not in WEB_BEARER else 'fallback'} "
+          f"({WEB_BEARER[:20]}...)")
     headers = {
         "Authorization":  f"Bearer {WEB_BEARER}",
         "x-csrf-token":   ct0,
