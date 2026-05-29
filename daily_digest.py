@@ -1486,6 +1486,118 @@ def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
         return [], None, str(e)
 
 
+def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
+    """
+    Fetches recent tweets from an X (Twitter) user via the X API v2.
+    Requires X_BEARER_TOKEN environment variable.
+
+    source fields:
+      x_username  — Twitter handle without @
+      url         — canonical profile URL (used as fallback link)
+
+    Returns (new_items, fallback_item, error).
+    """
+    import os as _os
+    bearer = _os.environ.get("X_BEARER_TOKEN", "")
+    if not bearer:
+        return [], None, "X_BEARER_TOKEN not set — skipping X profile source"
+
+    username = source.get("x_username", "")
+    if not username:
+        return [], None, "x_username not specified in source config"
+
+    headers = {"Authorization": f"Bearer {bearer}"}
+    base = "https://api.twitter.com/2"
+
+    # Step 1: resolve username → user ID (cached in state)
+    uid_cache = state.setdefault("last_items", {}).setdefault(f"x_uid:{username}", {})
+    user_id = uid_cache.get("user_id")
+    if not user_id:
+        try:
+            r = requests.get(
+                f"{base}/users/by/username/{username}",
+                headers=headers, timeout=10,
+            )
+            if r.status_code != 200:
+                return [], None, f"X API user lookup failed: {r.status_code} {r.text[:200]}"
+            user_id = r.json()["data"]["id"]
+            uid_cache["user_id"] = user_id
+        except Exception as e:
+            return [], None, f"X API user lookup error: {e}"
+
+    # Step 2: fetch recent tweets (exclude retweets and replies)
+    try:
+        params = {
+            "max_results": 20,
+            "tweet.fields": "created_at,text,entities",
+            "exclude": "retweets,replies",
+        }
+        r = requests.get(
+            f"{base}/users/{user_id}/tweets",
+            headers=headers, params=params, timeout=10,
+        )
+        if r.status_code == 429:
+            return [], None, "X API rate limit hit"
+        if r.status_code != 200:
+            return [], None, f"X API tweets failed: {r.status_code} {r.text[:200]}"
+        data = r.json().get("data", [])
+    except Exception as e:
+        return [], None, f"X API tweets error: {e}"
+
+    seen_ids = state["seen"]
+    last_items = state["last_items"]
+    new_items = []
+    fallback = None
+
+    for tweet in data:
+        tweet_id = tweet["id"]
+        text = tweet.get("text", "")
+        created_str = tweet.get("created_at", "")
+        tweet_url = f"https://x.com/{username}/status/{tweet_id}"
+
+        # Parse timestamp
+        try:
+            from datetime import timezone as _tz
+            pub_dt = datetime.strptime(created_str, "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=_tz.utc)
+        except Exception:
+            try:
+                pub_dt = datetime.strptime(created_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=_tz.utc)
+            except Exception:
+                pub_dt = None
+
+        # Build fallback from the most recent tweet
+        if fallback is None:
+            pub_date = pub_dt.strftime("%Y-%m-%d") if pub_dt else ""
+            fallback = {
+                "id": tweet_id,
+                "title": text[:80] + ("…" if len(text) > 80 else ""),
+                "link": tweet_url,
+                "pub_date": pub_date,
+            }
+
+        item_id = f"x:{tweet_id}"
+        if item_id in seen_ids:
+            continue
+        if pub_dt and pub_dt < cutoff:
+            continue
+
+        seen_ids.add(item_id)
+        pub_date = pub_dt.strftime("%Y-%m-%d") if pub_dt else ""
+        new_items.append({
+            "id": item_id,
+            "title": text[:120] + ("…" if len(text) > 120 else ""),
+            "link": tweet_url,
+            "content": text,
+            "pub_date": pub_date,
+        })
+
+    # Store most recent tweet as last_item for display when stale
+    if fallback:
+        last_items[source["url"]] = fallback
+
+    return new_items, fallback, None
+
+
 def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
     Returns (new_items, fallback_item, error).
@@ -2104,6 +2216,8 @@ def main():
             continue
         elif stype in ("rss", "podcast"):
             new_items, fallback, err = fetch_rss(source, state, cutoff)
+        elif stype == "x_profile":
+            new_items, fallback, err = fetch_x_profile(source, state, cutoff)
         elif stype == "web" and "github.com" in source["url"] and "tab=repositories" in source["url"]:
             new_items, fallback, err = fetch_github_repos(source, state, cutoff)
         else:

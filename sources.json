@@ -90,6 +90,13 @@
     "category": "AI Opinion Leaders"
   },
   {
+    "name": "Serenity – X (@aleabitoreddit)",
+    "url": "https://x.com/aleabitoreddit",
+    "type": "x_profile",
+    "category": "AI Opinion Leaders",
+    "x_username": "aleabitoreddit"
+  },
+  {
     "name": "Andrej Karpathy – GitHub Repos",
     "url": "https://github.com/karpathy?tab=repositories",
     "type": "web",
