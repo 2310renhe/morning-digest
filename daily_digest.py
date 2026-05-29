@@ -614,16 +614,19 @@ def fetch_13f(source: dict, state: dict) -> tuple:
             shares = info.find("sshprnamt")
             cls_tag = info.find("titleofclass")
             cusip_tag = info.find("cusip")
+            putcall_tag = info.find("putcall")
             if name and value:
                 try:
                     raw_val = int(value.text.strip().replace(",", ""))
                 except ValueError:
                     continue
+                put_call = putcall_tag.get_text(strip=True).upper() if putcall_tag else ""
                 holdings.append({
                     "name": _holding_name(name.text, cls_tag.text if cls_tag else ""),
                     "raw_val": raw_val,
                     "shares": int(shares.text.strip().replace(",", "")) if shares else 0,
                     "cusip": cusip_tag.get_text(strip=True) if cusip_tag else "",
+                    "put_call": put_call,  # "PUT", "CALL", or "" for plain long equity
                 })
 
         if not holdings:
@@ -690,24 +693,33 @@ def fetch_13f(source: dict, state: dict) -> tuple:
             return f"${value_k / 1_000:.1f}M"
 
         # ── Build markdown table ───────────────────────────────────────────────
+        n_puts  = sum(1 for h in holdings if h.get("put_call") == "PUT")
+        n_calls = sum(1 for h in holdings if h.get("put_call") == "CALL")
+        opt_note = ""
+        if n_puts or n_calls:
+            opt_note = f" · {n_puts} put{'s' if n_puts != 1 else ''} / {n_calls} call{'s' if n_calls != 1 else ''}"
         lines = [
-            f"**{n_all} positions · ${total_b:.1f}B AUM · as of {filing_date}**\n",
-            "| # | Name | Ticker | Value | % of Portfolio | YTD | Fwd P/E |",
-            "|---|------|--------|-------|----------------|-----|---------|",
+            f"**{n_all} positions · ${total_b:.1f}B AUM · as of {filing_date}{opt_note}**\n",
+            "| # | Name | Ticker | Type | Value | % of Portfolio | YTD | Fwd P/E |",
+            "|---|------|--------|------|-------|----------------|-----|---------|",
         ]
         positions_data = []
         for i, h in enumerate(top, 1):
-            pct     = h["value_k"] / total_k * 100
-            val_str = _fmt_value(h["value_k"])
-            ticker  = h.get("ticker", "")
-            mdata   = market_data.get(ticker, {}) if ticker else {}
-            ytd_str = mdata.get("ytd", "—")
-            fpe_str = mdata.get("fwd_pe", "—")
-            lines.append(f"| {i} | {h['name']} | {ticker} | {val_str} | {pct:.1f}% | {ytd_str} | {fpe_str} |")
-            positions_data.append({
-                "ticker": ticker, "name": h["name"], "value_k": h["value_k"],
-                "ytd": ytd_str, "ytd_pct": mdata.get("ytd_pct"), "fwd_pe": fpe_str,
-            })
+            pct      = h["value_k"] / total_k * 100
+            val_str  = _fmt_value(h["value_k"])
+            ticker   = h.get("ticker", "")
+            put_call = h.get("put_call", "")
+            type_str = put_call if put_call else "Long"
+            mdata    = market_data.get(ticker, {}) if ticker else {}
+            ytd_str  = mdata.get("ytd", "—")
+            fpe_str  = mdata.get("fwd_pe", "—")
+            lines.append(f"| {i} | {h['name']} | {ticker} | {type_str} | {val_str} | {pct:.1f}% | {ytd_str} | {fpe_str} |")
+            # Only include plain long equity positions in consensus summary
+            if not put_call:
+                positions_data.append({
+                    "ticker": ticker, "name": h["name"], "value_k": h["value_k"],
+                    "ytd": ytd_str, "ytd_pct": mdata.get("ytd_pct"), "fwd_pe": fpe_str,
+                })
 
         text = "\n".join(lines)
 
@@ -1201,47 +1213,46 @@ DERIVED — non-obvious plays that flow from the EXPLICIT names or the THESIS.
   • The thesis implies demand for a specific input or infrastructure that a named public company supplies.
   • Must be specific to THIS source's thesis — not generic "AI growing → NVDA/MSFT/AMZN".
 
-BANNED (too generic — reject these):
-✗ [source discusses AI] → LONG NVDA or MSFT or AMZN
+BANNED — never output these regardless of source content:
+✗ NVDA, MSFT, AMZN as DERIVED signals — they are banned from DERIVED entirely.
+  They may only appear as EXPLICIT if the source directly and specifically names them
+  with a concrete bullish/bearish implication (not merely mentioned in passing).
+✗ [source discusses AI broadly] → LONG any hyperscaler or GPU maker
 ✗ [company is growing] → needs cloud → LONG cloud providers
-✗ Any signal that would apply to every AI-related article this week
-✗ The company that owns, produces, or hosts this source as an EXPLICIT signal
-   (e.g. Goldman Sachs podcast → do NOT output GS; BlackRock podcast → do NOT output BLK)
-   These are promotional/brand signals, not investment signals.
+✗ Any signal that would apply to every AI article published this week
+✗ The company that owns/produces/hosts this source (GS podcast → no GS; BLK podcast → no BLK)
 
-Specificity test — only output a DERIVED signal if you can complete:
-"Because this source specifically says [X], [TICKER] benefits via [concrete non-obvious mechanism]."
+Specificity test — only output a DERIVED signal if you can complete this sentence:
+"Because this source SPECIFICALLY says [verbatim claim], [TICKER] is affected via [non-obvious mechanism unique to this source]."
+If you cannot fill in a specific verbatim claim, the signal is too generic — drop it.
 
-For institutional podcast sources (Goldman Sachs, BlackRock, Odd Lots, Money Stuff, etc.):
-  The host firm is NOT a signal. Focus entirely on companies, sectors, or macro themes
-  discussed by the guest or in the content. Push for the second- and third-order plays:
-  who supplies the trend being discussed, who loses share, what infrastructure gets built?
+For institutional podcasts (Goldman Sachs, BlackRock, Odd Lots, Money Stuff, etc.):
+  The host firm is never a signal. Extract from the guest's thesis only.
+  Push for second/third-order plays: who supplies the trend, who loses share, what gets built?
 
-Good DERIVED examples:
+Good DERIVED examples (study the reasoning pattern, do NOT copy the tickers):
   Source: EDA tools dominate chip design → DERIVED | MRVL | Marvell | LONG | MED | Faster EDA iteration shortens tape-out cycles for fabless designers; Marvell ships 5+ chip families per year and directly benefits | EDA compression → Marvell TAM expansion via more design starts per year
   Source: data center racks scaling to 100kW+ → DERIVED | VRT | Vertiv | LONG | HIGH | Air cooling fails above ~30kW/rack; Vertiv is the dominant liquid cooling vendor for hyperscalers | Rack density growth forces liquid cooling mandate
-  Source: OpenAI expanding aggressively → DERIVED | MSFT | Microsoft | LONG | MED | Microsoft holds ~49% of OpenAI and hosts it on Azure; OpenAI revenue growth directly flows to Azure line | OpenAI → MSFT equity stake + Azure hosting revenue
-  Source: tariffs raise manufacturing costs across the board → DERIVED | GLD | Gold ETF | LONG | MED | Tariff uncertainty drives safe-haven flows into gold; source cites erosion of real yields and dollar confidence | Policy uncertainty → gold safe-haven demand
-  Source: AI data center buildout accelerating → DERIVED | FCX | Freeport-McMoRan | LONG | MED | Each MW of data center capacity requires ~50 tons of copper for wiring/cooling; FCX is the largest US copper producer | Data center electricity demand → copper intensive infrastructure
-  Source: Energy grid under strain from AI load → DERIVED | UNG | Natural Gas ETF | LONG | MED | Gas peaker plants are the marginal electricity supplier when grid demand spikes; data center load growth tightens gas markets | AI power demand → nat gas peaker utilization
+  Source: semiconductor packaging bottleneck limits AI chip yield → DERIVED | AMKR | Amkor Technology | LONG | HIGH | Amkor is the largest independent OSAT; advanced packaging (CoWoS, SoIC) demand directly maps to Amkor capacity utilization | Packaging bottleneck → OSAT pricing power
 
-Private company routing:
+Private company routing (use only when the private company is central to the thesis):
   OpenAI → MSFT (49% stake, Azure host), NVDA (primary GPU supplier)
   Anthropic → AMZN (lead investor + AWS host), GOOGL (minority stake)
   xAI → TSLA (Musk/shared GPU cluster), NVDA (compute buyer)
-  Groq → threatens NVDA on inference → SHORT NVDA or LONG AMD
+  Groq → inference alternative → SHORT NVDA or LONG AMD
 
-Commodity universe — valid DERIVED targets when the thesis implies commodity demand or supply:
-  Copper: FCX (Freeport-McMoRan), COPX (Global X Copper Miners ETF)
-  Gold: GLD (SPDR Gold Shares), GDX (Gold Miners ETF), NEM (Newmont)
-  Silver: SLV (iShares Silver Trust), PAAS (Pan American Silver)
-  Oil: USO (US Oil Fund), XOM (ExxonMobil), CVX (Chevron)
-  Natural Gas: UNG (US Natural Gas ETF), EQT (largest US gas producer)
-  Uranium: URA (Global X Uranium ETF), CCJ (Cameco)
+Commodity/macro plays — only when the thesis EXPLICITLY discusses physical demand or macro conditions.
+Do NOT default to commodities just because AI or data centers are mentioned.
+Valid commodity proxies (look up the right ticker for the specific commodity the source discusses —
+do not default to the same 2-3 tickers every time):
+  Physical metals: miners, royalty companies, ETFs
+  Energy: producers, pipeline operators, ETFs matched to the specific fuel discussed
+  Macro hedges: rate-sensitive instruments, safe-haven assets when macro stress is the thesis
 
 Rules:
 - EXPLICIT only if source names the company; sponsor mentions and name-drops don't qualify.
 - DERIVED must have a specific, traceable mechanism — not just sector exposure.
+- Vary your output — if you find yourself writing NVDA/MSFT/AMZN/FCX/UNG again, stop and find a more specific play or output NONE.
 - Aim for 2–4 DERIVED signals that most analysts would not immediately think of.
 - Output NONE if there are genuinely no specific signals.
 
