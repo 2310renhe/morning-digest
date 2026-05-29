@@ -1488,8 +1488,12 @@ def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
 
 def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
-    Fetches recent tweets from an X (Twitter) user via the X API v2.
-    Requires X_BEARER_TOKEN environment variable.
+    Fetches recent tweets from a public X (Twitter) profile using session cookies.
+    Uses X's internal v1.1 timeline API with the web-app bearer token + user cookies.
+
+    Required env vars (store as GitHub secrets):
+      X_AUTH_TOKEN  — value of the auth_token cookie from x.com
+      X_CT0         — value of the ct0 cookie from x.com (also used as CSRF token)
 
     source fields:
       x_username  — Twitter handle without @
@@ -1498,80 +1502,80 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
     Returns (new_items, fallback_item, error).
     """
     import os as _os
-    bearer = _os.environ.get("X_BEARER_TOKEN", "")
-    if not bearer:
-        return [], None, "X_BEARER_TOKEN not set — skipping X profile source"
+    from datetime import timezone as _tz
+
+    auth_token = _os.environ.get("X_AUTH_TOKEN", "")
+    ct0        = _os.environ.get("X_CT0", "")
+    if not auth_token or not ct0:
+        return [], None, "X_AUTH_TOKEN / X_CT0 not set — skipping X profile source"
 
     username = source.get("x_username", "")
     if not username:
         return [], None, "x_username not specified in source config"
 
-    headers = {"Authorization": f"Bearer {bearer}"}
-    base = "https://api.twitter.com/2"
+    # X web-app bearer token (public, embedded in twitter.com JS bundle)
+    WEB_BEARER = (
+        "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs"
+        "%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
+    )
+    headers = {
+        "Authorization":  f"Bearer {WEB_BEARER}",
+        "x-csrf-token":   ct0,
+        "Cookie":         f"auth_token={auth_token}; ct0={ct0}",
+        "User-Agent":     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        "Referer":        "https://x.com/",
+        "x-twitter-active-user": "yes",
+        "x-twitter-client-language": "en",
+    }
 
-    # Step 1: resolve username → user ID (cached in state)
-    uid_cache = state.setdefault("last_items", {}).setdefault(f"x_uid:{username}", {})
-    user_id = uid_cache.get("user_id")
-    if not user_id:
-        try:
-            r = requests.get(
-                f"{base}/users/by/username/{username}",
-                headers=headers, timeout=10,
-            )
-            if r.status_code != 200:
-                return [], None, f"X API user lookup failed: {r.status_code} {r.text[:200]}"
-            user_id = r.json()["data"]["id"]
-            uid_cache["user_id"] = user_id
-        except Exception as e:
-            return [], None, f"X API user lookup error: {e}"
-
-    # Step 2: fetch recent tweets (exclude retweets and replies)
+    # v1.1 user_timeline — works with session cookies, no developer account needed
+    params = {
+        "screen_name":    username,
+        "count":          30,
+        "exclude_replies": "true",
+        "include_rts":    "false",
+        "tweet_mode":     "extended",   # gives full_text instead of truncated text
+    }
     try:
-        params = {
-            "max_results": 20,
-            "tweet.fields": "created_at,text,entities",
-            "exclude": "retweets,replies",
-        }
         r = requests.get(
-            f"{base}/users/{user_id}/tweets",
-            headers=headers, params=params, timeout=10,
+            "https://api.twitter.com/1.1/statuses/user_timeline.json",
+            headers=headers, params=params, timeout=15,
         )
+        if r.status_code == 401:
+            return [], None, "X cookies rejected (401) — cookies may have expired"
         if r.status_code == 429:
-            return [], None, "X API rate limit hit"
+            return [], None, "X rate limit hit (429)"
         if r.status_code != 200:
-            return [], None, f"X API tweets failed: {r.status_code} {r.text[:200]}"
-        data = r.json().get("data", [])
+            return [], None, f"X timeline fetch failed: {r.status_code} {r.text[:200]}"
+        tweets = r.json()
+        if not isinstance(tweets, list):
+            return [], None, f"X unexpected response format: {str(tweets)[:200]}"
     except Exception as e:
-        return [], None, f"X API tweets error: {e}"
+        return [], None, f"X timeline error: {e}"
 
-    seen_ids = state["seen"]
+    seen_ids  = state["seen"]
     last_items = state["last_items"]
-    new_items = []
-    fallback = None
+    new_items  = []
+    fallback   = None
 
-    for tweet in data:
-        tweet_id = tweet["id"]
-        text = tweet.get("text", "")
-        created_str = tweet.get("created_at", "")
-        tweet_url = f"https://x.com/{username}/status/{tweet_id}"
+    for tweet in tweets:
+        tweet_id   = str(tweet.get("id_str", tweet.get("id", "")))
+        text       = tweet.get("full_text") or tweet.get("text", "")
+        created_str = tweet.get("created_at", "")   # "Thu Jan 01 00:00:00 +0000 2026"
+        tweet_url  = f"https://x.com/{username}/status/{tweet_id}"
 
-        # Parse timestamp
+        # Parse Twitter's date format
         try:
-            from datetime import timezone as _tz
-            pub_dt = datetime.strptime(created_str, "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=_tz.utc)
+            pub_dt = datetime.strptime(created_str, "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=_tz.utc)
         except Exception:
-            try:
-                pub_dt = datetime.strptime(created_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=_tz.utc)
-            except Exception:
-                pub_dt = None
+            pub_dt = None
 
-        # Build fallback from the most recent tweet
         if fallback is None:
             pub_date = pub_dt.strftime("%Y-%m-%d") if pub_dt else ""
             fallback = {
-                "id": tweet_id,
-                "title": text[:80] + ("…" if len(text) > 80 else ""),
-                "link": tweet_url,
+                "id":       tweet_id,
+                "title":    text[:80] + ("…" if len(text) > 80 else ""),
+                "link":     tweet_url,
                 "pub_date": pub_date,
             }
 
@@ -1584,14 +1588,13 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
         seen_ids.add(item_id)
         pub_date = pub_dt.strftime("%Y-%m-%d") if pub_dt else ""
         new_items.append({
-            "id": item_id,
-            "title": text[:120] + ("…" if len(text) > 120 else ""),
-            "link": tweet_url,
-            "content": text,
+            "id":       item_id,
+            "title":    text[:120] + ("…" if len(text) > 120 else ""),
+            "link":     tweet_url,
+            "content":  text,
             "pub_date": pub_date,
         })
 
-    # Store most recent tweet as last_item for display when stale
     if fallback:
         last_items[source["url"]] = fallback
 
