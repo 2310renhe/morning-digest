@@ -1476,7 +1476,7 @@ Output NONE if the source contains no clear macro signals.
     import time as _time
     _time.sleep(5)  # let per-source extraction TPM budget recover before this large call
 
-    combined = "\n\n".join(input_parts)[:12000]
+    combined = "\n\n".join(input_parts)[:8000]
     input_hash = _hashlib.sha256(combined.encode()).hexdigest()[:16]
 
     cached_out = state.get("summaries", {}).get(cache_key, {})
