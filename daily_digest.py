@@ -1469,6 +1469,7 @@ Output NONE if the source contains no clear macro signals.
             continue
         input_parts.append(f"### {name}\n{text[:1500]}")
 
+    print(f"  [macro] {len(input_parts)} source summaries collected for macro analysis")
     if not input_parts:
         return "*(No source summaries available for macro analysis)*"
 
@@ -2357,7 +2358,7 @@ def main():
 
     for source in sources:
         stype = source.get("type", "rss").lower()
-        if stype in ("investor_summary", "ai_synthesis"):
+        if stype in ("investor_summary", "ai_synthesis", "macro_synthesis"):
             continue  # deferred — processed after all other sources
         print(f"[{stype}] {source['name']} ...")
 
