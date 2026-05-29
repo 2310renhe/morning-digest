@@ -102,6 +102,12 @@
     "category": "GitHub Activity"
   },
   {
+    "name": "Signals & Threads (Jane Street)",
+    "url": "https://feeds.simplecast.com/L9810DOa",
+    "type": "podcast",
+    "category": "Institutional Podcasts"
+  },
+  {
     "name": "Odd Lots (Bloomberg)",
     "url": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8a94442e-5a74-4fa2-8b8d-ae27003a8d6b/982f5071-765c-403d-969d-ae27003a8d83/podcast.rss",
     "type": "podcast",
@@ -156,6 +162,12 @@
   {
     "name": "Philippe Laffont – Coatue Management 13F (SEC)",
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001135730&type=13F&dateb=&owner=include&count=10&output=atom",
+    "type": "sec13f",
+    "category": "Investor Positioning"
+  },
+  {
+    "name": "Chris Hohn – TCI Fund Management 13F (SEC)",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001647251&type=13F&dateb=&owner=include&count=10&output=atom",
     "type": "sec13f",
     "category": "Investor Positioning"
   },

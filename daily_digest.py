@@ -1067,6 +1067,7 @@ def fetch_investor_summary(state: dict, all_sources: list) -> str:
         "Stanley Druckenmiller – Duquesne Family Office 13F (SEC)": "Druckenmiller",
         "Philippe Laffont – Coatue Management 13F (SEC)": "Coatue",
         "Chase Coleman – Tiger Global Management 13F (SEC)": "Tiger Global",
+        "Chris Hohn – TCI Fund Management 13F (SEC)": "TCI",
         "Nancy Pelosi – House PTR Trades": "Pelosi",
     }
 
