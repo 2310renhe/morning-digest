@@ -6,3 +6,4 @@ lxml>=4.9.0
 python-dotenv>=1.0.0
 pypdf>=4.0.0
 yfinance>=0.2.0
+twscrape>=0.14.0

@@ -1488,20 +1488,16 @@ def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
 
 def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
-    Fetches recent tweets from a public X (Twitter) profile using session cookies.
-    Uses X's internal v1.1 timeline API with the web-app bearer token + user cookies.
+    Fetches recent tweets from a public X profile using twscrape + session cookies.
+    twscrape handles X's GraphQL API and auth token rotation internally.
 
     Required env vars (store as GitHub secrets):
       X_AUTH_TOKEN  — value of the auth_token cookie from x.com
       X_CT0         — value of the ct0 cookie from x.com (also used as CSRF token)
 
-    source fields:
-      x_username  — Twitter handle without @
-      url         — canonical profile URL (used as fallback link)
-
     Returns (new_items, fallback_item, error).
     """
-    import os as _os
+    import os as _os, asyncio as _asyncio
     from datetime import timezone as _tz
 
     auth_token = _os.environ.get("X_AUTH_TOKEN", "")
@@ -1513,98 +1509,55 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
     if not username:
         return [], None, "x_username not specified in source config"
 
-    # Fetch X's web-app bearer token dynamically from the JS bundle so it
-    # stays current even when X rotates it. Falls back to a known token.
-    import re as _re
-    WEB_BEARER = None
     try:
-        _ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-        _home = requests.get("https://x.com/", headers={"User-Agent": _ua,
-                             "Cookie": f"auth_token={auth_token}; ct0={ct0}"}, timeout=10)
-        # Find main JS bundle URL(s)
-        _js_urls = _re.findall(
-            r'https://abs\.twimg\.com/responsive-web/client-web/main\.[a-z0-9]+\.js',
-            _home.text
-        )
-        if not _js_urls:
-            # fallback: look for any twimg JS bundle with bearer candidate
-            _js_urls = _re.findall(r'https://abs\.twimg\.com/[^"\']+\.js', _home.text)[:3]
-        for _js_url in _js_urls[:2]:
-            _jsr = requests.get(_js_url, headers={"User-Agent": _ua}, timeout=15)
-            _m = _re.search(r'Bearer ([A-Za-z0-9%]{80,})', _jsr.text)
-            if _m:
-                WEB_BEARER = _m.group(1)
-                break
-    except Exception:
-        pass
-    if not WEB_BEARER:
-        # Last-resort known token
-        WEB_BEARER = (
-            "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs"
-            "%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
-        )
-    print(f"  [X] bearer={'dynamic' if 'dynamic' not in WEB_BEARER else 'fallback'} "
-          f"({WEB_BEARER[:20]}...)")
-    headers = {
-        "Authorization":  f"Bearer {WEB_BEARER}",
-        "x-csrf-token":   ct0,
-        "Cookie":         f"auth_token={auth_token}; ct0={ct0}",
-        "User-Agent":     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-        "Referer":        "https://x.com/",
-        "x-twitter-active-user": "yes",
-        "x-twitter-client-language": "en",
-    }
+        from twscrape import API as _XAPI, gather as _gather
+    except ImportError:
+        return [], None, "twscrape not installed — run: pip install twscrape"
 
-    # v1.1 user_timeline — works with session cookies, no developer account needed
-    params = {
-        "screen_name":    username,
-        "count":          30,
-        "exclude_replies": "true",
-        "include_rts":    "false",
-        "tweet_mode":     "extended",   # gives full_text instead of truncated text
-    }
-    try:
-        r = requests.get(
-            "https://api.twitter.com/1.1/statuses/user_timeline.json",
-            headers=headers, params=params, timeout=15,
+    async def _run():
+        api = _XAPI()  # in-memory pool, no persistent db
+        # Add the user's own account as the scraping account via cookies
+        await api.pool.add_account(
+            username=username,
+            password="x",           # placeholder — not used when cookies are set
+            email="x@x.com",
+            email_password="x",
+            cookies=f"auth_token={auth_token}; ct0={ct0}",
         )
-        if r.status_code == 401:
-            return [], None, f"X cookies rejected (401) — body: {r.text[:300]}"
-        if r.status_code == 429:
-            return [], None, "X rate limit hit (429)"
-        if r.status_code != 200:
-            return [], None, f"X timeline fetch failed: {r.status_code} body: {r.text[:300]}"
-        raw = r.text.strip()
-        if not raw:
-            return [], None, f"X returned empty body (status {r.status_code}) — bearer token may be stale"
-        try:
-            tweets = r.json()
-        except Exception as je:
-            return [], None, f"X JSON decode error: {je} — body snippet: {raw[:200]}"
-        if not isinstance(tweets, list):
-            return [], None, f"X unexpected response format: {str(tweets)[:300]}"
+        await api.pool.login_all()
+        # Resolve target user's numeric ID
+        user = await api.user_by_login(username)
+        if not user:
+            return [], f"User @{username} not found"
+        raw_tweets = await _gather(api.user_tweets(user.id, limit=30))
+        return raw_tweets, None
+
+    try:
+        raw_tweets, err = _asyncio.run(_run())
+        if err:
+            return [], None, err
     except Exception as e:
-        return [], None, f"X timeline error: {e}"
+        return [], None, f"twscrape error: {e}"
 
-    seen_ids  = state["seen"]
+    seen_ids   = state["seen"]
     last_items = state["last_items"]
     new_items  = []
     fallback   = None
 
-    for tweet in tweets:
-        tweet_id   = str(tweet.get("id_str", tweet.get("id", "")))
-        text       = tweet.get("full_text") or tweet.get("text", "")
-        created_str = tweet.get("created_at", "")   # "Thu Jan 01 00:00:00 +0000 2026"
-        tweet_url  = f"https://x.com/{username}/status/{tweet_id}"
+    for tweet in raw_tweets:
+        # Skip retweets and replies
+        if tweet.rawContent.startswith("RT @"):
+            continue
+        if tweet.inReplyToTweetId:
+            continue
 
-        # Parse Twitter's date format
-        try:
-            pub_dt = datetime.strptime(created_str, "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=_tz.utc)
-        except Exception:
-            pub_dt = None
+        tweet_id  = str(tweet.id)
+        text      = tweet.rawContent
+        pub_dt    = tweet.date.replace(tzinfo=_tz.utc) if tweet.date.tzinfo is None else tweet.date
+        tweet_url = f"https://x.com/{username}/status/{tweet_id}"
+        pub_date  = pub_dt.strftime("%Y-%m-%d")
 
         if fallback is None:
-            pub_date = pub_dt.strftime("%Y-%m-%d") if pub_dt else ""
             fallback = {
                 "id":       tweet_id,
                 "title":    text[:80] + ("…" if len(text) > 80 else ""),
@@ -1615,11 +1568,10 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
         item_id = f"x:{tweet_id}"
         if item_id in seen_ids:
             continue
-        if pub_dt and pub_dt < cutoff:
+        if pub_dt < cutoff:
             continue
 
         seen_ids.add(item_id)
-        pub_date = pub_dt.strftime("%Y-%m-%d") if pub_dt else ""
         new_items.append({
             "id":       item_id,
             "title":    text[:120] + ("…" if len(text) > 120 else ""),
