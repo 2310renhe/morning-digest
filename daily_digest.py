@@ -1401,6 +1401,105 @@ Output format:
     return text
 
 
+def fetch_macro_ideas(state: dict, all_sources: list, client) -> str:
+    """
+    Macro signal synthesis pass.
+
+    Reads all cached source summaries and extracts macro-level trade ideas:
+    rates (duration/curve), FX, commodities, credit, volatility.
+    No individual stock picks — instruments only.
+
+    Cached by SHA-256 hash of combined input; re-runs only when summaries change.
+    """
+    import hashlib as _hashlib
+
+    _TARGET_CATEGORIES = {"AI Opinion Leaders", "Institutional Podcasts"}
+
+    MACRO_PROMPT = """\
+You are a global macro portfolio manager. Extract macro trade signals from the source summaries below.
+
+MACRO INSTRUMENTS ONLY — no individual stocks. Valid asset classes:
+  RATES      — duration (TLT, IEF, SHY, TBT), yield curve (steepener/flattener), TIPS (inflation)
+  FX         — currency pairs or proxies (UUP/DXY for USD, FXE for EUR, FXY for JPY, EEM for EM)
+  COMMODITY  — physical commodities via ETF or futures proxy (GLD, SLV, USO, UNG, CPER, PDBC, etc.)
+  CREDIT     — spread products (HYG for HY, LQD for IG, JNK)
+  VOLATILITY — vol products (VXX, UVXY, SVXY)
+  EQUITY_MACRO — broad index or sector ETFs only (SPY, QQQ, SMH, XLE, XLF — not individual names)
+
+WHAT QUALIFIES:
+  • Macro regime signals: inflation expectations, rate path, dollar strength/weakness, risk-on/off
+  • Commodity demand/supply driven by a specific named dynamic in the source
+  • Credit cycle signals: spread widening/tightening based on named catalyst
+  • FX driven by rate differentials, capital flows, or policy named in the source
+
+WHAT DOES NOT QUALIFY:
+  • Anything that requires knowing a specific company's earnings or product roadmap
+  • Generic "AI is growing" → any commodity or ETF
+  • Signals with no traceable macro mechanism in the source text
+
+Specificity test: only output a signal if you can state:
+"Because [source] specifically says [X], the macro implication for [ASSET CLASS] is [Y] via [Z mechanism]."
+
+OUTPUT — first line THESIS (one sentence macro regime view), then one signal per line, 7 fields:
+ASSET_CLASS | TICKER | Instrument Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE | MACRO_MECHANISM
+
+Example output:
+THESIS: Fed hold + sticky services inflation keeps real rates elevated, pressuring duration.
+RATES | TBT | ProShares UltraShort 20+ Yr Treasury | SHORT_DURATION | HIGH | Source cites persistent services CPI at 4.2%; no Fed cuts expected until Q4 | Sticky inflation → rates stay higher → short duration outperforms
+COMMODITY | GLD | Gold | LONG | MED | Dollar uncertainty from fiscal expansion named explicitly; gold as debasement hedge | Fiscal deficit expansion → gold safe haven demand
+FX | FXY | Japanese Yen ETF | LONG | MED | Source cites BOJ pivot toward rate normalization, narrowing USD/JPY differential | BOJ tightening → JPY appreciation vs USD
+
+Output NONE if the source contains no clear macro signals.
+"""
+
+    today = __import__("datetime").date.today().isoformat()
+    cache_key = "macro_ideas"
+
+    # Collect summaries from target categories
+    input_parts = []
+    for source in all_sources:
+        if source.get("category") not in _TARGET_CATEGORIES:
+            continue
+        if source.get("type") in ("investor_summary", "ai_synthesis", "macro_synthesis"):
+            continue
+        name = source["name"]
+        cached = state.get("summaries", {}).get(name, {})
+        text = cached.get("text", "")
+        if not text:
+            continue
+        input_parts.append(f"### {name}\n{text[:1500]}")
+
+    if not input_parts:
+        return "*(No source summaries available for macro analysis)*"
+
+    combined = "\n\n".join(input_parts)[:12000]
+    input_hash = _hashlib.sha256(combined.encode()).hexdigest()[:16]
+
+    cached_out = state.get("summaries", {}).get(cache_key, {})
+    if cached_out.get("input_hash") == input_hash and cached_out.get("text"):
+        return cached_out["text"]
+
+    try:
+        resp = client.chat.completions.create(
+            model=GROQ_MODEL,
+            max_tokens=2000,
+            messages=[
+                {"role": "system", "content": MACRO_PROMPT},
+                {"role": "user",   "content": f"Source summaries:\n\n{combined}"},
+            ],
+        )
+        text = resp.choices[0].message.content.strip()
+    except Exception as e:
+        return f"*(Macro signal synthesis failed: {e})*"
+
+    state.setdefault("summaries", {})[cache_key] = {
+        "text": text,
+        "input_hash": input_hash,
+        "date": today,
+    }
+    return text
+
+
 def fetch_github_repos(source: dict, state: dict, cutoff: datetime) -> tuple:
     """
     Specialised fetcher for GitHub profile ?tab=repositories pages.
@@ -1897,6 +1996,87 @@ def _render_trade_signals(signals_text: str, market_data: dict = None) -> str:
     return html
 
 
+def _render_macro_signals(signals_text: str) -> str:
+    """
+    Parse macro signal lines and render an HTML block.
+
+    First line may be: THESIS: [one sentence macro regime view]
+    Then one signal per line (7 fields):
+      ASSET_CLASS | TICKER | Instrument | LONG/SHORT/SHORT_DURATION | conviction | Rationale | Macro Mechanism
+    """
+    if not signals_text or signals_text.strip().upper() == "NONE":
+        return ""
+
+    ASSET_COLORS = {
+        "RATES":        ("#1e40af", "#dbeafe", "#1e3a8a", "#bfdbfe"),  # blue
+        "FX":           ("#065f46", "#d1fae5", "#064e3b", "#a7f3d0"),  # green
+        "COMMODITY":    ("#92400e", "#fef3c7", "#78350f", "#fde68a"),  # amber
+        "CREDIT":       ("#6b21a8", "#f3e8ff", "#581c87", "#e9d5ff"),  # purple
+        "VOLATILITY":   ("#9f1239", "#ffe4e6", "#881337", "#fecdd3"),  # rose
+        "EQUITY_MACRO": ("#374151", "#f3f4f6", "#1f2937", "#e5e7eb"),  # gray
+    }
+
+    VALID_CLASSES = set(ASSET_COLORS.keys())
+    dir_color = {"LONG": "#16a34a", "SHORT": "#dc2626", "SHORT_DURATION": "#dc2626"}
+    conv_opacity = {"HIGH": "1", "MEDIUM": "0.85", "MED": "0.85", "LOW": "0.65"}
+
+    thesis = ""
+    rows = []
+    for line in signals_text.splitlines():
+        stripped = line.strip()
+        if stripped.upper().startswith("THESIS:"):
+            thesis = stripped[7:].strip()
+            continue
+        if not stripped or stripped.upper() == "NONE":
+            continue
+        parts = [p.strip() for p in stripped.split("|")]
+        if len(parts) < 5:
+            continue
+        asset_class = parts[0].upper()
+        if asset_class not in VALID_CLASSES:
+            continue
+        ticker    = parts[1] if len(parts) > 1 else ""
+        instr     = parts[2] if len(parts) > 2 else ""
+        direction = parts[3].upper() if len(parts) > 3 else ""
+        conviction= parts[4].upper() if len(parts) > 4 else ""
+        rationale = parts[5] if len(parts) > 5 else ""
+        mechanism = parts[6] if len(parts) > 6 else ""
+        if not ticker or not direction:
+            continue
+        rows.append((asset_class, ticker, instr, direction, conviction, rationale, mechanism))
+
+    if not rows and not thesis:
+        return ""
+
+    lt, lb, dt, db = "#1e3a8a", "#dbeafe", "#1e3a8a", "#bfdbfe"  # fallback colors
+    html = '<div class="trade-signals macro-signals">\n'
+    html += '<div class="trade-signals-header">🌍 Macro Signals</div>\n'
+    if thesis:
+        html += f'<div class="ts-thesis"><strong>Regime:</strong> {thesis}</div>\n'
+
+    for asset_class, ticker, instr, direction, conviction, rationale, mechanism in rows:
+        colors = ASSET_COLORS.get(asset_class, ASSET_COLORS["EQUITY_MACRO"])
+        lt, lb, dt, db = colors
+        d_color  = dir_color.get(direction, "#666")
+        opacity  = conv_opacity.get(conviction, "1")
+        dir_label = "SHORT DUR" if direction == "SHORT_DURATION" else direction
+
+        html += f'<div class="ts-row" style="opacity:{opacity}">\n'
+        html += f'  <span class="ts-badge" style="--lt:{lt};--lb:{lb};--dt:{dt};--db:{db}">{asset_class.replace("_", " ").title()}</span>\n'
+        html += f'  <span class="ts-ticker">{ticker}</span>\n'
+        html += f'  <span class="ts-company">{instr}</span>\n'
+        html += f'  <span class="ts-dir" style="color:{d_color}">{dir_label}</span>\n'
+        html += f'  <span class="ts-conv">{conviction.capitalize()}</span>\n'
+        if rationale:
+            html += f'  <div class="ts-rationale">{rationale}</div>\n'
+        if mechanism:
+            html += f'  <div class="ts-chain">{mechanism}</div>\n'
+        html += '</div>\n'
+
+    html += '</div>\n'
+    return html
+
+
 def build_html(date_str: str, results: list, state: dict = None) -> str:
     """
     results is a list of dicts with category field.
@@ -1977,16 +2157,21 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
                 block += f'<p class="error">{error}</p>\n'
 
             if summary:
-                # Split into bullets (always visible) and details (collapsible)
-                details_split = summary.split("**Details:**")
-                if len(details_split) == 2:
-                    bullets_md, details_md = details_split
-                    block += md_to_html_simple(bullets_md) + "\n"
-                    block += '<details class="details-fold"><summary>Details ▸</summary>\n'
-                    block += md_to_html_simple(details_md) + "\n"
-                    block += '</details>\n'
+                # Macro synthesis card: render via dedicated macro signal renderer
+                if r.get("source_type") == "macro_synthesis":
+                    macro_html = _render_macro_signals(summary)
+                    block += macro_html if macro_html else md_to_html_simple(summary) + "\n"
                 else:
-                    block += md_to_html_simple(summary) + "\n"
+                    # Split into bullets (always visible) and details (collapsible)
+                    details_split = summary.split("**Details:**")
+                    if len(details_split) == 2:
+                        bullets_md, details_md = details_split
+                        block += md_to_html_simple(bullets_md) + "\n"
+                        block += '<details class="details-fold"><summary>Details ▸</summary>\n'
+                        block += md_to_html_simple(details_md) + "\n"
+                        block += '</details>\n'
+                    else:
+                        block += md_to_html_simple(summary) + "\n"
             elif not error and not is_fresh:
                 if latest_title and latest_link:
                     block += f'<p class="quiet-note">Latest: <a href="{latest_link}">{latest_title}</a></p>\n'
@@ -2318,10 +2503,21 @@ def main():
 
         elif stype == "ai_synthesis":
             print(f"[ai_synthesis] {source['name']} ...")
-            # Run extraction so per-source signals are populated in state,
-            # then embedded inline in each source card by build_html.
-            # The standalone synthesis card is no longer shown.
             fetch_ai_trade_ideas(state, sources, client)
+            save_state(state)
+
+        elif stype == "macro_synthesis":
+            print(f"[macro_synthesis] {source['name']} ...")
+            macro_text = fetch_macro_ideas(state, sources, client)
+            cat = source.get("category", "AI Opinion Leaders")
+            results.append({
+                "name": source["name"],
+                "category": cat,
+                "summary": macro_text,
+                "source_type": "macro_synthesis",
+                "is_fresh": True,
+                "latest_date": date_str,
+            })
             save_state(state)
 
     # Always write index.html

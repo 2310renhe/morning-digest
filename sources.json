@@ -6,6 +6,12 @@
     "category": "AI Opinion Leaders"
   },
   {
+    "name": "Macro Signals",
+    "url": "",
+    "type": "macro_synthesis",
+    "category": "AI Opinion Leaders"
+  },
+  {
     "name": "SemiAnalysis",
     "url": "https://newsletter.semianalysis.com/feed",
     "type": "rss",
