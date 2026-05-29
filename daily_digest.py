@@ -1473,6 +1473,9 @@ Output NONE if the source contains no clear macro signals.
     if not input_parts:
         return "*(No source summaries available for macro analysis)*"
 
+    import time as _time
+    _time.sleep(5)  # let per-source extraction TPM budget recover before this large call
+
     combined = "\n\n".join(input_parts)[:12000]
     input_hash = _hashlib.sha256(combined.encode()).hexdigest()[:16]
 
@@ -1480,18 +1483,31 @@ Output NONE if the source contains no clear macro signals.
     if cached_out.get("input_hash") == input_hash and cached_out.get("text"):
         return cached_out["text"]
 
-    try:
-        resp = client.chat.completions.create(
-            model=GROQ_MODEL,
-            max_tokens=2000,
-            messages=[
-                {"role": "system", "content": MACRO_PROMPT},
-                {"role": "user",   "content": f"Source summaries:\n\n{combined}"},
-            ],
-        )
-        text = resp.choices[0].message.content.strip()
-    except Exception as e:
-        return f"*(Macro signal synthesis failed: {e})*"
+    import time as _time
+    text = None
+    for _attempt in range(2):
+        try:
+            resp = client.chat.completions.create(
+                model=GROQ_MODEL,
+                max_tokens=2000,
+                messages=[
+                    {"role": "system", "content": MACRO_PROMPT},
+                    {"role": "user",   "content": f"Source summaries:\n\n{combined}"},
+                ],
+            )
+            text = resp.choices[0].message.content.strip()
+            break
+        except Exception as e:
+            if "429" in str(e) and _attempt == 0:
+                print(f"  [macro] rate limit hit, waiting 30s before retry...")
+                _time.sleep(30)
+            else:
+                err_msg = f"*(Macro signal synthesis failed: {e})*"
+                # Cache the error so we don't retry every run; will re-run when summaries change
+                state.setdefault("summaries", {})[cache_key] = {
+                    "text": err_msg, "input_hash": input_hash, "date": today
+                }
+                return err_msg
 
     state.setdefault("summaries", {})[cache_key] = {
         "text": text,
