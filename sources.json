@@ -191,6 +191,12 @@
     "category": "Investor Positioning"
   },
   {
+    "name": "FinAnEx – SUFE Finance Research Forum",
+    "url": "https://finanex.sufe.edu.cn",
+    "type": "web",
+    "category": "Research"
+  },
+  {
     "name": "Arxiv – Trading & Market Microstructure (q-fin.TR)",
     "url": "https://rss.arxiv.org/rss/q-fin.TR",
     "type": "rss",
