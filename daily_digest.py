@@ -415,6 +415,12 @@ def _fetch_market_data(tickers: list, session: requests.Session) -> dict:
     from datetime import datetime as _dt
     import time as _time
 
+    # Known ticker corrections (e.g. Taiwan Semi trades as TSM on US exchanges, not TSMC)
+    _TICKER_MAP = {"TSMC": "TSM"}
+    # Apply corrections and drop clearly invalid tickers
+    _INVALID = {"NONE", "N/A", "NA", "", "TBD"}
+    tickers = [_TICKER_MAP.get(t, t) for t in tickers if t.upper() not in _INVALID and t.strip()]
+
     result = {t: {"ytd": "—", "ytd_pct": None, "fwd_pe": "—"} for t in tickers}
     if not tickers:
         return result
@@ -1413,10 +1419,12 @@ def fetch_macro_ideas(state: dict, all_sources: list, client) -> str:
     """
     import hashlib as _hashlib
 
-    _TARGET_CATEGORIES = {"AI Opinion Leaders", "Institutional Podcasts"}
+    _TARGET_CATEGORIES = {"AI Opinion Leaders", "Institutional Podcasts", "Investor Positioning", "Research"}
 
     MACRO_PROMPT = """\
-You are a global macro portfolio manager. Extract macro trade signals from the source summaries below.
+You are a global macro portfolio manager reading a daily digest of AI/tech news, institutional podcasts, \
+hedge fund positioning (13F filings), and research. Your job is to synthesize a macro regime view \
+and actionable macro trade signals from this aggregate picture.
 
 MACRO INSTRUMENTS ONLY — no individual stocks. Valid asset classes:
   RATES      — duration (TLT, IEF, SHY, TBT), yield curve (steepener/flattener), TIPS (inflation)
@@ -1426,48 +1434,73 @@ MACRO INSTRUMENTS ONLY — no individual stocks. Valid asset classes:
   VOLATILITY — vol products (VXX, UVXY, SVXY)
   EQUITY_MACRO — broad index or sector ETFs only (SPY, QQQ, SMH, XLE, XLF — not individual names)
 
-WHAT QUALIFIES:
-  • Macro regime signals: inflation expectations, rate path, dollar strength/weakness, risk-on/off
-  • Commodity demand/supply driven by a specific named dynamic in the source
-  • Credit cycle signals: spread widening/tightening based on named catalyst
-  • FX driven by rate differentials, capital flows, or policy named in the source
+HOW TO EXTRACT:
+  DIRECT — a source explicitly discusses a macro instrument, policy rate, currency, or commodity dynamic.
+  INDIRECT — aggregate tech/market themes imply a macro regime:
+    • Unanimous AI capex boom across sources → power/energy demand rising → XLE or UNG LONG
+    • Risk-on tone across all sources (no recession fear, strong earnings) → vol compressed → SVXY LONG or VXX SHORT
+    • US tech dominance narratives → USD strength → UUP LONG
+    • Major hedge funds heavily long tech (from 13F data) → concentrated equity positioning → risk of sharp unwind → VXX hedge
+    • AI compute race driving data center power → carbon/energy → commodity implications
+    • Tariff/trade war narratives → EM currency stress → EEM SHORT or DXY LONG
+  INVESTOR POSITIONING — use 13F holdings to infer macro regime:
+    • Funds concentrated in tech/growth → risk-on, low credit spreads
+    • Large gold or commodity positions → inflation hedge, uncertainty
+    • Heavy short via puts on ETFs → hedged, risk-off signal
 
-WHAT DOES NOT QUALIFY:
-  • Anything that requires knowing a specific company's earnings or product roadmap
-  • Generic "AI is growing" → any commodity or ETF
-  • Signals with no traceable macro mechanism in the source text
+RULES:
+  • Always output a THESIS — your one-sentence macro regime view from the day's aggregate picture.
+  • Aim for 3–6 signals. Better to have 3 grounded signals than 6 thin ones.
+  • Each signal needs a traceable reason from the sources — quote or paraphrase.
+  • No individual stock names. No "it depends." Take a position.
 
-Specificity test: only output a signal if you can state:
-"Because [source] specifically says [X], the macro implication for [ASSET CLASS] is [Y] via [Z mechanism]."
-
-OUTPUT — first line THESIS (one sentence macro regime view), then one signal per line, 7 fields:
+OUTPUT — first line THESIS, then one signal per line, 7 fields:
 ASSET_CLASS | TICKER | Instrument Name | LONG/SHORT | HIGH/MED/LOW | RATIONALE | MACRO_MECHANISM
 
-Example output:
-THESIS: Fed hold + sticky services inflation keeps real rates elevated, pressuring duration.
+Example:
+THESIS: Massive AI capex + risk-on positioning → energy demand rising, vol depressed, USD bid.
 RATES | TBT | ProShares UltraShort 20+ Yr Treasury | SHORT_DURATION | HIGH | Source cites persistent services CPI at 4.2%; no Fed cuts expected until Q4 | Sticky inflation → rates stay higher → short duration outperforms
-COMMODITY | GLD | Gold | LONG | MED | Dollar uncertainty from fiscal expansion named explicitly; gold as debasement hedge | Fiscal deficit expansion → gold safe haven demand
-FX | FXY | Japanese Yen ETF | LONG | MED | Source cites BOJ pivot toward rate normalization, narrowing USD/JPY differential | BOJ tightening → JPY appreciation vs USD
-
-Output NONE if the source contains no clear macro signals.
+COMMODITY | GLD | Gold | LONG | MED | Druckenmiller 13F shows large gold position; fiscal expansion named explicitly | Fiscal deficit expansion → debasement hedge
+FX | UUP | Invesco DB USD Bullish ETF | LONG | MED | AI investment boom disproportionately US-based → capital inflows to USD assets | US tech capex surge → USD demand
+VOLATILITY | SVXY | ProShares Short VIX | LONG | MED | No bearish macro catalysts mentioned across any source; risk-on tone dominant | Suppressed vol environment from broad risk-on regime
 """
 
     today = __import__("datetime").date.today().isoformat()
     cache_key = "macro_ideas"
 
-    # Collect summaries from target categories
+    # Collect summaries — prioritize macro-relevant categories first so they survive the char cap
+    _CATEGORY_PRIORITY = {
+        "Institutional Podcasts": 0,  # Odd Lots, Goldman, BlackRock, Money Stuff — most macro
+        "Investor Positioning":   1,  # 13F filings, Pelosi trades — actual positioning data
+        "AI Opinion Leaders":     2,  # AI blogs/podcasts — indirect macro signals
+        "Research":               3,  # Arxiv — lowest priority for macro
+    }
+    sorted_sources = sorted(
+        all_sources,
+        key=lambda s: _CATEGORY_PRIORITY.get(s.get("category", ""), 9),
+    )
+
     input_parts = []
-    for source in all_sources:
+    for source in sorted_sources:
         if source.get("category") not in _TARGET_CATEGORIES:
             continue
-        if source.get("type") in ("investor_summary", "ai_synthesis", "macro_synthesis"):
+        stype = source.get("type", "")
+        # Skip synthesis sources (circular); investor_summary has no state cache
+        if stype in ("ai_synthesis", "macro_synthesis", "investor_summary"):
             continue
         name = source["name"]
-        cached = state.get("summaries", {}).get(name, {})
+        # 13F and congress trades use prefixed cache keys
+        if stype == "sec13f":
+            cache_key_lookup = f"13f_{name}"
+        elif stype == "congress_trades":
+            cache_key_lookup = f"congress_{name}"
+        else:
+            cache_key_lookup = name
+        cached = state.get("summaries", {}).get(cache_key_lookup, {})
         text = cached.get("text", "")
         if not text:
             continue
-        input_parts.append(f"### {name}\n{text[:1500]}")
+        input_parts.append(f"### {name}\n{text[:1200]}")
 
     print(f"  [macro] {len(input_parts)} source summaries collected for macro analysis")
     if not input_parts:
@@ -1476,7 +1509,7 @@ Output NONE if the source contains no clear macro signals.
     import time as _time
     _time.sleep(5)  # let per-source extraction TPM budget recover before this large call
 
-    combined = "\n\n".join(input_parts)[:8000]
+    combined = "\n\n".join(input_parts)[:10000]
     input_hash = _hashlib.sha256(combined.encode()).hexdigest()[:16]
 
     cached_out = state.get("summaries", {}).get(cache_key, {})
@@ -1723,6 +1756,10 @@ def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
     try:
         headers = {"User-Agent": "Mozilla/5.0 (compatible; DailyDigestBot/1.0)"}
         resp = requests.get(source["url"], timeout=15, headers=headers)
+        if resp.status_code == 403:
+            # Retry with Googlebot UA — bypasses some bot-detection filters
+            headers = {"User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"}
+            resp = requests.get(source["url"], timeout=15, headers=headers)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
