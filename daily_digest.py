@@ -566,6 +566,16 @@ def fetch_13f(source: dict, state: dict) -> tuple:
                 and cached.get("ytd_date") == today_str):
             return cached["text"], filing_date, filing_url, None
 
+        # Detect new filing — save previous positions for change tracking
+        is_new_filing = not cached or cached.get("filing_url") != filing_url
+        if is_new_filing and cached and cached.get("positions"):
+            prev_positions   = cached["positions"]
+            prev_filing_date = cached.get("date", "")
+        else:
+            # Same filing, just refreshing market data — carry forward existing prev data
+            prev_positions   = (cached or {}).get("prev_positions", [])
+            prev_filing_date = (cached or {}).get("prev_filing_date", "")
+
         # Step 2: Find the XML holdings file from the filing index
         # Collect all candidate XML links, prefer the plain one (not XSL-wrapped)
         resp2 = requests.get(filing_url, headers={"User-Agent": ua}, timeout=15)
@@ -729,10 +739,47 @@ def fetch_13f(source: dict, state: dict) -> tuple:
 
         text = "\n".join(lines)
 
+        # ── Position change summary vs previous filing ─────────────────────────
+        if prev_positions and positions_data and prev_filing_date != filing_date:
+            prev_map   = {p["ticker"]: p for p in prev_positions if p.get("ticker")}
+            curr_map   = {p["ticker"]: p for p in positions_data  if p.get("ticker")}
+            prev_tot_k = sum(p["value_k"] for p in prev_positions) or 1
+            curr_tot_k = total_k or 1
+
+            prev_pct = {t: p["value_k"] / prev_tot_k * 100 for t, p in prev_map.items()}
+            curr_pct = {t: p["value_k"] / curr_tot_k * 100 for t, p in curr_map.items()}
+
+            new_pos   = [(t, curr_map[t]) for t in curr_map if t not in prev_map]
+            elim_pos  = [(t, prev_map[t]) for t in prev_map if t not in curr_map]
+            increased = [(t, curr_pct[t] - prev_pct[t]) for t in curr_map
+                         if t in prev_map and curr_pct[t] - prev_pct[t] > 0.5]
+            reduced   = [(t, prev_pct[t] - curr_pct[t]) for t in curr_map
+                         if t in prev_map and prev_pct[t] - curr_pct[t] > 0.5]
+            increased.sort(key=lambda x: x[1], reverse=True)
+            reduced.sort(key=lambda x: x[1], reverse=True)
+
+            chg_parts = []
+            if new_pos:
+                items = ", ".join(f"{curr_map[t]['name']} ({t})" for t, _ in new_pos[:5])
+                chg_parts.append(f"🆕 **New:** {items}")
+            if elim_pos:
+                items = ", ".join(f"{p['name']} ({t})" for t, p in elim_pos[:5])
+                chg_parts.append(f"❌ **Eliminated:** {items}")
+            if increased[:3]:
+                items = ", ".join(f"{curr_map[t]['name']} ({t}) +{d:.1f}pp" for t, d in increased[:3])
+                chg_parts.append(f"⬆️ **Increased:** {items}")
+            if reduced[:3]:
+                items = ", ".join(f"{curr_map[t]['name']} ({t}) −{d:.1f}pp" for t, d in reduced[:3])
+                chg_parts.append(f"⬇️ **Reduced:** {items}")
+
+            if chg_parts:
+                text += f"\n\n**Changes vs {prev_filing_date} filing:**\n" + "\n".join(chg_parts)
+
         state.setdefault("summaries", {})[cache_key] = {
             "text": text, "date": filing_date, "filing_url": filing_url,
             "ticker_map": ticker_map, "market_data": market_data,
             "ytd_date": today_str, "positions": positions_data,
+            "prev_positions": prev_positions, "prev_filing_date": prev_filing_date,
         }
 
         return text, filing_date, filing_url, None
@@ -1443,13 +1490,17 @@ HOW TO EXTRACT:
     • Major hedge funds heavily long tech (from 13F data) → concentrated equity positioning → risk of sharp unwind → VXX hedge
     • AI compute race driving data center power → carbon/energy → commodity implications
     • Tariff/trade war narratives → EM currency stress → EEM SHORT or DXY LONG
-  INVESTOR POSITIONING — use 13F holdings to infer macro regime:
-    • Funds concentrated in tech/growth → risk-on, low credit spreads
-    • Large gold or commodity positions → inflation hedge, uncertainty
-    • Heavy short via puts on ETFs → hedged, risk-off signal
-    • IMPORTANT: only use positions that ARE held. Never infer a bearish signal from the
-      absence of a position (e.g., "fund X has no gold" is NOT a signal — funds hold
-      thousands of eligible assets and omission means nothing).
+  INVESTOR POSITIONING — use 13F holdings and filing-to-filing CHANGES to infer macro regime:
+    • Large gold/commodity positions → inflation hedge, uncertainty
+    • Concentration in tech/growth → risk-on, low credit spreads
+    • Puts on broad ETFs → hedged/risk-off
+    • **Changes between filings are the highest-signal data** — when a macro fund adds or
+      eliminates a position, that is a directional conviction call:
+        "New: GLD" → fund turned bullish on gold → LONG GLD signal
+        "Eliminated: TLT" → fund exited duration → SHORT_DURATION signal
+        "Increased: UUP +3pp" → fund adding USD exposure → LONG UUP signal
+    • IMPORTANT: only use positions that ARE held or changes that ARE recorded.
+      Never infer a bearish signal from the absence of a position.
 
 RULES:
   • Always output a THESIS — your one-sentence macro regime view from the day's aggregate picture.
