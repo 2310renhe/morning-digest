@@ -1447,6 +1447,9 @@ HOW TO EXTRACT:
     • Funds concentrated in tech/growth → risk-on, low credit spreads
     • Large gold or commodity positions → inflation hedge, uncertainty
     • Heavy short via puts on ETFs → hedged, risk-off signal
+    • IMPORTANT: only use positions that ARE held. Never infer a bearish signal from the
+      absence of a position (e.g., "fund X has no gold" is NOT a signal — funds hold
+      thousands of eligible assets and omission means nothing).
 
 RULES:
   • Always output a THESIS — your one-sentence macro regime view from the day's aggregate picture.
@@ -1744,6 +1747,129 @@ def fetch_x_profile(source: dict, state: dict, cutoff: datetime) -> tuple:
         last_items[source["url"]] = fallback
 
     return new_items, fallback, None
+
+
+def fetch_web_articles(source: dict, state: dict) -> tuple:
+    """
+    Listing-page fetcher: scrapes a page for article links matching link_pattern,
+    fetches each new article's full content, and returns individual items.
+
+    Used for sites like SUFE FinAnEx that list articles linking to WeChat/external pages.
+
+    source config:
+      "link_pattern" : substring that article hrefs must contain (e.g. "mp.weixin.qq.com")
+      "max_articles" : max articles to fetch per run (default 3)
+      "article_ua"   : optional UA for fetching articles (default: MicroMessenger mobile)
+    """
+    seen_ids  = state["seen"]
+    last_items = state["last_items"]
+    link_pattern  = source.get("link_pattern", "")
+    max_articles  = source.get("max_articles", 3)
+    listing_ua    = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+    article_ua    = source.get("article_ua") or (
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
+        "AppleWebKit/605.1.15 (KHTML, like Gecko) "
+        "Mobile/15E148 MicroMessenger/8.0.47 Safari/604.1"
+    )
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    try:
+        # ── Step 1: fetch listing page ────────────────────────────────────────
+        resp = requests.get(source["url"], headers={"User-Agent": listing_ua}, timeout=15)
+        if resp.status_code == 403:
+            resp = requests.get(source["url"], headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        resp.raise_for_status()
+        resp.encoding = resp.encoding or "utf-8"
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        # ── Step 2: extract article links ─────────────────────────────────────
+        seen_hrefs = set()
+        candidates = []
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if not href.startswith("http"):
+                href = urljoin(source["url"], href)
+            if link_pattern and link_pattern not in href:
+                continue
+            if href in seen_hrefs:
+                continue
+            seen_hrefs.add(href)
+            title = a.get_text(strip=True)
+            candidates.append((href, title))
+
+        # ── Step 3: fetch new articles ────────────────────────────────────────
+        new_items = []
+        fallback  = None
+        fetched   = 0
+
+        # Build fallback from last stored
+        stored = last_items.get(source["url"], {})
+        if stored.get("title"):
+            fallback = {
+                "id": stored.get("id", source["url"]),
+                "title": stored["title"],
+                "link":  stored.get("link", source["url"]),
+                "content": stored.get("content", ""),
+                "pub_date": stored.get("pub_date", today),
+            }
+
+        for href, raw_title in candidates:
+            item_id = f"web_article:{href}"
+            if item_id in seen_ids:
+                continue
+            if fetched >= max_articles:
+                break
+
+            # Fetch article
+            try:
+                art = requests.get(href, headers={"User-Agent": article_ua}, timeout=20)
+                art.encoding = art.encoding or "utf-8"
+                art.raise_for_status()
+                art_soup = BeautifulSoup(art.text, "html.parser")
+                # WeChat content div; fall back to article/main/body
+                cdiv = (art_soup.find(id="js_content")
+                        or art_soup.find(class_="rich_media_content")
+                        or art_soup.find("article")
+                        or art_soup.find("main"))
+                if cdiv:
+                    content = cdiv.get_text(separator="\n", strip=True)
+                else:
+                    for tag in art_soup(["script", "style", "nav", "footer"]):
+                        tag.decompose()
+                    content = art_soup.get_text(separator="\n", strip=True)
+                content = "\n".join(l for l in content.splitlines() if l.strip())[:20000]
+                title = (art_soup.title.string.strip()
+                         if art_soup.title and art_soup.title.string else raw_title)
+            except Exception as e:
+                content = raw_title   # bare minimum
+                title   = raw_title
+
+            item = {
+                "id":       item_id,
+                "title":    title,
+                "link":     href,
+                "content":  content,
+                "pub_date": today,
+            }
+            seen_ids.add(item_id)
+            new_items.append(item)
+            fetched += 1
+
+            # Update fallback to the most recent article we fetched
+            if fetched == 1:
+                last_items[source["url"]] = {
+                    "id":       item_id,
+                    "title":    title,
+                    "link":     href,
+                    "content":  content[:500],
+                    "pub_date": today,
+                }
+                fallback = item
+
+        return new_items, fallback, None
+
+    except Exception as e:
+        return [], None, str(e)
 
 
 def fetch_web(source: dict, state: dict, cutoff: datetime) -> tuple:
@@ -2456,6 +2582,8 @@ def main():
             new_items, fallback, err = fetch_rss(source, state, cutoff)
         elif stype == "x_profile":
             new_items, fallback, err = fetch_x_profile(source, state, cutoff)
+        elif stype == "web_articles":
+            new_items, fallback, err = fetch_web_articles(source, state)
         elif stype == "web" and "github.com" in source["url"] and "tab=repositories" in source["url"]:
             new_items, fallback, err = fetch_github_repos(source, state, cutoff)
         else:

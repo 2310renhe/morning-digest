@@ -193,8 +193,10 @@
   {
     "name": "FinAnEx – SUFE Finance Research Forum",
     "url": "https://finanex.sufe.edu.cn",
-    "type": "web",
-    "category": "Research"
+    "type": "web_articles",
+    "category": "Research",
+    "link_pattern": "mp.weixin.qq.com",
+    "max_articles": 3
   },
   {
     "name": "Arxiv – Trading & Market Microstructure (q-fin.TR)",
