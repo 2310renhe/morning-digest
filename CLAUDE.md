@@ -36,7 +36,7 @@ daily_digest.py       -- main script: fetch -> dedupe -> summarize -> render -> 
 
 | Category | Sources | Description |
 |----------|---------|-------------|
-| AI Opinion Leaders | 13 | AI Trade Ideas synthesis card + blogs, newsletters, GitHub repos (Karpathy, SemiAnalysis, Zvi, Scott Alexander, Ethan Mollick, Simon Willison, Dario Amodei, Jack Clark, Andrew Ng, Garry Tan) |
+| AI Opinion Leaders | 11 | AI Trade Ideas synthesis card + blogs, newsletters (SemiAnalysis, Karpathy, Zvi, Scott Alexander, Ethan Mollick, Simon Willison, Dario Amodei, Jack Clark, Andrew Ng) |
 | Investor Positioning | 7 | Cross-investor summary card + SEC 13F filings (SALP, Druckenmiller, Coatue, Tiger Global) + House PTR/FD (Pelosi) |
 | Institutional Views | 4 | Podcasts (Odd Lots, Goldman Sachs Exchanges, BlackRock The Bid, Money Stuff) |
 | Tech & AI Podcasts | 4 | Podcasts (All-In, AI+a16z, Lex Fridman, Latent Space) |

@@ -67,8 +67,8 @@
   },
   {
     "name": "The Batch – Andrew Ng (DeepLearning.AI)",
-    "url": "https://www.deeplearning.ai/the-batch/",
-    "type": "web",
+    "url": "https://rsshub.bestblogs.dev/deeplearning/the-batch",
+    "type": "rss",
     "category": "AI Opinion Leaders"
   },
   {
@@ -101,18 +101,6 @@
     "type": "x_profile",
     "category": "AI Opinion Leaders",
     "x_username": "aleabitoreddit"
-  },
-  {
-    "name": "Andrej Karpathy – GitHub Repos",
-    "url": "https://github.com/karpathy?tab=repositories",
-    "type": "web",
-    "category": "GitHub Activity"
-  },
-  {
-    "name": "Garry Tan – GitHub Repos",
-    "url": "https://github.com/garrytan?tab=repositories",
-    "type": "web",
-    "category": "GitHub Activity"
   },
   {
     "name": "Signals & Threads (Jane Street)",

@@ -221,7 +221,6 @@
     "https://www.latent.space/p/ainews-claude-tag-multiplayer-proactive",
     "oai:arXiv.org:2605.10400v1",
     "x:2070413682996347069",
-    "https://www.deeplearning.ai/the-batch/#45a80ed0a567a3fc",
     "oai:arXiv.org:2605.30363v1",
     "x:2073467493998555192",
     "https://simonwillison.net/2026/May/20/tokens-per-second/#atom-everything",
@@ -761,7 +760,6 @@
     "https://www.astralcodexten.com/p/never-cross-a-river-four-feet-deep",
     "https://www.latent.space/p/ainews-midjourney-medical-scan-your",
     "oai:arXiv.org:2307.09077v2",
-    "https://www.deeplearning.ai/the-batch/#0a5413735bc9b027",
     "https://newsletter.semianalysis.com/p/inside-the-800vdc-revolution-part",
     "oai:arXiv.org:2507.15437v3",
     "2cddec97-5995-4812-abea-b44b016dc69f",
@@ -868,7 +866,6 @@
     "x:2069089871075905545",
     "oai:arXiv.org:2605.06688v1",
     "x:2067896191338311750",
-    "https://www.deeplearning.ai/the-batch/#3e995e67cd12bd91",
     "f0eded00-102b-4d07-a079-f6f4492ecbdf",
     "oai:arXiv.org:2605.22667v2",
     "github:karpathy/nanochat:2026-07-02",
@@ -1124,7 +1121,6 @@
     "x:2068269343033655490",
     "https://simonwillison.net/2026/May/15/sighting-361818285/#atom-everything",
     "x:2069655980456149142",
-    "https://www.deeplearning.ai/the-batch/#464a96d1f8026f3a",
     "oai:arXiv.org:2605.17724v1",
     "oai:arXiv.org:2605.24242v2",
     "x:2063583856025108986",
@@ -1195,158 +1191,6 @@
     "https://darioamodei.com/": {
       "title": "Dario Amodei",
       "date": "2026-06-11"
-    },
-    "https://www.deeplearning.ai/the-batch/": {
-      "title": "The Batch | DeepLearning.AI | AI News & Insights",
-      "date": "2026-05-29"
-    },
-    "https://github.com/karpathy?tab=repositories:repos": {
-      "karpathy/nanochat": {
-        "updated": "2026-07-04T18:18:25Z"
-      },
-      "karpathy/karpathy.github.io": {
-        "updated": "2026-04-10T23:50:09Z"
-      },
-      "karpathy/autoresearch": {
-        "updated": "2026-03-26T00:07:37Z"
-      },
-      "karpathy/jobs": {
-        "updated": "2026-03-16T04:05:24Z"
-      },
-      "karpathy/rustbpe": {
-        "updated": "2026-01-03T22:24:54Z"
-      },
-      "karpathy/cpython": {
-        "updated": "2025-12-19T06:13:32Z"
-      },
-      "karpathy/hn-time-capsule": {
-        "updated": "2025-12-10T16:59:29Z"
-      },
-      "karpathy/llm-council": {
-        "updated": "2025-11-22T23:35:21Z"
-      },
-      "karpathy/reader3": {
-        "updated": "2025-11-18T02:37:51Z"
-      },
-      "karpathy/nanoGPT": {
-        "updated": "2025-11-12T19:52:34Z"
-      },
-      "karpathy/rendergit": {
-        "updated": "2025-08-21T19:12:34Z"
-      },
-      "karpathy/llm.c": {
-        "updated": "2025-06-26T17:03:40Z"
-      },
-      "karpathy/nn-zero-to-hero": {
-        "updated": "2024-08-18T12:16:26Z"
-      },
-      "karpathy/minGPT": {
-        "updated": "2024-08-15T04:09:40Z"
-      },
-      "karpathy/build-nanogpt": {
-        "updated": "2024-08-13T12:28:52Z"
-      },
-      "karpathy/micrograd": {
-        "updated": "2024-08-08T12:54:44Z"
-      },
-      "karpathy/llama2.c": {
-        "updated": "2024-08-06T09:44:40Z"
-      },
-      "karpathy/LLM101n": {
-        "updated": "2024-08-01T01:20:33Z"
-      },
-      "karpathy/minbpe": {
-        "updated": "2024-07-01T14:20:22Z"
-      },
-      "karpathy/makemore": {
-        "updated": "2024-06-04T19:32:27Z"
-      },
-      "karpathy/calorie": {
-        "updated": "2024-05-30T18:08:16Z"
-      },
-      "karpathy/lecun1989-repro": {
-        "updated": "2024-02-03T23:42:16Z"
-      },
-      "karpathy/ng-video-lecture": {
-        "updated": "2024-01-31T13:43:36Z"
-      },
-      "karpathy/char-rnn": {
-        "updated": "2023-10-24T17:15:27Z"
-      },
-      "karpathy/notpygamejs": {
-        "updated": "2023-10-17T14:11:25Z"
-      },
-      "karpathy/researchpooler": {
-        "updated": "2023-09-01T20:21:55Z"
-      },
-      "karpathy/karpathy": {
-        "updated": "2023-07-25T02:26:54Z"
-      },
-      "karpathy/arxiv-sanity-lite": {
-        "updated": "2023-06-19T16:23:02Z"
-      },
-      "karpathy/randomfun": {
-        "updated": "2023-04-18T17:49:08Z"
-      },
-      "karpathy/convnetjs": {
-        "updated": "2023-01-07T21:33:23Z"
-      }
-    },
-    "https://github.com/garrytan?tab=repositories:repos": {
-      "garrytan/gbrain": {
-        "updated": "2026-07-02T17:53:00Z"
-      },
-      "garrytan/gstack": {
-        "updated": "2026-06-25T16:42:45Z"
-      },
-      "garrytan/openclaw-render-template": {
-        "updated": "2026-06-17T16:12:17Z"
-      },
-      "garrytan/alphaclaw": {
-        "updated": "2026-06-17T16:06:20Z"
-      },
-      "garrytan/gbrain-evals": {
-        "updated": "2026-06-13T17:45:01Z"
-      },
-      "garrytan/openclaw": {
-        "updated": "2026-04-20T22:57:18Z"
-      },
-      "garrytan/resend_robot": {
-        "updated": "2026-03-17T23:24:23Z"
-      },
-      "garrytan/Timber": {
-        "updated": "2015-02-19T02:06:14Z"
-      },
-      "garrytan/zurb-foundation-wysihtml5": {
-        "updated": "2014-02-14T18:05:26Z"
-      },
-      "garrytan/rubber": {
-        "updated": "2012-07-30T07:12:42Z"
-      },
-      "garrytan/protomultiselect": {
-        "updated": "2012-07-18T20:27:16Z"
-      },
-      "garrytan/tinymce": {
-        "updated": "2010-05-19T22:22:36Z"
-      },
-      "garrytan/mongomapper": {
-        "updated": "2009-09-29T23:19:25Z"
-      },
-      "garrytan/ebayapi": {
-        "updated": "2009-08-18T22:01:18Z"
-      },
-      "garrytan/liquid": {
-        "updated": "2009-01-16T14:55:18Z"
-      },
-      "garrytan/thinking-sphinx": {
-        "updated": "2009-01-16T11:55:10Z"
-      },
-      "garrytan/spawn": {
-        "updated": "2008-12-28T12:25:43Z"
-      },
-      "garrytan/oembed_links": {
-        "updated": "2008-11-21T14:55:32Z"
-      }
     },
     "x_uid:aleabitoreddit": {},
     "https://x.com/aleabitoreddit": {
@@ -1710,10 +1554,6 @@
       "text": "**New this period:**\n- Andrej Karpathy collaborates with MoMath on a monthly puzzle series, including a recent puzzle about 100 random chords and their intersections.\n\n**Details:**\n**100 random chords, how many intersections? (https://www.youtube.com/shorts/wGffBCfrAsE)**\n- The core claim of this piece is exploring geometric probability through a puzzle about random chords and their intersections.\n- MoMath is the collaborating organization, with Andrej Karpathy as the presenter.\n- No specific companies, other than MoMath, or quantitative figures are mentioned in the context of the puzzle itself.\n- No supply chain or value chain relationships, technology transitions, or competitive shifts are described in this piece.",
       "date": "2026-06-16"
     },
-    "Andrej Karpathy \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Andrej Karpathy updates nanochat, a low-cost ChatGPT alternative.\n\n**Details:**\n**nanochat (https://github.com/karpathy/nanochat)**\n- The nanochat project is described as the best ChatGPT that $100 can buy, implying a cost-effective solution.\n- Andrej Karpathy is the developer behind the nanochat project.\n- The project is positioned as a low-cost alternative to ChatGPT.\n- No specific companies are mentioned beyond the implication of ChatGPT, which is a product of OpenAI, although OpenAI is not explicitly named.\n- The cost of $100 is the only quantitative figure mentioned, representing the budget within which the best ChatGPT can be purchased according to the project's description.\n- No supply chain or value chain relationships are explicitly described.\n- The technology transition hinted at involves moving towards more affordable or accessible ChatGPT solutions, but specific details on the transition timeline or implications are not provided.",
-      "date": "2026-07-04"
-    },
     "Zvi Mowshowitz \u2013 Don't Worry About the Vase": {
       "text": "**New this period:**\n- The blip is over, according to Zvi Mowshowitz.\n\n**Details:**\n**Fable #6: The Return of the King (https://thezvi.substack.com/p/fable-6-the-return-of-the-king)**\n- The author, Zvi Mowshowitz, states that the blip is over, without specifying what the blip refers to or providing further context.\n- No companies, products, or technologies are explicitly named in the provided text.\n- No quantitative figures, supply chain or value chain relationships, or technology transitions are described in the given text.\n- The text does not provide any investment-relevant specifics or details about demand/supply dynamics, competitive positioning, or capital allocation signals.",
       "date": "2026-07-03"
@@ -1733,10 +1573,6 @@
     "Import AI \u2013 Jack Clark": {
       "text": "**New this period:**\n- NVIDIA develops ENPIRE, a software framework for self-improving robots, allowing autonomous experimentation and execution in the physical world.\n- Researchers highlight the difficulty of predicting technology development and its impacts, citing historical examples of incorrect predictions.\n- Tencent releases details on ARGUS, a software system for tracing and debugging large-scale AI training workloads on over 10,000 GPUs.\n- A critique of the AI endeavor suggests that disempowerment of humans may be inevitable with the development of superintelligent machines.\n- Researchers introduce the Local Ordinance Corpus, a comprehensive dataset of US municipal and county ordinance codes for AI systems.\n\n**Details:**\n**Import AI 463 (https://jack-clark.net/2026/06/29/import-ai-463-self-improving-robots-a-10k-chinese-gpu-cluster-and-an-elegiac-essay-for-the-human-era/)**\n- NVIDIA develops ENPIRE, a software framework for self-improving robots, with four core modules: Environment, Policy Improvement, Rollout, and Evolution.\n- ENPIRE uses NVIDIA RTX 5090 workstations and YAM (Yet Another Manipulator) arms from I2RT.\n- The system achieves a 99% success rate on tasks like PushT and organizing pins into a pin box.\n- GPT-5.5, Codex, Opus 4.7, and Kimi-2.6 are mentioned as AI systems used in the research.\n- Researchers from the University of Utah S.J. Quinney College of Law discuss the difficulty of predicting technology development and its impacts.\n- Tencent releases details on ARGUS, a software system for tracing and debugging large-scale AI training workloads on over 10,000 GPUs.\n- ARGUS consists of three layers: Python, framework, and GPU runtime, and has been deployed on a production cluster for over six months.\n- The Local Ordinance Corpus (LOCUS) is introduced, containing ~2.2 million rows of data on US municipal and county ordinance codes.\n- Fernando Borretti writes a critique of the AI endeavor, suggesting that disempowerment of humans may be inevitable with the development of superintelligent machines.\n- Quantitative figures: 10,000 GPUs, 4,096-GPU video language model training job, 512-GPU audio-model training job, 12,960-GPU MoE training job, 99% success rate, ~2.2 million rows of data.\n- Supply chain and value chain relationships: NVIDIA (developer of ENPIRE), I2RT (provider of YAM arms), Tencent (developer of ARGUS), UC Berkeley (researcher on LOCUS).\n- Technology transitions: ENPIRE enables self-improving robots, ARGUS facilitates large-scale AI training workloads, LOCUS provides a unified view into local laws for AI systems.\n- Competitive positioning: NVIDIA, Tencent, and UC Berkeley are positioned as leaders in AI research and development.\n- Capital allocation signals: NVIDIA invests in ENPIRE, Tencent invests in ARGUS, UC Berkeley invests in LOCUS.\n- Regulatory or policy signals: The Local Ordinance Corpus provides a comprehensive dataset of US municipal and county ordinance codes for AI systems.",
       "date": "2026-06-29"
-    },
-    "Garry Tan \u2013 GitHub Repos": {
-      "text": "**New this period:**\n- Garry Tan updates gbrain, an opinionated OpenClaw/Hermes Agent Brain, on GitHub.\n\n**Details:**\n**Garry Tan \u2013 GitHub Repos (https://github.com/garrytan/gbrain)**\n- The update involves Garry Tan's gbrain, described as an opinionated OpenClaw/Hermes Agent Brain.\n- Companies and their roles: \n  - Garry Tan (developer)\n  - OpenClaw (supplier of technology used in gbrain)\n  - Hermes (supplier of technology used in gbrain)\n- No specific quantitative figures or supply chain/value chain relationships are mentioned in the provided text.\n- Technology transition: The gbrain update involves the use of OpenClaw and Hermes technologies, indicating a potential transition towards more integrated or advanced agent brain technologies.\n- No explicit capital allocation signals, regulatory signals, or competitive positioning are mentioned.",
-      "date": "2026-07-02"
     },
     "Odd Lots (Bloomberg)": {
       "text": "**New this period:**\n- Aldi is opening a new grocery store location in Times Square, Manhattan, which is a unique and potentially high-traffic location for the company.\n- The store is part of a brand-new building with residential units above it, offering convenience to residents.\n- Aldi's supply chain involves partnering directly with growers and farmers to source produce, allowing for high-quality and competitive pricing.\n- The company uses a shorter truck with two drivers to navigate the congested streets of Midtown Manhattan and deliver groceries to the store.\n\n**Details:**\n**How a Major Grocery Store Chain Can Dramatically Lower the Cost of Food (https://omny.fm/shows/odd-lots/how-a-major-grocery-store-chain-can-dramatically-lower-the-cost-of-food)**\n- Aldi is the company discussed, with its US Chief Commercial Officer, Scott Patton, as a guest on the podcast.\n- Key Foods, Walmart, Whole Foods, Trader Joe's, Morton Williams, and Wegmans are mentioned as other grocery store chains.\n- The new Aldi location in Times Square is approximately 25,000 square feet.\n- Aldi claims to be substantially cheaper than other grocery stores, with prices such as $4.99 for ground wagyu beef.\n- The company has 14 locations in the New York area, including one in Harlem and another opening in Harlem next year.\n- Aldi partners directly with growers and farmers to source produce, with contracts starting 3-4 years in advance.\n- The supply chain involves growers in California, Mexico, and Chile, with distribution facilities in South Windsor, Connecticut, and trucking to the store in Manhattan at night to avoid congestion.\n- The company uses a shorter truck with two drivers to navigate the streets of Midtown Manhattan and deliver groceries to the store, with 3-4 deliveries per day expected.",
@@ -3513,10 +3349,6 @@
       "text": "### Table:\n\n| # | Asset | Ticker | Direction | Conviction | Type | Source(s) |\n|---|-------|--------|-----------|------------|------|-----------|\n| 1 | Meta | META | LONG | HIGH | EXPLICIT | SemiAnalysis |\n| 2 | Nvidia | NVDA | LONG | HIGH | EXPLICIT | Import AI \u2013 Jack Clark, The Batch \u2013 Andrew Ng (DeepLearning.AI) |\n| 3 | Palantir | PLTR | LONG | HIGH | EXPLICIT | All-In Podcast |\n| 4 | Vercel | VERCEL | LONG | HIGH | EXPLICIT | Latent Space Podcast (swyx) |\n| 5 | JD | JD | LONG | HIGH | EXPLICIT | Serenity \u2013 X (@aleabitoreddit) |\n| 6 | Anthropic (via Amazon) | AMZN | LONG | MEDIUM | EXPLICIT & DERIVED | Dario Amodei \u2013 Essays, All-In Podcast |\n| 7 | Google | GOOGL | LONG | MEDIUM | EXPLICIT & DERIVED | Ethan Mollick \u2013 One Useful Thing, Dario Amodei \u2013 Essays, The Batch \u2013 Andrew Ng (DeepLearning.AI) |\n| 8 | Microsoft | MSFT | LONG | MEDIUM | DERIVED | Andrej Karpathy \u2013 Blog, The Batch \u2013 Andrew Ng (DeepLearning.AI), AI + a16z |\n| 9 | Synopsys | SNPS | LONG | HIGH | DERIVED | Ethan Mollick \u2013 One Useful Thing |\n| 10 | Cadence Design Systems | CDNS | LONG | HIGH | DERIVED | Ethan Mollick \u2013 One Useful Thing |\n\n### Notes:\n\n1. **Meta (META)** \u2014 The specific thesis is that Meta is accelerating its datacenter and compute procurement, indicating a significant investment in its compute infrastructure. The non-obvious mechanism is the increased demand for high-priced compute deals, which could drive growth for Meta. The evidence is the new datacenter and compute procurement contracts.\n2. **Nvidia (NVDA)** \u2014 The explicit signal from Import AI \u2013 Jack Clark and The Batch \u2013 Andrew Ng (DeepLearning.AI) indicates a strong investment in AI research and development, specifically in self-improving robots and large-scale AI training workloads. The evidence is the development of ENPIRE and the use of AI-guided chip designs.\n3. **Palantir (PLTR)** \u2014 The explicit signal from All-In Podcast indicates a significant partnership with Nvidia for secure AI models, showcasing Palantir's positioning in AI technology. The evidence is the partnership announcement.\n4. **Vercel (VERCEL)** \u2014 The explicit signal from Latent Space Podcast (swyx) indicates a significant investment in agents, providing a framework for building agents. The evidence is the provision of a framework for building agents.\n5. **JD (JD)** \u2014 The explicit signal from Serenity \u2013 X (@aleabitoreddit) indicates a significant investment in automation, highlighting the impact of job markets and potential growth for the company. The evidence is the CEO's warning about replacing delivery workers with robots.\n6. **Amazon (AMZN)** \u2014 The derived signal from Dario Amodei \u2013 Essays and All-In Podcast indicates a potential benefit from Anthropic's growth and developments, given Amazon's lead investment in Anthropic. The evidence is the mention of Amazon as a lead investor and the release of Anthropic's Fable 5 model.\n7. **Google (GOOGL)** \u2014 The derived signal from Ethan Mollick \u2013 One Useful Thing, Dario Amodei \u2013 Essays, and The Batch \u2013 Andrew Ng (DeepLearning.AI) indicates a potential benefit from the growth of AI models and the shift towards autonomous software factories. The evidence is the mention of Google's AI labs and the use of Google Colab notebooks.\n8. **Microsoft (MSFT)** \u2014 The derived signal from Andrej Karpathy \u2013 Blog, The Batch \u2013 Andrew Ng (DeepLearning.AI), and AI + a16z indicates a potential benefit from the growing demand for cloud computing resources and services. The evidence is the mention of Microsoft's Azure machine learning platform and the partnership with OpenAI.\n9. **Synopsys (SNPS)** \u2014 The derived signal from Ethan Mollick \u2013 One Useful Thing indicates a potential benefit from the increased demand for electronic design automation (EDA) tools that can support the development of complex AI systems. The evidence is the mention of Opus 4.7 and the need for EDA tools.\n10. **Cadence Design Systems (CDNS)** \u2014 The derived signal from Ethan Mollick \u2013 One Useful Thing indicates a potential benefit from the increased demand for software and hardware development tools that can support AI-driven software development. The evidence is the mention of AI models being used for complex software projects.\n\nThese signals are ranked by conviction and expected impact, with a preference for specific tickers over sector ETFs. The final conviction level is determined by the number of sources agreeing on a signal and the strength of the evidence.",
       "input_hash": "a7925b42bf67d073",
       "date": "2026-07-05"
-    },
-    "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
-      "text": "**New this period:**\n- The role of AI Forward Deployed Engineer (FDE) is becoming increasingly popular in Silicon Valley.\n- Harvard University has limited the number of A grades given in undergraduate classes to about 20% of the class.\n- Meta's agentic ambition in China has been thwarted.\n- Nvidia is using AI-guided chip designs.\n- The concept of AI Andrew, an AI companion shaped by Andrew Ng's personality, is being developed.\n- Seedance is making a significant impact in the AI industry.\n- GPT-5.5 has outperformed other models but also hallucinates.\n- Kimi K2.6 is leading open LLMs.\n- GLM 5.1 has strategic thinking capabilities.\n- Meta has pivoted from open weights.\n- Anthropic's Claude Mythos has encountered problems.\n- OpenAI has exited video generation.\n- Gemini has added music generation capabilities.\n- Nvidia has made an open salvo in the AI industry.\n- OpenAI has made a deal with Amazon.\n- DeepSeek has made a play with Huawei.\n- Apple has developed a multimodal tokenizer.\n- Qwen3.5 is available in all sizes.\n- GPT-5.4 has made significant advancements.\n- Apple has conducted diffusion research.\n- Anthropic is in a dispute with the U.S. government.\n- Nano Banana has undergone a makeover.\n- Google has developed mathematics solutions.\n- Context Hub has been released to provide API documentation for coding agents.\n- Skill Builder has been released to help users understand their AI skills.\n\n**Details:**\n**The Batch \u2013 Andrew Ng (DeepLearning.AI)**(https://www.deeplearning.ai/the-batch/)\n- The core thesis of this piece is to provide updates on the latest news and insights in the AI industry.\n- Companies mentioned and their roles: \n  - DeepLearning.AI: provider of AI news and insights\n  - Meta: has agentic ambition in China, has pivoted from open weights\n  - Nvidia: using AI-guided chip designs, has made an open salvo in the AI industry\n  - OpenAI: has exited video generation, has made a deal with Amazon\n  - Gemini: has added music generation capabilities\n  - Huawei: has made a play with DeepSeek\n  - Apple: has developed a multimodal tokenizer, has conducted diffusion research\n  - Google: has developed mathematics solutions\n  - Anthropic: has encountered problems with Claude Mythos, is in a dispute with the U.S. government\n  - Seedance: is making a significant impact in the AI industry\n  - DeepSeek: has made a play with Huawei\n- Quantitative figures: \n  - 20%: the limit on A grades given in undergraduate classes at Harvard University\n- Supply chain or value chain relationships: \n  - OpenAI has made a deal with Amazon\n  - DeepSeek has made a play with Huawei\n- Technology transitions: \n  - Nvidia is using AI-guided chip designs\n  - Meta has pivoted from open weights\n  - OpenAI has exited video generation\n  - Gemini has added music generation capabilities\n- Competitive shifts: \n  - GPT-5.5 has outperformed other models\n  - Kimi K2.6 is leading open LLMs\n  - GLM 5.1 has strategic thinking capabilities\n- Capital allocation signals: \n  - Context Hub has been released to provide API documentation for coding agents\n  - Skill Builder has been released to help users understand their AI skills\n- Regulatory or policy signals: \n  - The U.S. government is in a dispute with Anthropic\n  - Harvard University has limited the number of A grades given in undergraduate classes to about 20% of the class",
-      "date": "2026-05-29"
     },
     "Arxiv \u2013 Portfolio Management (q-fin.PM)": {
       "text": "**New this period:**\n- Researchers study exponential utility maximization with linear temporary price impact in a continuous-time portfolio management problem.\n\n**Details:**\n**Exponential Hedging for the Ornstein-Uhlenbeck Process in the Presence of Linear Price Impact**(https://arxiv.org/abs/2509.25472)\n- The research focuses on a continuous-time exponential utility maximization problem with a linear temporary price impact.\n- No specific companies are mentioned in the study.\n- The risky asset is modeled using the Ornstein-Uhlenbeck diffusion process.\n- The method of solution relies on duality and is purely probabilistic.\n- No quantitative figures (e.g., numbers, percentages, dollar amounts, timelines) are provided in the abstract.\n- No supply chain or value chain relationships are explicitly described.\n- No technology transitions or competitive shifts are mentioned.\n- The study does not reference any specific datasets or models beyond the Ornstein-Uhlenbeck diffusion process.",

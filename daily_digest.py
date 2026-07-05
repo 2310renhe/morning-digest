@@ -2317,7 +2317,6 @@ def build_html(date_str: str, results: list, state: dict = None) -> str:
 
     CATEGORY_META = OrderedDict([
         ("AI Opinion Leaders",   {"icon": "\U0001f9e0", "color": "#6c5ce7"}),
-        ("GitHub Activity",      {"icon": "\U0001f4bb", "color": "#2d3436"}),
         ("Institutional Podcasts", {"icon": "\U0001f3db️", "color": "#0984e3"}),
         ("Investor Positioning", {"icon": "\U0001f4b0", "color": "#e17055"}),
         ("Research",             {"icon": "\U0001f4c4", "color": "#636e72"}),

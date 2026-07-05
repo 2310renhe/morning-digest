@@ -1,0 +1,7 @@
+.env
+.env.swp
+.venv/
+__pycache__/
+*.pyc
+digest.log
+.claude/
