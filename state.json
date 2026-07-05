@@ -1646,7 +1646,7 @@
       },
       "Import AI \u2013 Jack Clark": {
         "summary_hash": "9c6c4e73ead8e497",
-        "signals": "THESIS: The development of advanced AI systems, such as self-improving robots and large-scale AI training workloads, is accelerating, with companies like NVIDIA and Tencent investing in these areas, but also raising concerns about the potential disempowerment of humans.\n\nEXPLICIT | NVDA | NVIDIA | LONG | HIGH | NVIDIA develops ENPIRE, a software framework for self-improving robots, indicating a strong investment in AI research and development | \"NVIDIA develops ENPIRE, a software framework for self-improving robots\"\n\nDERIVED | I2RT | I2RT | LONG | MED | Because this source specifically mentions I2RT as the provider of YAM arms used in NVIDIA's ENPIRE system, I2RT is affected via increased demand for its robotic arms | \"ENPIRE uses NVIDIA RTX 5090 workstations and YAM (Yet Another Manipulator) arms from I2RT\"\n\nDERIVED | UUTT | University of Utah | LONG | LOW | Because this source specifically mentions researchers from the University of Utah S.J. Quinney College of Law discussing the difficulty of predicting technology development and its impacts, the University of Utah is affected via increased relevance of its research | \"Researchers from the University of Utah S.J. Quinney College of Law discuss the difficulty of predicting technology development and its impacts\"\n\nDERIVED | TCEHY | Tencent | LONG | HIGH | Because this source specifically mentions Tencent releasing details on ARGUS, a software system for tracing and debugging large-scale AI training workloads, Tencent is affected via increased competitiveness in the AI research and development space | \"Tencent releases details on ARGUS, a software system for tracing and debugging large-scale AI training workloads on over 10,000 GPUs\"\n\nNote: The output is limited to the most relevant and specific signals, and the rationales are based on the specific information provided in the source. The signals are also filtered to avoid generic or obvious plays, and to focus on non-obvious mechanisms unique to this source.",
+        "signals": "THESIS: The development of advanced AI systems, such as self-improving robots and large-scale AI training workloads, is accelerating, with companies like NVIDIA and Tencent investing in these areas, but also raising concerns about the potential disempowerment of humans.\n\nEXPLICIT | NVDA | NVIDIA | LONG | HIGH | NVIDIA develops ENPIRE, a software framework for self-improving robots, indicating a strong investment in AI research and development | \"NVIDIA develops ENPIRE, a software framework for self-improving robots\"\n\nDERIVED | I2RT | I2RT | LONG | MED | Because this source specifically mentions I2RT as the provider of YAM arms used in NVIDIA's ENPIRE system, I2RT is affected via increased demand for its robotic arms | \"ENPIRE uses NVIDIA RTX 5090 workstations and YAM (Yet Another Manipulator) arms from I2RT\"\n\n\nDERIVED | TCEHY | Tencent | LONG | HIGH | Because this source specifically mentions Tencent releasing details on ARGUS, a software system for tracing and debugging large-scale AI training workloads, Tencent is affected via increased competitiveness in the AI research and development space | \"Tencent releases details on ARGUS, a software system for tracing and debugging large-scale AI training workloads on over 10,000 GPUs\"\n\nNote: The output is limited to the most relevant and specific signals, and the rationales are based on the specific information provided in the source. The signals are also filtered to avoid generic or obvious plays, and to focus on non-obvious mechanisms unique to this source.",
         "date": "2026-06-29"
       },
       "Odd Lots (Bloomberg)": {
@@ -1696,7 +1696,7 @@
       },
       "Ethan Mollick \u2013 One Useful Thing": {
         "summary_hash": "5c8e8312103290ca",
-        "signals": "THESIS: AI models are improving at an accelerating rate, with a shift towards using long-running, smart, and self-correcting AI systems, or agents, which are changing the nature of work and the way people use AI.\n\nEXPLICIT | GOOGL | Google | LONG | MED | The author mentions that Google is one of the leading American AI labs releasing more powerful models at an accelerating rate, and the development of these AI models is a key aspect of the thesis. | The article discusses the rapid improvement of AI models, with leading American AI labs such as Anthropic, OpenAI, and Google releasing more powerful models at an accelerating rate.\n\nDERIVED | SNPS | Synopsys | LONG | HIGH | Because this source specifically says that Opus 4.7 was able to build a software package in 14 hours that would take 2-17 weeks of human engineering work, Synopsys, a leading provider of electronic design automation (EDA) software, is affected via increased demand for EDA tools that can support the development of complex AI systems. | The article discusses the rapid improvement of AI models and the shift towards using long-running, smart, and self-correcting AI systems, or agents, which will drive demand for EDA tools.\n\nDERIVED | CDNS | Cadence Design Systems | LONG | HIGH | Because this source specifically mentions that AI models are being used for complex software projects, such as building software packages, Cadence Design Systems, a provider of software and hardware development tools, is affected via increased demand for its products that support AI-driven software development. | The article discusses the rapid improvement of AI models and the shift towards using long-running, smart, and self-correcting AI systems, or agents, which will drive demand for software development tools.\n\nDERIVED | ANSS | ANSYS | LONG | MED | Because this source specifically discusses the development of harnesses and apps that give AI access to tools and an environment to act in, ANSYS, a provider of engineering simulation software, is affected via increased demand for its products that can support the development of complex AI systems. | The article discusses the rapid improvement of AI models and the shift towards using long-running, smart, and self-correcting AI systems, or agents, which will drive demand for simulation software.",
+        "signals": "THESIS: AI models are improving at an accelerating rate, with a shift towards using long-running, smart, and self-correcting AI systems, or agents, which are changing the nature of work and the way people use AI.\n\nEXPLICIT | GOOGL | Google | LONG | MED | The author mentions that Google is one of the leading American AI labs releasing more powerful models at an accelerating rate, and the development of these AI models is a key aspect of the thesis. | The article discusses the rapid improvement of AI models, with leading American AI labs such as Anthropic, OpenAI, and Google releasing more powerful models at an accelerating rate.\n\nDERIVED | SNPS | Synopsys | LONG | HIGH | Because this source specifically says that Opus 4.7 was able to build a software package in 14 hours that would take 2-17 weeks of human engineering work, Synopsys, a leading provider of electronic design automation (EDA) software, is affected via increased demand for EDA tools that can support the development of complex AI systems. | The article discusses the rapid improvement of AI models and the shift towards using long-running, smart, and self-correcting AI systems, or agents, which will drive demand for EDA tools.\n\nDERIVED | CDNS | Cadence Design Systems | LONG | HIGH | Because this source specifically mentions that AI models are being used for complex software projects, such as building software packages, Cadence Design Systems, a provider of software and hardware development tools, is affected via increased demand for its products that support AI-driven software development. | The article discusses the rapid improvement of AI models and the shift towards using long-running, smart, and self-correcting AI systems, or agents, which will drive demand for software development tools.\n",
         "date": "2026-07-01"
       },
       "The Batch \u2013 Andrew Ng (DeepLearning.AI)": {
@@ -1706,7 +1706,7 @@
       },
       "Signals & Threads (Jane Street)": {
         "summary_hash": "432e77bc30552d54",
-        "signals": "THESIS: Jane Street's development of a custom distributed columnar database, Superstore, to support analytical queries and transactional writes, highlights the importance of optimized compute usage and database infrastructure for research clusters.\n\nEXPLICIT | JNST | Jane Street | LONG | MED | Development of Superstore, a custom database, and optimization of compute usage for research cluster indicates potential for improved operational efficiency | \"Jane Street's database infrastructure team built a distributed columnar database called Superstore\"\n\nDERIVED | CRDB | Cockroach Labs | LONG | MED | Superstore's development leverages existing technologies like CockroachDB, suggesting potential increased adoption or integration of CockroachDB in similar custom database projects | \"using existing technologies like... CockroachDB for database development\"\n\nDERIVED | PAR | PAR Technology Corporation | LONG | LOW | Apache Parquet's involvement in Superstore's development may indicate growing demand for data management and analytics solutions, benefiting companies like PAR Technology Corporation | \"using existing technologies like Apache Parquet for database development\"\n\nDERIVED | NTAP | NetApp | LONG | LOW | As a leading provider of data management and storage solutions, NetApp may benefit from the growing trend of custom database development and optimized compute usage, as highlighted by Superstore's eight-figure hardware purchase | \"Eight-figure hardware purchase for Superstore\"",
+        "signals": "THESIS: Jane Street's development of a custom distributed columnar database, Superstore, to support analytical queries and transactional writes, highlights the importance of optimized compute usage and database infrastructure for research clusters.\n\n\nDERIVED | CRDB | Cockroach Labs | LONG | MED | Superstore's development leverages existing technologies like CockroachDB, suggesting potential increased adoption or integration of CockroachDB in similar custom database projects | \"using existing technologies like... CockroachDB for database development\"\n\nDERIVED | PAR | PAR Technology Corporation | LONG | LOW | Apache Parquet's involvement in Superstore's development may indicate growing demand for data management and analytics solutions, benefiting companies like PAR Technology Corporation | \"using existing technologies like Apache Parquet for database development\"\n\nDERIVED | NTAP | NetApp | LONG | LOW | As a leading provider of data management and storage solutions, NetApp may benefit from the growing trend of custom database development and optimized compute usage, as highlighted by Superstore's eight-figure hardware purchase | \"Eight-figure hardware purchase for Superstore\"",
         "date": "2026-06-25"
       },
       "Serenity \u2013 X (@aleabitoreddit)": {
@@ -1731,11 +1731,6 @@
           "ytd": "+141.8%",
           "ytd_pct": 141.7911841613747,
           "fwd_pe": "39.3x"
-        },
-        "ANSS": {
-          "ytd": "\u2014",
-          "ytd_pct": null,
-          "fwd_pe": "\u2014"
         },
         "APP": {
           "ytd": "-29.3%",
@@ -3027,11 +3022,6 @@
           "ytd_pct": -18.305786599079,
           "fwd_pe": "6.0x"
         },
-        "JNST": {
-          "ytd": "\u2014",
-          "ytd_pct": null,
-          "fwd_pe": "\u2014"
-        },
         "VMC": {
           "ytd": "+10.6%",
           "ytd_pct": 10.598835986256208,
@@ -3148,11 +3138,6 @@
           "fwd_pe": "\u2014"
         },
         "SHA": {
-          "ytd": "\u2014",
-          "ytd_pct": null,
-          "fwd_pe": "\u2014"
-        },
-        "UUTT": {
           "ytd": "\u2014",
           "ytd_pct": null,
           "fwd_pe": "\u2014"

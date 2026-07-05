@@ -1274,6 +1274,15 @@ BANNED — never output these regardless of source content:
 ✗ [company is growing] → needs cloud → LONG cloud providers
 ✗ Any signal that would apply to every AI article published this week
 ✗ The company that owns/produces/hosts this source (GS podcast → no GS; BLK podcast → no BLK)
+✗ NEVER invent a ticker. A TICKER field must be a currently-listed US equity/ETF symbol you
+  are certain trades today. If the named entity is a university, government agency, nonprofit,
+  research lab, private trading firm, or any organization without public shares — it has NO
+  ticker. Either route it through a real publicly-traded proxy from the list below, or omit
+  the signal entirely. Do not put "Jane Street", "University of Utah", or similar non-public
+  names in the Company field with a made-up ticker attached.
+✗ Do not use a ticker for a company you know has been acquired/delisted/merged, even if it
+  still appears "correct" from memory (e.g. a target company after an acquisition closes).
+  If unsure whether a ticker is still actively trading, omit the signal.
 
 Specificity test — only output a DERIVED signal if you can complete this sentence:
 "Because this source SPECIFICALLY says [verbatim claim], [TICKER] is affected via [non-obvious mechanism unique to this source]."
@@ -2180,6 +2189,18 @@ def _render_trade_signals(signals_text: str, market_data: dict = None) -> str:
             continue
 
         rows.append((sig_type, ticker, company, direction, conviction, rationale, chain))
+
+    # Drop rows whose ticker resolved to NO market data at all (both YTD and fwd P/E
+    # missing) — this reliably catches hallucinated tickers (private firms, universities,
+    # non-entities) and delisted/acquired tickers the LLM still "remembers" from training
+    # (e.g. ANSS after the Synopsys acquisition). A real, currently-listed ticker always
+    # resolves at least YTD via the unauthenticated chart API.
+    mkt_check = market_data or {}
+    rows = [
+        r for r in rows
+        if mkt_check.get(r[1], {}).get("ytd", "—") != "—"
+        or mkt_check.get(r[1], {}).get("fwd_pe", "—") != "—"
+    ]
 
     if not rows and not thesis:
         return ""
