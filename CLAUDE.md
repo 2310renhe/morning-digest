@@ -36,11 +36,10 @@ daily_digest.py       -- main script: fetch -> dedupe -> summarize -> render -> 
 
 | Category | Sources | Description |
 |----------|---------|-------------|
-| AI Opinion Leaders | 11 | AI Trade Ideas synthesis card + blogs, newsletters (SemiAnalysis, Karpathy, Zvi, Scott Alexander, Ethan Mollick, Simon Willison, Dario Amodei, Jack Clark, Andrew Ng) |
-| Investor Positioning | 7 | Cross-investor summary card + SEC 13F filings (SALP, Druckenmiller, Coatue, Tiger Global) + House PTR/FD (Pelosi) |
-| Institutional Views | 4 | Podcasts (Odd Lots, Goldman Sachs Exchanges, BlackRock The Bid, Money Stuff) |
-| Tech & AI Podcasts | 4 | Podcasts (All-In, AI+a16z, Lex Fridman, Latent Space) |
-| Research | 4 | Arxiv feeds (q-fin.TR, q-fin.PM, q-fin.ST, q-fin.CP) |
+| AI Opinion Leaders | 18 | AI Trade Ideas + Macro Signals synthesis cards; blogs/newsletters (SemiAnalysis, Karpathy, Zvi, Scott Alexander, Ethan Mollick, Simon Willison, Dario Amodei, Jack Clark, Andrew Ng); podcasts (All-In, AI+a16z, Lex Fridman, Latent Space, Invest Like the Best); Serenity (X) |
+| Institutional Podcasts | 6 | Odd Lots (Bloomberg), Goldman Sachs Exchanges, BlackRock The Bid, Money Stuff, Signals & Threads (Jane Street), Citadel Securities Market Insights |
+| Investor Positioning | 7 | Cross-investor summary card + SEC 13F filings (SALP, Druckenmiller, Coatue, TCI, Tiger Global) + House PTR/FD (Pelosi) |
+| Research | 5 | FinAnEx (SUFE) + Arxiv feeds (q-fin.TR, q-fin.PM, q-fin.ST, q-fin.CP) |
 
 ## Investor Positioning Pipeline
 
