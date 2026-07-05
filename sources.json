@@ -109,11 +109,16 @@
     "x_username": "aleabitoreddit"
   },
   {
-    "name": "Naval Ravikant – X (@naval)",
-    "url": "https://x.com/naval",
-    "type": "x_profile",
-    "category": "AI Opinion Leaders",
-    "x_username": "naval"
+    "name": "Naval – Blog",
+    "url": "https://nav.al/feed",
+    "type": "rss",
+    "category": "AI Opinion Leaders"
+  },
+  {
+    "name": "Naval – Podcast",
+    "url": "https://feeds.libsyn.com/166112",
+    "type": "podcast",
+    "category": "AI Opinion Leaders"
   },
   {
     "name": "Signals & Threads (Jane Street)",
